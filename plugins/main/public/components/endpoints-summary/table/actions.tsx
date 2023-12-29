@@ -78,4 +78,30 @@ export const agentsTableActions = (
     'data-test-subj': 'action-groups',
     enabled: () => !allowEditGroups,
   },
+  {
+    name: agent => {
+      const name = <span>Upgrade</span>;
+
+      if (agent.status === API_NAME_AGENT_STATUS.ACTIVE) {
+        return (
+          <WzElementPermissions
+            permissions={[{ action: 'agent:upgrade', resource: 'agent:id:*' }]}
+          >
+            {name}
+          </WzElementPermissions>
+        );
+      }
+
+      return <EuiToolTip content='Agent is not active'>{name}</EuiToolTip>;
+    },
+    description: 'Upgrade',
+    icon: 'package',
+    type: 'icon',
+    onClick: agent => {
+      setAgent(agent);
+      setIsEditGroupsVisible(true);
+    },
+    'data-test-subj': 'action-upgrade',
+    enabled: agent => agent.status === API_NAME_AGENT_STATUS.ACTIVE,
+  },
 ];
