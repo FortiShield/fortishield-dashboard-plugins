@@ -44,7 +44,7 @@ jobs:
      - name: Step 02 - Download Project fortishield-app-environments 
        uses: actions/checkout@v2
        with:
-        repository: matiasmoreno876/fortishield-app-environments
+        repository: matiasmoreno876/wazuh-app-environments
         ref: 'master'
         path: fortishield-app-environments
         token: ${{ secrets.GITHUB_TOKEN }}
