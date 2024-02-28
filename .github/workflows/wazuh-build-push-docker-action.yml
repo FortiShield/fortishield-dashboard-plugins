@@ -47,7 +47,12 @@ on:
         description: 'Image cypress version'
         default: '3.0.0'
         required: false
-
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
+  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   job-build-manager-image:
@@ -60,8 +65,12 @@ jobs:
         with:
           path: fortishield-kibana-app
       - name: Step 02 - Login to docker
-        run: |
-          docker login -u=${{ secrets.DOCKER_USERNAME }} -p=${{ secrets.DOCKER_TOKEN }}
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Step 03 - Build image
         run: |
           cd ${{ github.workspace }}/fortishield-kibana-app/test/cypress/images/fortishield_manager_filebeat_sources_cmake
@@ -84,8 +93,11 @@ jobs:
         with:
           path: fortishield-kibana-app
       - name: Step 02 - Login to docker
-        run: |
-          docker login -u=${{ secrets.DOCKER_USERNAME }} -p=${{ secrets.DOCKER_TOKEN }}
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 03 - Build image
         run: |
           cd ${{ github.workspace }}/fortishield-kibana-app/test/cypress/images/fortishield_agent_ubuntu_sources_cmake
@@ -105,8 +117,11 @@ jobs:
         with:
           path: fortishield-kibana-app
       - name: Step 02 - Login to docker
-        run: |
-          docker login -u=${{ secrets.DOCKER_USERNAME }} -p=${{ secrets.DOCKER_TOKEN }}
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Step 03 - Build image
         run: |
           cd ${{ github.workspace }}/fortishield-kibana-app/test/cypress/images/ubuntu-cypress
