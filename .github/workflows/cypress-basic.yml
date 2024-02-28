@@ -47,7 +47,7 @@ jobs:
         repository: matiasmoreno876/fortishield-app-environments
         ref: 'master'
         path: fortishield-app-environments
-        token: ${{ secrets.FE_SECRET_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
      - name: Step 03 - Configuring templates docker environment
        run: |
         cd $GITHUB_WORKSPACE/fortishield-app-environments/
