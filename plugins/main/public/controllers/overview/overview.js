@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Overview controller
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Overview controller
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,10 +11,10 @@
  */
 import { FilterHandler } from '../../utils/filter-handler';
 import { TabNames } from '../../utils/tab-names';
-import { WAZUH_MODULES } from '../../../common/wazuh-modules';
+import { FORTISHIELD_MODULES } from '../../../common/fortishield-modules';
 
 import { AppState } from '../../react-services/app-state';
-import { WazuhConfig } from '../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../react-services/fortishield-config';
 import { WzRequest } from '../../react-services/wz-request';
 import { ErrorHandler } from '../../react-services/error-handler';
 import { TabVisualizations } from '../../factories/tab-visualizations';
@@ -61,7 +61,7 @@ export class OverviewController {
     this.commonData = commonData;
     this.reportingService = reportingService;
     this.visFactoryService = visFactoryService;
-    this.wazuhConfig = new WazuhConfig();
+    this.fortishieldConfig = new FortishieldConfig();
     this.visFactoryService = VisFactoryHandler;
     this.rawVisualizations = new RawVisualizations();
     this.wzReq = (...args) => WzRequest.apiReq(...args);
@@ -86,7 +86,7 @@ export class OverviewController {
   async $onInit() {
     this.rawVisualizations.setType('');
 
-    this.TabDescription = WAZUH_MODULES;
+    this.TabDescription = FORTISHIELD_MODULES;
     this.$rootScope.reportStatus = false;
 
     this.$location.search('_a', null);
@@ -359,9 +359,9 @@ export class OverviewController {
    */
   async loadConfiguration() {
     try {
-      const configuration = this.wazuhConfig.getConfig();
+      const configuration = this.fortishieldConfig.getConfig();
 
-      this.wzMonitoringEnabled = !!configuration['wazuh.monitoring.enabled'];
+      this.wzMonitoringEnabled = !!configuration['fortishield.monitoring.enabled'];
     } catch (error) {
       this.wzMonitoringEnabled = true;
       return Promise.reject(error);

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Agents/HIPAA visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Agents/HIPAA visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Agents-HIPAA-Burbles',
+    _id: 'Fortishield-App-Agents-HIPAA-Burbles',
     _source: {
       title: 'HIPAA requirements',
       visState: JSON.stringify({
@@ -165,7 +165,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -174,7 +174,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-HIPAA-Distributed-By-Level',
+    _id: 'Fortishield-App-Agents-HIPAA-Distributed-By-Level',
     _source: {
       title: 'Requirements distribution by level',
       visState: JSON.stringify({
@@ -314,7 +314,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -323,7 +323,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-HIPAA-Most-Common',
+    _id: 'Fortishield-App-Agents-HIPAA-Most-Common',
     _source: {
       title: 'Most common alerts',
       visState: JSON.stringify({
@@ -385,7 +385,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -394,7 +394,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-HIPAA-top-10',
+    _id: 'Fortishield-App-Agents-HIPAA-top-10',
     _source: {
       title: 'Top 10 requirements',
       visState: JSON.stringify({
@@ -468,7 +468,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -477,7 +477,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-HIPAA-Requirements-Stacked-Overtime',
+    _id: 'Fortishield-App-Agents-HIPAA-Requirements-Stacked-Overtime',
     _source: {
       title: 'Requirements over time',
       visState: JSON.stringify({
@@ -601,7 +601,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -610,7 +610,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-HIPAA-Last-alerts',
+    _id: 'Fortishield-App-Agents-HIPAA-Last-alerts',
     _type: 'visualization',
     _source: {
       title: 'Alerts summary',
@@ -745,7 +745,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

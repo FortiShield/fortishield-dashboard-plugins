@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for show configuration of alerts - General tab.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for show configuration of alerts - General tab.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -46,7 +46,7 @@ class WzConfigurationAlertsGeneral extends Component {
     super(props);
   }
   render() {
-    const { currentConfig, wazuhNotReadyYet } = this.props;
+    const { currentConfig, fortishieldNotReadyYet } = this.props;
     return (
       <Fragment>
         {currentConfig['analysis-alerts'] &&
@@ -61,9 +61,9 @@ class WzConfigurationAlertsGeneral extends Component {
           !currentConfig['analysis-alerts'].alerts && (
             <WzNoConfig error="not-present" help={helpLinks} />
           )}
-        {wazuhNotReadyYet &&
+        {fortishieldNotReadyYet &&
           (!currentConfig || !currentConfig['analysis-alerts']) && (
-            <WzNoConfig error="Wazuh not ready yet" help={helpLinks} />
+            <WzNoConfig error="Fortishield not ready yet" help={helpLinks} />
           )}
         {currentConfig['analysis-alerts'] &&
           !isString(currentConfig['analysis-alerts']) &&
@@ -85,7 +85,7 @@ class WzConfigurationAlertsGeneral extends Component {
 }
 
 WzConfigurationAlertsGeneral.propTypes = {
-  wazuhNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+  fortishieldNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };
 
 export default WzConfigurationAlertsGeneral;

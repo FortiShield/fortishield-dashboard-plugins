@@ -22,16 +22,16 @@ import {
   setCookies,
   setWzMainParams,
   setWzCurrentAppID,
-  setWazuhCheckUpdatesPlugin,
+  setFortishieldCheckUpdatesPlugin,
   setHeaderActionMenuMounter,
-  setWazuhCorePlugin,
+  setFortishieldCorePlugin,
 } from './kibana-services';
 import {
   AppPluginStartDependencies,
-  WazuhSetup,
-  WazuhSetupPlugins,
-  WazuhStart,
-  WazuhStartPlugins,
+  FortishieldSetup,
+  FortishieldSetupPlugins,
+  FortishieldStart,
+  FortishieldStartPlugins,
 } from './types';
 import { Cookies } from 'react-cookie';
 import { AppState } from './react-services/app-state';
@@ -47,11 +47,11 @@ import { Applications, Categories } from './utils/applications';
 import { syncHistoryLocations } from './kibana-integrations/discover/kibana_services';
 import { euiPaletteColorBlind } from '@elastic/eui';
 
-const innerAngularName = 'app/wazuh';
+const innerAngularName = 'app/fortishield';
 
-export class WazuhPlugin
+export class FortishieldPlugin
   implements
-    Plugin<WazuhSetup, WazuhStart, WazuhSetupPlugins, WazuhStartPlugins>
+    Plugin<FortishieldSetup, FortishieldStart, FortishieldSetupPlugins, FortishieldStartPlugins>
 {
   constructor(private readonly initializerContext: PluginInitializerContext) {}
   public initializeInnerAngular?: () => void;
@@ -59,8 +59,8 @@ export class WazuhPlugin
   private hideTelemetryBanner?: () => void;
   public async setup(
     core: CoreSetup,
-    plugins: WazuhSetupPlugins,
-  ): Promise<WazuhSetup> {
+    plugins: FortishieldSetupPlugins,
+  ): Promise<FortishieldSetup> {
     // Get custom logos configuration to start up the app with the correct logos
     let logosInitialState = {};
     try {
@@ -134,7 +134,7 @@ export class WazuhPlugin
             initializeInterceptor(core);
             if (!this.initializeInnerAngular) {
               throw Error(
-                'Wazuh plugin method initializeInnerAngular is undefined',
+                'Fortishield plugin method initializeInnerAngular is undefined',
               );
             }
 
@@ -183,7 +183,7 @@ export class WazuhPlugin
   public start(
     core: CoreStart,
     plugins: AppPluginStartDependencies,
-  ): WazuhStart {
+  ): FortishieldStart {
     // hide security alert
     if (plugins.securityOss) {
       plugins.securityOss.insecureCluster.hideAlert(true);
@@ -224,8 +224,8 @@ export class WazuhPlugin
     setSavedObjects(core.savedObjects);
     setOverlays(core.overlays);
     setErrorOrchestrator(ErrorOrchestratorService);
-    setWazuhCheckUpdatesPlugin(plugins.wazuhCheckUpdates);
-    setWazuhCorePlugin(plugins.wazuhCore);
+    setFortishieldCheckUpdatesPlugin(plugins.fortishieldCheckUpdates);
+    setFortishieldCorePlugin(plugins.fortishieldCore);
     return {};
   }
 }

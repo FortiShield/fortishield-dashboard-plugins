@@ -49,7 +49,7 @@ describe('Error Handler class example tests', () => {
             throw errorMocked;
           } catch (error) {
             // the error handler will auto-categorize the error and log how is defined in the respective error class
-            // if the error is custom (WazuhError) the handler error will return
+            // if the error is custom (FortishieldError) the handler error will return
             if (error instanceof Error) {
               ErrorHandler.handleError(error); // the error handler returns the error instance
             }
@@ -87,7 +87,7 @@ describe('Error Handler class example tests', () => {
         data: {
           statusCode: 500,
           error: 'Internal Server Error',
-          message: 'Wazuh not ready yet',
+          message: 'Fortishield not ready yet',
         },
         status: 500,
         statusText: 'Internal Server Error',
@@ -117,7 +117,7 @@ describe('Error Handler class example tests', () => {
             throw errorMocked; // the error must be an http error like when use the WzRequest.genericReq || apiReq.request
           } catch (error) {
             // the error handler will auto-categorize the error and log how is defined in the respective error class
-            // if the error is custom (WazuhError) the handler error will return
+            // if the error is custom (FortishieldError) the handler error will return
             if (error instanceof Error) {
               ErrorHandler.handleError(error); // the error handler returns the error instance
             }
@@ -162,7 +162,7 @@ describe('Error Handler class example tests', () => {
             throw errorMocked;
           } catch (error) {
             // the error handler will auto-categorize the error and log how is defined in the respective error class
-            // if the error is custom (WazuhError) the handler error will return
+            // if the error is custom (FortishieldError) the handler error will return
             if (error instanceof Error) {
               ErrorHandler.handleError(error, {
                 title: 'An error on event click has occurred',
@@ -211,7 +211,7 @@ describe('Error Handler class example tests', () => {
             throw errorMocked;
           } catch (error) {
             // the error handler will auto-categorize the error and log how is defined in the respective error class
-            // if the error is custom (WazuhError) the handler error will return
+            // if the error is custom (FortishieldError) the handler error will return
             if (error instanceof Error) {
               ErrorHandler.handleError(errorCreated, {
                 title: 'An error when click on button has occurred',

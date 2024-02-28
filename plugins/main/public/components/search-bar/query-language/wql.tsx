@@ -11,7 +11,7 @@ import { SEARCH_BAR_WQL_VALUE_SUGGESTIONS_DISPLAY_COUNT } from '../../../../comm
 import { webDocumentationLink } from '../../../../common/services/web_documentation';
 
 /* UI Query language
-https://documentation.wazuh.com/current/user-manual/api/queries.html
+https://documentation.fortishield.com/current/user-manual/api/queries.html
 
 // Example of another query language definition
 */
@@ -29,7 +29,7 @@ type ITokens = IToken[];
 /* API Query Language
 Define the API Query Language to use in the search bar.
 It is based in the language used by the q query parameter.
-https://documentation.wazuh.com/current/user-manual/api/queries.html
+https://documentation.fortishield.com/current/user-manual/api/queries.html
 
 Use the regular expression of API with some modifications to allow the decomposition of
 input in entities that doesn't compose a valid query. It allows get not-completed queries.
@@ -956,9 +956,9 @@ export const WQL = {
   id: 'wql',
   label: 'WQL',
   description:
-    'WQL (Wazuh Query Language) provides a human query syntax based on the Wazuh API query language.',
+    'WQL (Fortishield Query Language) provides a human query syntax based on the Fortishield API query language.',
   documentationLink: webDocumentationLink(
-    'user-manual/wazuh-dashboard/queries.html',
+    'user-manual/fortishield-dashboard/queries.html',
   ),
   getConfiguration() {
     return {

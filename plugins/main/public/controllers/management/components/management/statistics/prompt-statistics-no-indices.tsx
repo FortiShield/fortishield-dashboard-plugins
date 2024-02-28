@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Prompt when Statistics has not indices
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Prompt when Statistics has not indices
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,16 +12,16 @@
 
 import React, { useState, useEffect } from 'react';
 import { EuiEmptyPrompt } from '@elastic/eui';
-import { WazuhConfig } from '../../../../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../../../../react-services/fortishield-config';
 
 
 export const PromptStatisticsNoIndices = () => {
   const [indexName, setIndexName] = useState("");
 
   useEffect(() => {
-    const wazuhConfig = new WazuhConfig();
-    const config = wazuhConfig.getConfig();
-    setIndexName(`${config["cron.prefix"] || 'wazuh'}-${config["cron.statistics.index.name"] || 'stastistics'}-*`)
+    const fortishieldConfig = new FortishieldConfig();
+    const config = fortishieldConfig.getConfig();
+    setIndexName(`${config["cron.prefix"] || 'fortishield'}-${config["cron.statistics.index.name"] || 'stastistics'}-*`)
   }, []);
 
   return (

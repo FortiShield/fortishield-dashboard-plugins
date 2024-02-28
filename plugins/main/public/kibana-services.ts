@@ -14,7 +14,7 @@ import { DataPublicPluginStart } from '../../../src/plugins/data/public';
 import { VisualizationsStart } from '../../../src/plugins/visualizations/public';
 import { NavigationPublicPluginStart } from '../../../src/plugins/navigation/public';
 import { AppPluginStartDependencies } from './types';
-import { WazuhCheckUpdatesPluginStart } from '../../wazuh-check-updates/public';
+import { FortishieldCheckUpdatesPluginStart } from '../../fortishield-check-updates/public';
 
 let angularModule: any = null;
 let discoverModule: any = null;
@@ -43,10 +43,10 @@ export const [getWzMainParams, setWzMainParams] =
   createGetterSetter<NavigationPublicPluginStart>('WzMainParams');
 export const [getWzCurrentAppID, setWzCurrentAppID] =
   createGetterSetter<NavigationPublicPluginStart>('WzCurrentAppID');
-export const [getWazuhCheckUpdatesPlugin, setWazuhCheckUpdatesPlugin] =
-  createGetterSetter<WazuhCheckUpdatesPluginStart>('WazuhCheckUpdatesPlugin');
-export const [getWazuhCorePlugin, setWazuhCorePlugin] =
-  createGetterSetter<WazuhCheckUpdatesPluginStart>('WazuhCorePlugin');
+export const [getFortishieldCheckUpdatesPlugin, setFortishieldCheckUpdatesPlugin] =
+  createGetterSetter<FortishieldCheckUpdatesPluginStart>('FortishieldCheckUpdatesPlugin');
+export const [getFortishieldCorePlugin, setFortishieldCorePlugin] =
+  createGetterSetter<FortishieldCheckUpdatesPluginStart>('FortishieldCorePlugin');
 export const [getHeaderActionMenuMounter, setHeaderActionMenuMounter] =
   createGetterSetter<AppMountParameters['setHeaderActionMenu']>(
     'headerActionMenuMounter',

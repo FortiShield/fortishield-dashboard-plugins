@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for build q queries.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for build q queries.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ import {
 } from '@elastic/eui';
 import { AppState } from '../../react-services/app-state';
 import { PatternHandler } from '../../react-services/pattern-handler';
-import { WazuhConfig } from '../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../react-services/fortishield-config';
 import { connect } from 'react-redux';
 import WzReduxProvider from '../../redux/wz-redux-provider';
 import { updateCurrentAgentData } from '../../redux/actions/appStateActions';
@@ -50,7 +50,7 @@ const sections = {
   'agents-preview': 'agents-preview',
   agents: 'agents-preview',
   settings: 'settings',
-  'wazuh-dev': 'wazuh-dev',
+  'fortishield-dev': 'fortishield-dev',
   'health-check': 'health-check',
   security: 'security',
 };
@@ -75,7 +75,7 @@ export const WzMenu = withWindowSize(
       };
       this.store = store;
       this.genericReq = GenericRequest;
-      this.wazuhConfig = new WazuhConfig();
+      this.fortishieldConfig = new FortishieldConfig();
       this.indexPatterns = getDataPlugin().indexPatterns;
       this.isLoading = false;
     }
@@ -347,7 +347,7 @@ export const WzMenu = withWindowSize(
         if (!AppState.getPatternSelector()) return;
         await PatternHandler.changePattern(newPattern.value);
         this.setState({ currentSelectedPattern: newPattern.value });
-        if (this.state.currentMenuTab !== 'wazuh-dev') {
+        if (this.state.currentMenuTab !== 'fortishield-dev') {
           this.router.reload();
         }
 
@@ -383,7 +383,7 @@ export const WzMenu = withWindowSize(
     /**
      * @param {String} id
      * @param {Object} clusterInfo
-     * Updates the wazuh registry of an specific api id
+     * Updates the fortishield registry of an specific api id
      */
     updateClusterInfoInRegistry = async (id, clusterInfo) => {
       try {
@@ -416,7 +416,7 @@ export const WzMenu = withWindowSize(
           JSON.stringify({ name: apiData[0].manager, id: apiId.value }),
         );
 
-        if (this.state.currentMenuTab !== 'wazuh-dev') {
+        if (this.state.currentMenuTab !== 'fortishield-dev') {
           this.router.reload();
         }
       } catch (error) {
@@ -466,10 +466,10 @@ export const WzMenu = withWindowSize(
       );
     }
 
-    buildWazuhNotReadyYet() {
-      const container = document.getElementsByClassName('wazuhNotReadyYet');
+    buildFortishieldNotReadyYet() {
+      const container = document.getElementsByClassName('fortishieldNotReadyYet');
       return ReactDOM.createPortal(
-        <EuiCallOut title={this.props.state.wazuhNotReadyYet} color='warning'>
+        <EuiCallOut title={this.props.state.fortishieldNotReadyYet} color='warning'>
           <EuiFlexGroup
             responsive={false}
             direction='row'
@@ -478,8 +478,8 @@ export const WzMenu = withWindowSize(
             <EuiFlexItem>
               <p></p>
             </EuiFlexItem>
-            {typeof this.props.state.wazuhNotReadyYet === 'string' &&
-              this.props.state.wazuhNotReadyYet.includes('Restarting') && (
+            {typeof this.props.state.fortishieldNotReadyYet === 'string' &&
+              this.props.state.fortishieldNotReadyYet.includes('Restarting') && (
                 <EuiFlexItem grow={false}>
                   <p>
                     {' '}
@@ -487,8 +487,8 @@ export const WzMenu = withWindowSize(
                   </p>
                 </EuiFlexItem>
               )}
-            {this.props.state.wazuhNotReadyYet ===
-              'Wazuh could not be recovered.' && (
+            {this.props.state.fortishieldNotReadyYet ===
+              'Fortishield could not be recovered.' && (
               <EuiFlexItem grow={false}>
                 <EuiButtonEmpty
                   grow={false}
@@ -664,8 +664,8 @@ export const WzMenu = withWindowSize(
                     </EuiFlexItem>
                   </>
                 )}
-              {this.props.state.wazuhNotReadyYet &&
-                this.buildWazuhNotReadyYet()}
+              {this.props.state.fortishieldNotReadyYet &&
+                this.buildFortishieldNotReadyYet()}
             </EuiFlexGroup>
           </MountPointPortal>
         </>

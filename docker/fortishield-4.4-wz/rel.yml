@@ -1,0 +1,324 @@
+# Fortishield App Copyright (C) 2021 Fortishield Inc. (License GPLv2)
+version: '3.9'
+
+x-logging: &logging
+  logging:
+    driver: loki
+    options:
+      loki-url: 'http://host.docker.internal:3100/loki/api/v1/push'
+
+services:
+  generator:
+    image: cfssl/cfssl
+    profiles:
+      - 'saml'
+      - 'standard'
+    <<: *logging
+    volumes:
+      - wi_certs:/certs/wi
+      - wd_certs:/certs/wd
+      - wm_certs:/certs/wm
+      - idp_certs:/certs/idp
+      - ./config/certs:/conf
+    # Included to avoid docker from creating duplicated networks
+    networks:
+      - wz-rel
+    entrypoint: /bin/bash
+    command: >
+      -c '
+        export certs=/tmp/certs
+        mkdir $$certs
+      	cd $$certs
+
+      	echo "Generating CA"
+      	cfssl gencert -initca /conf/ca.json | cfssljson -bare ca
+
+      	echo "Generating servers certificates"
+      	for i in fortishield.indexer fortishield.dashboard fortishield.manager; do
+      		echo "Generating cert for $$i"
+      		cat /conf/host.json | \
+      		sed "s/HOST/$$i/g" | \
+      		cfssl gencert \
+      			-ca $$certs/ca.pem \
+      			-ca-key $$certs/ca-key.pem \
+      			-config /conf/cfssl.json \
+      			-profile=server - | \
+      		cfssljson -bare $$i
+      		openssl pkcs8 -topk8 -inform pem -in $$i-key.pem -outform pem -nocrypt -out $$i.key
+      	done
+
+      	echo "Generating clients certificates"
+        	for i in admin saml filebeat; do
+        		echo "Generating cert for $$i"
+      		cat /conf/host.json | \
+      		sed "s/HOST/$$i/g" | \
+      		cfssl gencert \
+      			-ca $$certs/ca.pem \
+      			-ca-key $$certs/ca-key.pem \
+      			-config /conf/cfssl.json \
+      			-profile=client - | \
+      		cfssljson -bare $$i
+      		openssl pkcs8 -topk8 -inform pem -in $$i-key.pem -outform pem -nocrypt -out $$i.key
+      	done
+
+          echo "Setting up permissions"
+
+          rm /certs/wi/* /certs/wd/* /certs/wm/*
+
+          mv $$certs/fortishield.indexer* /certs/wi
+          mv $$certs/admin* /certs/wi
+          mv /certs/wi/admin.key /certs/wi/admin-key.pem
+          cp $$certs/*ca* /certs/wi
+
+          mv $$certs/saml* /certs/idp
+          mv /certs/idp/saml.key /certs/idp/saml-key.pem
+          cp $$certs/*ca* /certs/idp
+
+          mv $$certs/fortishield.dashboard* /certs/wd
+          cp $$certs/*ca* /certs/wd
+
+          mv $$certs/*.* /certs/wm
+
+          chmod 640 /certs/wi/* /certs/wd/* /certs/wm/*
+          chown -R 1000:1000 /certs/*
+          ls -alR /certs/
+
+          sleep 300
+      '
+    healthcheck:
+      test: ['CMD-SHELL', '[ -r /certs/wm/fortishield.manager.pem ]']
+      interval: 2s
+      timeout: 5s
+      retries: 10
+
+  idpsec:
+    image: quay.io/keycloak/keycloak:19.0.1
+    depends_on:
+      generator:
+        condition: service_healthy
+    profiles:
+      - 'saml'
+    volumes:
+      - wi_certs:/certs/wi
+      - wd_certs:/certs/wd
+      - wm_certs:/certs/wm
+      - idp_certs:/certs/idp
+    networks:
+      - wz-rel
+      - mon
+    entrypoint: /bin/bash
+    command: >
+      -c '
+        # trust store
+        for i in /certs/idp/ca.pem /certs/wd/fortishield.dashboard.pem /certs/wi/fortishield.indexer.pem
+        do
+          keytool -import -alias $$(basename $$i .pem) -file $$i -keystore /certs/idp/truststore.jks -storepass SecretPassword -trustcacerts -noprompt
+        done
+        sleep 300
+      '
+    healthcheck:
+      test: ['CMD-SHELL', '[ -r /certs/idp/truststore.jks ]']
+      interval: 2s
+      timeout: 5s
+      retries: 10
+
+  fortishield.manager:
+    depends_on:
+      generator:
+        condition: service_healthy
+    image: fortishield/fortishield-manager:${FORTISHIELD_STACK}
+    profiles:
+      - 'saml'
+      - 'standard'
+    hostname: fortishield.manager
+    networks:
+      - wz-rel
+      - mon
+    <<: *logging
+    environment:
+      - INDEXER_URL=https://fortishield.indexer:9200
+      - INDEXER_USERNAME=admin
+      - INDEXER_PASSWORD=SecretPassword
+      - FILEBEAT_SSL_VERIFICATION_MODE=full
+      - SSL_CERTIFICATE_AUTHORITIES=/etc/ssl/fortishield/ca.pem
+      - SSL_CERTIFICATE=/etc/ssl/fortishield/filebeat.pem
+      - SSL_KEY=/etc/ssl/fortishield/filebeat.key
+      - API_USERNAME=fortishield-wui
+      - API_PASSWORD=MyS3cr37P450r.*-
+    volumes:
+      - fortishield_api_configuration:/var/ossec/api/configuration
+      - fortishield_etc:/var/ossec/etc
+      - fortishield_logs:/var/ossec/logs
+      - fortishield_queue:/var/ossec/queue
+      - fortishield_var_multigroups:/var/ossec/var/multigroups
+      - fortishield_integrations:/var/ossec/integrations
+      - fortishield_active_response:/var/ossec/active-response/bin
+      - fortishield_agentless:/var/ossec/agentless
+      - fortishield_wodles:/var/ossec/wodles
+      - filebeat_etc:/etc/filebeat
+      - filebeat_var:/var/lib/filebeat
+      - wm_certs:/etc/ssl/fortishield
+      - ./config/fortishield_cluster/fortishield_manager.conf:/fortishield-config-mount/etc/ossec.conf
+
+  fortishield.indexer:
+    depends_on:
+      generator:
+        condition: service_healthy
+      idpsetup:
+        condition: service_completed_successfully
+    image: fortishield/fortishield-indexer:${FORTISHIELD_STACK}
+    profiles:
+      - 'saml'
+      - 'standard'
+    hostname: fortishield.indexer
+    networks:
+      - wz-rel
+      - mon
+    <<: *logging
+    environment:
+      - 'OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m'
+      - 'OPENSEARCH_PATH_CONF=/usr/share/fortishield-indexer/config'
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - fortishield-indexer-data:/var/lib/fortishield-indexer
+      - wi_certs:/usr/share/fortishield-indexer/certs/
+      - idp_certs:/usr/share/fortishield-indexer/idp/
+      - ./config/fortishield_indexer/fortishield.indexer.yml:/usr/share/fortishield-indexer/opensearch.yml
+      - ./config/fortishield_indexer/internal_users.yml:/usr/share/fortishield-indexer/opensearch-security/internal_users.yml
+      - ${SEC_CONFIG_FILE}:/usr/share/fortishield-indexer/opensearch-security/config.yml
+      - ./config/fortishield_indexer/roles.yml:/usr/share/fortishield-indexer/opensearch-security/roles.yml
+      - ./config/fortishield_indexer/roles_mapping.yml:/usr/share/fortishield-indexer/opensearch-security/roles_mapping.yml
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          '/usr/share/fortishield-indexer/bin/opensearch-plugin list | grep -q security',
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 120
+
+  fortishield.dashboard:
+    image: fortishield/fortishield-dashboard:${FORTISHIELD_STACK}
+    profiles:
+      - 'saml'
+      - 'standard'
+    hostname: fortishield.dashboard
+    depends_on:
+      fortishield.indexer:
+        condition: service_healthy
+    networks:
+      - wz-rel
+      - mon
+    <<: *logging
+    ports:
+      - ${KIBANA_PORT}:5601
+    environment:
+      - INDEXER_USERNAME=admin
+      - INDEXER_PASSWORD=SecretPassword
+      - FORTISHIELD_API_URL=https://fortishield.manager
+      - API_USERNAME=fortishield-wui
+      - API_PASSWORD=MyS3cr37P450r.*-
+    volumes:
+      - wd_certs:/usr/share/fortishield-dashboard/certs
+      - ${FORTISHIELD_DASHBOARD_CONF}:/usr/share/fortishield-dashboard/config/opensearch_dashboards.yml
+      - ./config/fortishield_dashboard/fortishield.yml:/usr/share/fortishield-dashboard/data/fortishield/config/fortishield.yml
+
+  exporter:
+    image: quay.io/prometheuscommunity/elasticsearch-exporter:latest
+    profiles:
+      - 'saml'
+      - 'standard'
+    <<: *logging
+    hostname: 'exporter'
+    networks:
+      - wz-rel
+      - mon
+    command:
+      - '--es.uri=https://admin:${KIBANA_PASSWORD}@fortishield-indexer:9200'
+      - '--es.ssl-skip-verify'
+      - '--es.all'
+
+  idp:
+    image: quay.io/keycloak/keycloak:19.0.1
+    depends_on:
+      idpsec:
+        condition: service_healthy
+    profiles:
+      - 'saml'
+    hostname: idp
+    <<: *logging
+    networks:
+      - wz-rel
+      - mon
+    ports:
+      - '8080:8080'
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_SPI_TRUSTSTORE_FILE_PASSWORD=SecretPassword
+      - KC_SPI_TRUSTSTORE_FILE_FILE=/certs/truststore.jks
+    volumes:
+      - keycloak-data:/var/lib/keycloak/data
+      - idp_certs:/certs
+    command: start-dev
+    healthcheck:
+      test: curl -f http://idp:8080/realms/master || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 6
+
+  idpsetup:
+    image: badouralix/curl-jq
+    depends_on:
+      idp:
+        condition: service_healthy
+    profiles:
+      - 'saml'
+    hostname: idpsetup
+    <<: *logging
+    networks:
+      - wz-rel
+      - mon
+    volumes:
+      - wi_certs:/certs/wi
+      - ./enable_saml.sh:/enable_saml.sh
+    entrypoint: /bin/sh
+    command: >
+      -c '
+       apk add bash
+       bash /enable_saml.sh
+       exit 0
+      '
+
+networks:
+  wz-rel:
+    name: ${COMPOSE_PROJECT_NAME}
+    driver: bridge
+  mon:
+    external: true
+
+volumes:
+  wi_certs:
+  wd_certs:
+  wm_certs:
+  idp_certs:
+  fortishield_api_configuration:
+  fortishield_etc:
+  fortishield_logs:
+  fortishield_queue:
+  fortishield_var_multigroups:
+  fortishield_integrations:
+  fortishield_active_response:
+  fortishield_agentless:
+  fortishield_wodles:
+  filebeat_etc:
+  filebeat_var:
+  fortishield-indexer-data:
+  keycloak-data:

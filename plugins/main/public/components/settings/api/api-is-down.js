@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component for the adding an API entry form.
+ * Fortishield app - React component for the adding an API entry form.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -85,7 +85,7 @@ export const ApiIsDown = withErrorBoundary (class ApiIsDown extends Component {
           numErr = numErr + 1;
           const code = ((error || {}).data || {}).code;
           const downReason = typeof error === 'string' ? error :
-            (error || {}).message || ((error || {}).data || {}).message || 'Wazuh is not reachable';
+            (error || {}).message || ((error || {}).data || {}).message || 'Fortishield is not reachable';
           const status = code === 3099 ? 'down' : 'unknown';
           entries[idx].status = { status, downReason };
         }
@@ -126,20 +126,20 @@ export const ApiIsDown = withErrorBoundary (class ApiIsDown extends Component {
   }
 
   render() {
-    const apiExample = `# Example Wazuh API configuration
+    const apiExample = `# Example Fortishield API configuration
 hosts:
     - production:
         url: https://172.16.1.2
         port: 55000
-        username: wazuh-wui
-        password: wazuh-wui
+        username: fortishield-wui
+        password: fortishield-wui
         run_as: false
 `;
 
     const checkConnectionChildren = (
       <div>
         <EuiText>
-          Check that the {PLUGIN_PLATFORM_NAME} server can reach the configured Wazuh API(s).
+          Check that the {PLUGIN_PLATFORM_NAME} server can reach the configured Fortishield API(s).
         </EuiText>
         <EuiSpacer />
         <EuiButton
@@ -155,7 +155,7 @@ hosts:
             </EuiButtonEmpty>
           )}
         <EuiSpacer />
-        <EuiText>Already configured Wazuh API(s)</EuiText>
+        <EuiText>Already configured Fortishield API(s)</EuiText>
         <EuiSpacer />
         {(!this.state.error && (
           <EuiBasicTable
@@ -227,16 +227,16 @@ hosts:
 
     const steps = [
       {
-        title: 'Check the Wazuh API service status',
+        title: 'Check the Fortishield API service status',
         children: (
           <div>
             <EuiText>For Systemd</EuiText>
             <EuiSpacer />
-            <EuiCode>$ sudo systemctl status wazuh-manager</EuiCode>
+            <EuiCode>$ sudo systemctl status fortishield-manager</EuiCode>
             <EuiSpacer />
             <EuiText>For SysV Init</EuiText>
             <EuiSpacer />
-            <EuiCode>$ sudo service wazuh-manager status</EuiCode>
+            <EuiCode>$ sudo service fortishield-manager status</EuiCode>
           </div>
         )
       },
@@ -247,7 +247,7 @@ hosts:
             <EuiText>
               Review the settings in the{' '}
               <EuiCode>
-                {getPluginDataPath('config/wazuh.yml')}
+                {getPluginDataPath('config/fortishield.yml')}
               </EuiCode>{' '}
               file.
             </EuiText>
@@ -268,7 +268,7 @@ hosts:
         <EuiFlexItem className="min-guide-width">
           <EuiPanel>
             <EuiText>
-              <h2>Wazuh API seems to be down</h2>
+              <h2>Fortishield API seems to be down</h2>
             </EuiText>
             <EuiSpacer />
             <EuiSteps firstStepNumber={1} steps={steps} />

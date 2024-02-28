@@ -41,7 +41,7 @@ exports[`UpdateDetail component should return the UpdateDetail component 1`] = `
               <h3
                 class="euiTitle euiTitle--small euiAccordionForm__title"
               >
-                Wazuh v4.8.0
+                Fortishield v4.8.0
               </h3>
             </div>
             <div
@@ -103,7 +103,7 @@ exports[`UpdateDetail component should return the UpdateDetail component 1`] = `
             >
               <a
                 class="euiLink euiLink--primary"
-                href="https://documentation.wazuh.com/current/release-notes/release-4-8-0.html"
+                href="https://documentation.fortishield.com/current/release-notes/release-4-8-0.html"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -132,7 +132,7 @@ exports[`UpdateDetail component should return the UpdateDetail component 1`] = `
             >
               <a
                 class="euiLink euiLink--primary"
-                href="https://documentation.wazuh.com/4.8/upgrade-guide/index.html"
+                href="https://documentation.fortishield.com/4.8/upgrade-guide/index.html"
                 rel="noopener noreferrer"
                 target="_blank"
               >

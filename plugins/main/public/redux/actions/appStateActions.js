@@ -1,6 +1,6 @@
 /*
- * Wazuh app - App State Actions
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - App State Actions
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,13 +33,13 @@ export const updateShowMenu = showMenu => {
 };
 
 /**
- * Updates WazuhNotReadyYet in the appState store
- * @param wazuhNotReadyYet
+ * Updates FortishieldNotReadyYet in the appState store
+ * @param fortishieldNotReadyYet
  */
-export const updateWazuhNotReadyYet = wazuhNotReadyYet => {
+export const updateFortishieldNotReadyYet = fortishieldNotReadyYet => {
   return {
-    type: 'UPDATE_WAZUH_NOT_READY_YET',
-    wazuhNotReadyYet: wazuhNotReadyYet,
+    type: 'UPDATE_FORTISHIELD_NOT_READY_YET',
+    fortishieldNotReadyYet: fortishieldNotReadyYet,
   };
 };
 
@@ -49,7 +49,7 @@ export const updateWazuhNotReadyYet = wazuhNotReadyYet => {
  */
 export const updateCurrentTab = currentTab => {
   return {
-    type: 'UPDATE_WAZUH_CURRENT_TAB',
+    type: 'UPDATE_FORTISHIELD_CURRENT_TAB',
     currentTab: currentTab,
   };
 };

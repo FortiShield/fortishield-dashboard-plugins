@@ -75,7 +75,7 @@ export function getInnerAngularModule(
 let initialized = false;
 
 export function initializeInnerAngularModule(
-  name = 'app/wazuh',
+  name = 'app/fortishield',
   navigation: NavigationStart,
 ) {
   if (!initialized) {

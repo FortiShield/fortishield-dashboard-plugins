@@ -9,9 +9,9 @@ import { LOGS_PAGE } from '../../pageobjects/basic/settings/logs.page';
 import { MISCELLANEOUS_PAGE } from '../../pageobjects/basic/settings/miscellaneous.page';
 import { MODULES_PAGE } from '../../pageobjects/basic/settings/modules.page';
 import { SAMPLE_DATA_PAGE } from '../../pageobjects/basic/settings/sample-data.page';
-import { DECODERS_PAGE } from '../../pageobjects/basic/wazuh-menu/decoders.page';
-import { RULES_PAGE } from '../../pageobjects/basic/wazuh-menu/rules.page';
-import { WAZUH_MENU_PAGE } from '../../pageobjects/basic/wazuh-menu/wazuh-menu.page';
+import { DECODERS_PAGE } from '../../pageobjects/basic/fortishield-menu/decoders.page';
+import { RULES_PAGE } from '../../pageobjects/basic/fortishield-menu/rules.page';
+import { FORTISHIELD_MENU_PAGE } from '../../pageobjects/basic/fortishield-menu/fortishield-menu.page';
 import { MODULES_DIRECTORY_PAGE } from '../../pageobjects/basic/modules-directory.page';
 import { REPORTING_PAGE } from '../../pageobjects/wzd/reporting/report.page';
 
@@ -20,7 +20,7 @@ import { BASIC_MODULES } from './basic/basic-modules-mapper';
 import { MODULES_CARDS, MODULES_SETTINGS } from './basic/modules-mapper';
 import { SAMPLE_DATA } from './basic/sample-data-mapper';
 import { SETTINGS_MENU_LINKS } from './basic/settings-mapper';
-import { GROUPS_PAGE } from '../../pageobjects/xpack/wazuh-menu/groups.page';
+import { GROUPS_PAGE } from '../../pageobjects/xpack/fortishield-menu/groups.page';
 
 export const BASIC_PAGES_MAPPER = {
   DEPLOY_NEW_AGENT_PAGE,
@@ -36,7 +36,7 @@ export const BASIC_PAGES_MAPPER = {
   SAMPLE_DATA_PAGE,
   DECODERS_PAGE,
   RULES_PAGE,
-  WAZUH_MENU_PAGE,
+  FORTISHIELD_MENU_PAGE,
   MODULES_DIRECTORY_PAGE,
   REPORTING_PAGE,
 

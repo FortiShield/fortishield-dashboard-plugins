@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Overview/CIS-CAT visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Overview/CIS-CAT visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-app-Overview-CISCAT-alerts-summary',
+    _id: 'Fortishield-app-Overview-CISCAT-alerts-summary',
     _type: 'visualization',
     _source: {
       title: 'Alerts summary',
@@ -89,7 +89,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -97,7 +97,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-app-Overview-CISCAT-last-scan-not-checked',
+    _id: 'Fortishield-app-Overview-CISCAT-last-scan-not-checked',
     _type: 'visualization',
     _source: {
       title: 'Last scan not checked',
@@ -140,7 +140,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -148,7 +148,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-app-Overview-CISCAT-last-scan-score',
+    _id: 'Fortishield-app-Overview-CISCAT-last-scan-score',
     _type: 'visualization',
     _source: {
       title: 'Last scan score',
@@ -191,7 +191,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -199,7 +199,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-app-Overview-CISCAT-last-scan-pass',
+    _id: 'Fortishield-app-Overview-CISCAT-last-scan-pass',
     _type: 'visualization',
     _source: {
       title: 'Last scan pass',
@@ -242,7 +242,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -250,7 +250,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-app-Overview-CISCAT-last-scan-fail',
+    _id: 'Fortishield-app-Overview-CISCAT-last-scan-fail',
     _type: 'visualization',
     _source: {
       title: 'Last scan fail',
@@ -293,7 +293,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -301,7 +301,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-app-Overview-CISCAT-last-scan-timestamp',
+    _id: 'Fortishield-app-Overview-CISCAT-last-scan-timestamp',
     _type: 'visualization',
     _source: {
       title: 'Last scan timestamp',
@@ -344,7 +344,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -352,7 +352,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-app-Overview-CISCAT-last-scan-error',
+    _id: 'Fortishield-app-Overview-CISCAT-last-scan-error',
     _type: 'visualization',
     _source: {
       title: 'Last scan error',
@@ -395,7 +395,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -403,7 +403,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-app-Overview-CISCAT-last-scan-benchmark',
+    _id: 'Fortishield-app-Overview-CISCAT-last-scan-benchmark',
     _type: 'visualization',
     _source: {
       title: 'Last scan benchmark',
@@ -446,7 +446,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -454,7 +454,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-app-Overview-CISCAT-last-scan-unknown',
+    _id: 'Fortishield-app-Overview-CISCAT-last-scan-unknown',
     _type: 'visualization',
     _source: {
       title: 'Last scan unknown',
@@ -497,7 +497,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -505,7 +505,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-app-Overview-CISCAT-top-5-groups',
+    _id: 'Fortishield-app-Overview-CISCAT-top-5-groups',
     _type: 'visualization',
     _source: {
       title: 'Top 5 groups',
@@ -583,7 +583,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -591,7 +591,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-app-Overview-CISCAT-scan-result-evolution',
+    _id: 'Fortishield-app-Overview-CISCAT-scan-result-evolution',
     _type: 'visualization',
     _source: {
       title: 'Scan result evolution',
@@ -682,7 +682,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

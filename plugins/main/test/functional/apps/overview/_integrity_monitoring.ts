@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Overview -> general test
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Overview -> general test
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
   const esPieChart = getService('esPieChart');
   const esTableViz = getService('esTableViz');
   const filterBar = getService('filterBar');
-  const PageObjects = getPageObjects(['wazuhCommon', 'common']);
+  const PageObjects = getPageObjects(['fortishieldCommon', 'common']);
   const pieCharts = getService('pieCharts');
   const queryBar = getService('queryBar');
   const tableViz = getService('tableViz');
@@ -32,18 +32,18 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
   describe('integrity_monitoring', () => {
     let es_index: string;
     before(async () => {
-      await PageObjects.wazuhCommon.OpenIntegrityMonitoring();
+      await PageObjects.fortishieldCommon.OpenIntegrityMonitoring();
       es_index = getSettingDefaultValue('pattern');
     });
 
     beforeEach(async () => {
-      await PageObjects.wazuhCommon.setTodayRange();
+      await PageObjects.fortishieldCommon.setTodayRange();
     })
 
     //#region Visualization tests
 
     it('should Alerts by action over time values are correct', async () => {
-      const chartSelector: string = '#Wazuh-App-Agents-FIM-Alerts-by-action-over-time';
+      const chartSelector: string = '#Fortishield-App-Agents-FIM-Alerts-by-action-over-time';
       const values:object = await areaChart.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -78,7 +78,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
     });
 
     it('should Top 5 agents values are correct', async () => {
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Top-5-agents-pie';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Top-5-agents-pie';
       const values = await pieCharts.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -113,7 +113,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
     });
 
     it('should Events summary values are correct', async () => {
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Events-summary';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Events-summary';
       const values:object = await areaChart.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -148,7 +148,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
     });
 
     it('should Rule distribution values are correct', async () => {
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Top-5-rules';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Top-5-rules';
       const values = await pieCharts.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -183,7 +183,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
     });
 
     it('should Actions values are correct', async () => {
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Common-actions';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Common-actions';
       const values = await pieCharts.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -218,7 +218,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
     });
 
     it('should Top 5 users values are correct', async () => {
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-top-agents-user';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-top-agents-user';
       const values: object[] = await tableViz.getValues(chartSelector);
 
       const fields = [
@@ -261,7 +261,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
     });
 
     it('should Alerts summary values are correct', async () => {
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Alerts-summary';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Alerts-summary';
       const values: object[] = await tableViz.getValues(chartSelector);
 
       const fields = [
@@ -322,7 +322,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await filterBar.addFilter('rule.level', 'is', '7');
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Agents-FIM-Alerts-by-action-over-time';
+      const chartSelector: string = '#Fortishield-App-Agents-FIM-Alerts-by-action-over-time';
       const values:object = await areaChart.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -367,7 +367,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await filterBar.addFilter('rule.level', 'is', '7');
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Top-5-agents-pie';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Top-5-agents-pie';
       const values = await pieCharts.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -411,7 +411,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await filterBar.addFilter('rule.level', 'is', '7');
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Events-summary';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Events-summary';
       const values:object = await areaChart.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -455,7 +455,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await filterBar.addFilter('rule.level', 'is', '7');
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Top-5-rules';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Top-5-rules';
       const values = await pieCharts.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -499,7 +499,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await filterBar.addFilter('rule.level', 'is', '7');
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Common-actions';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Common-actions';
       const values = await pieCharts.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -543,7 +543,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await filterBar.addFilter('rule.level', 'is', '7');
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-top-agents-user';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-top-agents-user';
       const values: object[] = await tableViz.getValues(chartSelector);
 
       const fields = [
@@ -605,7 +605,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await filterBar.addFilter('rule.level', 'is', '7');
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Alerts-summary';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Alerts-summary';
       const values: object[] = await tableViz.getValues(chartSelector);
 
       const fields = [
@@ -673,7 +673,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await queryBar.submitQuery();
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Agents-FIM-Alerts-by-action-over-time';
+      const chartSelector: string = '#Fortishield-App-Agents-FIM-Alerts-by-action-over-time';
       const values:object = await areaChart.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -720,7 +720,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await queryBar.submitQuery();
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Top-5-agents-pie';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Top-5-agents-pie';
       const values = await pieCharts.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -766,7 +766,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await queryBar.submitQuery();
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Events-summary';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Events-summary';
       const values:object = await areaChart.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -812,7 +812,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await queryBar.submitQuery();
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Top-5-rules';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Top-5-rules';
       const values = await pieCharts.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -858,7 +858,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await queryBar.submitQuery();
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Common-actions';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Common-actions';
       const values = await pieCharts.getValues(chartSelector);
 
       const query:SearchParams = {
@@ -904,7 +904,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await queryBar.submitQuery();
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-top-agents-user';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-top-agents-user';
       const values: object[] = await tableViz.getValues(chartSelector);
 
       const fields = [
@@ -968,7 +968,7 @@ export default function({getService, getPageObjects, }: FtrProviderContext) {
       await queryBar.submitQuery();
       await PageObjects.common.sleep(3000);
 
-      const chartSelector: string = '#Wazuh-App-Overview-FIM-Alerts-summary';
+      const chartSelector: string = '#Fortishield-App-Overview-FIM-Alerts-summary';
       const values: object[] = await tableViz.getValues(chartSelector);
 
       const fields = [

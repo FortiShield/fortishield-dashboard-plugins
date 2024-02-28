@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component for building the agents preview section.
+ * Fortishield app - React component for building the agents preview section.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ import { VisFactoryHandler } from '../../react-services/vis-factory-handler';
 import { AppState } from '../../react-services/app-state';
 import { FilterHandler } from '../../utils/filter-handler';
 import { TabVisualizations } from '../../factories/tab-visualizations';
-import { WazuhConfig } from '../../react-services/wazuh-config.js';
+import { FortishieldConfig } from '../../react-services/fortishield-config.js';
 import {
   withReduxProvider,
   withGlobalBreadcrumb,
@@ -77,7 +77,7 @@ export const EndpointsSummary = compose(
         agentStatusSummary: [],
         agentsActiveCoverage: undefined,
       };
-      this.wazuhConfig = new WazuhConfig();
+      this.fortishieldConfig = new FortishieldConfig();
       this.agentStatus = UI_ORDER_AGENT_STATUS.map(agentStatus => ({
         status: agentStatus,
         label: agentStatusLabelByAgentStatus(agentStatus),
@@ -90,7 +90,7 @@ export const EndpointsSummary = compose(
       this._isMount = true;
       this.getSummary();
       this.fetchLastRegisteredAgent();
-      if (this.wazuhConfig.getConfig()['wazuh.monitoring.enabled']) {
+      if (this.fortishieldConfig.getConfig()['fortishield.monitoring.enabled']) {
         const tabVisualizations = new TabVisualizations();
         tabVisualizations.removeAll();
         tabVisualizations.setTab('general');

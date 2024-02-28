@@ -48,7 +48,7 @@ export class ModulesHelper {
       : filters.filter(filter => filter.$state.isImplicit);
 
     /*
-    Since the OSD filter definition does not include the "isImplicit" attribute that Wazuh adds, there may be cases where the "isImplicit" attribute is lost, since any action regarding filters that is done with the filterManager ( addFilters, setFilters, setGlobalFilters, setAppFilters) does a mapAndFlattenFilters mapping to the filters that removes any attributes that are not part of the filter definition.
+    Since the OSD filter definition does not include the "isImplicit" attribute that Fortishield adds, there may be cases where the "isImplicit" attribute is lost, since any action regarding filters that is done with the filterManager ( addFilters, setFilters, setGlobalFilters, setAppFilters) does a mapAndFlattenFilters mapping to the filters that removes any attributes that are not part of the filter definition.
 If this case happens, the implicit filters are regenerated and the function is called again with the generated implicit filters.
  */
     if (implicitFilters.length === 0) {

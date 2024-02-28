@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component for building the Tools sections welcome cards.
+ * Fortishield app - React component for building the Tools sections welcome cards.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@ import {
   EuiSpacer
 } from '@elastic/eui';
 
-import { WAZUH_MODULES } from '../../../../common/wazuh-modules';
+import { FORTISHIELD_MODULES } from '../../../../common/fortishield-modules';
 
 export class ToolsWelcomeCards extends Component {
   constructor(props) {
@@ -35,9 +35,9 @@ export class ToolsWelcomeCards extends Component {
         <EuiFlexItem grow={true} key={index}>
           <EuiCard
             icon={<EuiIcon size="xxl" type={tab.icon} />}
-            title={WAZUH_MODULES[tab.id].title}
+            title={FORTISHIELD_MODULES[tab.id].title}
             onClick={() => this.props.clickAction(tab.id)}
-            description={WAZUH_MODULES[tab.id].description}
+            description={FORTISHIELD_MODULES[tab.id].description}
             key={index}
           />
         </EuiFlexItem>
@@ -50,7 +50,7 @@ export class ToolsWelcomeCards extends Component {
     return (
       <div>
         <EuiTitle size="m">
-          <h1>Wazuh tools</h1>
+          <h1>Fortishield tools</h1>
         </EuiTitle>
         <EuiSpacer size="m" />
         <EuiFlexGroup>{this.buildToolsCards()}</EuiFlexGroup>

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Agents/General visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Agents/General visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Agents-General-Top-5-alerts',
+    _id: 'Fortishield-App-Agents-General-Top-5-alerts',
     _source: {
       title: 'Top 5 alerts',
       visState: JSON.stringify({
@@ -61,7 +61,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -70,7 +70,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-General-Metric-alerts',
+    _id: 'Fortishield-App-Agents-General-Metric-alerts',
     _source: {
       title: 'Metric alerts',
       visState: JSON.stringify({
@@ -121,7 +121,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -130,7 +130,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-General-Level-12-alerts',
+    _id: 'Fortishield-App-Agents-General-Level-12-alerts',
     _source: {
       title: 'Level 12 alerts',
       visState: JSON.stringify({
@@ -181,7 +181,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               $state: {
@@ -190,7 +190,7 @@ export default [
               meta: {
                 alias: null,
                 disabled: false,
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 key: 'rule.level',
                 negate: false,
                 params: {
@@ -215,7 +215,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-General-Authentication-failure',
+    _id: 'Fortishield-App-Agents-General-Authentication-failure',
     _source: {
       title: 'Authentication failure',
       visState: JSON.stringify({
@@ -266,11 +266,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 type: 'phrases',
                 key: 'rule.groups',
                 value:
@@ -318,7 +318,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-General-Authentication-success',
+    _id: 'Fortishield-App-Agents-General-Authentication-success',
     _source: {
       title: 'Authentication success',
       visState: JSON.stringify({
@@ -369,11 +369,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -405,7 +405,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-General-Top-10-groups',
+    _id: 'Fortishield-App-Agents-General-Top-10-groups',
     _source: {
       title: 'Top 5 rule groups',
       visState: JSON.stringify({
@@ -455,7 +455,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -464,7 +464,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-General-Top-5-PCI-DSS-Requirements',
+    _id: 'Fortishield-App-Agents-General-Top-5-PCI-DSS-Requirements',
     _source: {
       title: 'Top 5 PCI DSS requirements',
       visState: JSON.stringify({
@@ -514,7 +514,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -523,7 +523,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-General-Alert-groups-evolution',
+    _id: 'Fortishield-App-Agents-General-Alert-groups-evolution',
     _source: {
       title: 'Alert groups evolution',
       visState: JSON.stringify({
@@ -658,7 +658,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -667,7 +667,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-General-Alerts',
+    _id: 'Fortishield-App-Agents-General-Alerts',
     _source: {
       title: 'Alerts',
       visState: JSON.stringify({
@@ -802,7 +802,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -811,7 +811,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-General-Alerts-summary',
+    _id: 'Fortishield-App-Agents-General-Alerts-summary',
     _type: 'visualization',
     _source: {
       title: 'Alerts summary',
@@ -895,7 +895,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -903,7 +903,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-General-Groups-summary',
+    _id: 'Fortishield-App-Agents-General-Groups-summary',
     _type: 'visualization',
     _source: {
       title: 'Groups summary',
@@ -953,7 +953,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

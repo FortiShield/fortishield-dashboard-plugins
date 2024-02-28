@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Overview/GDPR visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Overview/GDPR visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Overview-SCA-Alert',
+    _id: 'Fortishield-App-Overview-SCA-Alert',
     _type: 'visualization',
     _source: {
       title: 'Alerts',
@@ -116,7 +116,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

@@ -18,11 +18,11 @@ export const ClusterTimelions = compose (withErrorBoundary,withReduxProvider) (c
   render() {
     return (
       <EuiFlexGroup style={{ height: '450px' }}>
-        <EuiFlexItem key={'Wazuh-App-Cluster-monitoring-Overview-Manager'}>
+        <EuiFlexItem key={'Fortishield-App-Cluster-monitoring-Overview-Manager'}>
           <EuiPanel
             paddingSize="none"
             className={
-              this.state.expandedVis === 'Wazuh-App-Cluster-monitoring-Overview-Manager'
+              this.state.expandedVis === 'Fortishield-App-Cluster-monitoring-Overview-Manager'
                 ? 'fullscreen h-100'
                 : 'h-100'
             }
@@ -33,7 +33,7 @@ export const ClusterTimelions = compose (withErrorBoundary,withReduxProvider) (c
                 <EuiButtonIcon
                   color="text"
                   style={{ padding: '0px 6px', height: 30 }}
-                  onClick={() => this.expand('Wazuh-App-Cluster-monitoring-Overview-Manager')}
+                  onClick={() => this.expand('Fortishield-App-Cluster-monitoring-Overview-Manager')}
                   iconType="expand"
                   aria-label="Expand"
                 />
@@ -41,7 +41,7 @@ export const ClusterTimelions = compose (withErrorBoundary,withReduxProvider) (c
               <div style={{ height: '100%' }}>
                 <WzReduxProvider>
                   <KibanaVis
-                    visID={'Wazuh-App-Cluster-monitoring-Overview-Manager'}
+                    visID={'Fortishield-App-Cluster-monitoring-Overview-Manager'}
                     tab={'monitoring'}
                   ></KibanaVis>
                 </WzReduxProvider>
@@ -49,11 +49,11 @@ export const ClusterTimelions = compose (withErrorBoundary,withReduxProvider) (c
             </EuiFlexItem>
           </EuiPanel>
         </EuiFlexItem>
-        <EuiFlexItem key={'Wazuh-App-Cluster-monitoring-Overview'}>
+        <EuiFlexItem key={'Fortishield-App-Cluster-monitoring-Overview'}>
           <EuiPanel
             paddingSize="none"
             className={
-              this.state.expandedVis === 'Wazuh-App-Cluster-monitoring-Overview'
+              this.state.expandedVis === 'Fortishield-App-Cluster-monitoring-Overview'
                 ? 'fullscreen h-100'
                 : 'h-100'
             }
@@ -64,7 +64,7 @@ export const ClusterTimelions = compose (withErrorBoundary,withReduxProvider) (c
                 <EuiButtonIcon
                   color="text"
                   style={{ padding: '0px 6px', height: 30 }}
-                  onClick={() => this.expand('Wazuh-App-Cluster-monitoring-Overview')}
+                  onClick={() => this.expand('Fortishield-App-Cluster-monitoring-Overview')}
                   iconType="expand"
                   aria-label="Expand"
                 />
@@ -72,7 +72,7 @@ export const ClusterTimelions = compose (withErrorBoundary,withReduxProvider) (c
               <div style={{ height: '100%' }}>
                 <WzReduxProvider>
                   <KibanaVis
-                    visID={'Wazuh-App-Cluster-monitoring-Overview'}
+                    visID={'Fortishield-App-Cluster-monitoring-Overview'}
                     tab={'monitoring'}
                   ></KibanaVis>
                 </WzReduxProvider>

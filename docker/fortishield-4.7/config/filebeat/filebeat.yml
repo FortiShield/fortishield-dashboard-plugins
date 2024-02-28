@@ -1,0 +1,22 @@
+
+# Fortishield - Filebeat configuration file
+filebeat.modules:
+  - module: fortishield
+    alerts:
+      enabled: true
+    archives:
+      enabled: false
+
+setup.template.json.enabled: true
+setup.template.json.path: '/etc/filebeat/fortishield-template.json'
+setup.template.json.name: 'fortishield'
+setup.template.overwrite: true
+setup.ilm.enabled: false
+output.elasticsearch:
+  hosts: ['https://fortishield.indexer:9200']
+  username: 'admin'
+  password: 'SecretPassword'
+  ssl.verification_mode: full
+  ssl.certificate_authorities: ['/etc/ssl/fortishield/ca.pem']
+  ssl.certificate: '/etc/ssl/fortishield/filebeat.pem'
+  ssl.key: '/etc/ssl/fortishield/filebeat-key.pem'

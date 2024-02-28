@@ -6,8 +6,8 @@ import {
 import { npStart } from 'ui/new_platform';
 import { buildServices } from '../../../src/plugins/discover/public/build_services';
 
-// Set up Wazuh app
-const app = uiModules.get('app/wazuh', ['ngCookies', 'ngMaterial', 'chart.js']);
+// Set up Fortishield app
+const app = uiModules.get('app/fortishield', ['ngCookies', 'ngMaterial', 'chart.js']);
 setAngularModule(app);
 
 // Set up services needed for discover

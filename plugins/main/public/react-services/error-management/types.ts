@@ -1,24 +1,24 @@
 import { UIErrorLog } from '../error-orchestrator/types';
 
-export interface IWazuhErrorLogOpts extends Omit<UIErrorLog,'context'> {}
+export interface IFortishieldErrorLogOpts extends Omit<UIErrorLog,'context'> {}
 export interface IErrorOpts {
   error: Error;
   message: string;
   code?: number;
 }
 
-export interface IWazuhError extends Error, IErrorOpts {
+export interface IFortishieldError extends Error, IErrorOpts {
   error: Error;
   message: string;
   code?: number;
-  logOptions: IWazuhErrorLogOpts;
+  logOptions: IFortishieldErrorLogOpts;
 }
 
-export interface IWazuhErrorConstructor {
-  new (error: Error, info: IWazuhErrorInfo): IWazuhError;
+export interface IFortishieldErrorConstructor {
+  new (error: Error, info: IFortishieldErrorInfo): IFortishieldError;
 }
 
-export interface IWazuhErrorInfo {
+export interface IFortishieldErrorInfo {
   message: string;
   code?: number;
 }

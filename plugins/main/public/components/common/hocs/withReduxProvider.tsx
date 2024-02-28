@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React HOC to wrap a component with Wazuh Redux store
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React HOC to wrap a component with Fortishield Redux store
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,5 +12,5 @@
 import React from 'react';
 import WzReduxProvider from '../../../redux/wz-redux-provider';
 
-// Wrap the component with Wazuh Redux provider
+// Wrap the component with Fortishield Redux provider
 export const withReduxProvider = WrappedComponent => props => <WzReduxProvider><WrappedComponent {...props}/></WzReduxProvider>

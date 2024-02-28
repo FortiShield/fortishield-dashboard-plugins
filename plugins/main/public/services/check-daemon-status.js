@@ -1,5 +1,5 @@
 import store from '../redux/store';
-import { updateWazuhNotReadyYet } from '../redux/actions/appStateActions';
+import { updateFortishieldNotReadyYet } from '../redux/actions/appStateActions';
 import { WzRequest } from '../react-services/wz-request';
 
 export class CheckDaemonsStatus {
@@ -22,10 +22,10 @@ export class CheckDaemonsStatus {
         const result = await WzRequest.apiReq('GET', '/ping', {});
         isValid = ((result || {}).data || {}).isValid;
         if (isValid) {
-          const updateNotReadyYet = updateWazuhNotReadyYet(false);
+          const updateNotReadyYet = updateFortishieldNotReadyYet(false);
           store.dispatch(updateNotReadyYet);
 
-          this.$rootScope.wazuhNotReadyYet = false;
+          this.$rootScope.fortishieldNotReadyYet = false;
           this.$rootScope.$applyAsync();
           break;
         }
@@ -39,12 +39,12 @@ export class CheckDaemonsStatus {
     } catch (error) {
       this.tries = 10;
 
-      const updateNotReadyYet = updateWazuhNotReadyYet(
-        'Wazuh could not be recovered.'
+      const updateNotReadyYet = updateFortishieldNotReadyYet(
+        'Fortishield could not be recovered.'
       );
       store.dispatch(updateNotReadyYet);
 
-      this.$rootScope.wazuhNotReadyYet = 'Wazuh could not be recovered.';
+      this.$rootScope.fortishieldNotReadyYet = 'Fortishield could not be recovered.';
       this.$rootScope.$applyAsync();
       throw error;
     }

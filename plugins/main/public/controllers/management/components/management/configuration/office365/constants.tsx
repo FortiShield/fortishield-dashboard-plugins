@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Constants of Office365 configuration
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Constants of Office365 configuration
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@ export const OFFICE_365 = 'office365';
 export const WMODULES_WMODULES = 'wmodules-wmodules';
 export const HELP_LINKS = [
   {
-    text: 'Using Wazuh to monitor Office 365',
+    text: 'Using Fortishield to monitor Office 365',
     href: webDocumentationLink('cloud-security/office365/index.html'),
   },
   {

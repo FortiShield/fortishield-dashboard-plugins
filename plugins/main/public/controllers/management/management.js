@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Management controller
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Management controller
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 import { TabNames } from '../../utils/tab-names';
 import { AppState } from '../../react-services/app-state';
-import { WazuhConfig } from '../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../react-services/fortishield-config';
 import { WzRequest } from '../../react-services/wz-request';
 import { ErrorHandler } from '../../react-services/error-handler';
 import { ShareAgent } from '../../factories/share-agent';
@@ -35,14 +35,14 @@ export class ManagementController {
     this.$rootScope = $rootScope;
     this.$location = $location;
     this.shareAgent = new ShareAgent();
-    this.wazuhConfig = new WazuhConfig();
+    this.fortishieldConfig = new FortishieldConfig();
     this.configHandler = configHandler;
     this.errorHandler = errorHandler;
     this.$interval = $interval;
     this.tab = 'welcome';
     this.globalConfigTab = 'overview';
     this.tabNames = TabNames;
-    this.wazuhManagementTabs = ['ruleset', 'groups', 'configuration'];
+    this.fortishieldManagementTabs = ['ruleset', 'groups', 'configuration'];
     this.statusReportsTabs = ['status', 'logs', 'reporting', 'monitoring'];
     this.currentGroup = false;
     this.logtestOpened = false;
@@ -188,11 +188,11 @@ export class ManagementController {
         agent: {
           id: '000',
         }, // TODO: get dynamically the agent?
-        updateWazuhNotReadyYet: (status) => {
-          this.$rootScope.wazuhNotReadyYet = status;
+        updateFortishieldNotReadyYet: (status) => {
+          this.$rootScope.fortishieldNotReadyYet = status;
           this.$scope.$applyAsync();
         },
-        wazuhNotReadyYet: () => this.$rootScope.wazuhNotReadyYet,
+        fortishieldNotReadyYet: () => this.$rootScope.fortishieldNotReadyYet,
       },
       logtestProps: this.logtestProps,
     };

@@ -2,8 +2,8 @@ import { BulkIndexDocumentsParams } from 'elasticsearch';
 import { getConfiguration } from '../../lib/get-configuration';
 import { indexDate } from '../../lib/index-date';
 import {
-  WAZUH_STATISTICS_DEFAULT_INDICES_SHARDS,
-  WAZUH_STATISTICS_DEFAULT_INDICES_REPLICAS,
+  FORTISHIELD_STATISTICS_DEFAULT_INDICES_SHARDS,
+  FORTISHIELD_STATISTICS_DEFAULT_INDICES_REPLICAS,
 } from '../../../common/constants';
 import { tryCatchForIndexPermissionError } from '../tryCatchForIndexPermissionError';
 import { getSettingDefaultValue } from '../../../common/services/settings';
@@ -40,11 +40,11 @@ export class SaveDocument {
         indexCreation,
         mapping,
       );
-      this.context.wazuh.logger.debug('Bulk data');
+      this.context.fortishield.logger.debug('Bulk data');
       const response = await this.esClientInternalUser.bulk(
         createDocumentObject,
       );
-      this.context.wazuh.logger.debug(
+      this.context.fortishield.logger.debug(
         `Bulked data. Response of creating the new document ${JSON.stringify(
           response,
         )}`,
@@ -66,31 +66,31 @@ export class SaveDocument {
   private async checkIndexAndCreateIfNotExists(index, shards, replicas) {
     try {
       await tryCatchForIndexPermissionError(index)(async () => {
-        this.context.wazuh.logger.debug(
+        this.context.fortishield.logger.debug(
           `Checking the existence of ${index} index`,
         );
         const exists = await this.esClientInternalUser.indices.exists({
           index,
         });
-        this.context.wazuh.logger.debug(
+        this.context.fortishield.logger.debug(
           `Index '${index}' exists? ${exists.body}`,
         );
         if (!exists.body) {
-          this.context.wazuh.logger.debug(`Creating ${index} index`);
+          this.context.fortishield.logger.debug(`Creating ${index} index`);
           await this.esClientInternalUser.indices.create({
             index,
             body: {
               settings: {
                 index: {
                   number_of_shards:
-                    shards ?? WAZUH_STATISTICS_DEFAULT_INDICES_SHARDS,
+                    shards ?? FORTISHIELD_STATISTICS_DEFAULT_INDICES_SHARDS,
                   number_of_replicas:
-                    replicas ?? WAZUH_STATISTICS_DEFAULT_INDICES_REPLICAS,
+                    replicas ?? FORTISHIELD_STATISTICS_DEFAULT_INDICES_REPLICAS,
                 },
               },
             },
           });
-          this.context.wazuh.logger.info(`${index} index created`);
+          this.context.fortishield.logger.info(`${index} index created`);
         }
       })();
     } catch (error) {
@@ -123,7 +123,7 @@ export class SaveDocument {
         )
         .join(''),
     };
-    this.context.wazuh.logger.debug(
+    this.context.fortishield.logger.debug(
       `Document object: ${JSON.stringify(createDocumentObject)}`,
     );
     return createDocumentObject;

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - APP state service
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - APP state service
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@ import {
   updateShowMenu,
 } from '../redux/actions/appStateActions';
 import { GenericRequest } from '../react-services/generic-request';
-import { WazuhConfig } from './wazuh-config';
+import { FortishieldConfig } from './fortishield-config';
 import { CSVRequest } from '../services/csv-request';
 import { getToasts, getCookies, getAngularModule } from '../kibana-services';
 import * as FileSaver from '../services/file-saver';
@@ -369,7 +369,7 @@ export class AppState {
   }
 
   static checkCookies() {
-    getCookies().set('appName', 'wazuh');
+    getCookies().set('appName', 'fortishield');
     return !!getCookies().get('appName');
   }
 }

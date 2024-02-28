@@ -3,7 +3,7 @@ import { EuiToolTip, EuiButtonIcon } from '@elastic/eui';
 import ReportingHandler from './reporting-handler';
 import moment from 'moment-timezone';
 import { WzButtonPermissions } from '../../../../../../components/common/permissions/button';
-import { WAZUH_ROLE_ADMINISTRATOR_NAME } from '../../../../../../../common/constants';
+import { FORTISHIELD_ROLE_ADMINISTRATOR_NAME } from '../../../../../../../common/constants';
 import { getHttp, getUiSettings } from '../../../../../../kibana-services';
 import { formatUIDate } from '../../../../../../react-services/time-service';
 export default class ReportingColums {
@@ -52,7 +52,7 @@ export default class ReportingColums {
 
               <WzButtonPermissions
                 buttonType='icon'
-                roles={[WAZUH_ROLE_ADMINISTRATOR_NAME]}
+                roles={[FORTISHIELD_ROLE_ADMINISTRATOR_NAME]}
                 aria-label="Delete report"
                 iconType="trash"
                 tooltip={{position: 'top', content: 'Delete report'}}

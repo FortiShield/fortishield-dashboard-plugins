@@ -1,1 +1,1 @@
-"audit-wazuh-w:write\naudit-wazuh-r:read\naudit-wazuh-a:attribute\naudit-wazuh-x:execute\naudit-wazuh-c:command\n"
+"audit-fortishield-w:write\naudit-fortishield-r:read\naudit-fortishield-a:attribute\naudit-fortishield-x:execute\naudit-fortishield-c:command\n"

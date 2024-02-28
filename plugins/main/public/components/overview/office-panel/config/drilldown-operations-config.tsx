@@ -1,7 +1,7 @@
 /*
- * Wazuh app - Office 365 Drilldown Operations field Config.
+ * Fortishield app - Office 365 Drilldown Operations field Config.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,13 +24,13 @@ export const drilldownOperationsConfig = {
         {
           width: 40,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-Office-Top-Users" tab="office" {...props} />
+            <VisCard id="Fortishield-App-Overview-Office-Top-Users" tab="office" {...props} />
           ),
         },
         {
           width: 60,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-Office-Country-Tag-Cloud" tab="office" {...props} />
+            <VisCard id="Fortishield-App-Overview-Office-Country-Tag-Cloud" tab="office" {...props} />
           ),
         },
       ],
@@ -42,7 +42,7 @@ export const drilldownOperationsConfig = {
           width: 100,
           component: (props) => (
             <VisCard
-              id="Wazuh-App-Overview-Office-Alerts-Evolution-By-UserID"
+              id="Fortishield-App-Overview-Office-Alerts-Evolution-By-UserID"
               tab="office"
               {...props}
             />

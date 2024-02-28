@@ -14,7 +14,7 @@ exports[`SettingsAboutGeneralInfo component should render a component 1`] = `
         <h2
           class="euiTitle euiTitle--medium"
         >
-          Welcome to the Wazuh dashboard
+          Welcome to the Fortishield dashboard
         </h2>
         <div
           class="euiSpacer euiSpacer--l"
@@ -23,8 +23,8 @@ exports[`SettingsAboutGeneralInfo component should render a component 1`] = `
           class="euiText euiText--medium"
         >
           <p>
-            Wazuh dashboard
-             provides management and monitoring capabilities, giving users control over the Wazuh infrastructure. You can monitor your agents status and configuration, query and visualize your alert data and monitor manager rules and configuration.
+            Fortishield dashboard
+             provides management and monitoring capabilities, giving users control over the Fortishield infrastructure. You can monitor your agents status and configuration, query and visualize your alert data and monitor manager rules and configuration.
           </p>
         </div>
       </div>
@@ -48,7 +48,7 @@ exports[`SettingsAboutGeneralInfo component should render a component 1`] = `
             class="euiText euiText--medium"
           >
             <p>
-              Enjoy your Wazuh experience and please don't hesitate to give us your feedback.
+              Enjoy your Fortishield experience and please don't hesitate to give us your feedback.
             </p>
           </div>
           <div
@@ -63,7 +63,7 @@ exports[`SettingsAboutGeneralInfo component should render a component 1`] = `
               <a
                 aria-label="Slack"
                 class="euiButtonIcon euiButtonIcon--primary euiButtonIcon--empty euiButtonIcon--xSmall"
-                href="https://wazuh.com/community/join-us-on-slack/"
+                href="https://fortishield.com/community/join-us-on-slack/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -85,7 +85,7 @@ exports[`SettingsAboutGeneralInfo component should render a component 1`] = `
               <a
                 aria-label="Google Groups"
                 class="euiButtonIcon euiButtonIcon--primary euiButtonIcon--empty euiButtonIcon--xSmall"
-                href="https://groups.google.com/forum/#!forum/wazuh"
+                href="https://groups.google.com/forum/#!forum/fortishield"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -103,7 +103,7 @@ exports[`SettingsAboutGeneralInfo component should render a component 1`] = `
               <a
                 aria-label="Github"
                 class="euiButtonIcon euiButtonIcon--primary euiButtonIcon--empty euiButtonIcon--xSmall"
-                href="https://github.com/wazuh/wazuh-kibana-app"
+                href="https://github.com/fortishield/fortishield-kibana-app"
                 rel="noopener noreferrer"
                 target="_blank"
               >

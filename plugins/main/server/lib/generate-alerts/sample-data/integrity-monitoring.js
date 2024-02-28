@@ -1,6 +1,6 @@
 /*
- * Wazuh app - FIM sample alerts
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - FIM sample alerts
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,8 +14,8 @@ export const events = ["modified", "deleted", "added"];
 export const attributes = ["mtime", "inode", "size", "tmp", "md5", "sha1", "sha256"];
 export const pathsLinux = [
   "/etc/resolv.conf",
-  "/var/wazuh/queue/fim/db/fim.db-journal",
-  "/var/wazuh/queue/fim/db/fim.db",
+  "/var/fortishield/queue/fim/db/fim.db-journal",
+  "/var/fortishield/queue/fim/db/fim.db",
   "/var/osquery/osquery.db/CURRENT",
   "/etc/sysconfig/network-scripts/ifcfg-eth1",
   "/etc/filebeat/fields.yml",
@@ -24,10 +24,10 @@ export const pathsLinux = [
   "/etc/elasticsearch/elasticsearch.yml",
   "/etc/elasticsearch/users",
   "/etc/elasticsearch/config",
-  "/tmp/wazuh-config",
+  "/tmp/fortishield-config",
   "/run/utmp",
   "/etc/resolv.conf",
-  "/var/wazuh/queue/fim/db/fim.db",
+  "/var/fortishield/queue/fim/db/fim.db",
   "/var/osquery/osquery.db/CURRENT",
   "/run/utmp"
 ];
@@ -42,10 +42,10 @@ export const pathsWindows = [
   "[x32] HKEY_LOCAL_MACHINE\\Security\\SAM\\Domains\\Account\\Users\\000001F7",
   "[x32] HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SharedAccess\\Epoch",
   "c:\\programdata\\microsoft\\windows defender\\scans\\mpenginedb.db-wal",
-  "c:\\program files (x86)\\wazuh-agent\\wodles\\syscollector",
-  "c:\\program files (x86)\\wazuh-agent\\rids\\sender_counter",
-  "c:\\program files (x86)\\wazuh-agent\\queue\\fim\\db\\fim.db",
-  "c:\\program files (x86)\\wazuh-agent\\wazuh-agent.state",
+  "c:\\program files (x86)\\fortishield-agent\\wodles\\syscollector",
+  "c:\\program files (x86)\\fortishield-agent\\rids\\sender_counter",
+  "c:\\program files (x86)\\fortishield-agent\\queue\\fim\\db\\fim.db",
+  "c:\\program files (x86)\\fortishield-agent\\fortishield-agent.state",
   "[x32] HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\WinDefend",
   "[x32] HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\bam\\State\\UserSettings\\S-1-5-21-856620481-996501011-1859314257-500",
 ];
@@ -65,7 +65,7 @@ export const regulatory = [{
     ],
     "description": "File added to the system.",
     "groups": [
-      "wazuh",
+      "fortishield",
       "syscheck"
     ],
     "id": "554",
@@ -92,7 +92,7 @@ export const regulatory = [{
     ],
     "description": "Integrity checksum changed.",
     "groups": [
-      "wazuh",
+      "fortishield",
       "syscheck"
     ],
     "id": "550",
@@ -119,7 +119,7 @@ export const regulatory = [{
     ],
     "description": "File deleted.",
     "groups": [
-      "wazuh",
+      "fortishield",
       "syscheck"
     ],
     "id": "553",

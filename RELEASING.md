@@ -58,31 +58,31 @@ node scripts/release/bump.js --plugins-directory <plugins_directory> --manifest-
 Example:
 
 ```console
-node scripts/release/bump.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/wazuh/wazuh/4.6.0/api/api/spec/spec.yaml --manifest-package ./plugins/main/package.json --revision 03
+node scripts/release/bump.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/fortishield/fortishield/4.6.0/api/api/spec/spec.yaml --manifest-package ./plugins/main/package.json --revision 03
 ```
 
 - Change the plugin version. Take the `revision` and `platform-version` parameters from the specified manifest plugin file.
 
 ```console
-node scripts/release/bump.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/wazuh/wazuh/4.6.0/api/api/spec/spec.yaml --manifest-package ./plugins/main/package.json --version 4.6.0
+node scripts/release/bump.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/fortishield/fortishield/4.6.0/api/api/spec/spec.yaml --manifest-package ./plugins/main/package.json --version 4.6.0
 ```
 
 - Change the plugin revision. Take the `version` and `platform-version` parameters from the specified manifest plugin file.
 
 ```console
-node scripts/release/bump.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/wazuh/wazuh/4.6.0/api/api/spec/spec.yaml --manifest-package ./plugins/main/package.json --revision 03
+node scripts/release/bump.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/fortishield/fortishield/4.6.0/api/api/spec/spec.yaml --manifest-package ./plugins/main/package.json --revision 03
 ```
 
 - Change the platform version. Take the `version` and `revision` parameters from the specified manifest plugin file.
 
 ```console
-node scripts/release/bump.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/wazuh/wazuh/4.6.0/api/api/spec/spec.yaml --manifest-package ./plugins/main/package.json --platform-version 2.8.0
+node scripts/release/bump.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/fortishield/fortishield/4.6.0/api/api/spec/spec.yaml --manifest-package ./plugins/main/package.json --platform-version 2.8.0
 ```
 
 - Change the plugin version, revision and platform version
 
 ```console
-node scripts/release/bump.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/wazuh/wazuh/4.6.0/api/api/spec/spec.yaml --version 4.6.0 --revision 03 --platform-version 2.8.0
+node scripts/release/bump.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/fortishield/fortishield/4.6.0/api/api/spec/spec.yaml --version 4.6.0 --revision 03 --platform-version 2.8.0
 ```
 
 3. Commit and push the new branch to the remote repository.
@@ -100,15 +100,15 @@ A new branch will be created in the remote and will be ready to receive pull req
 If you have installed the [GitHub CLI](https://cli.github.com/):
 
 ```console
-gh pr create -a @me -B <base_branch> -t "Bump Wazuh version <version>"
+gh pr create -a @me -B <base_branch> -t "Bump Fortishield version <version>"
 ```
 
 #### Update the API info static files
 
 ⚠️ This is done by the bump script.
 
-We have a script to update the files of the `plugins/main` that have information about the Wazuh API. This script uses the API specification
-file that is stored in the GitHub repository of [wazuh/wazuh](https://github.com/wazuh/wazuh) repository.
+We have a script to update the files of the `plugins/main` that have information about the Fortishield API. This script uses the API specification
+file that is stored in the GitHub repository of [fortishield/fortishield](https://github.com/fortishield/fortishield) repository.
 
 ```console
 yarn generate:api-data --spec <api_spec_file_URL>
@@ -119,19 +119,19 @@ Examples:
 - Update the files with a final tag
 
 ```
-yarn generate:api-data --spec https://raw.githubusercontent.com/wazuh/wazuh/v4.6.0/api/api/spec/spec.yaml
+yarn generate:api-data --spec https://raw.githubusercontent.com/fortishield/fortishield/v4.6.0/api/api/spec/spec.yaml
 ```
 
 - Update the files with a pre-release tag
 
 ```
-yarn generate:api-data --spec https://raw.githubusercontent.com/wazuh/wazuh/v4.6.0-rc1/api/api/spec/spec.yaml
+yarn generate:api-data --spec https://raw.githubusercontent.com/fortishield/fortishield/v4.6.0-rc1/api/api/spec/spec.yaml
 ```
 
 - Update the files with a development branch
 
 ```
-yarn generate:api-data --spec https://raw.githubusercontent.com/wazuh/wazuh/4.6.0/api/api/spec/spec.yaml
+yarn generate:api-data --spec https://raw.githubusercontent.com/fortishield/fortishield/4.6.0/api/api/spec/spec.yaml
 ```
 
 #### Create tags
@@ -161,7 +161,7 @@ git pull
 3. Create the tag
 
 ```
-git tag {tag} -a -m "Wazuh {version} for OpenSearch Dashboards {platform version}"
+git tag {tag} -a -m "Fortishield {version} for OpenSearch Dashboards {platform version}"
 ```
 
 > replace the placeholders:
@@ -211,7 +211,7 @@ node scripts/release/tag.js --plugins-directory <plugins_directory> --manifest-c
 Example:
 
 ```console
-node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/wazuh/wazuh/v4.6.0/api/api/spec/spec.yaml --version 4.6.0 --revision 03 --platform-version 2.8.0
+node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/fortishield/fortishield/v4.6.0/api/api/spec/spec.yaml --version 4.6.0 --revision 03 --platform-version 2.8.0
 ```
 
 - Use a package manifest as base to take the `version`, `revision` and `pluginPlatformVersion` values:
@@ -235,19 +235,19 @@ Examples:
 - Change the plugin version. Take the `revision` and `platform-version` parameters from the specified manifest plugin file.
 
 ```console
-node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/wazuh/wazuh/v4.6.0/api/api/spec/spec.yaml --manifest-plugin ./plugins/main/package.json --version 4.5.0
+node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/fortishield/fortishield/v4.6.0/api/api/spec/spec.yaml --manifest-plugin ./plugins/main/package.json --version 4.5.0
 ```
 
 - Change the plugin revision. Take the `version` and `platform-version` parameters from the specified manifest plugin file.
 
 ```console
-node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/wazuh/wazuh/v4.6.0/api/api/spec/spec.yaml --manifest-plugin ./plugins/main/package.json --revision 02
+node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/fortishield/fortishield/v4.6.0/api/api/spec/spec.yaml --manifest-plugin ./plugins/main/package.json --revision 02
 ```
 
 - Change the platform version. Take the `version` and `revision` parameters from the specified manifest plugin file.
 
 ```console
-node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/wazuh/wazuh/v4.6.0/api/api/spec/spec.yaml --manifest-plugin ./plugins/main/package.json --platform-version 2.8.0
+node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/fortishield/fortishield/v4.6.0/api/api/spec/spec.yaml --manifest-plugin ./plugins/main/package.json --platform-version 2.8.0
 ```
 
 For tags that needs a suffix, use the `--tag-suffix <tag-suffix>` flag.
@@ -260,8 +260,8 @@ node scripts/release/tag.js --plugins-directory <plugins_directory> --manifest-c
 Example:
 
 ```console
-node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/wazuh/wazuh/v4.6.0/api/api/spec/spec.yaml --version 4.6.0 --revision 03 --platform-version 2.8.0 --tag-suffix -rc2
-node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/wazuh/wazuh/v4.6.0/api/api/spec/spec.yaml --manifest-package ./plugins/main/package.json --revision 02 --tag-suffix -rc2
+node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/fortishield/fortishield/v4.6.0/api/api/spec/spec.yaml --version 4.6.0 --revision 03 --platform-version 2.8.0 --tag-suffix -rc2
+node scripts/release/tag.js --plugins-directory ./plugins --manifest-changelog ./CHANGELOG.md --plugin-main-generate-api-data-spec https://raw.githubusercontent.com/fortishield/fortishield/v4.6.0/api/api/spec/spec.yaml --manifest-package ./plugins/main/package.json --revision 02 --tag-suffix -rc2
 ```
 
 2. Review the new tags were pushed to the remote repository.

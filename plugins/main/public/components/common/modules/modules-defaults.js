@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Simple description for each App tabs
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Simple description for each App tabs
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,8 +21,8 @@ import { OfficePanel } from '../../overview/office-panel';
 import { GitHubPanel } from '../../overview/github-panel';
 import { DashboardVuls, InventoryVuls } from '../../overview/vulnerabilities';
 import { withModuleNotForAgent } from '../hocs';
-import { WazuhDiscover } from '../wazuh-discover/wz-discover';
-import { threatHuntingColumns } from '../wazuh-discover/config/data-grid-columns';
+import { FortishieldDiscover } from '../fortishield-discover/wz-discover';
+import { threatHuntingColumns } from '../fortishield-discover/config/data-grid-columns';
 import { vulnerabilitiesColumns } from '../../overview/vulnerabilities/events/vulnerabilities-columns';
 import { DashboardFim } from '../../overview/fim/dashboard/dashboard';
 import { InventoryFim } from '../../overview/fim/inventory/inventory';
@@ -37,7 +37,7 @@ const DashboardTab = {
   buttons: [ButtonModuleExploreAgent, ButtonModuleGenerateReport],
   component: Dashboard,
 };
-const ALERTS_INDEX_PATTERN = 'wazuh-alerts-*';
+const ALERTS_INDEX_PATTERN = 'fortishield-alerts-*';
 const DEFAULT_INDEX_PATTERN = ALERTS_INDEX_PATTERN;
 
 const renderDiscoverTab = (indexName = DEFAULT_INDEX_PATTERN, columns) => {
@@ -46,7 +46,7 @@ const renderDiscoverTab = (indexName = DEFAULT_INDEX_PATTERN, columns) => {
     name: 'Events',
     buttons: [ButtonModuleExploreAgent],
     component: () => (
-      <WazuhDiscover indexPatternName={indexName} tableColumns={columns} />
+      <FortishieldDiscover indexPatternName={indexName} tableColumns={columns} />
     ),
   };
 };
@@ -155,7 +155,7 @@ export const ModulesDefaults = {
       {
         ...renderDiscoverTab(DEFAULT_INDEX_PATTERN, office365Columns),
         component: withModuleNotForAgent(() => (
-          <WazuhDiscover
+          <FortishieldDiscover
             indexPatternName={DEFAULT_INDEX_PATTERN}
             tableColumns={office365Columns}
           />
@@ -201,7 +201,7 @@ export const ModulesDefaults = {
       {
         ...renderDiscoverTab(ALERTS_INDEX_PATTERN, vulnerabilitiesColumns),
         component: withModuleNotForAgent(() => (
-          <WazuhDiscover
+          <FortishieldDiscover
             indexPatternName={DEFAULT_INDEX_PATTERN}
             tableColumns={vulnerabilitiesColumns}
           />

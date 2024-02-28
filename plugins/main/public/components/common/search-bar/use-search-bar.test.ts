@@ -11,7 +11,7 @@ import {
   Query,
   TimeRange,
 } from '../../../../../../src/plugins/data/public';
-// wazuh plugin dependencies
+// fortishield plugin dependencies
 import useSearchBar from './use-search-bar';
 import { getDataPlugin } from '../../../kibana-services';
 import * as timeFilterHook from '../hooks/use-time-filter';
@@ -96,7 +96,7 @@ describe('[hook] useSearchBarConfiguration', () => {
   });
 
   it('should return the same index pattern when receiving a default index pattern', async () => {
-    const exampleIndexPatternId = 'wazuh-index-pattern';
+    const exampleIndexPatternId = 'fortishield-index-pattern';
     const mockedIndexPatternData: Partial<IndexPattern> = {
       // used partial not avoid fill all the interface, it's only for testing purpose
       id: exampleIndexPatternId,
@@ -104,14 +104,14 @@ describe('[hook] useSearchBarConfiguration', () => {
     };
     jest
       .spyOn(AppState, 'getCurrentPattern')
-      .mockImplementation(() => 'wazuh-alerts-*');
+      .mockImplementation(() => 'fortishield-alerts-*');
     jest.spyOn(AppState, 'setCurrentPattern').mockImplementation(jest.fn());
     jest
       .spyOn(mockDataPlugin.indexPatterns, 'get')
       .mockResolvedValue(mockedIndexPatternData);
     const { result, waitForNextUpdate } = renderHook(() =>
       useSearchBar({
-        defaultIndexPatternID: 'wazuh-index-pattern',
+        defaultIndexPatternID: 'fortishield-index-pattern',
       }),
     );
     await waitForNextUpdate();
@@ -197,7 +197,7 @@ describe('[hook] useSearchBarConfiguration', () => {
   });
 
   it('should return empty filters when the index pattern is NOT equal to the default app index pattern', async () => {
-    const exampleIndexPatternId = 'wazuh-index-pattern';
+    const exampleIndexPatternId = 'fortishield-index-pattern';
     const mockedExampleIndexPatternData: Partial<IndexPattern> = {
       // used partial not avoid fill all the interface, it's only for testing purpose
       id: exampleIndexPatternId,

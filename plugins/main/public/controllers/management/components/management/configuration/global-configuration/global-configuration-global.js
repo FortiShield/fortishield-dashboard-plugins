@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for show configuration of global configuration - global tab.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for show configuration of global configuration - global tab.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -98,7 +98,7 @@ class WzConfigurationGlobalConfigurationGlobal extends Component {
     this.helpLinks = buildHelpLinks(this.props.agent);
   }
   render() {
-    const { currentConfig, agent, wazuhNotReadyYet } = this.props;
+    const { currentConfig, agent, fortishieldNotReadyYet } = this.props;
     const mainSettingsConfig =
       agent.id === '000' &&
       currentConfig['analysis-global'] &&
@@ -147,9 +147,9 @@ class WzConfigurationGlobalConfigurationGlobal extends Component {
           !currentConfig['analysis-global'].global && (
             <WzNoConfig error="not-present" help={this.helpLinks} />
           )}
-        {wazuhNotReadyYet &&
+        {fortishieldNotReadyYet &&
           (!currentConfig || !currentConfig['analysis-global']) && (
-            <WzNoConfig error="Wazuh not ready yet" help={this.helpLinks} />
+            <WzNoConfig error="Fortishield not ready yet" help={this.helpLinks} />
           )}
         {((currentConfig['analysis-global'] &&
           currentConfig['analysis-global'].global) ||
@@ -194,7 +194,7 @@ class WzConfigurationGlobalConfigurationGlobal extends Component {
 
 WzConfigurationGlobalConfigurationGlobal.propTypes = {
   agent: PropTypes.object,
-  wazuhNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+  fortishieldNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };
 
 export default WzConfigurationGlobalConfigurationGlobal;

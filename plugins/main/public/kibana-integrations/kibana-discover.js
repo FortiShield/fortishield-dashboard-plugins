@@ -76,9 +76,9 @@ import * as columnActions from './discover/application/angular/doc_table/actions
 
 import { discoverResponseHandler } from './discover/application/angular/response_handler';
 
-///WAZUH///
+///FORTISHIELD///
 import { buildServices } from './discover/build_services';
-import { WazuhConfig } from '../react-services/wazuh-config';
+import { FortishieldConfig } from '../react-services/fortishield-config';
 import { ModulesHelper } from '../components/common/modules/modules-helper';
 ///////////
 import { validateTimeRange } from './discover/application/helpers/validate_time_range';
@@ -93,7 +93,7 @@ import {
   UI_SETTINGS,
 } from '../../../../src/plugins/data/public';
 import { addFatalError } from '../../../../src/plugins/opensearch_dashboards_legacy/public';
-import { WAZUH_ALERTS_PATTERN } from '../../common/constants';
+import { FORTISHIELD_ALERTS_PATTERN } from '../../common/constants';
 import {
   DEFAULT_COLUMNS_SETTING,
   SAMPLE_SIZE_SETTING,
@@ -128,7 +128,7 @@ appDiscover.run(async () => {
   setUiActions(getPlugins().uiActions);
 });
 
-const wazuhApp = getAngularModule();
+const fortishieldApp = getAngularModule();
 
 appDiscover.directive('discoverApp', function () {
   return {
@@ -147,7 +147,7 @@ function discoverController(
   Promise,
   localStorage,
   uiCapabilities,
-  // Wazuh requirements from here
+  // Fortishield requirements from here
   $rootScope,
   $location,
   loadedVisualizations,
@@ -163,10 +163,10 @@ function discoverController(
   //used for functional testing
   $scope.fetchCounter = 0;
 
-  //WAZUH
-  wazuhApp.discoverScope = $scope;
-  if (!wazuhApp.globalFilters) {
-    wazuhApp.globalFilters = {};
+  //FORTISHIELD
+  fortishieldApp.discoverScope = $scope;
+  if (!fortishieldApp.globalFilters) {
+    fortishieldApp.globalFilters = {};
   }
 
   (async () => {
@@ -207,7 +207,7 @@ function discoverController(
     visualizations,
   } = getServices();
 
-  const wazuhConfig = new WazuhConfig();
+  const fortishieldConfig = new FortishieldConfig();
   const modulesHelper = ModulesHelper;
 
   const getTimeField = () => {
@@ -374,13 +374,13 @@ function discoverController(
     stopStateSync();
     stopSyncingGlobalStateWithUrl();
     stopSyncingQueryAppStateWithStateContainer();
-    //WAZUH
+    //FORTISHIELD
     //unlistenHistoryBasePath();
     if (tabListener) tabListener();
-    delete wazuhApp.discoverScope;
+    delete fortishieldApp.discoverScope;
   });
 
-  // WAZUH MODIFIED
+  // FORTISHIELD MODIFIED
   $scope.topNavMenu = [];
 
   $scope.searchSource
@@ -405,7 +405,7 @@ function discoverController(
 
   const pageTitleSuffix =
     savedSearch.id && savedSearch.title ? `: ${savedSearch.title}` : '';
-  chrome.docTitle.change(`Wazuh${pageTitleSuffix}`);
+  chrome.docTitle.change(`Fortishield${pageTitleSuffix}`);
 
   $scope.screenTitle = savedSearch.title;
 
@@ -553,9 +553,9 @@ function discoverController(
                 : filterManager.filters;
               $scope.filters = filterManager.filters;
 
-              // Wazuh. Hides the alerts of the '000' agent if it is in the configuration
+              // Fortishield. Hides the alerts of the '000' agent if it is in the configuration
               const buildFilters = () => {
-                const { hideManagerAlerts } = wazuhConfig.getConfig();
+                const { hideManagerAlerts } = fortishieldConfig.getConfig();
                 if (hideManagerAlerts) {
                   return [
                     {
@@ -577,12 +577,12 @@ function discoverController(
                 }
                 return [];
               };
-              ///////////////////////////////  WAZUH   ///////////////////////////////////
+              ///////////////////////////////  FORTISHIELD   ///////////////////////////////////
               if (
-                wazuhApp.globalFilters &&
-                wazuhApp.globalFilters.tab === $location.search().tab
+                fortishieldApp.globalFilters &&
+                fortishieldApp.globalFilters.tab === $location.search().tab
               ) {
-                wazuhApp.globalFilters = {
+                fortishieldApp.globalFilters = {
                   tab: $location.search().tab,
                   filters: (filterManager.filters || []).filter(
                     x => x.$state.store === 'globalState',
@@ -590,7 +590,7 @@ function discoverController(
                 };
               }
               $scope.updateDataSource().then(function () {
-                ///////////////////////////////  WAZUH   ///////////////////////////////////
+                ///////////////////////////////  FORTISHIELD   ///////////////////////////////////
                 if (!filtersAreReady()) return;
                 discoverPendingUpdates.removeAll();
                 discoverPendingUpdates.addItem($scope.state.query, [
@@ -657,7 +657,7 @@ function discoverController(
               return status.LOADING;
             else if (!rowsEmpty) return status.READY;
             else {
-              // Wazuh. If there are hits but no rows, the it's also a READY status
+              // Fortishield. If there are hits but no rows, the it's also a READY status
               return $scope.hits ? status.READY : status.NO_RESULTS;
             }
           }
@@ -674,7 +674,7 @@ function discoverController(
               current.fetchStatus,
               prev.fetchStatus,
             );
-            // Copying it to the rootScope to access it from the Wazuh App //
+            // Copying it to the rootScope to access it from the Fortishield App //
             $rootScope.resultState = $scope.resultState;
             /////////////////////////////////////////////////////////////////
 
@@ -696,7 +696,7 @@ function discoverController(
   });
 
   ////////////////////////////////////////////////////////////////////////
-  // Wazuh - Removed saveDataSource, it's not needed by our integration //
+  // Fortishield - Removed saveDataSource, it's not needed by our integration //
   ////////////////////////////////////////////////////////////////////////
 
   $scope.opts.fetch = $scope.fetch = function () {
@@ -736,20 +736,20 @@ function discoverController(
   };
 
   $scope.handleRefresh = function ({ query }, isUpdate = true) {
-    // Wazuh filters are not ready yet
+    // Fortishield filters are not ready yet
     if (!filtersAreReady()) return;
     if (
       !_.isEqual(query, appStateContainer.getState().query) ||
       isUpdate === false
     ) {
-      /// Wazuh 7.7.x
+      /// Fortishield 7.7.x
       let q = { ...query };
       if (query && typeof query === 'object') {
         q.timestamp = new Date().getTime().toString();
       }
       ///
       setAppState({ query: q });
-      // WAZUH query from search bar
+      // FORTISHIELD query from search bar
       discoverPendingUpdates.removeAll();
       discoverPendingUpdates.addItem($scope.state.query, filterManager.filters);
       /////
@@ -853,7 +853,7 @@ function discoverController(
   }
 
   $scope.updateTime = function () {
-    ///////////////////////////////  WAZUH   ///////////////////////////////////
+    ///////////////////////////////  FORTISHIELD   ///////////////////////////////////
     if ($location.search().tab != 'configuration') {
       loadedVisualizations.removeAll();
       $rootScope.$broadcast('updateVis');
@@ -904,7 +904,7 @@ function discoverController(
     //history.push('/');
   };
 
-  // Wazuh.
+  // Fortishield.
   // defaultSearchSource -> Use it for Discover tabs and the Discover visualization.
   // noHitsSearchSource  -> It doesn't fetch the "hits" array and it doesn't fetch the "_source",
   //                        use it for panels.
@@ -912,28 +912,28 @@ function discoverController(
     noHitsSearchSource = null;
   $scope.updateDataSource = () => {
     const { indexPattern, searchSource } = $scope;
-    // Wazuh
+    // Fortishield
     const isPanels = $scope.tabView === 'panels';
     const isClusterMonitoring = $scope.tabView === 'cluster-monitoring';
 
-    // Wazuh. Should we fetch "_source" and "hits" ?
+    // Fortishield. Should we fetch "_source" and "hits" ?
     const noHits = isPanels || isClusterMonitoring;
 
-    // Wazuh. The very first time, the copies are null, just create them
+    // Fortishield. The very first time, the copies are null, just create them
     if (!defaultSearchSource || !noHitsSearchSource) {
       defaultSearchSource = $scope.searchSource.createCopy();
       noHitsSearchSource = $scope.searchSource.createCopy();
       noHitsSearchSource.setField('source', false);
     }
 
-    // Wazuh. Select the proper searchSource depending on the view
+    // Fortishield. Select the proper searchSource depending on the view
     $scope.searchSource = noHits ? noHitsSearchSource : defaultSearchSource;
 
-    // Wazuh. Set the size to 0 depending on the selected searchSource
+    // Fortishield. Set the size to 0 depending on the selected searchSource
     const size = noHits ? 0 : $scope.opts.sampleSize;
     searchSource
       .setField('index', $scope.indexPattern)
-      .setField('size', size) // Wazuh. Use custom size
+      .setField('size', size) // Fortishield. Use custom size
       .setField(
         'sort',
         getSortForSearchSource(
@@ -944,7 +944,7 @@ function discoverController(
       )
       .setField('query', data.query.queryString.getQuery() || null)
       .setField('filter', filterManager.getFilters());
-    //Wazuh update the visualizations
+    //Fortishield update the visualizations
     $rootScope.$broadcast('updateVis');
     store.dispatch(updateVis({ update: true }));
     return Promise.resolve();
@@ -1007,7 +1007,7 @@ function discoverController(
   };
 
   async function setupVisualization() {
-    // Wazuh. Do not setup visualization if there isn't a copy for the default searchSource
+    // Fortishield. Do not setup visualization if there isn't a copy for the default searchSource
     if (!defaultSearchSource) {
       return;
     }
@@ -1120,7 +1120,7 @@ function discoverController(
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////// WAZUH //////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////// FORTISHIELD //////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   $scope.$watch('fetchStatus', () => {
@@ -1142,8 +1142,8 @@ function discoverController(
       wzCurrentFilters.forEach(x => {
         if (x.$state.isImplicit != false) x.$state.isImplicit = true;
       });
-      wazuhApp.globalFilters.tab = tab;
-      const globalFilters = wazuhApp.globalFilters.filters || [];
+      fortishieldApp.globalFilters.tab = tab;
+      const globalFilters = fortishieldApp.globalFilters.filters || [];
       if (tab && $scope.tab !== tab) {
         filterManager.removeAll();
       }
@@ -1180,7 +1180,7 @@ function discoverController(
   );
 
   /**
-   * Wazuh - aux function for checking filters status
+   * Fortishield - aux function for checking filters status
    */
   const filtersAreReady = () => {
     const currentUrlPath = $location.path();

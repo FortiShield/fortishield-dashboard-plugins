@@ -38,7 +38,7 @@ export const SettingsAboutGeneralInfo = ({ pluginAppName }: SettingsAboutGeneral
           <EuiText size="m">
             <p>
               {pluginAppName} provides management and monitoring capabilities, giving users control
-              over the Wazuh infrastructure. You can monitor your agents status and configuration,
+              over the Fortishield infrastructure. You can monitor your agents status and configuration,
               query and visualize your alert data and monitor manager rules and configuration.
             </p>
           </EuiText>
@@ -49,7 +49,7 @@ export const SettingsAboutGeneralInfo = ({ pluginAppName }: SettingsAboutGeneral
         content={
           <div>
             <EuiText size="m">
-              <p>Enjoy your Wazuh experience and please don't hesitate to give us your feedback.</p>
+              <p>Enjoy your Fortishield experience and please don't hesitate to give us your feedback.</p>
             </EuiText>
             <EuiSpacer size="l" />
             <EuiFlexGroup
@@ -63,10 +63,10 @@ export const SettingsAboutGeneralInfo = ({ pluginAppName }: SettingsAboutGeneral
                   aria-label="Slack"
                   iconType="logoSlack"
                   iconSize="xxl"
-                  href="https://wazuh.com/community/join-us-on-slack/"
+                  href="https://fortishield.com/community/join-us-on-slack/"
                   target="_blank"
                 >
-                  Wazuh Slack
+                  Fortishield Slack
                 </EuiButtonIcon>
               </EuiFlexItem>
               <EuiFlexItem grow={false}>
@@ -74,10 +74,10 @@ export const SettingsAboutGeneralInfo = ({ pluginAppName }: SettingsAboutGeneral
                   aria-label="Google Groups"
                   iconType={googleGroupsSVG}
                   iconSize="xxl"
-                  href="https://groups.google.com/forum/#!forum/wazuh"
+                  href="https://groups.google.com/forum/#!forum/fortishield"
                   target="_blank"
                 >
-                  Wazuh forum
+                  Fortishield forum
                 </EuiButtonIcon>
               </EuiFlexItem>
               <EuiFlexItem grow={false}>
@@ -85,10 +85,10 @@ export const SettingsAboutGeneralInfo = ({ pluginAppName }: SettingsAboutGeneral
                   aria-label="Github"
                   iconType="logoGithub"
                   iconSize="xxl"
-                  href="https://github.com/wazuh/wazuh-kibana-app"
+                  href="https://github.com/fortishield/fortishield-kibana-app"
                   target="_blank"
                 >
-                  Wazuh dashboard Github
+                  Fortishield dashboard Github
                 </EuiButtonIcon>
               </EuiFlexItem>
             </EuiFlexGroup>

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Overview/TSC visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Overview/TSC visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Overview-TSC-Requirements-over-time',
+    _id: 'Fortishield-App-Overview-TSC-Requirements-over-time',
     _source: {
       title: 'Requirements over time',
       visState: JSON.stringify({
@@ -115,7 +115,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { language: 'lucene', query: '' },
         }),
@@ -124,7 +124,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-TSC-Requirements-Agents-heatmap',
+    _id: 'Fortishield-App-Overview-TSC-Requirements-Agents-heatmap',
     _type: 'visualization',
     _source: {
       title: 'TSC requirements heatmap',
@@ -223,7 +223,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -231,7 +231,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-TSC-requirements',
+    _id: 'Fortishield-App-Overview-TSC-requirements',
     _source: {
       title: 'TSC requirements',
       visState: JSON.stringify({
@@ -375,7 +375,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -384,7 +384,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-TSC-Agents',
+    _id: 'Fortishield-App-Overview-TSC-Agents',
     _source: {
       title: 'Agents',
       visState: JSON.stringify({
@@ -424,7 +424,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -433,7 +433,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-TSC-Requirements-by-agent',
+    _id: 'Fortishield-App-Overview-TSC-Requirements-by-agent',
     _source: {
       title: 'Requirements by agent',
       visState: JSON.stringify({
@@ -525,7 +525,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -534,7 +534,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-TSC-Last-alerts',
+    _id: 'Fortishield-App-Overview-TSC-Last-alerts',
     _type: 'visualization',
     _source: {
       title: 'Last alerts',
@@ -618,7 +618,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -626,7 +626,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-TSC-Alerts-summary',
+    _id: 'Fortishield-App-Overview-TSC-Alerts-summary',
     _type: 'visualization',
     _source: {
       title: 'Alerts summary',
@@ -710,7 +710,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

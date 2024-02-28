@@ -1,14 +1,14 @@
 var id = context.request.queryParams.policy_ids;
-var storeWazuh = stores.open('storeWazuh');
+var storeFortishield = stores.open('storeFortishield');
 
-storeWazuh.save('deletePolicies', true);
+storeFortishield.save('deletePolicies', true);
 
 var data = {
   data: {
     affected_items: [
       {
         id: id,
-        name: 'TestWazuhPolicy',
+        name: 'TestFortishieldPolicy',
         policy: {
           actions: ['security:delete'],
           resources: ['user:id:*'],

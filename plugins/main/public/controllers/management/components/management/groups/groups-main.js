@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for groups.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for groups.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@ import React, { Component } from 'react';
 // Redux
 import store from '../../../../../redux/store';
 import WzReduxProvider from '../../../../../redux/wz-redux-provider';
-//Wazuh groups overview
+//Fortishield groups overview
 import WzGroupsOverview from './groups-overview';
 import WzGroupDetail from './group-detail';
 import WzGroupEditor from './groups-editor';

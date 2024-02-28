@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Load a different them depending on IS_DARK_THEME value
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Load a different them depending on IS_DARK_THEME value
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,6 +13,6 @@
 /* eslint-disable no-undef */
 const newSS = document.createElement('link');
 newSS.rel = 'stylesheet';
-newSS.href = '../plugins/wazuh/less/icon-style.css';
+newSS.href = '../plugins/fortishield/less/icon-style.css';
 document.getElementsByTagName('head')[0].appendChild(newSS);
 /* eslint-enable no-undef */

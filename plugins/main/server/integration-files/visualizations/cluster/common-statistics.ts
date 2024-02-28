@@ -5,12 +5,12 @@ export const commonStatisticsByNode = (isClusterMode: boolean) => {
 
   return [
     {
-      _id: 'Wazuh-App-Statistics-Analysisd-Events' + idNodeText,
+      _id: 'Fortishield-App-Statistics-Analysisd-Events' + idNodeText,
       _type: 'visualization',
       _source: {
-        title: 'Wazuh App Statistics Events' + titleNodeText,
+        title: 'Fortishield App Statistics Events' + titleNodeText,
         visState: JSON.stringify({
-          title: 'Wazuh App Statistics Events' + titleNodeText,
+          title: 'Fortishield App Statistics Events' + titleNodeText,
           type: 'line',
           aggs: [
             {
@@ -161,7 +161,7 @@ export const commonStatisticsByNode = (isClusterMode: boolean) => {
         version: 1,
         kibanaSavedObjectMeta: {
           searchSourceJSON: JSON.stringify({
-            index: 'wazuh-statistics-*',
+            index: 'fortishield-statistics-*',
             filter: [],
             query: { query: '', language: 'lucene' },
           }),
@@ -169,12 +169,12 @@ export const commonStatisticsByNode = (isClusterMode: boolean) => {
       },
     },
     {
-      _id: 'Wazuh-App-Statistics-Analysisd-Events-Dropped' + idNodeText,
+      _id: 'Fortishield-App-Statistics-Analysisd-Events-Dropped' + idNodeText,
       _type: 'visualization',
       _source: {
-        title: 'Wazuh App Statistics Events Dropped' + titleNodeText,
+        title: 'Fortishield App Statistics Events Dropped' + titleNodeText,
         visState: JSON.stringify({
-          title: 'Wazuh App Statistics Events Dropped' + titleNodeText,
+          title: 'Fortishield App Statistics Events Dropped' + titleNodeText,
           type: 'line',
           aggs: [
             {
@@ -324,7 +324,7 @@ export const commonStatisticsByNode = (isClusterMode: boolean) => {
         version: 1,
         kibanaSavedObjectMeta: {
           searchSourceJSON: JSON.stringify({
-            index: 'wazuh-statistics-*',
+            index: 'fortishield-statistics-*',
             filter: [],
             query: { query: '', language: 'lucene' },
           }),

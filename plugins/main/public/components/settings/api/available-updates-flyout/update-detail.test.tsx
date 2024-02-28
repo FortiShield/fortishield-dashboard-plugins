@@ -11,7 +11,7 @@ jest.mock(
 );
 
 jest.mock('../../../../kibana-services', () => ({
-  getWazuhCorePlugin: jest.fn().mockReturnValue({
+  getFortishieldCorePlugin: jest.fn().mockReturnValue({
     utils: {
       formatUIDate: jest.fn().mockReturnValue('Sep 25, 2023 @ 14:03:40.816'),
     },
@@ -40,14 +40,14 @@ describe('UpdateDetail component', () => {
             patch: 0,
           },
           tag: 'v4.8.0',
-          title: 'Wazuh v4.8.0',
+          title: 'Fortishield v4.8.0',
         }}
       />,
     );
 
     expect(container).toMatchSnapshot();
 
-    expect(getByText('Wazuh v4.8.0')).toBeInTheDocument();
+    expect(getByText('Fortishield v4.8.0')).toBeInTheDocument();
     expect(getByText('Sep 25, 2023 @ 14:03:40.816')).toBeInTheDocument();
     expect(getByText('Description')).toBeInTheDocument();
   });

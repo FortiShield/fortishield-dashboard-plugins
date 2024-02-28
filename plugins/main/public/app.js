@@ -1,6 +1,6 @@
 /*
- * Wazuh app - File for app requirements and set up
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - File for app requirements and set up
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ import 'angular-aria/angular-aria';
 import 'angular-animate/angular-animate';
 import 'angular-material/angular-material';
 
-// Set up Wazuh app
+// Set up Fortishield app
 import './setup';
 
 //App imports
@@ -93,7 +93,7 @@ app.run([
 app.run(function ($rootElement) {
   $rootElement.append(`
     <div>
-      <div class="wazuhNotReadyYet"></div>
+      <div class="fortishieldNotReadyYet"></div>
       <div ng-view class="mainView"></div>
       <react-component name="WzMenuWrapper" props=""></react-component>
       <react-component name="WzAgentSelectorWrapper" props=""></react-component>

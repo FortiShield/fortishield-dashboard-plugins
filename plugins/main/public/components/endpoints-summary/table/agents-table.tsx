@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component for building the agents table.
+ * Fortishield app - React component for building the agents table.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -293,7 +293,7 @@ export const AgentsTable = compose(
                   ? { node_name: item.node_name }
                   : { node_name: '-' }),
                 /*
-                  The agent version contains the Wazuh word, this gets the string starting with
+                  The agent version contains the Fortishield word, this gets the string starting with
                   v<NUMBER><ANYTHING>
                   */
                 ...(typeof item.version === 'string'

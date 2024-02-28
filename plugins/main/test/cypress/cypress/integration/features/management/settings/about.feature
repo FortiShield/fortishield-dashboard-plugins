@@ -1,11 +1,11 @@
-Feature: Wazuh version information
+Feature: Fortishield version information
 
-  As a wazuh user
+  As a fortishield user
   I want to check the about information
   in order to see information about the system
 
   @about @actions
-  Scenario: Check Wazuh version information
-    Given The wazuh admin user is logged
+  Scenario: Check Fortishield version information
+    Given The fortishield admin user is logged
     When The user navigates to About settings
-    Then The Wazuh information is displayed
+    Then The Fortishield information is displayed

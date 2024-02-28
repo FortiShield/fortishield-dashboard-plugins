@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component building the configuration component.
+ * Fortishield app - React component building the configuration component.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ import {
   EuiSearchBar,
 } from '@elastic/eui';
 import { EuiFormErrorText } from '@elastic/eui';
-import { PLUGIN_PLATFORM_WAZUH_DOCUMENTATION_URL_PATH_APP_CONFIGURATION } from '../../../../../common/constants';
+import { PLUGIN_PLATFORM_FORTISHIELD_DOCUMENTATION_URL_PATH_APP_CONFIGURATION } from '../../../../../common/constants';
 import { getPluginDataPath } from '../../../../../common/plugin';
 import { webDocumentationLink } from '../../../../../common/services/web_documentation';
 
@@ -60,7 +60,7 @@ const Title = () => {
               aria-label="Help"
               target="_blank"
               rel="noopener noreferrer"
-              href={webDocumentationLink(PLUGIN_PLATFORM_WAZUH_DOCUMENTATION_URL_PATH_APP_CONFIGURATION)}
+              href={webDocumentationLink(PLUGIN_PLATFORM_FORTISHIELD_DOCUMENTATION_URL_PATH_APP_CONFIGURATION)}
             ></EuiButtonIcon>
           </EuiToolTip>
         </h2>
@@ -73,7 +73,7 @@ const SubTitle = () => {
   return (
     <EuiFlexItem >
       <EuiText color="subdued" style={{ paddingBottom: '15px' }}>
-        Configuration file located at {getPluginDataPath('config/wazuh.yml')}
+        Configuration file located at {getPluginDataPath('config/fortishield.yml')}
       </EuiText>
     </EuiFlexItem>
   )

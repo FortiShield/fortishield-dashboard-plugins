@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Overview/Docker visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Overview/Docker visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Overview-Docker-Events-By-Source-Over-Time',
+    _id: 'Fortishield-App-Overview-Docker-Events-By-Source-Over-Time',
     _type: 'visualization',
     _source: {
       title: 'Events by source over time',
@@ -145,7 +145,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -153,7 +153,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Docker-top-5-images',
+    _id: 'Fortishield-App-Overview-Docker-top-5-images',
     _type: 'visualization',
     _source: {
       title: 'Top 5 images',
@@ -204,7 +204,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -212,7 +212,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Docker-top-5-events',
+    _id: 'Fortishield-App-Overview-Docker-top-5-events',
     _type: 'visualization',
     _source: {
       title: 'Top 5 events',
@@ -263,7 +263,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -271,7 +271,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Docker-Events-summary',
+    _id: 'Fortishield-App-Overview-Docker-Events-summary',
     _type: 'visualization',
     _source: {
       title: 'Events summary',
@@ -354,7 +354,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -362,7 +362,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Docker-Types-over-time',
+    _id: 'Fortishield-App-Overview-Docker-Types-over-time',
     _type: 'visualization',
     _source: {
       title: 'Events',
@@ -514,7 +514,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -522,7 +522,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Docker-Events',
+    _id: 'Fortishield-App-Overview-Docker-Events',
     _type: 'visualization',
     _source: {
       title: 'Events',
@@ -674,7 +674,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Button with Wazuh API permissions and/or roles required to be useful
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Button with Fortishield API permissions and/or roles required to be useful
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

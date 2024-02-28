@@ -1,5 +1,5 @@
-var storeWazuh = stores.open('storeWazuh');
-var deletePolicies = storeWazuh.load('deletePolicies');
+var storeFortishield = stores.open('storeFortishield');
+var deletePolicies = storeFortishield.load('deletePolicies');
 
 switch (deletePolicies) {
   case false:
@@ -8,7 +8,7 @@ switch (deletePolicies) {
       .withFile('security/policies/get-policies.json');
     break;
   case true:
-    storeWazuh.save('deletePolicies', false);
+    storeFortishield.save('deletePolicies', false);
     respond()
       .withStatusCode(200)
       .withFile('security/policies/get-policies-after-delete.json');

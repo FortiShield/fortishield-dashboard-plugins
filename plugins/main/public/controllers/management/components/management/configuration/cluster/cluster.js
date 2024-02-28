@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for show configuration of cluster.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for show configuration of cluster.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,11 +40,11 @@ const mainSettings = [
 
 const helpLinks = [
   {
-    text: 'Configuring a Wazuh cluster',
+    text: 'Configuring a Fortishield cluster',
     href: webDocumentationLink('user-manual/configuring-cluster/index.html')
   },
   {
-    text: 'Wazuh cluster reference',
+    text: 'Fortishield cluster reference',
     href: webDocumentationLink('user-manual/reference/ossec-conf/cluster.html')
   }
 ];
@@ -54,7 +54,7 @@ class WzCluster extends Component {
     super(props);
   }
   render() {
-    const { currentConfig, wazuhNotReadyYet } = this.props;
+    const { currentConfig, fortishieldNotReadyYet } = this.props;
     let mainSettingsConfig = {
       ...currentConfig['com-cluster'],
       disabled:
@@ -66,9 +66,9 @@ class WzCluster extends Component {
           isString(currentConfig['com-cluster']) && (
             <WzNoConfig error={currentConfig['com-cluster']} help={helpLinks} />
           )}
-        {wazuhNotReadyYet &&
+        {fortishieldNotReadyYet &&
           (!currentConfig || !currentConfig['com-cluster']) && (
-            <WzNoConfig error="Wazuh not ready yet" help={helpLinks} />
+            <WzNoConfig error="Fortishield not ready yet" help={helpLinks} />
           )}
         {currentConfig['com-cluster'] &&
           !isString(currentConfig['com-cluster']) && (
@@ -90,11 +90,11 @@ class WzCluster extends Component {
 const sections = [{ component: 'com', configuration: 'cluster' }];
 
 const mapStateToProps = state => ({
-  wazuhNotReadyYet: state.appStateReducers.wazuhNotReadyYet
+  fortishieldNotReadyYet: state.appStateReducers.fortishieldNotReadyYet
 });
 
 WzCluster.propTypes = {
-  wazuhNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+  fortishieldNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };
 
 export default compose(

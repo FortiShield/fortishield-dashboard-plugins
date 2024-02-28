@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Authentication service for Wazuh
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Authentication service for Fortishield
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,14 +20,14 @@ import {
   updateWithUserLogged,
   updateAllowedAgents,
 } from '../redux/actions/appStateActions';
-import { UI_LOGGER_LEVELS, WAZUH_ROLE_ADMINISTRATOR_ID, WAZUH_ROLE_ADMINISTRATOR_NAME } from '../../common/constants';
+import { UI_LOGGER_LEVELS, FORTISHIELD_ROLE_ADMINISTRATOR_ID, FORTISHIELD_ROLE_ADMINISTRATOR_NAME } from '../../common/constants';
 import { getToasts } from '../kibana-services';
 import { getAuthorizedAgents } from '../react-services/wz-agents';
 import { UI_ERROR_SEVERITIES, UIErrorLog, UIErrorSeverity, UILogLevel } from './error-orchestrator/types';
 import { getErrorOrchestrator } from './common-services';
 
 /**
- * Wazuh user authentication class
+ * Fortishield user authentication class
  */
 export class WzAuthentication {
   /**
@@ -137,12 +137,12 @@ export class WzAuthentication {
    */
   private static mapUserRolesIDToAdministratorRole(roles) {
     return roles.map((role: number) =>
-      role === WAZUH_ROLE_ADMINISTRATOR_ID ? WAZUH_ROLE_ADMINISTRATOR_NAME : role
+      role === FORTISHIELD_ROLE_ADMINISTRATOR_ID ? FORTISHIELD_ROLE_ADMINISTRATOR_NAME : role
     );
   }
 
   /**
-   * Sends a request to the Wazuh's API to delete the user's token.
+   * Sends a request to the Fortishield's API to delete the user's token.
    *
    * @returns {Object}
    */

@@ -9,7 +9,7 @@ import {
   EuiSpacer,
 } from '@elastic/eui';
 
-// Wazuh components
+// Fortishield components
 import {
   withUserAuthorizationPrompt,
   withGlobalBreadcrumb,

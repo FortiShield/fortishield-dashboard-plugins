@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for render add modules data
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for render add modules data
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -72,7 +72,7 @@ class WzAddModulesData extends Component<
     // 								layout='horizontal'
     // 								icon={(<EuiIcon size='xl' type={extension.icon} />) }
     // 								title={extension.name}
-    // 								description={(WAZUH_MODULES[extension.id] && WAZUH_MODULES[extension.id].description) || extension.description}
+    // 								description={(FORTISHIELD_MODULES[extension.id] && FORTISHIELD_MODULES[extension.id].description) || extension.description}
     // 								onClick={() => this.changeGuide(extension.id) }
     // 							/>
     // 						</EuiFlexItem>

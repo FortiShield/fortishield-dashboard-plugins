@@ -14,7 +14,7 @@ type ITokens = IToken[];
 /* API Query Language
 Define the API Query Language to use in the search bar.
 It is based in the language used by the q query parameter.
-https://documentation.wazuh.com/current/user-manual/api/queries.html
+https://documentation.fortishield.com/current/user-manual/api/queries.html
 
 Use the regular expression of API with some modifications to allow the decomposition of
 input in entities that doesn't compose a valid query. It allows get not-completed queries.
@@ -93,7 +93,7 @@ const mapSuggestionCreatorValue = mapSuggestionCreator('value');
  */
 export function tokenizer(input: string): ITokens {
   // API regular expression
-  // https://github.com/wazuh/wazuh/blob/v4.4.0-rc1/framework/wazuh/core/utils.py#L1242-L1257
+  // https://github.com/fortishield/fortishield/blob/v4.4.0-rc1/framework/fortishield/core/utils.py#L1242-L1257
   //   self.query_regex = re.compile(
   //     # A ( character.
   //     r"(\()?" +

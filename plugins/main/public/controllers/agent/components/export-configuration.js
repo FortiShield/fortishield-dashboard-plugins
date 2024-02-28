@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for exporting the configuration of a group.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for exporting the configuration of a group.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@ import {
 
 import PropTypes from 'prop-types';
 import { UnsupportedComponents } from '../../../utils/components-os-support';
-import { WAZUH_AGENTS_OS_TYPE } from '../../../../common/constants';
+import { FORTISHIELD_AGENTS_OS_TYPE } from '../../../../common/constants';
 import { withErrorBoundary } from '../../../components/common/hocs';
 
 export const ExportConfiguration = withErrorBoundary (class ExportConfiguration extends Component {
@@ -59,7 +59,7 @@ export const ExportConfiguration = withErrorBoundary (class ExportConfiguration 
         (x.name &&
           !(
             UnsupportedComponents[this.props.agentPlatform] ||
-            UnsupportedComponents[WAZUH_AGENTS_OS_TYPE.OTHERS]
+            UnsupportedComponents[FORTISHIELD_AGENTS_OS_TYPE.OTHERS]
           ).includes(x.name))
       ) {
         this.options.push({ id: `${idx}`, label: x.desc || x });

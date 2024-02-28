@@ -1,7 +1,7 @@
 /*
- * Wazuh app - Health Check Component
+ * Fortishield app - Health Check Component
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,10 +34,10 @@ import { getCore, getHttp, getWzCurrentAppID } from '../../../kibana-services';
 import {
   HEALTH_CHECK_REDIRECTION_TIME,
   NOT_TIME_FIELD_NAME_INDEX_PATTERN,
-  WAZUH_INDEX_TYPE_MONITORING,
-  WAZUH_INDEX_TYPE_STATISTICS,
-  WAZUH_INDEX_TYPE_VULNERABILITIES,
-  WAZUH_INDEX_TYPE_FIM,
+  FORTISHIELD_INDEX_TYPE_MONITORING,
+  FORTISHIELD_INDEX_TYPE_STATISTICS,
+  FORTISHIELD_INDEX_TYPE_VULNERABILITIES,
+  FORTISHIELD_INDEX_TYPE_FIM,
 } from '../../../../common/constants';
 
 import { compose } from 'redux';
@@ -47,14 +47,14 @@ import { RedirectAppLinks } from '../../../../../../src/plugins/opensearch_dashb
 
 const checks = {
   api: {
-    title: 'Check Wazuh API connection',
+    title: 'Check Fortishield API connection',
     label: 'API connection',
     validator: checkApiService,
     awaitFor: [],
     canRetry: true,
   },
   setup: {
-    title: 'Check Wazuh API version',
+    title: 'Check Fortishield API version',
     label: 'API version',
     validator: checkSetupService,
     awaitFor: ['api'],
@@ -72,8 +72,8 @@ const checks = {
     label: 'Monitoring index pattern',
     validator: appConfig =>
       checkPatternSupportService(
-        appConfig.data['wazuh.monitoring.pattern'],
-        WAZUH_INDEX_TYPE_MONITORING,
+        appConfig.data['fortishield.monitoring.pattern'],
+        FORTISHIELD_INDEX_TYPE_MONITORING,
       ),
     awaitFor: [],
     shouldCheck: true,
@@ -85,7 +85,7 @@ const checks = {
     validator: appConfig =>
       checkPatternSupportService(
         `${appConfig.data['cron.prefix']}-${appConfig.data['cron.statistics.index.name']}-*`,
-        WAZUH_INDEX_TYPE_STATISTICS,
+        FORTISHIELD_INDEX_TYPE_STATISTICS,
       ),
     awaitFor: [],
     shouldCheck: true,
@@ -97,7 +97,7 @@ const checks = {
     validator: appConfig =>
       checkPatternSupportService(
         appConfig.data['vulnerabilities.pattern'],
-        WAZUH_INDEX_TYPE_VULNERABILITIES,
+        FORTISHIELD_INDEX_TYPE_VULNERABILITIES,
         NOT_TIME_FIELD_NAME_INDEX_PATTERN,
       ),
     awaitFor: [],
@@ -110,7 +110,7 @@ const checks = {
     validator: appConfig =>
       checkPatternSupportService(
         appConfig.data['fim.pattern'],
-        WAZUH_INDEX_TYPE_FIM,
+        FORTISHIELD_INDEX_TYPE_FIM,
         NOT_TIME_FIELD_NAME_INDEX_PATTERN,
       ),
     awaitFor: [],

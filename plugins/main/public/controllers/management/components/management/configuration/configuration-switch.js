@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for show chose section in configuration.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for show chose section in configuration.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -478,7 +478,7 @@ class WzConfigurationSwitch extends Component {
 const mapStateToProps = state => ({
   clusterNodes: state.configurationReducers.clusterNodes,
   clusterNodeSelected: state.configurationReducers.clusterNodeSelected,
-  wazuhNotReadyYet: state.appStateReducers.wazuhNotReadyYet,
+  fortishieldNotReadyYet: state.appStateReducers.fortishieldNotReadyYet,
 });
 
 const mapDispatchToProps = dispatch => ({

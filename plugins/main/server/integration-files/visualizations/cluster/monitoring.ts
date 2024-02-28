@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Cluster monitoring visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Cluster monitoring visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,12 +11,12 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Cluster-monitoring-Overview',
+    _id: 'Fortishield-App-Cluster-monitoring-Overview',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Cluster Overview',
+      title: 'Fortishield App Cluster Overview',
       visState: JSON.stringify({
-        title: 'Wazuh App Cluster Overview',
+        title: 'Fortishield App Cluster Overview',
         type: 'timelion',
         params: { expression: '.es(*)', interval: 'auto' },
         aggs: [],
@@ -26,7 +26,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -34,12 +34,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Cluster-monitoring-Overview-Manager',
+    _id: 'Fortishield-App-Cluster-monitoring-Overview-Manager',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Cluster Overview Manager',
+      title: 'Fortishield App Cluster Overview Manager',
       visState: JSON.stringify({
-        title: 'Wazuh App Cluster Overview Manager',
+        title: 'Fortishield App Cluster Overview Manager',
         type: 'timelion',
         params: { expression: '.es(q=agent.id:000)', interval: 'auto' },
         aggs: [],
@@ -49,7 +49,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -57,11 +57,11 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Cluster-monitoring-Overview-Node',
+    _id: 'Fortishield-App-Cluster-monitoring-Overview-Node',
     _source: {
-      title: 'Wazuh App Cluster Overview Node',
+      title: 'Fortishield App Cluster Overview Node',
       visState: JSON.stringify({
-        title: 'Wazuh App Cluster Overview Node',
+        title: 'Fortishield App Cluster Overview Node',
         type: 'histogram',
         params: {
           type: 'histogram',
@@ -133,7 +133,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -142,12 +142,12 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Cluster-monitoring-Overview-Node-Pie',
+    _id: 'Fortishield-App-Cluster-monitoring-Overview-Node-Pie',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Cluster Overview Node Pie',
+      title: 'Fortishield App Cluster Overview Node Pie',
       visState: JSON.stringify({
-        title: 'Wazuh App Cluster Overview Node Pie',
+        title: 'Fortishield App Cluster Overview Node Pie',
         type: 'pie',
         params: {
           type: 'pie',
@@ -182,7 +182,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

@@ -1,12 +1,12 @@
 import { PluginInitializer, PluginInitializerContext } from 'opensearch_dashboards/public';
-import { WazuhPlugin } from './plugin';
-import { WazuhSetup, WazuhSetupPlugins, WazuhStart, WazuhStartPlugins } from './types';
+import { FortishieldPlugin } from './plugin';
+import { FortishieldSetup, FortishieldSetupPlugins, FortishieldStart, FortishieldStartPlugins } from './types';
 
-export const plugin: PluginInitializer<WazuhSetup, WazuhStart, WazuhSetupPlugins, WazuhStartPlugins> = (
+export const plugin: PluginInitializer<FortishieldSetup, FortishieldStart, FortishieldSetupPlugins, FortishieldStartPlugins> = (
   initializerContext: PluginInitializerContext
 ) => {
-  return new WazuhPlugin(initializerContext);
+  return new FortishieldPlugin(initializerContext);
 };
 
 // These are your public types & static code
-export { WazuhSetup, WazuhStart };
+export { FortishieldSetup, FortishieldStart };

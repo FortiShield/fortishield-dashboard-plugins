@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component building the configuration component.
+ * Fortishield app - React component building the configuration component.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ import {
   PLUGIN_SETTINGS,
   PLUGIN_SETTINGS_CATEGORIES,
   UI_LOGGER_LEVELS,
-  WAZUH_ROLE_ADMINISTRATOR_NAME,
+  FORTISHIELD_ROLE_ADMINISTRATOR_NAME,
 } from '../../../../common/constants';
 import { compose } from 'redux';
 import {
@@ -382,5 +382,5 @@ const WzConfigurationSettingsProvider = props => {
 export const WzConfigurationSettings = compose(
   withErrorBoundary,
   withReduxProvider,
-  withUserAuthorizationPrompt(null, [WAZUH_ROLE_ADMINISTRATOR_NAME]),
+  withUserAuthorizationPrompt(null, [FORTISHIELD_ROLE_ADMINISTRATOR_NAME]),
 )(WzConfigurationSettingsProvider);

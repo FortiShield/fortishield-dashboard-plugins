@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for custom kibana visualizations.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for custom kibana visualizations.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -116,7 +116,7 @@ class KibanaVis extends Component {
       // is changed, which affects the entire application.
       //
       // Related issue:
-      // https://github.com/wazuh/wazuh-dashboard-plugins/issues/4158
+      // https://github.com/fortishield/fortishield-dashboard-plugins/issues/4158
       if (this.deadField) {
         return this.renderComplete();
       }
@@ -226,7 +226,7 @@ class KibanaVis extends Component {
     try {
       const discoverList = this.discoverPendingUpdates.getList();
       const isAgentStatus =
-        this.visID === 'Wazuh-App-Overview-General-Agents-status';
+        this.visID === 'Fortishield-App-Overview-General-Agents-status';
       const timeFilterSeconds = this.calculateTimeFilterSeconds(
         timefilter.getTime(),
       );
@@ -238,7 +238,7 @@ class KibanaVis extends Component {
         ? [
             {
               meta: {
-                index: 'wazuh-monitoring-*',
+                index: 'fortishield-monitoring-*',
                 alias: null,
                 negate: false,
                 disabled: false,
@@ -438,7 +438,7 @@ class KibanaVis extends Component {
             }
           }, 1000);
         }
-      } else if (this.visID !== 'Wazuh-App-Overview-General-Agents-status') {
+      } else if (this.visID !== 'Fortishield-App-Overview-General-Agents-status') {
         this.$rootScope.rendered = 'false';
       }
     }
@@ -450,7 +450,7 @@ class KibanaVis extends Component {
     return (
       !this.deadField &&
       !this.state.visRefreshingIndex &&
-      this.visID === 'Wazuh-App-Overview-General-Agents-status'
+      this.visID === 'Fortishield-App-Overview-General-Agents-status'
     );
   };
 

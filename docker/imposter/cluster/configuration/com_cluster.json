@@ -3,7 +3,7 @@
     "affected_items": [
       {
         "disabled": false,
-        "name": "wazuh1",
+        "name": "fortishield1",
         "node_name": "master",
         "node_type": "master",
         "key": "test1234",

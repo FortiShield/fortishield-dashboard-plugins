@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Error handler service
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Error handler service
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,14 +11,14 @@
  */
 import { AxiosError, AxiosResponse } from 'axios';
 import { ErrorFactory } from './error-factory';
-import { IndexerApiError, WazuhReportingError, HttpError, WazuhApiError } from './errors';
-import WazuhError from './errors/WazuhError';
+import { IndexerApiError, FortishieldReportingError, HttpError, FortishieldApiError } from './errors';
+import FortishieldError from './errors/FortishieldError';
 
 const response: AxiosResponse = {
   data: {
     statusCode: 500,
     error: 'Internal Server Error',
-    message: '3099 - ERROR3099 - Wazuh not ready yet',
+    message: '3099 - ERROR3099 - Fortishield not ready yet',
   },
   status: 500,
   statusText: 'Internal Server Error',
@@ -30,8 +30,8 @@ const response: AxiosResponse = {
 describe('Error Factory', () => {
   it.each([
     { errorType: IndexerApiError, name: 'IndexerApiError' },
-    { errorType: WazuhApiError, name: 'WazuhApiError' },
-    { errorType: WazuhReportingError, name: 'WazuhReportingError' },
+    { errorType: FortishieldApiError, name: 'FortishieldApiError' },
+    { errorType: FortishieldReportingError, name: 'FortishieldReportingError' },
     { errorType: HttpError, name: 'HttpError' },
   ])(
     'Should return a $name when receive and error and error type',
@@ -60,16 +60,16 @@ describe('Error Factory', () => {
       ...response,
       stack: error.stack,
     };
-    const errorCreated = ErrorFactory.create(WazuhApiError, {
+    const errorCreated = ErrorFactory.create(FortishieldApiError, {
       error,
       message: response.data.message,
     });
-    expect(errorCreated.name).toBe('WazuhApiError');
+    expect(errorCreated.name).toBe('FortishieldApiError');
     expect(errorCreated.stack).toBe(error.stack);
     expect(typeof errorCreated).not.toBe('string');
   });
 
-  it('Should return a new ERROR instance of WazuhError(the parent class)', () => {
+  it('Should return a new ERROR instance of FortishieldError(the parent class)', () => {
     // creating an error with response property
     let error = new Error('Error') as AxiosError;
     error = {
@@ -77,11 +77,11 @@ describe('Error Factory', () => {
       ...response,
       stack: error.stack,
     };
-    const errorCreated = ErrorFactory.create(WazuhApiError, {
+    const errorCreated = ErrorFactory.create(FortishieldApiError, {
       error,
       message: response.data.message,
     });
-    expect(errorCreated).toBeInstanceOf(WazuhError);
+    expect(errorCreated).toBeInstanceOf(FortishieldError);
   });
 
   it('Should return a new ERROR with the error type received like class name', () => {
@@ -92,10 +92,10 @@ describe('Error Factory', () => {
       ...response,
       stack: error.stack,
     };
-    const errorCreated = ErrorFactory.create(WazuhApiError, {
+    const errorCreated = ErrorFactory.create(FortishieldApiError, {
       error,
       message: response.data.message,
     });
-    expect(errorCreated.name).toBe('WazuhApiError');
+    expect(errorCreated.name).toBe('FortishieldApiError');
   });
 });

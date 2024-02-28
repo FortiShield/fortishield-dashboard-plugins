@@ -1,44 +1,44 @@
 <p align="center">
-    <img width="640px" src="https://wazuh.com/uploads/2022/05/Logo-blogpost.png"/>
+    <img width="640px" src="https://fortishield.com/uploads/2022/05/Logo-blogpost.png"/>
 </p>
 <p align="center">
-    <a href="https://wazuh.com/community/join-us-on-slack">
+    <a href="https://fortishield.com/community/join-us-on-slack">
         <img src="https://img.shields.io/badge/slack-join-blue.svg" />
     </a>
-    <a href="https://groups.google.com/forum/#!forum/wazuh">
+    <a href="https://groups.google.com/forum/#!forum/fortishield">
         <img src="https://img.shields.io/badge/email-join-blue.svg" />
     </a>
-    <a href="https://documentation.wazuh.com">
+    <a href="https://documentation.fortishield.com">
         <img src="https://img.shields.io/badge/docs-view-green.svg" />
     </a>
-    <a href="https://wazuh.com">
+    <a href="https://fortishield.com">
         <img src="https://img.shields.io/badge/web-view-green.svg" />
     </a>
 </p>
 
 - [Welcome](#welcome)
 - [Project resources](#project-resources)
-- [Wazuh UI](#wazuh-ui)
+- [Fortishield UI](#fortishield-ui)
 - [Contribute](#contribute)
 - [License](#license)
 - [Copyright](#copyright)
 
 <!--
-[![Slack](https://img.shields.io/badge/slack-join-blue.svg)](https://wazuh.com/community/join-us-on-slack/)
-[![Email](https://img.shields.io/badge/email-join-blue.svg)](https://groups.google.com/forum/#!forum/wazuh)
-[![Documentation](https://img.shields.io/badge/docs-view-green.svg)](https://documentation.wazuh.com)
-[![Documentation](https://img.shields.io/badge/web-view-green.svg)](https://wazuh.com)
+[![Slack](https://img.shields.io/badge/slack-join-blue.svg)](https://fortishield.com/community/join-us-on-slack/)
+[![Email](https://img.shields.io/badge/email-join-blue.svg)](https://groups.google.com/forum/#!forum/fortishield)
+[![Documentation](https://img.shields.io/badge/docs-view-green.svg)](https://documentation.fortishield.com)
+[![Documentation](https://img.shields.io/badge/web-view-green.svg)](https://fortishield.com)
 -->
 
 ## Welcome
 
-This repository contains a set of plugins for [Wazuh dashboard][dashboard].
+This repository contains a set of plugins for [Fortishield dashboard][dashboard].
 
-Wazuh is a security detection, visibility, and compliance open source project. Wazuh helps
+Fortishield is a security detection, visibility, and compliance open source project. Fortishield helps
 you to gain deeper security visibility into your infrastructure by monitoring hosts at an
 operating system and application level.
 
-You can learn more about it at [wazuh.com][web]
+You can learn more about it at [fortishield.com][web]
 
 ## Project resources
 
@@ -54,7 +54,7 @@ You can learn more about it at [wazuh.com][web]
   <!-- - [Release Management](RELEASING.md) -->
   <!-- - [Testing](TESTING.md) -->
 
-## Wazuh UI
+## Fortishield UI
 
 **Overview**
 
@@ -114,12 +114,12 @@ version 2 of the License, or (at your option) any later version.
 
 ## Copyright
 
-- Copyright &copy; Wazuh, Inc.
+- Copyright &copy; Fortishield, Inc.
 
-[dashboard]: https://github.com/wazuh/wazuh-dashboard
-[web]: https://wazuh.com
-[docs]: https://documentation.wazuh.com
-[install]: https://documentation.wazuh.com/current/installation-guide/index.html
-[slack]: https://join.slack.com/t/wazuh/shared_invite/zt-1lgu531ur-7M_k_ZQbpdo4QCn_pHee3w
-[branches]: https://github.com/wazuh/wazuh-dashboard-plugins/wiki/About-our-branches-and-tags
-[wiki]: https://github.com/wazuh/wazuh-dashboard-plugins/wiki
+[dashboard]: https://github.com/fortishield/fortishield-dashboard
+[web]: https://fortishield.com
+[docs]: https://documentation.fortishield.com
+[install]: https://documentation.fortishield.com/current/installation-guide/index.html
+[slack]: https://join.slack.com/t/fortishield/shared_invite/zt-1lgu531ur-7M_k_ZQbpdo4QCn_pHee3w
+[branches]: https://github.com/fortishield/fortishield-dashboard-plugins/wiki/About-our-branches-and-tags
+[wiki]: https://github.com/fortishield/fortishield-dashboard-plugins/wiki

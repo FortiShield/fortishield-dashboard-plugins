@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Agents/GDPR visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Agents/GDPR visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Agents-GDPR-Groups',
+    _id: 'Fortishield-App-Agents-GDPR-Groups',
     _source: {
       title: 'Top 5 rule groups',
       visState: JSON.stringify({
@@ -40,7 +40,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -49,7 +49,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-GDPR-Rule',
+    _id: 'Fortishield-App-Agents-GDPR-Rule',
     _source: {
       title: 'Top 5 rules',
       visState: JSON.stringify({
@@ -78,7 +78,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -87,7 +87,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-GDPR-Requirement',
+    _id: 'Fortishield-App-Agents-GDPR-Requirement',
     _source: {
       title: 'Top 5 requirements',
       visState: JSON.stringify({
@@ -116,7 +116,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -125,7 +125,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-GDPR-Rule-level-distribution',
+    _id: 'Fortishield-App-Agents-GDPR-Rule-level-distribution',
     _source: {
       title: 'Rule level distribution',
       visState: JSON.stringify({
@@ -164,7 +164,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -173,7 +173,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-GDPR-Requirements',
+    _id: 'Fortishield-App-Agents-GDPR-Requirements',
     _source: {
       title: 'Requirements',
       visState: JSON.stringify({
@@ -253,7 +253,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -262,7 +262,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-GDPR-Last-alerts',
+    _id: 'Fortishield-App-Agents-GDPR-Last-alerts',
     _type: 'visualization',
     _source: {
       title: 'Last alerts',
@@ -323,7 +323,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

@@ -1,7 +1,7 @@
 var id = context.request.queryParams.role_ids;
-var storeWazuh = stores.open('storeWazuh');
+var storeFortishield = stores.open('storeFortishield');
 
-storeWazuh.save('deleteRole', true);
+storeFortishield.save('deleteRole', true);
 
 var data = {
   data: {

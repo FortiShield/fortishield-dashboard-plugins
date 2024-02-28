@@ -1,8 +1,8 @@
 /*
- * Wazuh app - React component building the welcome screen of an agent.
+ * Fortishield app - React component building the welcome screen of an agent.
  * version, OS, registration date, last keep alive.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@
  */
 
 import { IFilterParams, getElasticAlerts, getIndexPattern } from '../../../../../overview/mitre/lib';
-import { getWazuhFilter } from '../../fim_events_table';
+import { getFortishieldFilter } from '../../fim_events_table';
 import { buildPhraseFilter, buildExistsFilter } from '../../../../../../../../../src/plugins/data/common';
 
 export async function getRequirementAlerts(agentId, time, requirement) {
@@ -48,9 +48,9 @@ function createFilters(agentId, indexPattern) {
     "$state": { "store": "appState" }
   }
 }
-  const wazuhFilter = getWazuhFilter();
+  const fortishieldFilter = getFortishieldFilter();
   const filters = [
-    wazuhFilter,
+    fortishieldFilter,
     { name: 'agent.id', value: agentId },
   ];
   return filters.map(filter);

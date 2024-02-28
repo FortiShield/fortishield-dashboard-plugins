@@ -8,8 +8,8 @@
   {
     "C": "US",
     "L": "California",
-    "O": "Wazuh",
-    "OU": "Wazuh"
+    "O": "Fortishield",
+    "OU": "Fortishield"
   }
   ],
   "hosts": [

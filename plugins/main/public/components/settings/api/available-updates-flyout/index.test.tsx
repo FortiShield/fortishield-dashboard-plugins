@@ -27,7 +27,7 @@ describe('AvailableUpdatesFlyout component', () => {
               patch: 8,
             },
             tag: 'v4.3.8',
-            title: 'Wazuh v4.3.8',
+            title: 'Fortishield v4.3.8',
           },
         }}
       />

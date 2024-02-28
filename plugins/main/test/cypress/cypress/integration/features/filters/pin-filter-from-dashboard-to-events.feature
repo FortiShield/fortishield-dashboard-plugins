@@ -1,10 +1,10 @@
 Feature: Pin filter - from dashboard to event page
 
-  As a Wazuh user
+  As a Fortishield user
   I want to pin a filter
   in order to aplly it across the modules
   Background:
-    Given The wazuh admin user is logged
+    Given The fortishield admin user is logged
 
   @filter @actions
   Scenario Outline: The user add and pin new filer - across the modules - from dashboard to event page <Module Name>

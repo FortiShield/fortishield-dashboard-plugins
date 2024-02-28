@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Error handler service
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Error handler service
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -10,7 +10,7 @@
  * Find more information about this on the LICENSE file.
  */
 import store from '../redux/store';
-import { updateWazuhNotReadyYet } from '../redux/actions/appStateActions';
+import { updateFortishieldNotReadyYet } from '../redux/actions/appStateActions';
 import { WzRequest } from './wz-request';
 import { delayAsPromise } from '../../common/utils';
 
@@ -29,7 +29,7 @@ export class CheckDaemonsStatus {
         const result = await WzRequest.apiReq('GET', '/ping', {});
         isValid = ((result || {}).data || {}).isValid;
         if (isValid) {
-          const updateNotReadyYet = updateWazuhNotReadyYet(false);
+          const updateNotReadyYet = updateFortishieldNotReadyYet(false);
           store.dispatch(updateNotReadyYet);
           break;
         }
@@ -39,7 +39,7 @@ export class CheckDaemonsStatus {
         throw new Error('Not recovered');
       }
     } catch (error) {
-      store.dispatch(updateWazuhNotReadyYet('Wazuh could not be recovered.'));
+      store.dispatch(updateFortishieldNotReadyYet('Fortishield could not be recovered.'));
       throw error;
     }
     busy = false;

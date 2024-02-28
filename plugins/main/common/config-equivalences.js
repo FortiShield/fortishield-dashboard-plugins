@@ -3,7 +3,7 @@ import { ASSETS_PUBLIC_URL, PLUGIN_PLATFORM_NAME } from './constants';
 export const configEquivalences = {
   pattern:
     "Default index pattern to use on the app. If there's no valid index pattern, the app will automatically create one with the name indicated in this option.",
-  'customization.logo.app': `Set the name of the app logo stored at ${ASSETS_PUBLIC_URL}.  It is used while the user is logging into Wazuh API.`,
+  'customization.logo.app': `Set the name of the app logo stored at ${ASSETS_PUBLIC_URL}.  It is used while the user is logging into Fortishield API.`,
   'customization.logo.healthcheck': `Set the name of the health-check logo stored at ${ASSETS_PUBLIC_URL}`,
   'customization.logo.reports': `Set the name of the reports logo (.png) stored at ${ASSETS_PUBLIC_URL}`,
   'checks.pattern':
@@ -23,22 +23,22 @@ export const configEquivalences = {
   'ip.selector':
     'Define if the user is allowed to change the selected index pattern directly from the top menu bar.',
   'ip.ignore':
-    'Disable certain index pattern names from being available in index pattern selector from the Wazuh app.',
-  'wazuh.monitoring.enabled':
-    'Enable or disable the wazuh-monitoring index creation and/or visualization.',
-  'wazuh.monitoring.frequency':
-    'Frequency, in seconds, of API requests to get the state of the agents and create a new document in the wazuh-monitoring index with this data.',
-  'wazuh.monitoring.shards':
-    'Define the number of shards to use for the wazuh-monitoring-* indices.',
-  'wazuh.monitoring.replicas':
-    'Define the number of replicas to use for the wazuh-monitoring-* indices.',
-  'wazuh.monitoring.creation':
-    'Define the interval in which a new wazuh-monitoring index will be created.',
-  'wazuh.monitoring.pattern':
-    'Default index pattern to use for Wazuh monitoring.',
+    'Disable certain index pattern names from being available in index pattern selector from the Fortishield app.',
+  'fortishield.monitoring.enabled':
+    'Enable or disable the fortishield-monitoring index creation and/or visualization.',
+  'fortishield.monitoring.frequency':
+    'Frequency, in seconds, of API requests to get the state of the agents and create a new document in the fortishield-monitoring index with this data.',
+  'fortishield.monitoring.shards':
+    'Define the number of shards to use for the fortishield-monitoring-* indices.',
+  'fortishield.monitoring.replicas':
+    'Define the number of replicas to use for the fortishield-monitoring-* indices.',
+  'fortishield.monitoring.creation':
+    'Define the interval in which a new fortishield-monitoring index will be created.',
+  'fortishield.monitoring.pattern':
+    'Default index pattern to use for Fortishield monitoring.',
   hideManagerAlerts: 'Hide the alerts of the manager in every dashboard.',
   'enrollment.dns':
-    'Specifies the Wazuh registration server, used for the agent enrollment.',
+    'Specifies the Fortishield registration server, used for the agent enrollment.',
   'enrollment.password':
     'Specifies the password used to authenticate during the agent enrollment.',
   'cron.prefix': 'Define the index prefix of predefined jobs.',
@@ -77,12 +77,12 @@ export const nameEquivalence = {
   timeout: 'Request timeout',
   'ip.selector': 'IP selector',
   'ip.ignore': 'IP ignore',
-  'wazuh.monitoring.enabled': 'Status',
-  'wazuh.monitoring.frequency': 'Frequency',
-  'wazuh.monitoring.shards': 'Index shards',
-  'wazuh.monitoring.replicas': 'Index replicas',
-  'wazuh.monitoring.creation': 'Index creation',
-  'wazuh.monitoring.pattern': 'Index pattern',
+  'fortishield.monitoring.enabled': 'Status',
+  'fortishield.monitoring.frequency': 'Frequency',
+  'fortishield.monitoring.shards': 'Index shards',
+  'fortishield.monitoring.replicas': 'Index replicas',
+  'fortishield.monitoring.creation': 'Index creation',
+  'fortishield.monitoring.pattern': 'Index pattern',
   hideManagerAlerts: 'Hide manager alerts',
   'enrollment.dns': 'Enrollment DNS',
   'cron.prefix': 'Cron prefix',
@@ -133,12 +133,12 @@ export const categoriesEquivalence = {
   timeout: GENERAL,
   'ip.selector': GENERAL,
   'ip.ignore': GENERAL,
-  'wazuh.monitoring.enabled': MONITORING,
-  'wazuh.monitoring.frequency': MONITORING,
-  'wazuh.monitoring.shards': MONITORING,
-  'wazuh.monitoring.replicas': MONITORING,
-  'wazuh.monitoring.creation': MONITORING,
-  'wazuh.monitoring.pattern': MONITORING,
+  'fortishield.monitoring.enabled': MONITORING,
+  'fortishield.monitoring.frequency': MONITORING,
+  'fortishield.monitoring.shards': MONITORING,
+  'fortishield.monitoring.replicas': MONITORING,
+  'fortishield.monitoring.creation': MONITORING,
+  'fortishield.monitoring.pattern': MONITORING,
   hideManagerAlerts: GENERAL,
   'enrollment.dns': GENERAL,
   'cron.prefix': GENERAL,
@@ -177,11 +177,11 @@ export const formEquivalence = {
   timeout: { type: NUMBER },
   'ip.selector': { type: BOOLEAN },
   'ip.ignore': { type: ARRAY },
-  'wazuh.monitoring.enabled': { type: BOOLEAN },
-  'wazuh.monitoring.frequency': { type: NUMBER },
-  'wazuh.monitoring.shards': { type: NUMBER },
-  'wazuh.monitoring.replicas': { type: NUMBER },
-  'wazuh.monitoring.creation': {
+  'fortishield.monitoring.enabled': { type: BOOLEAN },
+  'fortishield.monitoring.frequency': { type: NUMBER },
+  'fortishield.monitoring.shards': { type: NUMBER },
+  'fortishield.monitoring.replicas': { type: NUMBER },
+  'fortishield.monitoring.creation': {
     type: LIST,
     params: {
       options: [
@@ -192,7 +192,7 @@ export const formEquivalence = {
       ],
     },
   },
-  'wazuh.monitoring.pattern': { type: TEXT },
+  'fortishield.monitoring.pattern': { type: TEXT },
   hideManagerAlerts: { type: BOOLEAN },
   'enrollment.dns': { type: TEXT },
   'cron.prefix': { type: TEXT },

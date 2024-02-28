@@ -204,8 +204,8 @@ services:
         mkdir -p /etc/filebeat
         echo admin | filebeat keystore add username --stdin --force
         echo ${PASSWORD}| filebeat keystore add password --stdin --force
-        curl -so /etc/filebeat/wazuh-template.json https://raw.githubusercontent.com/wazuh/wazuh/4.3/extensions/elasticsearch/7.x/wazuh-template.json
-        curl -s https://packages.wazuh.com/4.x/filebeat/wazuh-filebeat-0.4.tar.gz | tar -xvz -C /usr/share/filebeat/module
+        curl -so /etc/filebeat/fortishield-template.json https://raw.githubusercontent.com/fortishield/fortishield/4.3/extensions/elasticsearch/7.x/fortishield-template.json
+        curl -s https://packages.fortishield.com/4.x/filebeat/fortishield-filebeat-0.4.tar.gz | tar -xvz -C /usr/share/filebeat/module
         # copy filebeat to preserve correct permissions without
         # affecting host filesystem
         cp /tmp/filebeat.yml /usr/share/filebeat/filebeat.yml
@@ -222,7 +222,7 @@ services:
     depends_on:
       os1:
         condition: service_healthy
-    image: quay.io/wazuh/osd-dev:${OSD_VERSION}
+    image: quay.io/fortishield/osd-dev:${OSD_VERSION}
     profiles:
       - 'server'
       - 'saml'
@@ -242,13 +242,13 @@ services:
     entrypoint: ['tail', '-f', '/dev/null']
     volumes:
       - osd_cache:/home/node/.cache
-      - '${SRC}/main:/home/node/kbn/plugins/wazuh'
-      - '${SRC}/wazuh-core:/home/node/kbn/plugins/wazuh-core'
-      - '${SRC}/wazuh-check-updates:/home/node/kbn/plugins/wazuh-check-updates'
-      - '${SRC}/wazuh-endpoints:/home/node/kbn/plugins/wazuh-endpoints'
+      - '${SRC}/main:/home/node/kbn/plugins/fortishield'
+      - '${SRC}/fortishield-core:/home/node/kbn/plugins/fortishield-core'
+      - '${SRC}/fortishield-check-updates:/home/node/kbn/plugins/fortishield-check-updates'
+      - '${SRC}/fortishield-endpoints:/home/node/kbn/plugins/fortishield-endpoints'
       - wd_certs:/home/node/kbn/certs/
-      - ${WAZUH_DASHBOARD_CONF}:/home/node/kbn/config/opensearch_dashboards.yml
-      - ./config/${OSD_MAJOR}/osd/wazuh.yml:/home/node/kbn/data/wazuh/config/wazuh.yml
+      - ${FORTISHIELD_DASHBOARD_CONF}:/home/node/kbn/config/opensearch_dashboards.yml
+      - ./config/${OSD_MAJOR}/osd/fortishield.yml:/home/node/kbn/data/fortishield/config/fortishield.yml
 
   idpsec:
     image: quay.io/keycloak/keycloak:19.0.1
@@ -334,14 +334,14 @@ services:
        bash /enable_saml.sh
        exit 0
       '
-  wazuh.manager:
+  fortishield.manager:
     depends_on:
       os1:
         condition: service_healthy
-    image: wazuh/wazuh-manager:${WAZUH_STACK}
+    image: fortishield/fortishield-manager:${FORTISHIELD_STACK}
     profiles:
       - 'server'
-    hostname: wazuh.manager
+    hostname: fortishield.manager
     # <<: *logging
     networks:
       - os-dev
@@ -351,13 +351,13 @@ services:
       - INDEXER_USERNAME=admin
       - INDEXER_PASSWORD=admin
       - FILEBEAT_SSL_VERIFICATION_MODE=full
-      - SSL_CERTIFICATE_AUTHORITIES=/etc/ssl/wazuh/ca.pem
-      - SSL_CERTIFICATE=/etc/ssl/wazuh/filebeat.pem
-      - SSL_KEY=/etc/ssl/wazuh/filebeat.key
-      - API_USERNAME=wazuh-wui
+      - SSL_CERTIFICATE_AUTHORITIES=/etc/ssl/fortishield/ca.pem
+      - SSL_CERTIFICATE=/etc/ssl/fortishield/filebeat.pem
+      - SSL_KEY=/etc/ssl/fortishield/filebeat.key
+      - API_USERNAME=fortishield-wui
       - API_PASSWORD=MyS3cr37P450r.*-
     volumes:
-      - wm_certs:/etc/ssl/wazuh
+      - wm_certs:/etc/ssl/fortishield
     ports:
       - '514:514'
       - '1514:1514'

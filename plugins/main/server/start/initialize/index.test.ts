@@ -6,9 +6,9 @@ import {
   createDirectoryIfNotExists,
 } from '../../lib/filesystem';
 import {
-  WAZUH_DATA_ABSOLUTE_PATH,
-  WAZUH_DATA_CONFIG_DIRECTORY_PATH,
-  WAZUH_DATA_CONFIG_REGISTRY_PATH,
+  FORTISHIELD_DATA_ABSOLUTE_PATH,
+  FORTISHIELD_DATA_CONFIG_DIRECTORY_PATH,
+  FORTISHIELD_DATA_CONFIG_REGISTRY_PATH,
 } from '../../../common/constants';
 import packageInfo from '../../../package.json';
 
@@ -28,7 +28,7 @@ function mockContextCreator(loggerLevel: string) {
   }
 
   const ctx = {
-    wazuh: {
+    fortishield: {
       logger: {
         info: createLogger('info'),
         warn: createLogger('warn'),
@@ -63,27 +63,27 @@ function mockContextCreator(loggerLevel: string) {
 }
 
 jest.mock('../../lib/get-configuration', () => ({
-  getConfiguration: () => ({ pattern: 'wazuh-alerts-*' }),
+  getConfiguration: () => ({ pattern: 'fortishield-alerts-*' }),
 }));
 
 beforeAll(() => {
-  // Create <PLUGIN_PLATFORM_PATH>/data/wazuh directory.
+  // Create <PLUGIN_PLATFORM_PATH>/data/fortishield directory.
   createDataDirectoryIfNotExists();
-  // Create <PLUGIN_PLATFORM_PATH>/data/wazuh/config directory.
-  createDirectoryIfNotExists(WAZUH_DATA_CONFIG_DIRECTORY_PATH);
+  // Create <PLUGIN_PLATFORM_PATH>/data/fortishield/config directory.
+  createDirectoryIfNotExists(FORTISHIELD_DATA_CONFIG_DIRECTORY_PATH);
 });
 
 afterAll(() => {
-  // Remove <PLUGIN_PLATFORM_PATH>/data/wazuh directory.
-  execSync(`rm -rf ${WAZUH_DATA_ABSOLUTE_PATH}`);
+  // Remove <PLUGIN_PLATFORM_PATH>/data/fortishield directory.
+  execSync(`rm -rf ${FORTISHIELD_DATA_ABSOLUTE_PATH}`);
 });
 
-describe('[initialize] `wazuh-registry.json` not created', () => {
+describe('[initialize] `fortishield-registry.json` not created', () => {
   let mockContext = mockContextCreator('debug');
   afterEach(() => {
-    // Remove <PLUGIN_PLATFORM_PATH>/data/wazuh/config/wazuh-registry file.
+    // Remove <PLUGIN_PLATFORM_PATH>/data/fortishield/config/fortishield-registry file.
     execSync(
-      `rm ${WAZUH_DATA_ABSOLUTE_PATH}/config/wazuh-registry.json || echo ""`,
+      `rm ${FORTISHIELD_DATA_ABSOLUTE_PATH}/config/fortishield-registry.json || echo ""`,
     );
   });
 
@@ -91,10 +91,10 @@ describe('[initialize] `wazuh-registry.json` not created', () => {
     // Migrate the directories
     await jobInitializeRun(mockContext);
     const contentRegistry = JSON.parse(
-      fs.readFileSync(WAZUH_DATA_CONFIG_REGISTRY_PATH, 'utf8'),
+      fs.readFileSync(FORTISHIELD_DATA_CONFIG_REGISTRY_PATH, 'utf8'),
     );
 
-    expect(contentRegistry.name).toMatch('Wazuh dashboard');
+    expect(contentRegistry.name).toMatch('Fortishield dashboard');
     expect(contentRegistry['app-version']).toMatch(packageInfo.version);
     expect(contentRegistry['revision']).toMatch(packageInfo.revision);
     expect(typeof contentRegistry.installationDate).toBe('string');
@@ -103,12 +103,12 @@ describe('[initialize] `wazuh-registry.json` not created', () => {
   });
 });
 
-describe('[initialize] `wazuh-registry.json` created', () => {
+describe('[initialize] `fortishield-registry.json` created', () => {
   let testID = 0;
   const contentRegistryFile = [
     {
       before: {
-        name: 'Wazuh dashboard',
+        name: 'Fortishield dashboard',
         'app-version': packageInfo.version,
         revision: packageInfo.revision,
         installationDate: '2022-07-25T13:55:04.363Z',
@@ -116,7 +116,7 @@ describe('[initialize] `wazuh-registry.json` created', () => {
         hosts: {},
       },
       after: {
-        name: 'Wazuh dashboard',
+        name: 'Fortishield dashboard',
         'app-version': packageInfo.version,
         revision: packageInfo.revision,
         installationDate: '2022-07-25T13:55:04.363Z',
@@ -126,7 +126,7 @@ describe('[initialize] `wazuh-registry.json` created', () => {
     },
     {
       before: {
-        name: 'Wazuh dashboard',
+        name: 'Fortishield dashboard',
         'app-version': '0.0.0',
         revision: '0',
         installationDate: '2022-07-25T13:55:04.363Z',
@@ -134,7 +134,7 @@ describe('[initialize] `wazuh-registry.json` created', () => {
         hosts: {},
       },
       after: {
-        name: 'Wazuh dashboard',
+        name: 'Fortishield dashboard',
         'app-version': packageInfo.version,
         revision: packageInfo.revision,
         installationDate: '2022-07-25T13:55:04.363Z',
@@ -144,7 +144,7 @@ describe('[initialize] `wazuh-registry.json` created', () => {
     },
     {
       before: {
-        name: 'Wazuh dashboard',
+        name: 'Fortishield dashboard',
         'app-version': '0.0.0',
         revision: '0',
         installationDate: '2022-07-25T13:55:04.363Z',
@@ -172,7 +172,7 @@ describe('[initialize] `wazuh-registry.json` created', () => {
         },
       },
       after: {
-        name: 'Wazuh dashboard',
+        name: 'Fortishield dashboard',
         'app-version': packageInfo.version,
         revision: packageInfo.revision,
         installationDate: '2022-07-25T13:55:04.363Z',
@@ -184,7 +184,7 @@ describe('[initialize] `wazuh-registry.json` created', () => {
     },
     {
       before: {
-        name: 'Wazuh dashboard',
+        name: 'Fortishield dashboard',
         'app-version': '0.0.0',
         revision: '0',
         installationDate: '2022-07-25T13:55:04.363Z',
@@ -252,7 +252,7 @@ describe('[initialize] `wazuh-registry.json` created', () => {
         },
       },
       after: {
-        name: 'Wazuh dashboard',
+        name: 'Fortishield dashboard',
         'app-version': packageInfo.version,
         revision: packageInfo.revision,
         installationDate: '2022-07-25T13:55:04.363Z',
@@ -270,13 +270,13 @@ describe('[initialize] `wazuh-registry.json` created', () => {
   ];
 
   beforeEach(() => {
-    // Remove <PLUGIN_PLATFORM_PATH>/data/wazuh/config/wazuh-registry.json.
+    // Remove <PLUGIN_PLATFORM_PATH>/data/fortishield/config/fortishield-registry.json.
     execSync(
-      `rm ${WAZUH_DATA_ABSOLUTE_PATH}/config/wazuh-registry.json || echo ""`,
+      `rm ${FORTISHIELD_DATA_ABSOLUTE_PATH}/config/fortishield-registry.json || echo ""`,
     );
-    // Create the wazuh-registry.json file.
+    // Create the fortishield-registry.json file.
     fs.writeFileSync(
-      WAZUH_DATA_CONFIG_REGISTRY_PATH,
+      FORTISHIELD_DATA_CONFIG_REGISTRY_PATH,
       JSON.stringify(contentRegistryFile[testID].before),
       'utf8',
     );
@@ -298,10 +298,10 @@ describe('[initialize] `wazuh-registry.json` created', () => {
       const contentRegistryExpected = JSON.parse(content);
       await jobInitializeRun(mockContext);
       const contentRegistryFile = JSON.parse(
-        fs.readFileSync(WAZUH_DATA_CONFIG_REGISTRY_PATH, 'utf8'),
+        fs.readFileSync(FORTISHIELD_DATA_CONFIG_REGISTRY_PATH, 'utf8'),
       );
 
-      expect(contentRegistryFile.name).toMatch('Wazuh dashboard');
+      expect(contentRegistryFile.name).toMatch('Fortishield dashboard');
       expect(contentRegistryFile['app-version']).toMatch(
         contentRegistryExpected['app-version'],
       );

@@ -1,7 +1,7 @@
 /*
- * Wazuh app - Office 365 Drilldown Rules field Config.
+ * Fortishield app - Office 365 Drilldown Rules field Config.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,19 +24,19 @@ export const drilldownRulesConfig = {
         {
           width: 30,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-Office-Top-Operations" tab="office" {...props} />
+            <VisCard id="Fortishield-App-Overview-Office-Top-Operations" tab="office" {...props} />
           ),
         },
         {
           width: 30,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-Office-Top-Users" tab="office" {...props} />
+            <VisCard id="Fortishield-App-Overview-Office-Top-Users" tab="office" {...props} />
           ),
         },
         {
           width: 40,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-Office-Country-Tag-Cloud" tab="office" {...props} />
+            <VisCard id="Fortishield-App-Overview-Office-Country-Tag-Cloud" tab="office" {...props} />
           ),
         },
       ],
@@ -48,7 +48,7 @@ export const drilldownRulesConfig = {
           width: 100,
           component: (props) => (
             <VisCard
-              id="Wazuh-App-Overview-Office-Alerts-Evolution-By-UserID"
+              id="Fortishield-App-Overview-Office-Alerts-Evolution-By-UserID"
               tab="office"
               {...props}
             />

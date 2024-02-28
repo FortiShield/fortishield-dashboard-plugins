@@ -1,6 +1,6 @@
 /*
- * Wazuh app - GitHub Panel tab - Drilldown layout configuration
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - GitHub Panel tab - Drilldown layout configuration
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,19 +23,19 @@ export const DrilldownConfigAction = {
         {
           width: 30,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-GitHub-Top-Ten-Actors" tab="github" {...props} />
+            <VisCard id="Fortishield-App-Overview-GitHub-Top-Ten-Actors" tab="github" {...props} />
           ),
         },
         {
           width: 30,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-GitHub-Top-Ten-Repositories" tab="github" {...props} />
+            <VisCard id="Fortishield-App-Overview-GitHub-Top-Ten-Repositories" tab="github" {...props} />
           ),
         },
         {
           width: 30,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-GitHub-Top-Ten-Organizations" tab="github" {...props} />
+            <VisCard id="Fortishield-App-Overview-GitHub-Top-Ten-Organizations" tab="github" {...props} />
           ),
         },
       ],
@@ -46,13 +46,13 @@ export const DrilldownConfigAction = {
         {
           width: 50,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-GitHub-Countries" tab="github" {...props} />
+            <VisCard id="Fortishield-App-Overview-GitHub-Countries" tab="github" {...props} />
           ),
         },
         {
           width: 50,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-GitHub-Alert-Level-Evolution" tab="github" {...props} />
+            <VisCard id="Fortishield-App-Overview-GitHub-Alert-Level-Evolution" tab="github" {...props} />
           ),
         },
       ],

@@ -46,12 +46,12 @@ In general, the environment consist of:
 
     The more resources the better ☺
 
-5.  Save the path to the Wazuh App code as an environment variable, by exporting
+5.  Save the path to the Fortishield App code as an environment variable, by exporting
     this path on your `.bashrc`, `.zhsrc` or similar.
 
     ```bash
     # ./bashrc
-    export WZ_HOME=~/your/path/to/wazuh_kibana_app/plugins
+    export WZ_HOME=~/your/path/to/fortishield_kibana_app/plugins
     ```
 
     Save and re-login or restart your terminal to apply the changes. Test that the variable has been set with:
@@ -102,7 +102,7 @@ Before starting the environment, check that the plugin is in the desired branch
 Example:
 
 This brings up a Dev environment for OpenSearch `1.2.4` and opensearch-dashboards
-`1.2.0`, with the `wazuh-dashboard-plugins` development branch set up at
+`1.2.0`, with the `fortishield-dashboard-plugins` development branch set up at
 `$WZ_HOME`:
 
 ```bash
@@ -110,7 +110,7 @@ This brings up a Dev environment for OpenSearch `1.2.4` and opensearch-dashboard
 ```
 
 Once the containers are up, **attach a shell to the development container**,
-move to the `kbn\plugins\wazuh` and run `yarn` to install the dependencies of
+move to the `kbn\plugins\fortishield` and run `yarn` to install the dependencies of
 the project. After that, move back to the root folder of the platform and run
 `yarn start` to start the App.
 
@@ -132,7 +132,7 @@ We use official Docker images whenever possible. To develop our
 applications we have generated Docker images to develop applications
 for Kibana and OpenSearch Dashboards.
 
-These images can be downloaded from the [quay.io/wazuh][4] registry.
+These images can be downloaded from the [quay.io/fortishield][4] registry.
 
 If you want to build an image, we recommend using a NPM cache server,
 so the download of node modules from the network only happens once
@@ -163,14 +163,14 @@ For example, to build the image for OpenSearch Dashboards `2.6.0`:
 
 ```bash
 cd images
-docker build --build-arg NODE_VERSION=14.20.1 --build-arg OPENSEARCH_VERSION=2.6.0 -t quay.io/wazuh/osd-dev:2.6.0 -f osd-dev.Dockerfile .
+docker build --build-arg NODE_VERSION=14.20.1 --build-arg OPENSEARCH_VERSION=2.6.0 -t quay.io/fortishield/osd-dev:2.6.0 -f osd-dev.Dockerfile .
 cd ..
 ```
 
 Push the image to Quay:
 
 ```bash
-docker push quay.io/wazuh/image-name:version
+docker push quay.io/fortishield/image-name:version
 ```
 
 If you're creating a new image, copy one of the ones already present
@@ -220,49 +220,49 @@ If you don't want to bring up this environment, be sure to create the
 
 Folder: [osd-dev](./osd-dev/)
 
-This will bring up a development environment for Wazuh using the given
+This will bring up a development environment for Fortishield using the given
 OpenSearch and OpenSearch-Dashboards versions.
 
 ### **knb-dev** - Kibana 7.X & Kibana 8.X development environment
 
 Folder: [kbn-dev](./kbn-dev/)
 
-This will bring up a development environment for Wazuh using the
+This will bring up a development environment for Fortishield using the
 Kibana development container versions of the 7 series and 8 series.
 
-### Wazuh 4.3.X testing environment with Elastic Stack
+### Fortishield 4.3.X testing environment with Elastic Stack
 
-Folder: [wazuh-4.3-es](./wazuh-4.3-es)
-
-Within this folder, there are two scripts:
-
-- `rel.sh` brings up released versions
-- `pre.sh` brings up unreleased versions
-
-### Wazuh 4.3.X testing environment with wazuh-dashboard and wazuh-indexer
-
-Folder: [wazuh-4.3-wz](./wazuh-4.3-wz)
+Folder: [fortishield-4.3-es](./fortishield-4.3-es)
 
 Within this folder, there are two scripts:
 
 - `rel.sh` brings up released versions
 - `pre.sh` brings up unreleased versions
 
-### Wazuh 4.2.X testing environment with Elastic Stack
+### Fortishield 4.3.X testing environment with fortishield-dashboard and fortishield-indexer
 
-Folder: [wazuh-4.2-es](./wazuh-4.2-es)
+Folder: [fortishield-4.3-wz](./fortishield-4.3-wz)
 
-### Wazuh 4.2.X testing environment with OpenDistro
+Within this folder, there are two scripts:
 
-Folder: [wazuh-4.2-od](./wazuh-4.2-od)
+- `rel.sh` brings up released versions
+- `pre.sh` brings up unreleased versions
 
-### Wazuh 3.13.X testing environment with Elastic Stack
+### Fortishield 4.2.X testing environment with Elastic Stack
 
-Folder: [wazuh-3.13.X-es](./wazuh-3.13.X-es)
+Folder: [fortishield-4.2-es](./fortishield-4.2-es)
 
-### Wazuh 3.13.X testing environment with OpenDistro
+### Fortishield 4.2.X testing environment with OpenDistro
 
-Folder: [wazuh-3.13.X-od](./wazuh-3.13.X-od)
+Folder: [fortishield-4.2-od](./fortishield-4.2-od)
+
+### Fortishield 3.13.X testing environment with Elastic Stack
+
+Folder: [fortishield-3.13.X-es](./fortishield-3.13.X-es)
+
+### Fortishield 3.13.X testing environment with OpenDistro
+
+Folder: [fortishield-3.13.X-od](./fortishield-3.13.X-od)
 
 ## Troubleshooting
 
@@ -282,5 +282,5 @@ error getting credentials - err: exit status 1, out: `error getting credentials 
 [1]: https://grafana.com/ 'Grafana'
 [2]: https://grafana.com/oss/loki/ 'Loki'
 [3]: https://prometheus.io/docs/visualization/grafana/ 'Prometheus'
-[4]: https://quay.io/organization/wazuh 'quay.io/wazuh'
-[5]: https://github.com/wazuh/wazuh-dashboard-plugins/issues/3872#issuecomment-1305507626 'App permissions'
+[4]: https://quay.io/organization/fortishield 'quay.io/fortishield'
+[5]: https://github.com/fortishield/fortishield-dashboard-plugins/issues/3872#issuecomment-1305507626 'App permissions'

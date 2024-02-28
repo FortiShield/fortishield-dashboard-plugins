@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Overview/GCP visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Overview/GCP visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@ export default [
   // NUEVO DASHBOARD
 
   {
-    _id: 'Wazuh-App-Overview-GCP-Alerts-Evolution-By-AuthAnswer',
+    _id: 'Fortishield-App-Overview-GCP-Alerts-Evolution-By-AuthAnswer',
     _source: {
       title: 'Events over time by auth answer',
       visState: JSON.stringify({
@@ -110,7 +110,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -119,7 +119,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GCP-Top-vmInstances-By-ResponseCode',
+    _id: 'Fortishield-App-Overview-GCP-Top-vmInstances-By-ResponseCode',
     _source: {
       title: 'Top instances by response code',
       visState: JSON.stringify({
@@ -207,7 +207,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -216,7 +216,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GCP-Top-ResourceType-By-Project-Id',
+    _id: 'Fortishield-App-Overview-GCP-Top-ResourceType-By-Project-Id',
     _source: {
       title: 'Resource type by project id',
       visState: JSON.stringify({
@@ -338,7 +338,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -347,7 +347,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GCP-Top-ProjectId-By-SourceType',
+    _id: 'Fortishield-App-Overview-GCP-Top-ProjectId-By-SourceType',
     _source: {
       title: 'Top project id by sourcetype',
       visState: JSON.stringify({
@@ -465,7 +465,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -474,7 +474,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GCP-Map-By-SourceIp',
+    _id: 'Fortishield-App-Overview-GCP-Map-By-SourceIp',
     _source: {
       title: 'Top 5 Map by source ip',
       visState: JSON.stringify({
@@ -534,7 +534,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -543,7 +543,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GCP-Alerts-summary',
+    _id: 'Fortishield-App-Overview-GCP-Alerts-summary',
     _type: 'visualization',
     _source: {
       title: 'Alerts summary',
@@ -619,7 +619,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

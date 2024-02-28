@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Overview/FIM visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Overview/FIM visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Overview-FIM-Events-summary',
+    _id: 'Fortishield-App-Overview-FIM-Events-summary',
     _type: 'visualization',
     _source: {
       title: 'Events summary',
@@ -85,7 +85,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -93,7 +93,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-FIM-Top-5-rules',
+    _id: 'Fortishield-App-Overview-FIM-Top-5-rules',
     _type: 'visualization',
     _source: {
       title: 'Top 5 rules',
@@ -144,7 +144,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -152,7 +152,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-FIM-Top-5-agents-pie',
+    _id: 'Fortishield-App-Overview-FIM-Top-5-agents-pie',
     _type: 'visualization',
     _source: {
       title: 'Top 5 agents pie',
@@ -203,7 +203,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { language: 'lucene', query: '' },
           filter: [],
         }),
@@ -211,7 +211,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-FIM-Common-actions',
+    _id: 'Fortishield-App-Overview-FIM-Common-actions',
     _type: 'visualization',
     _source: {
       title: 'Common actions',
@@ -262,7 +262,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { language: 'lucene', query: '' },
           filter: [],
         }),
@@ -270,7 +270,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-FIM-Alerts-by-action-over-time',
+    _id: 'Fortishield-App-Agents-FIM-Alerts-by-action-over-time',
     _source: {
       title: 'Alerts by action over time',
       visState: JSON.stringify({
@@ -374,7 +374,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -383,7 +383,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-FIM-top-agents-user',
+    _id: 'Fortishield-App-Overview-FIM-top-agents-user',
     _type: 'visualization',
     _source: {
       title: 'Top users',
@@ -467,12 +467,12 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -492,7 +492,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-FIM-Alerts-summary',
+    _id: 'Fortishield-App-Overview-FIM-Alerts-summary',
     _type: 'visualization',
     _source: {
       title: 'Alerts summary',
@@ -576,7 +576,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

@@ -10,7 +10,7 @@ import { RolesMappingTable } from './components/roles-mapping-table';
 import { RolesMappingEdit } from './components/roles-mapping-edit';
 import { RolesMappingCreate } from './components/roles-mapping-create';
 import { ErrorHandler } from '../../../react-services/error-handler';
-import { WazuhSecurity } from '../../../factories/wazuh-security';
+import { FortishieldSecurity } from '../../../factories/fortishield-security';
 import { useApiService } from '../../common/hooks/useApiService';
 import { Rule } from '../rules/types/rule.type';
 import { Role } from '../roles/types/role.type';
@@ -62,8 +62,8 @@ export const RolesMapping = withUserAuthorizationPrompt([
 
   const getInternalUsers = async () => {
     try {
-      const wazuhSecurity = new WazuhSecurity();
-      const users = await wazuhSecurity.security.getUsers();
+      const fortishieldSecurity = new FortishieldSecurity();
+      const users = await fortishieldSecurity.security.getUsers();
       const _users = users
         .map((item, idx) => {
           return {

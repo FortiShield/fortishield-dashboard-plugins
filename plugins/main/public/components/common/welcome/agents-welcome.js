@@ -1,8 +1,8 @@
 /*
- * Wazuh app - React component building the welcome screen of an agent.
+ * Fortishield app - React component building the welcome screen of an agent.
  * version, OS, registration date, last keep alive.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -63,7 +63,7 @@ import {
 } from '../hocs';
 import { compose } from 'redux';
 import { API_NAME_AGENT_STATUS } from '../../../../common/constants';
-import { WAZUH_MODULES } from '../../../../common/wazuh-modules';
+import { FORTISHIELD_MODULES } from '../../../../common/fortishield-modules';
 import {
   PromptAgentNeverConnected,
   PromptNoSelectedAgent,
@@ -293,8 +293,8 @@ export const AgentsWelcome = compose(
       return (
         <Fragment>
           {this.state.menuAgent.map((applicationId, i) => {
-            const moduleID = Object.keys(WAZUH_MODULES).find(
-              key => WAZUH_MODULES[key]?.appId === applicationId,
+            const moduleID = Object.keys(FORTISHIELD_MODULES).find(
+              key => FORTISHIELD_MODULES[key]?.appId === applicationId,
             ).appId;
             if (
               i < this.state.maxModules &&
@@ -589,7 +589,7 @@ export const AgentsWelcome = compose(
             >
               <WzReduxProvider>
                 <KibanaVis
-                  visID={'Wazuh-App-Agents-Welcome-Events-Evolution'}
+                  visID={'Fortishield-App-Agents-Welcome-Events-Evolution'}
                   tab={'welcome'}
                 ></KibanaVis>
               </WzReduxProvider>
@@ -662,7 +662,7 @@ export const AgentsWelcome = compose(
                   <Fragment>
                     <EuiFlexGrid columns={2}>
                       <EuiFlexItem
-                        key={'Wazuh-App-Agents-Welcome-MITRE-Top-Tactics'}
+                        key={'Fortishield-App-Agents-Welcome-MITRE-Top-Tactics'}
                       >
                         {this.renderMitrePanel()}
                       </EuiFlexItem>
@@ -675,7 +675,7 @@ export const AgentsWelcome = compose(
                     <EuiSpacer size='m' />
                     <EuiFlexGroup>
                       <EuiFlexItem
-                        key={'Wazuh-App-Agents-Welcome-Events-Evolution'}
+                        key={'Fortishield-App-Agents-Welcome-Events-Evolution'}
                       >
                         {' '}
                         {/* Events count evolution */}
@@ -693,7 +693,7 @@ export const AgentsWelcome = compose(
                       <EuiFlexItem>
                         <EuiFlexGroup>
                           <EuiFlexItem
-                            key={'Wazuh-App-Agents-Welcome-MITRE-Top-Tactics'}
+                            key={'Fortishield-App-Agents-Welcome-MITRE-Top-Tactics'}
                           >
                             {this.renderMitrePanel()}
                           </EuiFlexItem>
@@ -705,7 +705,7 @@ export const AgentsWelcome = compose(
                     <EuiSpacer size='l' />
                     <EuiFlexGroup>
                       <EuiFlexItem
-                        key={'Wazuh-App-Agents-Welcome-Events-Evolution'}
+                        key={'Fortishield-App-Agents-Welcome-Events-Evolution'}
                       >
                         {' '}
                         {/* Events count evolution */}

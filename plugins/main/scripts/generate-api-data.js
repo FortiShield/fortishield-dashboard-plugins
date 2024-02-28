@@ -14,8 +14,8 @@
   const OUTPUT_FILE_SECURITY_ACTIONS = 'security-actions.json';
 
   // Define the CLI information
-  const cliName = 'Wazuh API data extractor';
-  const cliDescription = `Extract the Wazuh API data
+  const cliName = 'Fortishield API data extractor';
+  const cliDescription = `Extract the Fortishield API data
 
 Some warning messages are sent to stderr.`;
   const cliFilePath = process.argv[1];
@@ -147,13 +147,13 @@ ${Object.keys(outputs)
     // TODO: examples
     console.log(`
 - Get API data from URL spec file and save to files (API branch master). Run from project root path.
-node ${cliFilePath} --spec https://raw.githubusercontent.com/wazuh/wazuh/master/api/api/spec/spec.yaml --output file --output-directory common/api-info
+node ${cliFilePath} --spec https://raw.githubusercontent.com/fortishield/fortishield/master/api/api/spec/spec.yaml --output file --output-directory common/api-info
 
 - Get API data from URL spec file using the plugin version and save to files. Run from project root path.
-node ${cliFilePath} --spec https://raw.githubusercontent.com/wazuh/wazuh/$(node -e \"console.log(require('./package.json').version.split('.').splice(0,2).join('.'))\")/api/api/spec/spec.yaml --output file --output-directory common/api-info
+node ${cliFilePath} --spec https://raw.githubusercontent.com/fortishield/fortishield/$(node -e \"console.log(require('./package.json').version.split('.').splice(0,2).join('.'))\")/api/api/spec/spec.yaml --output file --output-directory common/api-info
 
 - Unused: Get API data from spec file and print to stdout (API branch master). Run from project root path.
-node ${cliFilePath} --spec https://raw.githubusercontent.com/wazuh/wazuh/master/api/api/spec/spec.yaml --output stdout
+node ${cliFilePath} --spec https://raw.githubusercontent.com/fortishield/fortishield/master/api/api/spec/spec.yaml --output stdout
 
 `);
   }
@@ -312,7 +312,7 @@ node ${cliFilePath} --spec https://raw.githubusercontent.com/wazuh/wazuh/master/
        * @returns
        */
       function generateEndpointDocumentationLink(operationId) {
-        return `https://documentation.wazuh.com/${apiVersionShort}/user-manual/api/reference.html#operation/${operationId}`;
+        return `https://documentation.fortishield.com/${apiVersionShort}/user-manual/api/reference.html#operation/${operationId}`;
       }
 
       /**
@@ -422,7 +422,7 @@ node ${cliFilePath} --spec https://raw.githubusercontent.com/wazuh/wazuh/master/
 
     function extractDataSecurityActions(spec, configuration) {
       /* Replicate the logic of GET /security/actions endpoint response
-        Based on https://github.com/wazuh/wazuh/blob/v4.4.3/framework/wazuh/security.py#L1090-L1105
+        Based on https://github.com/fortishield/fortishield/blob/v4.4.3/framework/fortishield/security.py#L1090-L1105
       */
       let data = {};
       for (const path in spec.paths) {

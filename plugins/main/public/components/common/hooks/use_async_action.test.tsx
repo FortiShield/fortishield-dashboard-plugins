@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Test for React hook for build async action runners
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Test for React hook for build async action runners
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

@@ -1,7 +1,7 @@
 var id = context.request.queryParams.user_ids;
-var storeWazuh = stores.open('storeWazuh');
+var storeFortishield = stores.open('storeFortishield');
 
-storeWazuh.save('deleteUser', true);
+storeFortishield.save('deleteUser', true);
 
 var data = {
   data: {

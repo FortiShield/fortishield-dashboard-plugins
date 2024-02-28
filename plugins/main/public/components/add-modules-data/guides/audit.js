@@ -1,6 +1,6 @@
 /*
-* Wazuh app - System auditing interactive extension guide
-* Copyright (C) 2015-2022 Wazuh, Inc.
+* Fortishield app - System auditing interactive extension guide
+* Copyright (C) 2015-2022 Fortishield, Inc.
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -68,15 +68,15 @@ export default {
         },
         {
           name: 'only-future-events',
-          description: `Set it to no to collect events generated since Wazuh agent was stopped.
-          By default, when Wazuh starts it will only read all log content from a given Windows Event Channel since the agent started.
+          description: `Set it to no to collect events generated since Fortishield agent was stopped.
+          By default, when Fortishield starts it will only read all log content from a given Windows Event Channel since the agent started.
           This feature is only compatible with eventchannel log format.`,
           type: 'switch',
           default_value: true
         },
         // { //Not for log_format audit
         //   name: 'query',
-        //   description: 'Filter eventchannel events that Wazuh will process by using an XPATH query following the event schema.',
+        //   description: 'Filter eventchannel events that Fortishield will process by using an XPATH query following the event schema.',
         //   type: 'input',
         //   placeholder: 'Any XPATH query following the event schema',
         //   validate_error_message: 'Any XPATH query following the event schema'

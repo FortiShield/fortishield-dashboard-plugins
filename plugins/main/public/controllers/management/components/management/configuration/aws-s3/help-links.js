@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Help links for AWS S3 configuration.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Help links for AWS S3 configuration.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@ import { webDocumentationLink } from '../../../../../../../common/services/web_d
 
 export default [
   {
-    text: 'Using Wazuh to monitor AWS',
+    text: 'Using Fortishield to monitor AWS',
     href: webDocumentationLink('cloud-security/amazon/index.html'),
   },
   {

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - API request service
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - API request service
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,14 +13,14 @@ import { AppState } from './app-state';
 import { ApiCheck } from './wz-api-check';
 import { WzAuthentication } from './wz-authentication';
 import { WzMisc } from '../factories/misc';
-import { WazuhConfig } from './wazuh-config';
+import { FortishieldConfig } from './fortishield-config';
 import IApiResponse from './interfaces/api-response.interface';
 import { getHttp, getWzCurrentAppID } from '../kibana-services';
 import { PLUGIN_PLATFORM_REQUEST_HEADERS } from '../../common/constants';
 import { request } from '../services/request-handler';
 
 export class WzRequest {
-  static wazuhConfig: any;
+  static fortishieldConfig: any;
 
   /**
    * Permorn a generic request
@@ -58,8 +58,8 @@ export class WzRequest {
       if (!method || !path) {
         throw new Error('Missing parameters');
       }
-      this.wazuhConfig = new WazuhConfig();
-      const configuration = this.wazuhConfig.getConfig();
+      this.fortishieldConfig = new FortishieldConfig();
+      const configuration = this.fortishieldConfig.getConfig();
       const timeout = configuration ? configuration.timeout : 20000;
 
       const url = getHttp().basePath.prepend(path);
@@ -132,7 +132,7 @@ export class WzRequest {
   }
 
   /**
-   * Perform a request to the Wazuh API
+   * Perform a request to the Fortishield API
    * @param {String} method Eg. GET, PUT, POST, DELETE
    * @param {String} path API route
    * @param {Object} body Request body

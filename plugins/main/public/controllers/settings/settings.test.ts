@@ -67,7 +67,7 @@ jest.mock('../../react-services/common-services', () => {
 const getAppInfoResponse: AxiosResponse = {
   data: {
     data: {
-      name: 'wazuh-api',
+      name: 'fortishield-api',
       'app-version': 'version-mocked',
       revision: 'mocked-revision',
       installationDate: new Date().toDateString(),
@@ -89,7 +89,7 @@ describe('Settings Controller', () => {
   describe('$onInit', () => {
     it('Should return ERROR instance on ErrorOrchestrator options when checkApiStatus throw error and fails', async () => {
       const checkApisStatusErrorMocked = ErrorHandler.createError(
-        '3099 - ERROR3099 - Wazuh not ready yet',
+        '3099 - ERROR3099 - Fortishield not ready yet',
       );
       const controller = new SettingsController(
         $scope,
@@ -122,7 +122,7 @@ describe('Settings Controller', () => {
 
     it('Should return ERROR instance on ErrorOrchestrator options when apiIsDown = true because checkManager fails', async () => {
       const checkApiErrorMocked = ErrorHandler.createError(
-        '3099 - ERROR3099 - Wazuh not ready yet',
+        '3099 - ERROR3099 - Fortishield not ready yet',
       );
       const expectedErrorOrchestratorOptions = {
         context: `${SettingsController.name}.getAppInfo`,
@@ -134,7 +134,7 @@ describe('Settings Controller', () => {
           title: `${checkApiErrorMocked.name}`,
         },
       };
-      // checkApi must return error - Wazuh not ready yet
+      // checkApi must return error - Fortishield not ready yet
       ApiCheck.checkApi = jest
         .fn()
         .mockResolvedValue(Promise.reject(checkApiErrorMocked));
@@ -153,14 +153,14 @@ describe('Settings Controller', () => {
         ErrorHandler,
       );
       controller.getSettings = jest.fn().mockResolvedValue([]);
-      // mocking manager hosts - apiEntries from wazuh.yml
+      // mocking manager hosts - apiEntries from fortishield.yml
 
       controller.apiEntries = [
         {
           manager: {
-            url: 'https://wazuh.manager',
+            url: 'https://fortishield.manager',
             port: 55000,
-            username: 'wazuh-wui',
+            username: 'fortishield-wui',
             password: 'mypassword1-',
             run_as: false,
           },

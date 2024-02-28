@@ -1,6 +1,6 @@
 {
     "paths": {
-      "wazuh": "public"
+      "fortishield": "public"
     },
     "exclude": [
     ],

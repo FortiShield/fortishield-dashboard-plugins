@@ -1,32 +1,32 @@
-import { WAZUH_DATA_ABSOLUTE_PATH, WAZUH_DATA_CONFIG_DIRECTORY_PATH, WAZUH_DATA_CONFIG_APP_PATH } from '../../common/constants';
+import { FORTISHIELD_DATA_ABSOLUTE_PATH, FORTISHIELD_DATA_CONFIG_DIRECTORY_PATH, FORTISHIELD_DATA_CONFIG_APP_PATH } from '../../common/constants';
 import { createDataDirectoryIfNotExists, createDirectoryIfNotExists } from './filesystem';
 import { getConfiguration } from './get-configuration';
 import { execSync } from 'child_process';
 import { unlinkSync, writeFileSync } from 'fs';
 
 beforeAll(() => {
-  // Create <PLUGIN_PLATFORM_PATH>/data/wazuh directory.
+  // Create <PLUGIN_PLATFORM_PATH>/data/fortishield directory.
   createDataDirectoryIfNotExists();
-  // Create <PLUGIN_PLATFORM_PATH>/data/wazuh/config directory.
-  createDirectoryIfNotExists(WAZUH_DATA_CONFIG_DIRECTORY_PATH);
+  // Create <PLUGIN_PLATFORM_PATH>/data/fortishield/config directory.
+  createDirectoryIfNotExists(FORTISHIELD_DATA_CONFIG_DIRECTORY_PATH);
 });
 
 afterAll(() => {
-  // Remove <PLUGIN_PLATFORM_PATH>/data/wazuh directory.
-  execSync(`rm -rf ${WAZUH_DATA_ABSOLUTE_PATH}`);
+  // Remove <PLUGIN_PLATFORM_PATH>/data/fortishield directory.
+  execSync(`rm -rf ${FORTISHIELD_DATA_ABSOLUTE_PATH}`);
 });
 
 describe('[service] get-configuration', () => {
 
   afterEach(() => {
-    // Remove <PLUGIN_PLATFORM_PATH>/data/wazuh/config/wazuh.yml file.
-    execSync(`rm ${WAZUH_DATA_ABSOLUTE_PATH}/config/wazuh.yml || echo ""`);
+    // Remove <PLUGIN_PLATFORM_PATH>/data/fortishield/config/fortishield.yml file.
+    execSync(`rm ${FORTISHIELD_DATA_ABSOLUTE_PATH}/config/fortishield.yml || echo ""`);
   });
 
   const pluginConfigurationText = [
 `hosts:
   - default:
-    - url: http://wazuh.manager
+    - url: http://fortishield.manager
     - port: 55000
     - username: user
     - password: password
@@ -34,7 +34,7 @@ describe('[service] get-configuration', () => {
 `,
 `hosts:
   - default:
-    - url: http://wazuh.manager
+    - url: http://fortishield.manager
     - port: 55000
     - username: user
     - password: password
@@ -46,10 +46,10 @@ describe('[service] get-configuration', () => {
     - password: custompassword
     - run_as: false
 `,
-`pattern: wazuh-alerts-*
+`pattern: fortishield-alerts-*
 hosts:
   - default:
-    - url: http://wazuh.manager
+    - url: http://fortishield.manager
     - port: 55000
     - username: user
     - password: password
@@ -76,7 +76,7 @@ hosts:
   ${pluginConfigurationText[2]}
 	`('Obfuscate the hosts password', ({pluginConfiguration}) => {
     // Create plugin configuration file
-    writeFileSync(WAZUH_DATA_CONFIG_APP_PATH, pluginConfiguration, { encoding: 'utf8' });
+    writeFileSync(FORTISHIELD_DATA_CONFIG_APP_PATH, pluginConfiguration, { encoding: 'utf8' });
 		const configuration = getConfiguration();
     configuration.hosts.forEach(host => {
       const hostID = Object.keys(host)[0];

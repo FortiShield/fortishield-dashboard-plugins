@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for show configuration of registration service.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for show configuration of registration service.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@ import { webDocumentationLink } from '../../../../../../../common/services/web_d
 
 const helpLinks = [
   {
-    text: 'Wazuh agent enrollment',
+    text: 'Fortishield agent enrollment',
     href: webDocumentationLink('user-manual/agent-enrollment/index.html')
   },
   {

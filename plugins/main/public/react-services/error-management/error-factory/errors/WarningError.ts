@@ -1,9 +1,9 @@
-import { IWazuhErrorInfo, IWazuhErrorLogOpts } from '../../types';
-import WazuhError from './WazuhError';
+import { IFortishieldErrorInfo, IFortishieldErrorLogOpts } from '../../types';
+import FortishieldError from './FortishieldError';
 
-export class WarningError extends WazuhError {
-  logOptions: IWazuhErrorLogOpts;
-  constructor(error: Error, info?: IWazuhErrorInfo) {
+export class WarningError extends FortishieldError {
+  logOptions: IFortishieldErrorLogOpts;
+  constructor(error: Error, info?: IFortishieldErrorInfo) {
     super(error, info);
     Object.setPrototypeOf(this, WarningError.prototype);
     this.logOptions = {

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Docker sample data
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Docker sample data
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@ import {
 } from './common';
 
 
-export const actorAttributesImage = ["wazuh/wazuh:3.12.0-7.6.1", "docker.elastic.co/elasticsearch/elasticsearch:7.6.2", "docker.elastic.co/kibana/kibana:7.6.2", "nginx:latest"];
+export const actorAttributesImage = ["fortishield/fortishield:3.12.0-7.6.1", "docker.elastic.co/elasticsearch/elasticsearch:7.6.2", "docker.elastic.co/kibana/kibana:7.6.2", "nginx:latest"];
 export const type = ["container", "image", "volume", "network"];
 export const action = ["start", "stop", "pause", "unpause"];
 export const actorAttributesName = ["wonderful_page", "nostalgic_gates", "jovial_zuckerberg", "inspiring_jobs", "opening_torvalds", "gifted_bezos", "clever_wales", "laughing_tesla", "kind_nobel"]; // https://github.com/moby/moby/blob/5aa44cdf132788cc0cd28ce2393b44265dd400e9/pkg/namesgenerator/names-generator.go#L600
@@ -53,7 +53,7 @@ export const dataDocker = [{
   {
     rule: {
       level: 3,
-      description: "Docker: Image or repository wazuh/wazuh pulled",
+      description: "Docker: Image or repository fortishield/fortishield pulled",
       id: "87932",
       firedtimes: 1,
       mail: false,
@@ -64,13 +64,13 @@ export const dataDocker = [{
       integration: "docker",
       docker: {
         status: "pull",
-        id: "wazuh/wazuh:3.9.2_7.1.1",
+        id: "fortishield/fortishield:3.9.2_7.1.1",
         Type: "image",
         Action: "pull",
         Actor: {
-          ID: "wazuh/wazuh:3.9.2_7.1.1",
+          ID: "fortishield/fortishield:3.9.2_7.1.1",
           Attributes: {
-            name: "wazuh/wazuh"
+            name: "fortishield/fortishield"
           }
         },
         scope: "local",
@@ -139,7 +139,7 @@ export const dataDocker = [{
   {
     rule: {
       level: 3,
-      description: "Docker: Image or repository wazuh/wazuh-elasticsearch pulled",
+      description: "Docker: Image or repository fortishield/fortishield-elasticsearch pulled",
       id: "87932",
       firedtimes: 2,
       mail: false,
@@ -150,14 +150,14 @@ export const dataDocker = [{
       integration: "docker",
       docker: {
         status: "pull",
-        id: "wazuh/wazuh-elasticsearch:3.9.2_7.1.1",
+        id: "fortishield/fortishield-elasticsearch:3.9.2_7.1.1",
         Type: "image",
         Action: "pull",
         Actor: {
-          ID: "wazuh/wazuh-elasticsearch:3.9.2_7.1.1",
+          ID: "fortishield/fortishield-elasticsearch:3.9.2_7.1.1",
           Attributes: {
             license: "Elastic License",
-            name: "wazuh/wazuh-elasticsearch",
+            name: "fortishield/fortishield-elasticsearch",
             org: {
               "label-schema": {
                 "build-date": "20190305",
@@ -181,7 +181,7 @@ export const dataDocker = [{
   {
     rule: {
       level: 3,
-      description: "Docker: Image or repository wazuh/wazuh-kibana pulled",
+      description: "Docker: Image or repository fortishield/fortishield-kibana pulled",
       id: "87932",
       firedtimes: 3,
       mail: false,
@@ -192,14 +192,14 @@ export const dataDocker = [{
       integration: "docker",
       docker: {
         status: "pull",
-        id: "wazuh/wazuh-kibana:3.9.2_7.1.1",
+        id: "fortishield/fortishield-kibana:3.9.2_7.1.1",
         Type: "image",
         Action: "pull",
         Actor: {
-          ID: "wazuh/wazuh-kibana:3.9.2_7.1.1",
+          ID: "fortishield/fortishield-kibana:3.9.2_7.1.1",
           Attributes: {
             license: "Elastic License",
-            name: "wazuh/wazuh-kibana",
+            name: "fortishield/fortishield-kibana",
             org: {
               "label-schema": {
                 "build-date": "20190305",
@@ -223,7 +223,7 @@ export const dataDocker = [{
   {
     rule: {
       level: 3,
-      description: "Docker: Image or repository wazuh/wazuh-nginx pulled",
+      description: "Docker: Image or repository fortishield/fortishield-nginx pulled",
       id: "87932",
       firedtimes: 3,
       mail: false,
@@ -234,14 +234,14 @@ export const dataDocker = [{
       integration: "docker",
       docker: {
         status: "pull",
-        id: "wazuh/wazuh-nginx:3.9.2_7.1.1",
+        id: "fortishield/fortishield-nginx:3.9.2_7.1.1",
         Type: "image",
         Action: "pull",
         Actor: {
-          ID: "wazuh/wazuh-nginx:3.9.2_7.1.1",
+          ID: "fortishield/fortishield-nginx:3.9.2_7.1.1",
           Attributes: {
             maintainer: "NGINX Docker Maintainers <docker-maint@nginx.com>",
-            name: "wazuh/wazuh-nginx"
+            name: "fortishield/fortishield-nginx"
           }
         }
       },

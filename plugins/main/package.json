@@ -1,27 +1,27 @@
 {
-  "name": "wazuh",
+  "name": "fortishield",
   "version": "5.0.0",
   "revision": "00",
   "pluginPlatform": {
     "version": "2.11.0"
   },
-  "description": "Wazuh dashboard",
+  "description": "Fortishield dashboard",
   "keywords": [
     "opensearch_dashboards",
-    "wazuh",
+    "fortishield",
     "ossec"
   ],
   "node_build": "10.23.1",
-  "author": "Wazuh, Inc",
+  "author": "Fortishield, Inc",
   "license": "GPL-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wazuh/wazuh-dashboard-plugins.git"
+    "url": "https://github.com/fortishield/fortishield-dashboard-plugins.git"
   },
   "bugs": {
-    "url": "https://github.com/wazuh/wazuh-dashboard-plugins/issues"
+    "url": "https://github.com/fortishield/fortishield-dashboard-plugins/issues"
   },
-  "homepage": "https://www.wazuh.com/",
+  "homepage": "https://www.fortishield.com/",
   "scripts": {
     "lint": "eslint {public,server,common}/**/*.{js,jsx,ts,tsx,json}",
     "lint:public": "eslint public/**/*.{js,jsx,ts,tsx,json}",
@@ -40,7 +40,7 @@
     "test:browser": "plugin-helpers test:browser",
     "test:jest": "node scripts/jest --runInBand",
     "test:jest:runner": "node scripts/runner test",
-    "generate:api-data": "node scripts/generate-api-data.js --spec https://raw.githubusercontent.com/wazuh/wazuh/$(node -e \"console.log(require('./package.json').version)\")/api/api/spec/spec.yaml --output file --output-directory common/api-info --display-configuration",
+    "generate:api-data": "node scripts/generate-api-data.js --spec https://raw.githubusercontent.com/fortishield/fortishield/$(node -e \"console.log(require('./package.json').version)\")/api/api/spec/spec.yaml --output file --output-directory common/api-info --display-configuration",
     "prebuild": "node scripts/generate-build-version"
   },
   "dependencies": {

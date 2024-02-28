@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Overview/VirusTotal visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Overview/VirusTotal visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Overview-Virustotal-Last-Files-Pie',
+    _id: 'Fortishield-App-Overview-Virustotal-Last-Files-Pie',
     _type: 'visualization',
     _source: {
       title: 'Last files',
@@ -58,7 +58,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -66,7 +66,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Virustotal-Files-Table',
+    _id: 'Fortishield-App-Overview-Virustotal-Files-Table',
     _type: 'visualization',
     _source: {
       title: 'Files',
@@ -125,12 +125,12 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Virustotal-Total-Malicious',
+    _id: 'Fortishield-App-Overview-Virustotal-Total-Malicious',
     _type: 'visualization',
     _source: {
       title: 'Total Malicious',
@@ -173,11 +173,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -208,7 +208,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Virustotal-Total-Positives',
+    _id: 'Fortishield-App-Overview-Virustotal-Total-Positives',
     _type: 'visualization',
     _source: {
       title: 'Total Positives',
@@ -251,11 +251,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -272,7 +272,7 @@ export default [
             },
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: true,
                 disabled: false,
                 alias: null,
@@ -303,7 +303,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Virustotal-Malicious-Evolution',
+    _id: 'Fortishield-App-Overview-Virustotal-Malicious-Evolution',
     _type: 'visualization',
     _source: {
       title: 'Malicious Evolution',
@@ -383,11 +383,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -404,7 +404,7 @@ export default [
             },
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: true,
                 disabled: false,
                 alias: null,
@@ -435,7 +435,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Virustotal-Total',
+    _id: 'Fortishield-App-Overview-Virustotal-Total',
     _type: 'visualization',
     _source: {
       title: 'Total',
@@ -478,11 +478,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -504,7 +504,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Virustotal-Malicious-Per-Agent-Table',
+    _id: 'Fortishield-App-Overview-Virustotal-Malicious-Per-Agent-Table',
     _type: 'visualization',
     _source: {
       title: 'Malicious Per Agent Table',
@@ -553,11 +553,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: true,
                 disabled: false,
                 alias: null,
@@ -588,7 +588,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Virustotal-Malicious-Per-Agent',
+    _id: 'Fortishield-App-Overview-Virustotal-Malicious-Per-Agent',
     _type: 'visualization',
     _source: {
       title: 'Top 5 agents with unique malicious files',
@@ -635,11 +635,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: true,
                 disabled: false,
                 alias: null,
@@ -670,7 +670,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Virustotal-Alerts-Evolution',
+    _id: 'Fortishield-App-Overview-Virustotal-Alerts-Evolution',
     _type: 'visualization',
     _source: {
       title: 'Positives Heatmap',
@@ -838,11 +838,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -859,7 +859,7 @@ export default [
             },
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: true,
                 disabled: false,
                 alias: null,
@@ -890,7 +890,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Virustotal-Alerts-summary',
+    _id: 'Fortishield-App-Overview-Virustotal-Alerts-summary',
     _type: 'visualization',
     _source: {
       title: 'Alerts summary',
@@ -974,7 +974,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

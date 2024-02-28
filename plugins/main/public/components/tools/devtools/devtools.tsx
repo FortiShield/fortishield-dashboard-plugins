@@ -1,8 +1,8 @@
 // /*
-//  * Wazuh app - React component building the welcome screen of an agent.
+//  * Fortishield app - React component building the welcome screen of an agent.
 //  * version, OS, registration date, last keep alive.
 //  *
-//  * Copyright (C) 2015-2022 Wazuh, Inc.
+//  * Copyright (C) 2015-2022 Fortishield, Inc.
 //  *
 //  * This program is free software; you can redistribute it and/or modify
 //  * it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@
 // export function DevTools({ initialTextValue }) {
 //   const editorRef = useRef(null);
 //   const editorInstanceRef = useRef(null);
-//   const wazuhDevTools = useRef(null);
+//   const fortishieldDevTools = useRef(null);
 //   const [tabsState, setTabs] = useState([""])
 //   const [statusBadges, setStatusBadges] = useState([false])
 //   const [loading, setLoading] = useState(false)
@@ -69,7 +69,7 @@
 
 //   useEffect(() => {
 //     editorInstanceRef.current = senseEditor.create(editorRef.current!);
-//     wazuhDevTools.current = { tabs: tabsState, selectedTab, statusBadges };
+//     fortishieldDevTools.current = { tabs: tabsState, selectedTab, statusBadges };
 //     const editor = editorInstanceRef.current;
 //     editor.coreEditor.editor.commands.addCommand({
 //       name: "sendRequest",
@@ -180,7 +180,7 @@
 //   }, [initialTextValue, history]);
 
 //   useEffect(() => {
-//     wazuhDevTools.current = { tabs: tabsState, selectedTab, statusBadges };
+//     fortishieldDevTools.current = { tabs: tabsState, selectedTab, statusBadges };
 //   }, [tabsState, selectedTab, statusBadges])
 
 //   const abs = {
@@ -191,12 +191,12 @@
 //   };
 
 //   const addNewTab = () => {
-//     const tabsLength = wazuhDevTools.current.tabs.length;
+//     const tabsLength = fortishieldDevTools.current.tabs.length;
 //     if (tabsLength < 5) {
-//       const newTabs = [...wazuhDevTools.current.tabs];
+//       const newTabs = [...fortishieldDevTools.current.tabs];
 //       newTabs[tabsLength] = '';
 //       setTabs(newTabs);
-//       const newBadges = [...wazuhDevTools.current.statusBadges];
+//       const newBadges = [...fortishieldDevTools.current.statusBadges];
 //       newBadges[tabsLength] = false;
 //       setStatusBadges(newBadges);
 //       setSelectedTab(newTabs.length - 1)
@@ -215,10 +215,10 @@
 
 
 //   const closeTab = (tabId) => {
-//     const newTabs = [...wazuhDevTools.current.tabs];
+//     const newTabs = [...fortishieldDevTools.current.tabs];
 //     newTabs.splice(tabId, 1);
 //     setTabs(newTabs);
-//     const newBadges = [...wazuhDevTools.current.statusBadges];
+//     const newBadges = [...fortishieldDevTools.current.statusBadges];
 //     newBadges.splice(tabId, 1);
 //     setStatusBadges(newBadges);
 //     if (tabId <= selectedTab) {
@@ -254,7 +254,7 @@
 //     var d = new Date();
 //     var time = d.getTime();
 //     const newReq = { "time": time, "endpoint": req.url.toLowerCase(), "method": req.method, "data": req.data }
-//     window.localStorage.setItem(`wazuh:history.elem_${time}`, JSON.stringify(newReq));
+//     window.localStorage.setItem(`fortishield:history.elem_${time}`, JSON.stringify(newReq));
 //   }
 
 //   const getBadge = () => {
@@ -293,11 +293,11 @@
 //           formattedResponse = 'This method is not allowed without admin mode';
 //         }
 
-//         const newTabs = [...wazuhDevTools.current.tabs];
-//         newTabs[wazuhDevTools.current.selectedTab] = `#${currentReq.method} ${currentReq.url}\n${JSON.stringify(formattedResponse, null, 1)} \n\n`;
+//         const newTabs = [...fortishieldDevTools.current.tabs];
+//         newTabs[fortishieldDevTools.current.selectedTab] = `#${currentReq.method} ${currentReq.url}\n${JSON.stringify(formattedResponse, null, 1)} \n\n`;
 //         setTabs(newTabs);
-//         const newBadges = [...wazuhDevTools.current.statusBadges];
-//         newBadges[wazuhDevTools.current.selectedTab] = badgeStatus;
+//         const newBadges = [...fortishieldDevTools.current.statusBadges];
+//         newBadges[fortishieldDevTools.current.selectedTab] = badgeStatus;
 //         setStatusBadges(newBadges);
 //         setLoading(false);
 //         return;
@@ -308,11 +308,11 @@
 //         result += JSON.stringify(formattedResponse, null, 1)
 //       }
 //     };
-//     const newTabs = [...wazuhDevTools.current.tabs];
-//     newTabs[wazuhDevTools.current.selectedTab] = result;
+//     const newTabs = [...fortishieldDevTools.current.tabs];
+//     newTabs[fortishieldDevTools.current.selectedTab] = result;
 //     setTabs(newTabs);
-//     const newBadges = [...wazuhDevTools.current.statusBadges];
-//     newBadges[wazuhDevTools.current.selectedTab] = { statusCode: 200, statusText: 'OK' };
+//     const newBadges = [...fortishieldDevTools.current.statusBadges];
+//     newBadges[fortishieldDevTools.current.selectedTab] = { statusCode: 200, statusText: 'OK' };
 //     setStatusBadges(newBadges);
 //     setLoading(false);
 //   }

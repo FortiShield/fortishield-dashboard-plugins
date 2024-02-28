@@ -1,12 +1,12 @@
 import { PluginInitializerContext } from 'opensearch_dashboards/server';
 
-import { WazuhPlugin } from './plugin';
+import { FortishieldPlugin } from './plugin';
 
 //  This exports static code and TypeScript types,
 //  as well as, plugin platform `plugin()` initializer.
 
 export function plugin(initializerContext: PluginInitializerContext) {
-  return new WazuhPlugin(initializerContext);
+  return new FortishieldPlugin(initializerContext);
 }
 
-export { WazuhPluginSetup, WazuhPluginStart } from './types';
+export { FortishieldPluginSetup, FortishieldPluginStart } from './types';

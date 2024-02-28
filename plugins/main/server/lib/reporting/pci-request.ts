@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Specific methods to fetch Wazuh PCI DSS data from Elasticsearch
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Specific methods to fetch Fortishield PCI DSS data from Elasticsearch
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@ import { getSettingDefaultValue } from '../../../common/services/settings';
  * @param {*} context Endpoint context
  * @param {Number} gte Timestamp (ms) from
  * @param {Number} lte Timestamp (ms) to
- * @param {String} filters E.g: cluster.name: wazuh AND rule.groups: vulnerability
+ * @param {String} filters E.g: cluster.name: fortishield AND rule.groups: vulnerability
  * @returns {Array<String>}
  */
 export const topPCIRequirements = async (
@@ -79,7 +79,7 @@ export const topPCIRequirements = async (
  * @param {Number} gte Timestamp (ms) from
  * @param {Number} lte Timestamp (ms) to
  * @param {String} requirement PCI DSS requirement. E.g: '10.2.3'
- * @param {String} filters E.g: cluster.name: wazuh AND rule.groups: vulnerability
+ * @param {String} filters E.g: cluster.name: fortishield AND rule.groups: vulnerability
  * @returns {Array<String>}
  */
 export const getRulesByRequirement = async (

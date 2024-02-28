@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component for building the reporting view
+ * Fortishield app - React component for building the reporting view
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ import {
 } from '../../../../../components/common/hocs';
 import { PromptStatisticsDisabled } from './prompt-statistics-disabled';
 import { PromptStatisticsNoIndices } from './prompt-statistics-no-indices';
-import { WazuhConfig } from '../../../../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../../../../react-services/fortishield-config';
 import { WzRequest } from '../../../../../react-services/wz-request';
 import { UI_ERROR_SEVERITIES } from '../../../../../react-services/error-orchestrator/types';
 import { UI_LOGGER_LEVELS } from '../../../../../../common/constants';
@@ -47,7 +47,7 @@ import { getCore } from '../../../../../kibana-services';
 import { appSettings, statistics } from '../../../../../utils/applications';
 import { RedirectAppLinks } from '../../../../../../../../src/plugins/opensearch_dashboards_react/public';
 
-const wzConfig = new WazuhConfig();
+const wzConfig = new FortishieldConfig();
 
 export class WzStatisticsOverview extends Component {
   _isMounted = false;

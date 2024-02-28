@@ -39,7 +39,7 @@ export async function buildAgentsTable(
           data: {
             data: { affected_items, total_affected_items },
           },
-        } = await context.wazuh.api.client.asCurrentUser.request(
+        } = await context.fortishield.api.client.asCurrentUser.request(
           'GET',
           `/groups/${groupID}/agents`,
           {
@@ -63,7 +63,7 @@ export async function buildAgentsTable(
                 affected_items: [agent],
               },
             },
-          } = await context.wazuh.api.client.asCurrentUser.request(
+          } = await context.fortishield.api.client.asCurrentUser.request(
             'GET',
             `/agents`,
             {
@@ -96,7 +96,7 @@ export async function buildAgentsTable(
           { id: 'lastKeepAlive', label: 'Last keep alive' },
         ],
         items: agentsData
-          .filter(agent => agent) // Remove undefined agents when Wazuh API no longer finds and agentID
+          .filter(agent => agent) // Remove undefined agents when Fortishield API no longer finds and agentID
           .map(agent => {
             return {
               ...agent,
@@ -131,7 +131,7 @@ export async function buildAgentsTable(
  * @param {String} apiId ID of API
  * @param {Number} from Timestamp (ms) from
  * @param {Number} to Timestamp (ms) to
- * @param {String} filters E.g: cluster.name: wazuh AND rule.groups: vulnerability
+ * @param {String} filters E.g: cluster.name: fortishield AND rule.groups: vulnerability
  * @param {String} pattern
  * @param {Object} agent agent target
  * @returns {Object} Extended information
@@ -161,7 +161,7 @@ export async function extendedInformation(
       );
     }
 
-    const agents = await context.wazuh.api.client.asCurrentUser.request(
+    const agents = await context.fortishield.api.client.asCurrentUser.request(
       'GET',
       '/agents',
       { params: { limit: 1 } },
@@ -685,7 +685,7 @@ export async function extendedInformation(
       printer.logger.debug(`Fetching syscheck database for agent ${agent}`);
 
       const lastScanResponse =
-        await context.wazuh.api.client.asCurrentUser.request(
+        await context.fortishield.api.client.asCurrentUser.request(
           'GET',
           `/syscheck/${agent}/last_scan`,
           {},
@@ -795,7 +795,7 @@ export async function extendedInformation(
           try {
             printer.logger.debug(requestSyscollector.loggerMessage);
             const responseSyscollector =
-              await context.wazuh.api.client.asCurrentUser.request(
+              await context.fortishield.api.client.asCurrentUser.request(
                 'GET',
                 requestSyscollector.endpoint,
                 {},

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for show configuration of alerts - email alerts tab.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for show configuration of alerts - email alerts tab.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -69,7 +69,7 @@ class WzConfigurationAlertsEmailAlerts extends Component {
     super(props);
   }
   render() {
-    const { currentConfig, wazuhNotReadyYet } = this.props;
+    const { currentConfig, fortishieldNotReadyYet } = this.props;
     const items =
       currentConfig &&
       currentConfig['mail-alerts'] &&
@@ -91,9 +91,9 @@ class WzConfigurationAlertsEmailAlerts extends Component {
           !currentConfig['mail-alerts'].email_alerts.length) ? (
           <WzNoConfig error="not-present" help={helpLinks} />
         ) : null}
-        {wazuhNotReadyYet &&
+        {fortishieldNotReadyYet &&
           (!currentConfig || !currentConfig['mail-alerts']) && (
-            <WzNoConfig error="Wazuh not ready yet" help={helpLinks} />
+            <WzNoConfig error="Fortishield not ready yet" help={helpLinks} />
           )}
         {currentConfig['mail-alerts'] &&
         isArray(currentConfig['mail-alerts'].email_alerts) &&
@@ -115,11 +115,11 @@ class WzConfigurationAlertsEmailAlerts extends Component {
 }
 
 const mapStateToProps = state => ({
-  wazuhNotReadyYet: state.appStateReducers.wazuhNotReadyYet
+  fortishieldNotReadyYet: state.appStateReducers.fortishieldNotReadyYet
 });
 
 WzConfigurationAlertsEmailAlerts.propTypes = {
-  wazuhNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+  fortishieldNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };
 
 export default connect(mapStateToProps)(WzConfigurationAlertsEmailAlerts);

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Overview/PM visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Overview/PM visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Overview-PM-Emotet-Malware-Activity',
+    _id: 'Fortishield-App-Overview-PM-Emotet-Malware-Activity',
     _type: 'visualization',
     _source: {
       title: 'Emotet malware activity',
@@ -148,7 +148,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -156,7 +156,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-PM-Rootkits-Activity-Over-Time',
+    _id: 'Fortishield-App-Overview-PM-Rootkits-Activity-Over-Time',
     _type: 'visualization',
     _source: {
       title: 'Top 5 rules',
@@ -292,7 +292,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -300,7 +300,7 @@ export default [
     },
   },
   // {
-  //   _id: 'Wazuh-App-Overview-PM-Top-5-agents-pie',
+  //   _id: 'Fortishield-App-Overview-PM-Top-5-agents-pie',
   //   _type: 'visualization',
   //   _source: {
   //     title: 'Top 5 agents pie',
@@ -351,7 +351,7 @@ export default [
   //     version: 1,
   //     kibanaSavedObjectMeta: {
   //       searchSourceJSON: JSON.stringify({
-  //         index: 'wazuh-alerts',
+  //         index: 'fortishield-alerts',
   //         query: { language: 'lucene', query: '' },
   //         filter: [],
   //       }),
@@ -359,7 +359,7 @@ export default [
   //   },
   // },
   {
-    _id: 'Wazuh-App-Overview-PM-Security-Alerts',
+    _id: 'Fortishield-App-Overview-PM-Security-Alerts',
     _type: 'visualization',
     _source: {
       title: 'Security alerts',
@@ -514,7 +514,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { language: 'lucene', query: '' },
           filter: [],
         }),
@@ -522,7 +522,7 @@ export default [
     },
   },
   // {
-  //   _id: 'Wazuh-App-Overview-PM-Events-per-agent-evolution',
+  //   _id: 'Fortishield-App-Overview-PM-Events-per-agent-evolution',
   //   _source: {
   //     title: 'Events per control type evolution',
   //     visState: JSON.stringify({
@@ -613,7 +613,7 @@ export default [
   //     version: 1,
   //     kibanaSavedObjectMeta: {
   //       searchSourceJSON: JSON.stringify({
-  //         index: 'wazuh-alerts',
+  //         index: 'fortishield-alerts',
   //         filter: [],
   //         query: { query: '', language: 'lucene' },
   //       }),
@@ -622,7 +622,7 @@ export default [
   //   _type: 'visualization',
   // },
   // {
-  //   _id: 'Wazuh-App-Overview-PM-Alerts-summary',
+  //   _id: 'Fortishield-App-Overview-PM-Alerts-summary',
   //   _type: 'visualization',
   //   _source: {
   //     title: 'Alerts summary',
@@ -689,7 +689,7 @@ export default [
   //     version: 1,
   //     kibanaSavedObjectMeta: {
   //       searchSourceJSON: JSON.stringify({
-  //         index: 'wazuh-alerts',
+  //         index: 'fortishield-alerts',
   //         filter: [],
   //         query: { language: 'lucene', query: '' },
   //       }),

@@ -1,6 +1,6 @@
 /*
-* Wazuh app - CIS-CAT interactive interactive extension guide
-* Copyright (C) 2015-2022 Wazuh, Inc.
+* Fortishield app - CIS-CAT interactive interactive extension guide
+* Copyright (C) 2015-2022 Fortishield, Inc.
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -46,7 +46,7 @@ export default {
         {
           name: 'java_path',
           description: 'Define where Java is located. If this parameter is not set, the wodle will search for the Java location in the default environment variable $PATH.',
-          warning: 'For this field, it can be set a full path or a relative path. Whether you specify a relative path, it concatenates to the Wazuh installation path. ciscat_path has the same behavior.',
+          warning: 'For this field, it can be set a full path or a relative path. Whether you specify a relative path, it concatenates to the Fortishield installation path. ciscat_path has the same behavior.',
           type: 'input',
           placeholder: 'Java location'
         },

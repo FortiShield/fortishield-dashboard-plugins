@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for show configuration of AWS S3 - services tab.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for show configuration of AWS S3 - services tab.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ class WzConfigurationAmazonS3Services extends Component {
     super(props);
   }
   render() {
-    const { currentConfig, wodleConfig, wazuhNotReadyYet } = this.props;
+    const { currentConfig, wodleConfig, fortishieldNotReadyYet } = this.props;
     const items =
       wodleConfig['aws-s3'] && wodleConfig['aws-s3'].services
         ? settingsListBuilder(wodleConfig['aws-s3'].services, 'type')
@@ -46,8 +46,8 @@ class WzConfigurationAmazonS3Services extends Component {
         (!wodleConfig['aws-s3'] || (wodleConfig['aws-s3'] && !wodleConfig['aws-s3'].services)) && (
             <WzNoConfig error="not-present" help={helpLinks} />
           )}
-        {wazuhNotReadyYet && (!currentConfig || !wodleConfig['aws-s3']) && (
-          <WzNoConfig error="Wazuh not ready yet" help={helpLinks} />
+        {fortishieldNotReadyYet && (!currentConfig || !wodleConfig['aws-s3']) && (
+          <WzNoConfig error="Fortishield not ready yet" help={helpLinks} />
         )}
         {currentConfig &&
           wodleConfig['aws-s3'] &&
@@ -69,11 +69,11 @@ class WzConfigurationAmazonS3Services extends Component {
 }
 
 const mapStateToProps = state => ({
-  wazuhNotReadyYet: state.appStateReducers.wazuhNotReadyYet
+  fortishieldNotReadyYet: state.appStateReducers.fortishieldNotReadyYet
 });
 
 WzConfigurationAmazonS3Services.propTypes = {
-  wazuhNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+  fortishieldNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };
 
 export default connect(mapStateToProps)(WzConfigurationAmazonS3Services);

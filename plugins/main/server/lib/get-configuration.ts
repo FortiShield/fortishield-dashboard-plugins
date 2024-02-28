@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module to parse the configuration file
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module to parse the configuration file
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 import fs from 'fs';
 import yml from 'js-yaml';
-import { WAZUH_DATA_CONFIG_APP_PATH, WAZUH_CONFIGURATION_CACHE_TIME, PLUGIN_SETTINGS, EpluginSettingType } from '../../common/constants';
+import { FORTISHIELD_DATA_CONFIG_APP_PATH, FORTISHIELD_CONFIGURATION_CACHE_TIME, PLUGIN_SETTINGS, EpluginSettingType } from '../../common/constants';
 
 let cachedConfiguration: any = null;
 let lastAssign: number = new Date().getTime();
@@ -25,9 +25,9 @@ export function getConfiguration(options: {force?: boolean} = {}) {
   try {
     const now = new Date().getTime();
     const dateDiffer = now - lastAssign;
-    if (!cachedConfiguration || dateDiffer >= WAZUH_CONFIGURATION_CACHE_TIME || options?.force) {
+    if (!cachedConfiguration || dateDiffer >= FORTISHIELD_CONFIGURATION_CACHE_TIME || options?.force) {
       cachedConfiguration = obfuscateHostsConfiguration(
-        readPluginConfigurationFile(WAZUH_DATA_CONFIG_APP_PATH),
+        readPluginConfigurationFile(FORTISHIELD_DATA_CONFIG_APP_PATH),
         ['password']
       );
 

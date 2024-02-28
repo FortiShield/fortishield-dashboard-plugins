@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for show overview configuration.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for show overview configuration.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,11 +48,11 @@ const columns = [
 
 const helpLinks = [
   {
-    text: 'Wazuh server administration',
+    text: 'Fortishield server administration',
     href: webDocumentationLink('user-manual/manager/index.html')
   },
   {
-    text: 'Wazuh capabilities',
+    text: 'Fortishield capabilities',
     href: webDocumentationLink('user-manual/capabilities/index.html')
   },
   {

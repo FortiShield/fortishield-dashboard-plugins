@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Integrity monitoring components
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Integrity monitoring components
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@ import { getCore } from '../../../kibana-services';
 
 // Field to add to elements enchanced
 const CUSTOM_ATTRIBUTE_ENHANCED_DISCOVER_FIELD =
-  'data-wazuh-discover-field-enhanced';
+  'data-fortishield-discover-field-enhanced';
 
 type TGetFlyoutProps = (content: string, rowData, options) => any;
 

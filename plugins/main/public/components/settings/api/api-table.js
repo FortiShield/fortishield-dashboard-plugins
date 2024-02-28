@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component building the API entries table.
+ * Fortishield app - React component building the API entries table.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,8 +35,8 @@ import { UI_ERROR_SEVERITIES } from '../../../react-services/error-orchestrator/
 import { UI_LOGGER_LEVELS } from '../../../../common/constants';
 import { getErrorOrchestrator } from '../../../react-services/common-services';
 import {
-  getWazuhCheckUpdatesPlugin,
-  getWazuhCorePlugin,
+  getFortishieldCheckUpdatesPlugin,
+  getFortishieldCorePlugin,
 } from '../../../kibana-services';
 import { AvailableUpdatesFlyout } from './available-updates-flyout';
 
@@ -61,7 +61,7 @@ export const ApiTable = compose(
       try {
         this.setState({ refreshingAvailableUpdates: true });
         const availableUpdates =
-          await getWazuhCheckUpdatesPlugin().getAvailableUpdates(
+          await getFortishieldCheckUpdatesPlugin().getAvailableUpdates(
             queryApi,
             forceQuery,
           );
@@ -127,7 +127,7 @@ export const ApiTable = compose(
                 ? error
                 : (error || {}).message ||
                   ((error || {}).data || {}).message ||
-                  'Wazuh is not reachable';
+                  'Fortishield is not reachable';
             const status = code === 3099 ? 'down' : 'unknown';
             entries[idx].status = { status, downReason };
             if (entries[idx].id === this.props.currentDefault) {
@@ -174,7 +174,7 @@ export const ApiTable = compose(
               ? error
               : (error || {}).message ||
                 ((error || {}).data || {}).message ||
-                'Wazuh is not reachable';
+                'Fortishield is not reachable';
           const status = code === 3099 ? 'down' : 'unknown';
           entries[idx].status = { status, downReason };
           throw error;
@@ -203,7 +203,7 @@ export const ApiTable = compose(
     }
 
     render() {
-      const { DismissNotificationCheck } = getWazuhCheckUpdatesPlugin();
+      const { DismissNotificationCheck } = getFortishieldCheckUpdatesPlugin();
 
       const API_UPDATES_STATUS_COLUMN = {
         upToDate: {
@@ -448,7 +448,7 @@ export const ApiTable = compose(
           width: '80px',
           render: value => {
             return value ===
-              getWazuhCorePlugin().API_USER_STATUS_RUN_AS.ENABLED ? (
+              getFortishieldCorePlugin().API_USER_STATUS_RUN_AS.ENABLED ? (
               <EuiToolTip
                 position='top'
                 content='The configured API user uses the authentication context.'
@@ -456,7 +456,7 @@ export const ApiTable = compose(
                 <EuiIcon type='check' />
               </EuiToolTip>
             ) : value ===
-              getWazuhCorePlugin().API_USER_STATUS_RUN_AS.USER_NOT_ALLOWED ? (
+              getFortishieldCorePlugin().API_USER_STATUS_RUN_AS.USER_NOT_ALLOWED ? (
               <EuiToolTip
                 position='top'
                 content='The configured API user is not allowed to use run_as. Give it permissions or set run_as with false value in the host configuration.'
@@ -562,7 +562,7 @@ export const ApiTable = compose(
                       title='Last dashboard check'
                       content={
                         this.state.availableUpdates?.last_check_date
-                          ? getWazuhCorePlugin().utils.formatUIDate(
+                          ? getFortishieldCorePlugin().utils.formatUIDate(
                               this.state.availableUpdates.last_check_date,
                             )
                           : '-'

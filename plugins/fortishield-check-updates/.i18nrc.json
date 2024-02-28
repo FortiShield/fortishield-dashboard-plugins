@@ -1,0 +1,7 @@
+{
+  "prefix": "fortishieldCheckUpdates",
+  "paths": {
+    "fortishieldCheckUpdates": "."
+  },
+  "translations": ["translations/en-US.json"]
+}

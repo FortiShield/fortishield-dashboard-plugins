@@ -1,8 +1,8 @@
 /*
- * Wazuh app - DevTools history component
+ * Fortishield app - DevTools history component
  * version, OS, registration date, last keep alive.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,16 +41,16 @@ export function DevToolsHistory({ localStorage, closeHistory, addRequest }) {
     }, [])
 
     const getHistoryFromLocalStorageOrdered = () => {
-        const wazuhHistoryElems = Object.keys(localStorage).filter(x => x.startsWith('wazuh:history.elem_')).flatMap(x => {
+        const fortishieldHistoryElems = Object.keys(localStorage).filter(x => x.startsWith('fortishield:history.elem_')).flatMap(x => {
             const time = x.split("_")[1];
             return [[x, parseInt(time)]]
         }).sort(function (a, b) { return b[1] - a[1] });
-        while(wazuhHistoryElems.length > 150){ // we only maintain the last 150 requests
-            const lastEl = wazuhHistoryElems[wazuhHistoryElems.length-1];
+        while(fortishieldHistoryElems.length > 150){ // we only maintain the last 150 requests
+            const lastEl = fortishieldHistoryElems[fortishieldHistoryElems.length-1];
             window.localStorage.removeItem(lastEl[0])
-            wazuhHistoryElems.pop();
+            fortishieldHistoryElems.pop();
         }
-        return wazuhHistoryElems;
+        return fortishieldHistoryElems;
     }
 
     const formatElem = (elem) => {
@@ -65,8 +65,8 @@ export function DevToolsHistory({ localStorage, closeHistory, addRequest }) {
     }
 
     const showHistoryList = () => {
-        const wazuhElements = getHistoryFromLocalStorageOrdered();
-        const elements = wazuhElements.map(x => {
+        const fortishieldElements = getHistoryFromLocalStorageOrdered();
+        const elements = fortishieldElements.map(x => {
             const currentElement = localStorage[x[0]];
             const isActive = currentElement === selectedRequest;
             return <li
@@ -76,7 +76,7 @@ export function DevToolsHistory({ localStorage, closeHistory, addRequest }) {
                 className={ isActive ? "history-list-item history-list-item-active" : 'history-list-item' }>{formatElem(currentElement)} <EuiIcon style={{ float: 'right' }} type="arrowRight" />        </li>
         })
 
-        return wazuhElements.length ? <ul className="history-list">
+        return fortishieldElements.length ? <ul className="history-list">
             {elements}
         </ul> : <></>
     }
@@ -114,7 +114,7 @@ export function DevToolsHistory({ localStorage, closeHistory, addRequest }) {
     }
 
     const removeHistory = () => {
-        Object.keys(localStorage).filter(x => x.startsWith('wazuh:history.elem_')).forEach(item => {
+        Object.keys(localStorage).filter(x => x.startsWith('fortishield:history.elem_')).forEach(item => {
             window.localStorage.removeItem(item)
         })
         setSelectedRequest(false);

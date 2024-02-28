@@ -6,7 +6,7 @@ labels: bug
 assignees: ''
 ---
 
-| Wazuh | Rev  | Browser                      |
+| Fortishield | Rev  | Browser                      |
 |-------|------|------------------------------|
 | X.Y.Z | xyzw | Chrome, Firefox, Safari, etc |
 

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - App State Reducers
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - App State Reducers
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@
 const initialState = {
   currentAPI: '',
   showMenu: false,
-  wazuhNotReadyYet: '',
+  fortishieldNotReadyYet: '',
   currentTab: '',
   currentPlatform: false,
   currentAgentData: JSON.parse(
@@ -43,14 +43,14 @@ const appStateReducers = (state = initialState, action) => {
     };
   }
 
-  if (action.type === 'UPDATE_WAZUH_NOT_READY_YET') {
+  if (action.type === 'UPDATE_FORTISHIELD_NOT_READY_YET') {
     return {
       ...state,
-      wazuhNotReadyYet: action.wazuhNotReadyYet,
+      fortishieldNotReadyYet: action.fortishieldNotReadyYet,
     };
   }
 
-  if (action.type === 'UPDATE_WAZUH_CURRENT_TAB') {
+  if (action.type === 'UPDATE_FORTISHIELD_CURRENT_TAB') {
     return {
       ...state,
       currentTab: action.currentTab,

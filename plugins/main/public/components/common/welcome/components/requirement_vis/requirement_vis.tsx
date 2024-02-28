@@ -1,8 +1,8 @@
 /*
- * Wazuh app - React component building the welcome screen of an agent.
+ * Fortishield app - React component building the welcome screen of an agent.
  * version, OS, registration date, last keep alive.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ import { getAngularModule, getCore } from '../../../../../kibana-services';
 import { getIndexPattern } from '../../../../overview/mitre/lib';
 import { buildPhraseFilter } from '../../../../../../../../src/plugins/data/common';
 import rison from 'rison-node';
-import { WAZUH_MODULES } from '../../../../../../common/wazuh-modules';
+import { FORTISHIELD_MODULES } from '../../../../../../common/fortishield-modules';
 
 const selectionOptionsCompliance = [
   { value: 'pci_dss', text: 'PCI DSS' },
@@ -73,7 +73,7 @@ export function RequirementVis(props) {
         .map(e => e.join('='))
         .join('&');
       // TODO: redirection to gdpr will fail
-      getCore().application.navigateToApp(WAZUH_MODULES[params.tab].appId, {
+      getCore().application.navigateToApp(FORTISHIELD_MODULES[params.tab].appId, {
         path: `#/overview?${url}`,
       });
     } catch (error) {}

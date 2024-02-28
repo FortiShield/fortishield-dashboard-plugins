@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for show configuration of agentless.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for show configuration of agentless.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,7 +48,7 @@ class WzConfigurationAgentless extends Component {
     super(props);
   }
   render() {
-    const { currentConfig, wazuhNotReadyYet } = this.props;
+    const { currentConfig, fortishieldNotReadyYet } = this.props;
     const items =
       currentConfig &&
       currentConfig['agentless-agentless'] &&
@@ -67,9 +67,9 @@ class WzConfigurationAgentless extends Component {
               help={helpLinks}
             />
           )}
-        {wazuhNotReadyYet &&
+        {fortishieldNotReadyYet &&
           (!currentConfig || !currentConfig['agentless-agentless']) && (
-            <WzNoConfig error="Wazuh not ready yet" help={helpLinks} />
+            <WzNoConfig error="Fortishield not ready yet" help={helpLinks} />
           )}
         {currentConfig['agentless-agentless'] &&
           !isString(currentConfig['agentless-agentless']) && (
@@ -92,11 +92,11 @@ class WzConfigurationAgentless extends Component {
 const sections = [{ component: 'agentless', configuration: 'agentless' }];
 
 const mapStateToProps = state => ({
-  wazuhNotReadyYet: state.appStateReducers.wazuhNotReadyYet
+  fortishieldNotReadyYet: state.appStateReducers.fortishieldNotReadyYet
 });
 
 WzConfigurationAgentless.propTypes = {
-  wazuhNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+  fortishieldNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };
 
 export default compose(

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Integrity monitoring components
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Integrity monitoring components
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ import store from '../../../redux/store';
 import { FilterHandler } from '../../../utils/filter-handler';
 import { AppState } from '../../../react-services/app-state';
 import { ReportingService } from '../../../react-services/reporting';
-import { WAZUH_MODULES } from '../../../../common/wazuh-modules';
+import { FORTISHIELD_MODULES } from '../../../../common/fortishield-modules';
 import { AgentInfo } from '../../common/welcome/agents-info';
 import { getAngularModule, getCore } from '../../../kibana-services';
 import { compose } from 'redux';
@@ -245,7 +245,7 @@ export default compose(
         },
         { agent: agent },
         {
-          text: WAZUH_MODULES[section].title,
+          text: FORTISHIELD_MODULES[section].title,
         },
       ];
     }

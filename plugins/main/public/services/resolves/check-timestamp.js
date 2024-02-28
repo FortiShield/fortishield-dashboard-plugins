@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module to check cookie consistence
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module to check cookie consistence
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@ export async function checkTimestamp(genericReq, $location, wzMisc) {
       if (!current) AppState.setCreatedAt(data.data.lastRestart);
       wzMisc.setLastRestart(data.data.lastRestart);
     } else {
-      wzMisc.setBlankScr('Your wazuh-registry.json is empty or corrupt.');
+      wzMisc.setBlankScr('Your fortishield-registry.json is empty or corrupt.');
       $location.search('tab', null);
       $location.path('/blank-screen');
     }

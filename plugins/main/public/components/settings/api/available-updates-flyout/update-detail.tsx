@@ -1,5 +1,5 @@
 import React from 'react';
-import { Update } from '../../../../../../wazuh-check-updates/common/types';
+import { Update } from '../../../../../../fortishield-check-updates/common/types';
 import { Markdown } from '../../../../../../../src/plugins/opensearch_dashboards_react/public';
 import {
   EuiAccordion,
@@ -11,7 +11,7 @@ import {
   EuiBadge,
   EuiTitle,
 } from '@elastic/eui';
-import { getWazuhCorePlugin } from '../../../../kibana-services';
+import { getFortishieldCorePlugin } from '../../../../kibana-services';
 
 interface UpdateDetailProps {
   update: Partial<Update>;
@@ -29,10 +29,10 @@ export const UpdateDetail = ({ update, type }: UpdateDetailProps) => {
     ? `${semver.major}.${semver.minor}`
     : undefined;
   const releaseNotesUrl = hasVersions
-    ? `https://documentation.wazuh.com/current/release-notes/release-${semver.major}-${semver.minor}-${semver.patch}.html`
+    ? `https://documentation.fortishield.com/current/release-notes/release-${semver.major}-${semver.minor}-${semver.patch}.html`
     : undefined;
   const upgradeGuideUrl = hasVersions
-    ? `https://documentation.wazuh.com/${minorVersion}/upgrade-guide/index.html`
+    ? `https://documentation.fortishield.com/${minorVersion}/upgrade-guide/index.html`
     : undefined;
 
   return title && tag ? (
@@ -61,7 +61,7 @@ export const UpdateDetail = ({ update, type }: UpdateDetailProps) => {
               {
                 title: 'Published',
                 description:
-                  getWazuhCorePlugin().utils.formatUIDate(published_date),
+                  getFortishieldCorePlugin().utils.formatUIDate(published_date),
               },
             ]}
           />

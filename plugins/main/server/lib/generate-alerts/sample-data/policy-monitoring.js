@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Policy monitoring sample alerts
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Policy monitoring sample alerts
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -47,7 +47,7 @@ export const rootkitsData = {
     "mail": false,
     "level": 7,
     "description": "Host-based anomaly detection event (rootcheck).",
-    "groups": ["wazuh","rootcheck"],
+    "groups": ["fortishield","rootcheck"],
     "id": "510",
     "gdpr": ["IV_35.7.d"]
   },
@@ -74,7 +74,7 @@ export const trojansData = {
     "mail": false,
     "level": 7,
     "description": "Host-based anomaly detection event (rootcheck).",
-    "groups": ["wazuh","rootcheck"],
+    "groups": ["fortishield","rootcheck"],
     "id": "510",
     "gdpr": ["IV_35.7.d"]
   },

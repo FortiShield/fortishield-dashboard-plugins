@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component for building the status view
+ * Fortishield app - React component for building the status view
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@ import {
 } from '../../../../../redux/actions/statusActions';
 import StatusHandler from './utils/status-handler';
 
-// Wazuh components
+// Fortishield components
 import WzStatusActionButtons from './actions-buttons-main';
 import WzStatusDaemons from './status-daemons';
 import WzStatusStats from './status-stats';

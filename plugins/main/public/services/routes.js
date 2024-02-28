@@ -1,6 +1,6 @@
 /*
- * Wazuh app - File for routes definition
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - File for routes definition
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ import settingsTemplate from '../templates/settings/settings.html';
 import securityTemplate from '../templates/security/security.html';
 import blankScreenTemplate from '../templates/error-handler/blank-screen.html';
 import toolsTemplate from '../templates/tools/tools.html';
-import { WazuhConfig } from '../react-services/wazuh-config';
+import { FortishieldConfig } from '../react-services/fortishield-config';
 import { GenericRequest } from '../react-services/generic-request';
 import { WzMisc } from '../factories/misc';
 import { ApiCheck } from '../react-services/wz-api-check';
@@ -55,10 +55,10 @@ function nestedResolve($q, errorHandler, $rootScope, $location, $window) {
   const wzMisc = new WzMisc();
   const healthCheckStatus = $window.sessionStorage.getItem('healthCheck');
   if (!healthCheckStatus) return;
-  const wazuhConfig = new WazuhConfig();
+  const fortishieldConfig = new FortishieldConfig();
   assignPreviousLocation($rootScope, $location);
   const location = $location.path();
-  return getWzConfig($q, GenericRequest, wazuhConfig).then(() =>
+  return getWzConfig($q, GenericRequest, fortishieldConfig).then(() =>
     settingsWizard(
       $location,
       $q,
@@ -82,8 +82,8 @@ function savedSearch($location, $window, $rootScope, $route) {
 
 function wzConfig($q, $rootScope, $location) {
   assignPreviousLocation($rootScope, $location);
-  const wazuhConfig = new WazuhConfig();
-  return getWzConfig($q, GenericRequest, wazuhConfig);
+  const fortishieldConfig = new FortishieldConfig();
+  return getWzConfig($q, GenericRequest, fortishieldConfig);
 }
 
 function clearRuleId(commonData) {
@@ -156,7 +156,7 @@ app.config($routeProvider => {
       resolve: { enableWzMenu, nestedResolve, ip, savedSearch },
       outerAngularWrapperRoute: true,
     })
-    .when('/wazuh-dev', {
+    .when('/fortishield-dev', {
       template: toolsTemplate,
       resolve: { enableWzMenu, nestedResolve, ip, savedSearch },
       outerAngularWrapperRoute: true,

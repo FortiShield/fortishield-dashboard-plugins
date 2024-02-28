@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Agents/GCP visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Agents/GCP visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
 
 export default [
   {
-    _id: 'Wazuh-App-Agents-GCP-Top-5-rules',
+    _id: 'Fortishield-App-Agents-GCP-Top-5-rules',
     _type: 'visualization',
     _source: {
       title: 'Top 5 rules',
@@ -73,7 +73,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -81,12 +81,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-GCP-Event-Query-Name',
+    _id: 'Fortishield-App-Agents-GCP-Event-Query-Name',
     _type: 'visualization',
     _source: {
       title: 'Top query events',
       visState: JSON.stringify({
-        title: 'Wazuh-App-Agents-GCP-Query-Name',
+        title: 'Fortishield-App-Agents-GCP-Query-Name',
         type: 'pie',
         params: {
           type: 'pie',
@@ -139,7 +139,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -147,12 +147,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-GCP-Tag-Severities',
+    _id: 'Fortishield-App-Agents-GCP-Tag-Severities',
     _type: 'visualization',
     _source: {
       title: 'Severities count',
       visState: JSON.stringify({
-        title: 'Wazuh-App-Agents-GCP-Tag-Severities',
+        title: 'Fortishield-App-Agents-GCP-Tag-Severities',
         type: 'tagcloud',
         params: {
           scale: 'linear',
@@ -188,7 +188,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -196,12 +196,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-GCP-Top-5-instances',
+    _id: 'Fortishield-App-Agents-GCP-Top-5-instances',
     _type: 'visualization',
     _source: {
       title: 'Top 5 instances',
       visState: JSON.stringify({
-        title: 'Wazuh-App-Agents-GCP-Top-5-instances',
+        title: 'Fortishield-App-Agents-GCP-Top-5-instances',
         type: 'pie',
         params: {
           type: 'pie',
@@ -254,7 +254,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -262,12 +262,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-GCP-Top-5-resource-type',
+    _id: 'Fortishield-App-Agents-GCP-Top-5-resource-type',
     _type: 'visualization',
     _source: {
       title: 'Top 5 Events type',
       visState: JSON.stringify({
-        title: 'Wazuh-App-Agents-GCP-Top-5-resource-type',
+        title: 'Fortishield-App-Agents-GCP-Top-5-resource-type',
         type: 'pie',
         params: {
           type: 'pie',
@@ -320,7 +320,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -328,12 +328,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-GCP-authAnswer-Bar',
+    _id: 'Fortishield-App-Agents-GCP-authAnswer-Bar',
     _type: 'visualization',
     _source: {
       title: 'Auth answer count',
       visState: JSON.stringify({
-        title: 'Wazuh-App-Agents-GCP-authAnswer-Bar',
+        title: 'Fortishield-App-Agents-GCP-authAnswer-Bar',
         type: 'histogram',
         params: {
           type: 'histogram',
@@ -420,7 +420,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -428,12 +428,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-GCP-Events-Over-Time',
+    _id: 'Fortishield-App-Agents-GCP-Events-Over-Time',
     _type: 'visualization',
     _source: {
       title: 'GCP alerts evolution',
       visState: JSON.stringify({
-        title: 'Wazuh-App-Agents-GCP-Events-Over-Time',
+        title: 'Fortishield-App-Agents-GCP-Events-Over-Time',
         type: 'line',
         params: {
           type: 'line',
@@ -522,7 +522,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -530,7 +530,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-GCP-Top-ResourceType-By-Project-Id',
+    _id: 'Fortishield-App-Agents-GCP-Top-ResourceType-By-Project-Id',
     _source: {
       title: 'Resource type by project id',
       visState: JSON.stringify({
@@ -652,7 +652,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -661,7 +661,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-GCP-Top-ProjectId-By-SourceType',
+    _id: 'Fortishield-App-Agents-GCP-Top-ProjectId-By-SourceType',
     _source: {
       title: 'Top project id by sourcetype',
       visState: JSON.stringify({
@@ -779,7 +779,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -788,7 +788,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-GCP-Alerts-summary',
+    _id: 'Fortishield-App-Agents-GCP-Alerts-summary',
     _type: 'visualization',
     _source: {
       title: 'Alerts summary',
@@ -866,7 +866,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

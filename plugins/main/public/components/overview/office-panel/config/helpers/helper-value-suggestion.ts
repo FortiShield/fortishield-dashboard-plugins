@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React helper of 0hook for getting value suggestions
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React helper of 0hook for getting value suggestions
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

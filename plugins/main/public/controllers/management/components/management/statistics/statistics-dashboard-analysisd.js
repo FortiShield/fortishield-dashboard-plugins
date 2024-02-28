@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component for building Analysisd dashboard
+ * Fortishield app - React component for building Analysisd dashboard
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,8 +38,8 @@ export function WzStatisticsAnalysisd({
                     <KibanaVis
                       visID={
                         isClusterMode
-                          ? 'Wazuh-App-Statistics-Analysisd-Events-By-Node'
-                          : 'Wazuh-App-Statistics-Analysisd-Events'
+                          ? 'Fortishield-App-Statistics-Analysisd-Events-By-Node'
+                          : 'Fortishield-App-Statistics-Analysisd-Events'
                       }
                       tab={'statistics'}
                     ></KibanaVis>
@@ -61,8 +61,8 @@ export function WzStatisticsAnalysisd({
                     <KibanaVis
                       visID={
                         isClusterMode
-                          ? 'Wazuh-App-Statistics-Analysisd-Events-Dropped-By-Node'
-                          : 'Wazuh-App-Statistics-Analysisd-Events-Dropped'
+                          ? 'Fortishield-App-Statistics-Analysisd-Events-Dropped-By-Node'
+                          : 'Fortishield-App-Statistics-Analysisd-Events-Dropped'
                       }
                       tab={'statistics'}
                     ></KibanaVis>
@@ -85,7 +85,7 @@ export function WzStatisticsAnalysisd({
                 <div style={{ height: '343px' }}>
                   <WzReduxProvider>
                     <KibanaVis
-                      visID={'Wazuh-App-Statistics-Analysisd-Queues-Usage'}
+                      visID={'Fortishield-App-Statistics-Analysisd-Queues-Usage'}
                       tab={'statistics'}
                     ></KibanaVis>
                   </WzReduxProvider>
@@ -108,7 +108,7 @@ export function WzStatisticsAnalysisd({
                   <WzReduxProvider>
                     <KibanaVis
                       visID={
-                        'Wazuh-App-Statistics-Analysisd-Overview-Events-Decoded'
+                        'Fortishield-App-Statistics-Analysisd-Overview-Events-Decoded'
                       }
                       tab={'statistics'}
                     ></KibanaVis>
@@ -131,7 +131,7 @@ export function WzStatisticsAnalysisd({
                 <div style={{ height: '343px' }}>
                   <WzReduxProvider>
                     <KibanaVis
-                      visID={'Wazuh-App-Statistics-Analysisd-Syscheck'}
+                      visID={'Fortishield-App-Statistics-Analysisd-Syscheck'}
                       tab={'statistics'}
                     ></KibanaVis>
                   </WzReduxProvider>
@@ -150,7 +150,7 @@ export function WzStatisticsAnalysisd({
                 <div style={{ height: '343px' }}>
                   <WzReduxProvider>
                     <KibanaVis
-                      visID={'Wazuh-App-Statistics-Analysisd-Syscollector'}
+                      visID={'Fortishield-App-Statistics-Analysisd-Syscollector'}
                       tab={'statistics'}
                     ></KibanaVis>
                   </WzReduxProvider>
@@ -172,7 +172,7 @@ export function WzStatisticsAnalysisd({
                 <div style={{ height: '343px' }}>
                   <WzReduxProvider>
                     <KibanaVis
-                      visID={'Wazuh-App-Statistics-Analysisd-Rootcheck'}
+                      visID={'Fortishield-App-Statistics-Analysisd-Rootcheck'}
                       tab={'statistics'}
                     ></KibanaVis>
                   </WzReduxProvider>
@@ -191,7 +191,7 @@ export function WzStatisticsAnalysisd({
                 <div style={{ height: '343px' }}>
                   <WzReduxProvider>
                     <KibanaVis
-                      visID={'Wazuh-App-Statistics-Analysisd-SCA'}
+                      visID={'Fortishield-App-Statistics-Analysisd-SCA'}
                       tab={'statistics'}
                     ></KibanaVis>
                   </WzReduxProvider>
@@ -213,7 +213,7 @@ export function WzStatisticsAnalysisd({
                 <div style={{ height: '343px' }}>
                   <WzReduxProvider>
                     <KibanaVis
-                      visID={'Wazuh-App-Statistics-Analysisd-HostInfo'}
+                      visID={'Fortishield-App-Statistics-Analysisd-HostInfo'}
                       tab={'statistics'}
                     ></KibanaVis>
                   </WzReduxProvider>

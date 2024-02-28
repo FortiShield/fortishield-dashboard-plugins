@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Management groups controller
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Management groups controller
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -9,7 +9,7 @@
  *
  * Find more information about this on the LICENSE file.
  */
-import { WazuhConfig } from '../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../react-services/fortishield-config';
 import { WzRequest } from '../../react-services/wz-request';
 import { ShareAgent } from '../../factories/share-agent';
 import { GroupHandler } from '../../react-services/group-handler';
@@ -23,7 +23,7 @@ export class GroupsController {
     this.errorHandler = errorHandler;
     this.shareAgent = new ShareAgent();
     this.groupHandler = GroupHandler;
-    this.wazuhConfig = new WazuhConfig();
+    this.fortishieldConfig = new FortishieldConfig();
     this.reportingService = new ReportingService();
   }
 

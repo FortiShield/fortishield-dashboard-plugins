@@ -1,5 +1,5 @@
 {
-  "index_patterns": "wazuh-*",
+  "index_patterns": "fortishield-*",
   "template": {
     "settings": {
       "index": {

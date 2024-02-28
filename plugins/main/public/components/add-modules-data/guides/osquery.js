@@ -1,6 +1,6 @@
 /*
-* Wazuh app - Osquery interactive extension guide
-* Copyright (C) 2015-2022 Wazuh, Inc.
+* Fortishield app - Osquery interactive extension guide
+* Copyright (C) 2015-2022 Fortishield, Inc.
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -61,7 +61,7 @@ export default {
         },
         {
           name: 'config_path',
-          description: 'Path to the Osquery configuration file. This path can be relative to the folder where the Wazuh agent is running.',
+          description: 'Path to the Osquery configuration file. This path can be relative to the folder where the Fortishield agent is running.',
           type: 'input',
           required: true,
           placeholder: 'Path to the Osquery configuration file',

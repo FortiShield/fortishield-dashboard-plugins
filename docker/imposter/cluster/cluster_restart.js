@@ -1,8 +1,8 @@
 
-var storeWazuh = stores.open('storeWazuh');
-var callRestart = storeWazuh.load('callRestart');
+var storeFortishield = stores.open('storeFortishield');
+var callRestart = storeFortishield.load('callRestart');
 
-storeWazuh.save('callRestart', true);
+storeFortishield.save('callRestart', true);
 
 if (context.request.queryParams.nodes_list !== undefined) {
   var resp = {

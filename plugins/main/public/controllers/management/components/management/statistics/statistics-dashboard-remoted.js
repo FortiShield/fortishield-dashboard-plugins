@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component for building Remoted dashboard
+ * Fortishield app - React component for building Remoted dashboard
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ export function WzStatisticsRemoted({
                 <div style={{ height: '343px' }}>
                   <WzReduxProvider>
                     <KibanaVis
-                      visID={'Wazuh-App-Statistics-remoted-Recv-bytes'}
+                      visID={'Fortishield-App-Statistics-remoted-Recv-bytes'}
                       tab={'statistics'}
                     ></KibanaVis>
                   </WzReduxProvider>
@@ -53,7 +53,7 @@ export function WzStatisticsRemoted({
                 <div style={{ height: '343px' }}>
                   <WzReduxProvider>
                     <KibanaVis
-                      visID={'Wazuh-App-Statistics-remoted-event-count'}
+                      visID={'Fortishield-App-Statistics-remoted-event-count'}
                       tab={'statistics'}
                     ></KibanaVis>
                   </WzReduxProvider>
@@ -75,7 +75,7 @@ export function WzStatisticsRemoted({
                 <div style={{ height: '343px' }}>
                   <WzReduxProvider>
                     <KibanaVis
-                      visID={'Wazuh-App-Statistics-remoted-tcp-sessions'}
+                      visID={'Fortishield-App-Statistics-remoted-tcp-sessions'}
                       tab={'statistics'}
                     ></KibanaVis>
                   </WzReduxProvider>

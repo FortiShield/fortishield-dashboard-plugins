@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component information about MITRE ATT&CK top tactics.
+ * Fortishield app - React component information about MITRE ATT&CK top tactics.
  *
- * Copyright (C) 2015-2023 Wazuh, Inc.
+ * Copyright (C) 2015-2023 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

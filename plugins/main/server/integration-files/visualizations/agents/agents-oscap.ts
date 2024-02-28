@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Agents/OSCAP visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Agents/OSCAP visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Higher-score-metric',
+    _id: 'Fortishield-App-Agents-OSCAP-Higher-score-metric',
     _source: {
       title: 'Higher score metric',
       visState: JSON.stringify({
@@ -55,7 +55,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -64,7 +64,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Lower-score-metric',
+    _id: 'Fortishield-App-Agents-OSCAP-Lower-score-metric',
     _source: {
       title: 'Lower score metric',
       visState: JSON.stringify({
@@ -108,7 +108,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -117,7 +117,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Last-score',
+    _id: 'Fortishield-App-Agents-OSCAP-Last-score',
     _source: {
       title: 'Last score',
       visState: JSON.stringify({
@@ -150,7 +150,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -159,7 +159,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Last-scan-profile',
+    _id: 'Fortishield-App-Agents-OSCAP-Last-scan-profile',
     _source: {
       title: 'Last scan profile',
       visState: JSON.stringify({
@@ -197,11 +197,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -233,7 +233,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Scans',
+    _id: 'Fortishield-App-Agents-OSCAP-Scans',
     _source: {
       title: 'Scans',
       visState: JSON.stringify({
@@ -262,7 +262,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -271,7 +271,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Profiles',
+    _id: 'Fortishield-App-Agents-OSCAP-Profiles',
     _source: {
       title: 'Profiles',
       visState: JSON.stringify({
@@ -305,11 +305,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -335,7 +335,7 @@ export default [
             },
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: true,
                 disabled: false,
                 alias: null,
@@ -367,7 +367,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Content',
+    _id: 'Fortishield-App-Agents-OSCAP-Content',
     _source: {
       title: 'Content',
       visState: JSON.stringify({
@@ -396,11 +396,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -426,7 +426,7 @@ export default [
             },
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: true,
                 disabled: false,
                 alias: null,
@@ -458,7 +458,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Severity',
+    _id: 'Fortishield-App-Agents-OSCAP-Severity',
     _source: {
       title: 'Severity',
       visState: JSON.stringify({
@@ -487,11 +487,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -517,7 +517,7 @@ export default [
             },
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: true,
                 disabled: false,
                 alias: null,
@@ -549,7 +549,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Daily-scans-evolution',
+    _id: 'Fortishield-App-Agents-OSCAP-Daily-scans-evolution',
     _source: {
       title: 'Daily scans evolution',
       visState: JSON.stringify({
@@ -623,11 +623,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -659,7 +659,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Top-5-Alerts',
+    _id: 'Fortishield-App-Agents-OSCAP-Top-5-Alerts',
     _source: {
       title: 'Top 5 Alerts',
       visState: JSON.stringify({
@@ -688,11 +688,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -724,7 +724,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Top-5-High-risk-alerts',
+    _id: 'Fortishield-App-Agents-OSCAP-Top-5-High-risk-alerts',
     _source: {
       title: 'Top 5 High risk alerts',
       visState: JSON.stringify({
@@ -753,11 +753,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -783,7 +783,7 @@ export default [
             },
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -815,7 +815,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Top-alert',
+    _id: 'Fortishield-App-Agents-OSCAP-Top-alert',
     _source: {
       title: 'Top alert',
       visState: JSON.stringify({
@@ -848,11 +848,11 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -884,7 +884,7 @@ export default [
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Agents-OSCAP-Last-alerts',
+    _id: 'Fortishield-App-Agents-OSCAP-Last-alerts',
     _type: 'visualization',
     _source: {
       title: 'Last alerts',
@@ -945,7 +945,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

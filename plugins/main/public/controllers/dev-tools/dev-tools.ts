@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Dev tools controller
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Dev tools controller
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -824,19 +824,19 @@ export class DevToolsController {
         });
       } catch {
         $('#play_button').hide();
-        $('#wazuh_dev_tools_documentation').hide();
+        $('#fortishield_dev_tools_documentation').hide();
         return null;
       }
 
       if (!$('#play_button').is(':visible')) $('#play_button').show();
-      if (!$('#wazuh_dev_tools_documentation').is(':visible'))
-        $('#wazuh_dev_tools_documentation').show();
+      if (!$('#fortishield_dev_tools_documentation').is(':visible'))
+        $('#fortishield_dev_tools_documentation').show();
       const currentPlayButton = $('#play_button').offset();
       $('#play_button').offset({
         top: cords.top + 2,
         left: currentPlayButton.left,
       });
-      $('#wazuh_dev_tools_documentation').offset({
+      $('#fortishield_dev_tools_documentation').offset({
         top: cords.top + 2,
       });
       if (firstTime) this.highlightGroup(desiredGroup[0]);
@@ -887,17 +887,17 @@ export class DevToolsController {
             ),
           );
         if (apiEndpoint && apiEndpoint.documentation) {
-          $('#wazuh_dev_tools_documentation')
+          $('#fortishield_dev_tools_documentation')
             .attr('href', apiEndpoint.documentation)
             .show();
         } else {
-          $('#wazuh_dev_tools_documentation').attr('href', '').hide();
+          $('#fortishield_dev_tools_documentation').attr('href', '').hide();
         }
       }
       return desiredGroup[0];
     } catch (error) {
       $('#play_button').hide();
-      $('#wazuh_dev_tools_documentation').hide();
+      $('#fortishield_dev_tools_documentation').hide();
       const options: UIErrorLog = {
         context: `${DevToolsController.name}.calculateWhichGroup`,
         level: UI_LOGGER_LEVELS.WARNING as UILogLevel,
@@ -1030,7 +1030,7 @@ export class DevToolsController {
 
   parseError(error) {
     if ((error || {}).status === -1) {
-      return 'Wazuh API is not reachable. Reason: timeout.';
+      return 'Fortishield API is not reachable. Reason: timeout.';
     } else {
       const parsedError = ErrorHandler.handle(error, '', { silent: true });
       if (typeof parsedError === 'string') {

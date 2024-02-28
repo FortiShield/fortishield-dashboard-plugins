@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Agents/GCP visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Agents/GCP visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Agents-Welcome-Top-PCI',
+    _id: 'Fortishield-App-Agents-Welcome-Top-PCI',
     _type: 'visualization',
     _source: {
       title: 'Top 5 rules',
@@ -84,7 +84,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -92,7 +92,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-Welcome-Top-GDPR',
+    _id: 'Fortishield-App-Agents-Welcome-Top-GDPR',
     _type: 'visualization',
     _source: {
       title: 'Top 5 GDPR',
@@ -165,7 +165,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -173,7 +173,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-Welcome-Top-HIPAA',
+    _id: 'Fortishield-App-Agents-Welcome-Top-HIPAA',
     _type: 'visualization',
     _source: {
       title: 'Top 5 HIPAA',
@@ -246,7 +246,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -254,7 +254,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-Welcome-Top-NIST-800-53',
+    _id: 'Fortishield-App-Agents-Welcome-Top-NIST-800-53',
     _type: 'visualization',
     _source: {
       title: 'Top 5 NIST-800-53',
@@ -327,7 +327,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -335,7 +335,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-Welcome-Top-GPG-13',
+    _id: 'Fortishield-App-Agents-Welcome-Top-GPG-13',
     _type: 'visualization',
     _source: {
       title: 'Top 5 GPG-13',
@@ -408,7 +408,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -416,7 +416,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-Welcome-Top-TSC',
+    _id: 'Fortishield-App-Agents-Welcome-Top-TSC',
     _type: 'visualization',
     _source: {
       title: 'Top 5 TSC',
@@ -489,7 +489,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -497,7 +497,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-Welcome-Events-Evolution',
+    _id: 'Fortishield-App-Agents-Welcome-Events-Evolution',
     _type: 'visualization',
     _source: {
       title: 'Events evolution',
@@ -591,7 +591,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),

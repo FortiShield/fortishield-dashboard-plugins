@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Elastic wrapper helper
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Elastic wrapper helper
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
 
 /**
  * Returns well formatted object to set shards and replicas when creating/updating indices.
- * @param {*} file Parsed content from wazuh.yml file
+ * @param {*} file Parsed content from fortishield.yml file
  * @param {string} indexName Target index name
  * @param {number} defaultShards Default shards value if missing in configuration
  * @param {number} defaulReplicas Default replicas value if missing in configuration

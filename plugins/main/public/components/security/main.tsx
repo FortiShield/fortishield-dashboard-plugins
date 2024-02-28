@@ -29,7 +29,7 @@ import { UI_ERROR_SEVERITIES } from '../../react-services/error-orchestrator/typ
 import { getErrorOrchestrator } from '../../react-services/common-services';
 import { getPluginDataPath } from '../../../common/plugin';
 import { security } from '../../utils/applications';
-import { getWazuhCorePlugin } from '../../kibana-services';
+import { getFortishieldCorePlugin } from '../../kibana-services';
 
 const tabs = [
   {
@@ -128,23 +128,23 @@ export const WzSecurity = compose(
   const isNotRunAs = allowRunAs => {
     let runAsWarningTxt = '';
     switch (allowRunAs) {
-      case getWazuhCorePlugin().API_USER_STATUS_RUN_AS.HOST_DISABLED:
+      case getFortishieldCorePlugin().API_USER_STATUS_RUN_AS.HOST_DISABLED:
         runAsWarningTxt = `For the role mapping to take effect, enable run_as in ${getPluginDataPath(
-          'config/wazuh.yml',
+          'config/fortishield.yml',
         )} configuration file, restart the ${PLUGIN_PLATFORM_NAME} service and clear your browser cache and cookies.`;
         break;
-      case getWazuhCorePlugin().API_USER_STATUS_RUN_AS.USER_NOT_ALLOWED:
+      case getFortishieldCorePlugin().API_USER_STATUS_RUN_AS.USER_NOT_ALLOWED:
         runAsWarningTxt =
-          'The role mapping has no effect because the current Wazuh API user has allow_run_as disabled.';
+          'The role mapping has no effect because the current Fortishield API user has allow_run_as disabled.';
         break;
-      case getWazuhCorePlugin().API_USER_STATUS_RUN_AS.ALL_DISABLED:
+      case getFortishieldCorePlugin().API_USER_STATUS_RUN_AS.ALL_DISABLED:
         runAsWarningTxt = `For the role mapping to take effect, enable run_as in ${getPluginDataPath(
-          'config/wazuh.yml',
-        )} configuration file and set the current Wazuh API user allow_run_as to true. Restart the ${PLUGIN_PLATFORM_NAME} service and clear your browser cache and cookies.`;
+          'config/fortishield.yml',
+        )} configuration file and set the current Fortishield API user allow_run_as to true. Restart the ${PLUGIN_PLATFORM_NAME} service and clear your browser cache and cookies.`;
         break;
       default:
         runAsWarningTxt =
-          'The role mapping has no effect because the current Wazuh API user has run_as disabled.';
+          'The role mapping has no effect because the current Fortishield API user has run_as disabled.';
         break;
     }
 
@@ -175,7 +175,7 @@ export const WzSecurity = compose(
             <>
               {allowRunAs !== undefined &&
                 allowRunAs !==
-                  getWazuhCorePlugin().API_USER_STATUS_RUN_AS.ENABLED &&
+                  getFortishieldCorePlugin().API_USER_STATUS_RUN_AS.ENABLED &&
                 isNotRunAs(allowRunAs)}
               <RolesMapping></RolesMapping>
             </>

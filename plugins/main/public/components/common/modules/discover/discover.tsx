@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Integrity monitoring table component
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Integrity monitoring table component
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@ import { AppState } from '../../../../react-services/app-state';
 import { AppNavigate } from '../../../../react-services/app-navigate';
 import { RowDetails } from './row-details';
 import DateMatch from '@elastic/datemath';
-import { WazuhConfig } from '../../../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../../../react-services/fortishield-config';
 import { formatUIDate } from '../../../../react-services/time-service';
 import { KbnSearchBar } from '../../../kbn-search-bar';
 import { FlyoutTechnique } from '../../../../components/overview/mitre/components/techniques/components/flyout-technique';
@@ -144,7 +144,7 @@ export const Discover = compose(
         hover: '',
       };
 
-      this.wazuhConfig = new WazuhConfig();
+      this.fortishieldConfig = new FortishieldConfig();
 
       this.hideCreateCustomLabel.bind(this);
       this.onQuerySubmit.bind(this);
@@ -353,7 +353,7 @@ export const Discover = compose(
           ? DateMatch.parse(ds).toDate().getTime()
           : ds;
       const { query } = this.state;
-      const { hideManagerAlerts } = this.wazuhConfig.getConfig();
+      const { hideManagerAlerts } = this.fortishieldConfig.getConfig();
       const extraFilters = [];
       if (hideManagerAlerts)
         extraFilters.push({

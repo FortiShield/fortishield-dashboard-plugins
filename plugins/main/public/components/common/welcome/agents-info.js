@@ -1,8 +1,8 @@
 /*
- * Wazuh app - React component for showing agent fields such as IP, ID, name,
+ * Fortishield app - React component for showing agent fields such as IP, ID, name,
  * version, OS, registration date, last keep alive.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

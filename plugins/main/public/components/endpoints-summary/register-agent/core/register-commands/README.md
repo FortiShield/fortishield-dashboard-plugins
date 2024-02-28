@@ -17,7 +17,7 @@
 
 # Register Agent
 
-The register agent is a process that will allow the user to register an agent in the Wazuh Manager. The plugin will provide a form where the user will be able to select the OS and the package that he wants to install. The plugin will generate the registration commands and will show them to the user.
+The register agent is a process that will allow the user to register an agent in the Fortishield Manager. The plugin will provide a form where the user will be able to select the OS and the package that he wants to install. The plugin will generate the registration commands and will show them to the user.
 
 # Solution details
 
@@ -68,7 +68,7 @@ interface IMacOSTypes {
 
 type tOperatingSystem = ILinuxOSTypes | IMacOSTypes | IWindowsOSTypes; // add the necessary OS options 
 
-type tOptionalParameters = 'server_address' | 'agent_name' | 'agent_group' | 'protocol' | 'wazuh_password';
+type tOptionalParameters = 'server_address' | 'agent_name' | 'agent_group' | 'protocol' | 'fortishield_password';
 
 export interface IOSDefinition<OS extends IOperationSystem, Params extends string> {
   name: OS['name'];
@@ -144,7 +144,7 @@ export type tOptionalParamsName =
   | 'agent_name'
   | 'protocol'
   | 'agent_group'
-  | 'wazuh_password';
+  | 'fortishield_password';
 
 export type tOptionalParams = {
   [key in tOptionalParamsName]: {
@@ -163,7 +163,7 @@ This configuration will define the different optional parameters that we want to
 
 export const optionalParameters: tOptionalParams<tOptionalParameters> = {
   server_address: {
-      property: 'WAZUH_MANAGER',
+      property: 'FORTISHIELD_MANAGER',
       getParamCommand:  props => 'returns the optional param command'
     }
   },
@@ -197,7 +197,7 @@ import { CommandGenerator } from 'path/command-generator';
 
 export interface ICommandGenerator<OS extends IOperationSystem, Params extends string> extends ICommandGeneratorMethods<Params> {
   osDefinitions: IOSDefinition<OS, Params>[];
-  wazuhVersion: string;
+  fortishieldVersion: string;
 }
 
 export interface ICommandGeneratorMethods<T extends string> {
@@ -315,7 +315,7 @@ If we specify the optional parameters the `Command Generator` will process the c
 ```ts
 
 export interface ICommandsResponse<T extends string> {
-  wazuhVersion: string;
+  fortishieldVersion: string;
   os: string;
   architecture: string;
   url_package: string;

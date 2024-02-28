@@ -1,7 +1,7 @@
 /*
- * Wazuh app - Unit test for ErrorOrchestratorCritical.
+ * Fortishield app - Unit test for ErrorOrchestratorCritical.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@ import { ErrorOrchestrator, UIErrorLog } from './types';
 import { ErrorOrchestratorCritical } from './error-orchestrator-critical';
 import { WzMisc } from '../../factories/misc';
 
-describe('Wazuh Error Orchestrator Critical', () => {
+describe('Fortishield Error Orchestrator Critical', () => {
   describe('Given a valid options params ', () => {
     it('Should be called mockSetBlankScr and redirect to BlankScreen', () => {
       const options: UIErrorLog = {

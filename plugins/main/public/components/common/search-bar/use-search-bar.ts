@@ -38,8 +38,8 @@ type tUserSearchBarResponse = {
  */
 const useSearchBar = (props?: tUseSearchBarProps): tUserSearchBarResponse => {
   // dependencies
-  const SESSION_STORAGE_FILTERS_NAME = 'wazuh_persistent_searchbar_filters';
-  const SESSION_STORAGE_PREV_FILTER_NAME = 'wazuh_persistent_current_filter';
+  const SESSION_STORAGE_FILTERS_NAME = 'fortishield_persistent_searchbar_filters';
+  const SESSION_STORAGE_PREV_FILTER_NAME = 'fortishield_persistent_current_filter';
   const filterManager = useFilterManager().filterManager as FilterManager;
   const { filters } = useFilterManager();
   const [query, setQuery] = props?.query
@@ -229,7 +229,7 @@ const useSearchBar = (props?: tUseSearchBarProps): tUserSearchBarResponse => {
   const cleanFilters = (previousFilters: Filter[], indexPattern?: string) => {
     /**
      * Verify if a pinned agent exists, identifying it by its meta.isImplicit attribute or by the agentId query param URL.
-     * We also compare the agent.id filter with the agentId query param because the OSD filter definition does not include the "isImplicit" attribute that Wazuh adds.
+     * We also compare the agent.id filter with the agentId query param because the OSD filter definition does not include the "isImplicit" attribute that Fortishield adds.
      * There may be cases where the "isImplicit" attribute is lost, since any action regarding filters that is done with the
      * filterManager ( addFilters, setFilters, setGlobalFilters, setAppFilters)
      * does a mapAndFlattenFilters mapping to the filters that removes any attributes that are not part of the filter definition.

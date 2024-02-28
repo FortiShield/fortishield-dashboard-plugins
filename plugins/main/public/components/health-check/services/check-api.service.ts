@@ -1,7 +1,7 @@
 /*
- * Wazuh app - Check APIs service
+ * Fortishield app - Check APIs service
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@ import { getToasts } from '../../../kibana-services';
 import { ApiCheck, AppState, GenericRequest } from '../../../react-services';
 import { CheckLogger } from '../types/check_logger';
 import {
-  PLUGIN_PLATFORM_WAZUH_DOCUMENTATION_URL_PATH_TROUBLESHOOTING,
+  PLUGIN_PLATFORM_FORTISHIELD_DOCUMENTATION_URL_PATH_TROUBLESHOOTING,
   PLUGIN_APP_NAME,
 } from '../../../../common/constants';
 import { webDocumentationLink } from '../../../../common/services/web_documentation';
@@ -54,9 +54,9 @@ const trySetDefault = async (checkLogger: CheckLogger) => {
         for (var j = 0; j < errors.length; j++) {
           if (errors[j].includes('ERROR3099 - 405: Method Not Allowed')) {
             return Promise.reject(
-              `No API available to connect. This may be related to a version mismatch between Wazuh Server and ${PLUGIN_APP_NAME}. Please check the versions and try again. Read more about this in our troubleshooting guide: ${webDocumentationLink(
-                PLUGIN_PLATFORM_WAZUH_DOCUMENTATION_URL_PATH_TROUBLESHOOTING,
-              )}#wazuh-api-and-wazuh-app-version-mismatch-error-is-displayed.`,
+              `No API available to connect. This may be related to a version mismatch between Fortishield Server and ${PLUGIN_APP_NAME}. Please check the versions and try again. Read more about this in our troubleshooting guide: ${webDocumentationLink(
+                PLUGIN_PLATFORM_FORTISHIELD_DOCUMENTATION_URL_PATH_TROUBLESHOOTING,
+              )}#fortishield-api-and-fortishield-app-version-mismatch-error-is-displayed.`,
             );
           }
         }
@@ -109,7 +109,7 @@ export const checkApiService =
         );
         getToasts().add({
           color: 'warning',
-          title: 'Selected Wazuh API has been updated',
+          title: 'Selected Fortishield API has been updated',
           text: '',
           toastLifeTimeMs: 3000,
         });
@@ -121,10 +121,10 @@ export const checkApiService =
         checkLogger.info(`Set cluster info in cookie`);
       }
       if (data === 3099) {
-        checkLogger.error('Wazuh not ready yet');
+        checkLogger.error('Fortishield not ready yet');
       } else if (data.data.error || data.data.data.apiIsDown) {
         const errorMessage = data.data.data.apiIsDown
-          ? 'Wazuh API is down'
+          ? 'Fortishield API is down'
           : `Error connecting to the API: ${
               data.data.error && data.data.error.message
                 ? ` ${data.data.error.message}`

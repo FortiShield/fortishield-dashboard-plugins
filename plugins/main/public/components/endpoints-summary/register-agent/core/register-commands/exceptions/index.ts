@@ -60,9 +60,9 @@ export class DuplicatedOSOptionException extends Error {
   }
 }
 
-export class WazuhVersionUndefinedException extends Error {
+export class FortishieldVersionUndefinedException extends Error {
   constructor() {
-    super(`Wazuh version not defined`);
+    super(`Fortishield version not defined`);
   }
 }
 

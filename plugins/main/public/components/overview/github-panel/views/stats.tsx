@@ -1,6 +1,6 @@
 /*
- * Wazuh app - GitHub Panel tab - Stats
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - GitHub Panel tab - Stats
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@ import { LogoGitHub } from '../../../common/logos';
 
 const settings = [
   { field: 'enabled', label: 'Service status', render: renderValueNoThenEnabled },
-  { field: 'only_future_events', label: 'Collect events generated since Wazuh agent was started'},
+  { field: 'only_future_events', label: 'Collect events generated since Fortishield agent was started'},
   { field: 'time_delay', label: 'Time in seconds that each scan will monitor until that delay backwards'},
   { field: 'curl_max_size', label: 'Maximum size allowed for the GitHub API response'},
   { field: 'interval', label: 'Interval between GitHub wodle executions in seconds'},

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Cluster monitoring controller
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Cluster monitoring controller
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@ import { TabVisualizations } from '../../factories/tab-visualizations';
 import store from '../../redux/store';
 import { updateGlobalBreadcrumb } from '../../redux/actions/globalBreadcrumbActions';
 import { ModulesHelper } from '../../components/common/modules/modules-helper';
-import { WAZUH_ROLE_ADMINISTRATOR_NAME } from '../../../common/constants';
+import { FORTISHIELD_ROLE_ADMINISTRATOR_NAME } from '../../../common/constants';
 import { getCore, getDataPlugin } from '../../kibana-services';
 import { cluster, endpointSummary } from '../../utils/applications';
 
@@ -40,7 +40,7 @@ export function ClusterController(
     value: 0,
   });
   $scope.search = term => {
-    $scope.$broadcast('wazuhSearch', { term });
+    $scope.$broadcast('fortishieldSearch', { term });
   };
 
   const clusterEnabled =
@@ -124,7 +124,7 @@ export function ClusterController(
   };
 
   //listeners
-  $scope.$on('wazuhShowClusterNode', async (event, parameters) => {
+  $scope.$on('fortishieldShowClusterNode', async (event, parameters) => {
     try {
       tabVisualizations.assign({
         monitoring: 1,

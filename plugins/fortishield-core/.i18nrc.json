@@ -1,0 +1,7 @@
+{
+  "prefix": "fortishieldCore",
+  "paths": {
+    "fortishieldCore": "."
+  },
+  "translations": ["translations/en-US.json"]
+}

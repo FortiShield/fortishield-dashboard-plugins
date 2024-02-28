@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Wazuh table directive click wrapper
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Fortishield table directive click wrapper
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -46,23 +46,23 @@ export function clickAction(
 
     $location.path('/agents');
   } else if (instance.path === '/agents/groups') {
-    $scope.$emit('wazuhShowGroup', { group: item });
+    $scope.$emit('fortishieldShowGroup', { group: item });
   } else if (
     new RegExp(/^\/agents\/groups\/[a-zA-Z0-9_\-.]*\/files$/).test(
       instance.path
     )
   ) {
-    $scope.$emit('wazuhShowGroupFile', {
+    $scope.$emit('fortishieldShowGroupFile', {
       groupName: instance.path.split('groups/')[1].split('/files')[0],
       fileName: item.filename
     });
   } else if (instance.path === '/rules') {
-    $scope.$emit('wazuhShowRule', { rule: item });
+    $scope.$emit('fortishieldShowRule', { rule: item });
   } else if (instance.path.includes('/decoders')) {
-    $scope.$emit('wazuhShowDecoder', { decoder: item });
+    $scope.$emit('fortishieldShowDecoder', { decoder: item });
   } else if (instance.path.includes('/lists/files')) {
-    $scope.$emit('wazuhShowCdbList', { cdblist: item });
+    $scope.$emit('fortishieldShowCdbList', { cdblist: item });
   } else if (instance.path === '/cluster/nodes') {
-    $scope.$emit('wazuhShowClusterNode', { node: item });
+    $scope.$emit('fortishieldShowClusterNode', { node: item });
   }
 }

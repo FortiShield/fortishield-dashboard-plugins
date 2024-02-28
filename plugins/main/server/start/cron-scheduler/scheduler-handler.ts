@@ -2,7 +2,7 @@ import { jobs, SchedulerJob } from './index';
 import { configuredJobs } from './configured-jobs';
 import { getConfiguration } from '../../lib/get-configuration';
 import cron from 'node-cron';
-import { WAZUH_STATISTICS_TEMPLATE_NAME } from '../../../common/constants';
+import { FORTISHIELD_STATISTICS_TEMPLATE_NAME } from '../../../common/constants';
 import { statisticsTemplate } from '../../integration-files/statistics-template';
 import { delayAsPromise } from '../../../common/utils';
 import { getSettingDefaultValue } from '../../../common/services/settings';
@@ -14,13 +14,13 @@ const schedulerJobs = [];
  */
 const checkPluginPlatformStatus = async function (context) {
   try {
-    context.wazuh.logger.debug('Waiting for platform servers to be ready...');
+    context.fortishield.logger.debug('Waiting for platform servers to be ready...');
 
     await checkElasticsearchServer(context);
     await checkTemplate(context);
     return;
   } catch (error) {
-    context.wazuh.logger.warn(error.message || error);
+    context.fortishield.logger.warn(error.message || error);
     try {
       await delayAsPromise(3000);
       await checkPluginPlatformStatus(context);
@@ -32,7 +32,7 @@ const checkPluginPlatformStatus = async function (context) {
  * Check Elasticsearch Server status and Kibana index presence
  */
 const checkElasticsearchServer = async function (context) {
-  context.wazuh.logger.debug(
+  context.fortishield.logger.debug(
     `Checking the existence of ${context.server.config.opensearchDashboards.index} index`,
   );
   const data =
@@ -44,7 +44,7 @@ const checkElasticsearchServer = async function (context) {
 };
 
 /**
- * Verify wazuh-statistics template
+ * Verify fortishield-statistics template
  */
 const checkTemplate = async function (context) {
   try {
@@ -58,18 +58,18 @@ const checkTemplate = async function (context) {
 
     try {
       // Check if the template already exists
-      context.wazuh.logger.debug(
-        `Getting the ${WAZUH_STATISTICS_TEMPLATE_NAME} template`,
+      context.fortishield.logger.debug(
+        `Getting the ${FORTISHIELD_STATISTICS_TEMPLATE_NAME} template`,
       );
       const currentTemplate =
         await context.core.opensearch.client.asInternalUser.indices.getTemplate(
           {
-            name: WAZUH_STATISTICS_TEMPLATE_NAME,
+            name: FORTISHIELD_STATISTICS_TEMPLATE_NAME,
           },
         );
       // Copy already created index patterns
       statisticsTemplate.index_patterns =
-        currentTemplate.body[WAZUH_STATISTICS_TEMPLATE_NAME].index_patterns;
+        currentTemplate.body[FORTISHIELD_STATISTICS_TEMPLATE_NAME].index_patterns;
     } catch (error) {
       // Init with the default index pattern
       statisticsTemplate.index_patterns = [pattern];
@@ -81,19 +81,19 @@ const checkTemplate = async function (context) {
     }
 
     // Update the statistics template
-    context.wazuh.logger.debug(
-      `Updating the ${WAZUH_STATISTICS_TEMPLATE_NAME} template`,
+    context.fortishield.logger.debug(
+      `Updating the ${FORTISHIELD_STATISTICS_TEMPLATE_NAME} template`,
     );
     await context.core.opensearch.client.asInternalUser.indices.putTemplate({
-      name: WAZUH_STATISTICS_TEMPLATE_NAME,
+      name: FORTISHIELD_STATISTICS_TEMPLATE_NAME,
       body: statisticsTemplate,
     });
-    context.wazuh.logger.info(
-      `Updated the ${WAZUH_STATISTICS_TEMPLATE_NAME} template`,
+    context.fortishield.logger.info(
+      `Updated the ${FORTISHIELD_STATISTICS_TEMPLATE_NAME} template`,
     );
   } catch (error) {
-    context.wazuh.logger.error(
-      `Something went wrong updating the ${WAZUH_STATISTICS_TEMPLATE_NAME} template ${
+    context.fortishield.logger.error(
+      `Something went wrong updating the ${FORTISHIELD_STATISTICS_TEMPLATE_NAME} template ${
         error.message || error
       }`,
     );
@@ -102,7 +102,7 @@ const checkTemplate = async function (context) {
 };
 
 export async function jobSchedulerRun(context) {
-  // Check Kibana index and if it is prepared, start the initialization of Wazuh App.
+  // Check Kibana index and if it is prepared, start the initialization of Fortishield App.
   await checkPluginPlatformStatus(context);
   for (const job in configuredJobs({})) {
     const schedulerJob: SchedulerJob = new SchedulerJob(job, context);

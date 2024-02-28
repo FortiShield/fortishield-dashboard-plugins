@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React Component component to display new updates notification.
+ * Fortishield app - React Component component to display new updates notification.
  *
- * Copyright (C) 2015-2023 Wazuh, Inc.
+ * Copyright (C) 2015-2023 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,10 +12,10 @@
  */
 
 import React from 'react';
-import { getWazuhCheckUpdatesPlugin } from '../../kibana-services';
+import { getFortishieldCheckUpdatesPlugin } from '../../kibana-services';
 
 export const WzUpdatesNotification = () => {
-  const { UpdatesNotification } = getWazuhCheckUpdatesPlugin();
+  const { UpdatesNotification } = getFortishieldCheckUpdatesPlugin();
 
   return <UpdatesNotification />;
 };

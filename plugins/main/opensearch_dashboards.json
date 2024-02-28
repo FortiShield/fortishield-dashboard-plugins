@@ -1,9 +1,9 @@
 {
-  "id": "wazuh",
+  "id": "fortishield",
   "version": "5.0.0-00",
   "opensearchDashboardsVersion": "opensearchDashboards",
   "configPath": [
-    "wazuh"
+    "fortishield"
   ],
   "requiredPlugins": [
     "navigation",
@@ -19,9 +19,9 @@
     "opensearchDashboardsReact",
     "opensearchDashboardsUtils",
     "opensearchDashboardsLegacy",
-    "wazuhCheckUpdates",
-    "wazuhCore",
-    "wazuhEndpoints"
+    "fortishieldCheckUpdates",
+    "fortishieldCore",
+    "fortishieldEndpoints"
   ],
   "optionalPlugins": [
     "security",

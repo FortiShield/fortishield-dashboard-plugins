@@ -161,7 +161,7 @@ async function run(configuration) {
 
   logger.debug(`Creating tag: ${tag}`);
   execSystem(
-    `git tag -s -a ${tag} -m "Wazuh plugins for Wazuh dashboard ${tag}"`,
+    `git tag -s -a ${tag} -m "Fortishield plugins for Fortishield dashboard ${tag}"`,
   );
   logger.info(`Created tag: ${tag}`);
   logger.debug(`Pushing tag ${tag} to remote`);

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Reporting service
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Reporting service
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
 
 import $ from 'jquery';
 import moment from 'moment';
-import { WazuhConfig } from '../react-services/wazuh-config';
+import { FortishieldConfig } from '../react-services/fortishield-config';
 import { GenericRequest } from '../react-services/generic-request';
 import { ErrorHandler } from '../react-services/error-handler';
 
@@ -30,7 +30,7 @@ export class ReportingService {
     this.visHandlers = visHandlers;
     this.genericReq = GenericRequest;
     this.errorHandler = errorHandler;
-    this.wazuhConfig = new WazuhConfig();
+    this.fortishieldConfig = new FortishieldConfig();
   }
   removeTableVis(visList) {
     const attributes = JSON.parse(visList.attributes.visState);
@@ -39,10 +39,10 @@ export class ReportingService {
 
   removeAgentStatusVis(idArray) {
     const monitoringEnabled =
-      this.wazuhConfig.getConfig()['wazuh.monitoring.enabled'];
+      this.fortishieldConfig.getConfig()['fortishield.monitoring.enabled'];
     if (!monitoringEnabled) {
       const visArray = idArray.filter(vis => {
-        return vis !== 'Wazuh-App-Overview-General-Agents-status';
+        return vis !== 'Fortishield-App-Overview-General-Agents-status';
       });
       return visArray;
     }
@@ -86,7 +86,7 @@ export class ReportingService {
       );
 
       const array = await this.vis2png.checkArray(idArray);
-      const name = `wazuh-${isAgents ? 'agents' : 'overview'}-${tab}-${
+      const name = `fortishield-${isAgents ? 'agents' : 'overview'}-${tab}-${
         (Date.now() / 1000) | 0
       }.pdf`;
 
@@ -132,8 +132,8 @@ export class ReportingService {
 
       const docType =
         type === 'agentConfig'
-          ? `wazuh-agent-${obj.id}`
-          : `wazuh-group-${obj.name}`;
+          ? `fortishield-agent-${obj.id}`
+          : `fortishield-group-${obj.name}`;
 
       const name = `${docType}-configuration-${(Date.now() / 1000) | 0}.pdf`;
       const browserTimezone = moment.tz.guess(true);

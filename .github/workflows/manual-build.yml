@@ -29,5 +29,5 @@ jobs:
     with:
       reference: ${{ inputs.reference }}
       command: 'yarn build'
-      artifact_name: 'wazuh-dashboard-plugins'
+      artifact_name: 'fortishield-dashboard-plugins'
     secrets: inherit

@@ -10,7 +10,7 @@ import { getKPIsPanel } from './dashboard_panels_kpis';
 import { useAppConfig } from '../../../../common/hooks';
 import { withErrorBoundary } from '../../../../common/hocs';
 import { DiscoverNoResults } from '../../common/components/no_results';
-import { WAZUH_INDEX_TYPE_VULNERABILITIES } from '../../../../../../common/constants';
+import { FORTISHIELD_INDEX_TYPE_VULNERABILITIES } from '../../../../../../common/constants';
 import { LoadingSpinner } from '../../common/components/loading_spinner';
 import useCheckIndexFields from '../../common/hooks/useCheckIndexFields';
 const plugins = getPlugins();
@@ -41,7 +41,7 @@ const DashboardVulsComponent: React.FC = () => {
     useCheckIndexFields(
       VULNERABILITIES_INDEX_PATTERN_ID,
       indexPatterns?.[0],
-      WAZUH_INDEX_TYPE_VULNERABILITIES,
+      FORTISHIELD_INDEX_TYPE_VULNERABILITIES,
       filters,
       query,
     );

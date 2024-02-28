@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Wazuh Constants file
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Fortishield Constants file
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,61 +18,61 @@ import { SettingsValidator } from '../common/services/settings-validator';
 export const PLUGIN_VERSION = version;
 export const PLUGIN_VERSION_SHORT = version.split('.').splice(0, 2).join('.');
 
-// Index patterns - Wazuh alerts
-export const WAZUH_INDEX_TYPE_ALERTS = 'alerts';
-export const WAZUH_ALERTS_PREFIX = 'wazuh-alerts-';
-export const WAZUH_ALERTS_PATTERN = 'wazuh-alerts-*';
+// Index patterns - Fortishield alerts
+export const FORTISHIELD_INDEX_TYPE_ALERTS = 'alerts';
+export const FORTISHIELD_ALERTS_PREFIX = 'fortishield-alerts-';
+export const FORTISHIELD_ALERTS_PATTERN = 'fortishield-alerts-*';
 
-// Job - Wazuh monitoring
-export const WAZUH_INDEX_TYPE_MONITORING = 'monitoring';
-export const WAZUH_MONITORING_PREFIX = 'wazuh-monitoring-';
-export const WAZUH_MONITORING_PATTERN = 'wazuh-monitoring-*';
-export const WAZUH_MONITORING_TEMPLATE_NAME = 'wazuh-agent';
-export const WAZUH_MONITORING_DEFAULT_INDICES_SHARDS = 1;
-export const WAZUH_MONITORING_DEFAULT_INDICES_REPLICAS = 0;
-export const WAZUH_MONITORING_DEFAULT_CREATION = 'w';
-export const WAZUH_MONITORING_DEFAULT_ENABLED = true;
-export const WAZUH_MONITORING_DEFAULT_FREQUENCY = 900;
-export const WAZUH_MONITORING_DEFAULT_CRON_FREQ = '0 * * * * *';
+// Job - Fortishield monitoring
+export const FORTISHIELD_INDEX_TYPE_MONITORING = 'monitoring';
+export const FORTISHIELD_MONITORING_PREFIX = 'fortishield-monitoring-';
+export const FORTISHIELD_MONITORING_PATTERN = 'fortishield-monitoring-*';
+export const FORTISHIELD_MONITORING_TEMPLATE_NAME = 'fortishield-agent';
+export const FORTISHIELD_MONITORING_DEFAULT_INDICES_SHARDS = 1;
+export const FORTISHIELD_MONITORING_DEFAULT_INDICES_REPLICAS = 0;
+export const FORTISHIELD_MONITORING_DEFAULT_CREATION = 'w';
+export const FORTISHIELD_MONITORING_DEFAULT_ENABLED = true;
+export const FORTISHIELD_MONITORING_DEFAULT_FREQUENCY = 900;
+export const FORTISHIELD_MONITORING_DEFAULT_CRON_FREQ = '0 * * * * *';
 
-// Job - Wazuh statistics
-export const WAZUH_INDEX_TYPE_STATISTICS = 'statistics';
-export const WAZUH_STATISTICS_DEFAULT_PREFIX = 'wazuh';
-export const WAZUH_STATISTICS_DEFAULT_NAME = 'statistics';
-export const WAZUH_STATISTICS_PATTERN = `${WAZUH_STATISTICS_DEFAULT_PREFIX}-${WAZUH_STATISTICS_DEFAULT_NAME}-*`;
-export const WAZUH_STATISTICS_TEMPLATE_NAME = `${WAZUH_STATISTICS_DEFAULT_PREFIX}-${WAZUH_STATISTICS_DEFAULT_NAME}`;
-export const WAZUH_STATISTICS_DEFAULT_INDICES_SHARDS = 1;
-export const WAZUH_STATISTICS_DEFAULT_INDICES_REPLICAS = 0;
-export const WAZUH_STATISTICS_DEFAULT_CREATION = 'w';
-export const WAZUH_STATISTICS_DEFAULT_STATUS = true;
-export const WAZUH_STATISTICS_DEFAULT_FREQUENCY = 900;
-export const WAZUH_STATISTICS_DEFAULT_CRON_FREQ = '0 */5 * * * *';
+// Job - Fortishield statistics
+export const FORTISHIELD_INDEX_TYPE_STATISTICS = 'statistics';
+export const FORTISHIELD_STATISTICS_DEFAULT_PREFIX = 'fortishield';
+export const FORTISHIELD_STATISTICS_DEFAULT_NAME = 'statistics';
+export const FORTISHIELD_STATISTICS_PATTERN = `${FORTISHIELD_STATISTICS_DEFAULT_PREFIX}-${FORTISHIELD_STATISTICS_DEFAULT_NAME}-*`;
+export const FORTISHIELD_STATISTICS_TEMPLATE_NAME = `${FORTISHIELD_STATISTICS_DEFAULT_PREFIX}-${FORTISHIELD_STATISTICS_DEFAULT_NAME}`;
+export const FORTISHIELD_STATISTICS_DEFAULT_INDICES_SHARDS = 1;
+export const FORTISHIELD_STATISTICS_DEFAULT_INDICES_REPLICAS = 0;
+export const FORTISHIELD_STATISTICS_DEFAULT_CREATION = 'w';
+export const FORTISHIELD_STATISTICS_DEFAULT_STATUS = true;
+export const FORTISHIELD_STATISTICS_DEFAULT_FREQUENCY = 900;
+export const FORTISHIELD_STATISTICS_DEFAULT_CRON_FREQ = '0 */5 * * * *';
 
-// Wazuh vulnerabilities
-export const WAZUH_VULNERABILITIES_PATTERN = 'wazuh-states-vulnerabilities';
-export const WAZUH_INDEX_TYPE_VULNERABILITIES = 'vulnerabilities';
+// Fortishield vulnerabilities
+export const FORTISHIELD_VULNERABILITIES_PATTERN = 'fortishield-states-vulnerabilities';
+export const FORTISHIELD_INDEX_TYPE_VULNERABILITIES = 'vulnerabilities';
 
-// Wazuh fim
-export const WAZUH_FIM_PATTERN = 'wazuh-states-fim';
+// Fortishield fim
+export const FORTISHIELD_FIM_PATTERN = 'fortishield-states-fim';
 
-// Job - Wazuh initialize
-export const WAZUH_PLUGIN_PLATFORM_TEMPLATE_NAME = 'wazuh-kibana';
+// Job - Fortishield initialize
+export const FORTISHIELD_PLUGIN_PLATFORM_TEMPLATE_NAME = 'fortishield-kibana';
 
 // Permissions
-export const WAZUH_ROLE_ADMINISTRATOR_ID = 1;
-export const WAZUH_ROLE_ADMINISTRATOR_NAME = 'administrator';
+export const FORTISHIELD_ROLE_ADMINISTRATOR_ID = 1;
+export const FORTISHIELD_ROLE_ADMINISTRATOR_NAME = 'administrator';
 
 // Sample data
-export const WAZUH_SAMPLE_ALERT_PREFIX = 'wazuh-alerts-4.x-';
-export const WAZUH_SAMPLE_ALERTS_INDEX_SHARDS = 1;
-export const WAZUH_SAMPLE_ALERTS_INDEX_REPLICAS = 0;
-export const WAZUH_SAMPLE_ALERTS_CATEGORY_SECURITY = 'security';
-export const WAZUH_SAMPLE_ALERTS_CATEGORY_AUDITING_POLICY_MONITORING =
+export const FORTISHIELD_SAMPLE_ALERT_PREFIX = 'fortishield-alerts-4.x-';
+export const FORTISHIELD_SAMPLE_ALERTS_INDEX_SHARDS = 1;
+export const FORTISHIELD_SAMPLE_ALERTS_INDEX_REPLICAS = 0;
+export const FORTISHIELD_SAMPLE_ALERTS_CATEGORY_SECURITY = 'security';
+export const FORTISHIELD_SAMPLE_ALERTS_CATEGORY_AUDITING_POLICY_MONITORING =
   'auditing-policy-monitoring';
-export const WAZUH_SAMPLE_ALERTS_CATEGORY_THREAT_DETECTION = 'threat-detection';
-export const WAZUH_SAMPLE_ALERTS_DEFAULT_NUMBER_ALERTS = 3000;
-export const WAZUH_SAMPLE_ALERTS_CATEGORIES_TYPE_ALERTS = {
-  [WAZUH_SAMPLE_ALERTS_CATEGORY_SECURITY]: [
+export const FORTISHIELD_SAMPLE_ALERTS_CATEGORY_THREAT_DETECTION = 'threat-detection';
+export const FORTISHIELD_SAMPLE_ALERTS_DEFAULT_NUMBER_ALERTS = 3000;
+export const FORTISHIELD_SAMPLE_ALERTS_CATEGORIES_TYPE_ALERTS = {
+  [FORTISHIELD_SAMPLE_ALERTS_CATEGORY_SECURITY]: [
     { syscheck: true },
     { aws: true },
     { office: true },
@@ -84,13 +84,13 @@ export const WAZUH_SAMPLE_ALERTS_CATEGORIES_TYPE_ALERTS = {
     { windows: { service_control_manager: true }, alerts: 1000 },
     { github: true },
   ],
-  [WAZUH_SAMPLE_ALERTS_CATEGORY_AUDITING_POLICY_MONITORING]: [
+  [FORTISHIELD_SAMPLE_ALERTS_CATEGORY_AUDITING_POLICY_MONITORING]: [
     { rootcheck: true },
     { audit: true },
     { openscap: true },
     { ciscat: true },
   ],
-  [WAZUH_SAMPLE_ALERTS_CATEGORY_THREAT_DETECTION]: [
+  [FORTISHIELD_SAMPLE_ALERTS_CATEGORY_THREAT_DETECTION]: [
     { vulnerabilities: true },
     { virustotal: true },
     { osquery: true },
@@ -100,64 +100,64 @@ export const WAZUH_SAMPLE_ALERTS_CATEGORIES_TYPE_ALERTS = {
 };
 
 // Security
-export const WAZUH_SECURITY_PLUGIN_OPENSEARCH_DASHBOARDS_SECURITY =
+export const FORTISHIELD_SECURITY_PLUGIN_OPENSEARCH_DASHBOARDS_SECURITY =
   'OpenSearch Dashboards Security';
 
-export const WAZUH_SECURITY_PLUGINS = [
-  WAZUH_SECURITY_PLUGIN_OPENSEARCH_DASHBOARDS_SECURITY,
+export const FORTISHIELD_SECURITY_PLUGINS = [
+  FORTISHIELD_SECURITY_PLUGIN_OPENSEARCH_DASHBOARDS_SECURITY,
 ];
 
 // App configuration
-export const WAZUH_CONFIGURATION_CACHE_TIME = 10000; // time in ms;
+export const FORTISHIELD_CONFIGURATION_CACHE_TIME = 10000; // time in ms;
 
 // Reserved ids for Users/Role mapping
-export const WAZUH_API_RESERVED_ID_LOWER_THAN = 100;
-export const WAZUH_API_RESERVED_WUI_SECURITY_RULES = [1, 2];
+export const FORTISHIELD_API_RESERVED_ID_LOWER_THAN = 100;
+export const FORTISHIELD_API_RESERVED_WUI_SECURITY_RULES = [1, 2];
 
-// Wazuh data path
-const WAZUH_DATA_PLUGIN_PLATFORM_BASE_PATH = 'data';
-export const WAZUH_DATA_PLUGIN_PLATFORM_BASE_ABSOLUTE_PATH = path.join(
+// Fortishield data path
+const FORTISHIELD_DATA_PLUGIN_PLATFORM_BASE_PATH = 'data';
+export const FORTISHIELD_DATA_PLUGIN_PLATFORM_BASE_ABSOLUTE_PATH = path.join(
   __dirname,
   '../../../',
-  WAZUH_DATA_PLUGIN_PLATFORM_BASE_PATH,
+  FORTISHIELD_DATA_PLUGIN_PLATFORM_BASE_PATH,
 );
-export const WAZUH_DATA_ABSOLUTE_PATH = path.join(
-  WAZUH_DATA_PLUGIN_PLATFORM_BASE_ABSOLUTE_PATH,
-  'wazuh',
+export const FORTISHIELD_DATA_ABSOLUTE_PATH = path.join(
+  FORTISHIELD_DATA_PLUGIN_PLATFORM_BASE_ABSOLUTE_PATH,
+  'fortishield',
 );
 
-// Wazuh data path - config
-export const WAZUH_DATA_CONFIG_DIRECTORY_PATH = path.join(
-  WAZUH_DATA_ABSOLUTE_PATH,
+// Fortishield data path - config
+export const FORTISHIELD_DATA_CONFIG_DIRECTORY_PATH = path.join(
+  FORTISHIELD_DATA_ABSOLUTE_PATH,
   'config',
 );
-export const WAZUH_DATA_CONFIG_APP_PATH = path.join(
-  WAZUH_DATA_CONFIG_DIRECTORY_PATH,
-  'wazuh.yml',
+export const FORTISHIELD_DATA_CONFIG_APP_PATH = path.join(
+  FORTISHIELD_DATA_CONFIG_DIRECTORY_PATH,
+  'fortishield.yml',
 );
-export const WAZUH_DATA_CONFIG_REGISTRY_PATH = path.join(
-  WAZUH_DATA_CONFIG_DIRECTORY_PATH,
-  'wazuh-registry.json',
+export const FORTISHIELD_DATA_CONFIG_REGISTRY_PATH = path.join(
+  FORTISHIELD_DATA_CONFIG_DIRECTORY_PATH,
+  'fortishield-registry.json',
 );
 
-// Wazuh data path - downloads
-export const WAZUH_DATA_DOWNLOADS_DIRECTORY_PATH = path.join(
-  WAZUH_DATA_ABSOLUTE_PATH,
+// Fortishield data path - downloads
+export const FORTISHIELD_DATA_DOWNLOADS_DIRECTORY_PATH = path.join(
+  FORTISHIELD_DATA_ABSOLUTE_PATH,
   'downloads',
 );
-export const WAZUH_DATA_DOWNLOADS_REPORTS_DIRECTORY_PATH = path.join(
-  WAZUH_DATA_DOWNLOADS_DIRECTORY_PATH,
+export const FORTISHIELD_DATA_DOWNLOADS_REPORTS_DIRECTORY_PATH = path.join(
+  FORTISHIELD_DATA_DOWNLOADS_DIRECTORY_PATH,
   'reports',
 );
 
 // Queue
-export const WAZUH_QUEUE_CRON_FREQ = '*/15 * * * * *'; // Every 15 seconds
+export const FORTISHIELD_QUEUE_CRON_FREQ = '*/15 * * * * *'; // Every 15 seconds
 
-// Wazuh errors
-export const WAZUH_ERROR_DAEMONS_NOT_READY = 'ERROR3099';
+// Fortishield errors
+export const FORTISHIELD_ERROR_DAEMONS_NOT_READY = 'ERROR3099';
 
 // Agents
-export enum WAZUH_AGENTS_OS_TYPE {
+export enum FORTISHIELD_AGENTS_OS_TYPE {
   WINDOWS = 'windows',
   LINUX = 'linux',
   SUNOS = 'sunos',
@@ -165,7 +165,7 @@ export enum WAZUH_AGENTS_OS_TYPE {
   OTHERS = '',
 }
 
-export enum WAZUH_MODULES_ID {
+export enum FORTISHIELD_MODULES_ID {
   SECURITY_EVENTS = 'general',
   INTEGRITY_MONITORING = 'fim',
   AMAZON_WEB_SERVICES = 'aws',
@@ -189,7 +189,7 @@ export enum WAZUH_MODULES_ID {
   GITHUB = 'github',
 }
 
-export enum WAZUH_MENU_MANAGEMENT_SECTIONS_ID {
+export enum FORTISHIELD_MENU_MANAGEMENT_SECTIONS_ID {
   MANAGEMENT = 'management',
   ADMINISTRATION = 'administration',
   RULESET = 'ruleset',
@@ -206,19 +206,19 @@ export enum WAZUH_MENU_MANAGEMENT_SECTIONS_ID {
   STATISTICS = 'statistics',
 }
 
-export enum WAZUH_MENU_TOOLS_SECTIONS_ID {
+export enum FORTISHIELD_MENU_TOOLS_SECTIONS_ID {
   API_CONSOLE = 'devTools',
   RULESET_TEST = 'logtest',
 }
 
-export enum WAZUH_MENU_SECURITY_SECTIONS_ID {
+export enum FORTISHIELD_MENU_SECURITY_SECTIONS_ID {
   USERS = 'users',
   ROLES = 'roles',
   POLICIES = 'policies',
   ROLES_MAPPING = 'roleMapping',
 }
 
-export enum WAZUH_MENU_SETTINGS_SECTIONS_ID {
+export enum FORTISHIELD_MENU_SETTINGS_SECTIONS_ID {
   SETTINGS = 'settings',
   API_CONFIGURATION = 'api',
   MODULES = 'modules',
@@ -231,11 +231,11 @@ export enum WAZUH_MENU_SETTINGS_SECTIONS_ID {
 
 export const AUTHORIZED_AGENTS = 'authorized-agents';
 
-// Wazuh links
-export const WAZUH_LINK_GITHUB = 'https://github.com/wazuh';
-export const WAZUH_LINK_GOOGLE_GROUPS =
-  'https://groups.google.com/forum/#!forum/wazuh';
-export const WAZUH_LINK_SLACK = 'https://wazuh.com/community/join-us-on-slack';
+// Fortishield links
+export const FORTISHIELD_LINK_GITHUB = 'https://github.com/fortishield';
+export const FORTISHIELD_LINK_GOOGLE_GROUPS =
+  'https://groups.google.com/forum/#!forum/fortishield';
+export const FORTISHIELD_LINK_SLACK = 'https://fortishield.com/community/join-us-on-slack';
 
 export const HEALTH_CHECK = 'health-check';
 
@@ -244,7 +244,7 @@ export const HEALTH_CHECK_REDIRECTION_TIME = 300; //ms
 
 // Plugin platform settings
 // Default timeFilter set by the app
-export const WAZUH_PLUGIN_PLATFORM_SETTING_TIME_FILTER = {
+export const FORTISHIELD_PLUGIN_PLATFORM_SETTING_TIME_FILTER = {
   from: 'now-24h',
   to: 'now',
 };
@@ -252,11 +252,11 @@ export const PLUGIN_PLATFORM_SETTING_NAME_TIME_FILTER =
   'timepicker:timeDefaults';
 
 // Default maxBuckets set by the app
-export const WAZUH_PLUGIN_PLATFORM_SETTING_MAX_BUCKETS = 200000;
+export const FORTISHIELD_PLUGIN_PLATFORM_SETTING_MAX_BUCKETS = 200000;
 export const PLUGIN_PLATFORM_SETTING_NAME_MAX_BUCKETS = 'timeline:max_buckets';
 
 // Default metaFields set by the app
-export const WAZUH_PLUGIN_PLATFORM_SETTING_METAFIELDS = ['_source', '_index'];
+export const FORTISHIELD_PLUGIN_PLATFORM_SETTING_METAFIELDS = ['_source', '_index'];
 export const PLUGIN_PLATFORM_SETTING_NAME_METAFIELDS = 'metaFields';
 
 // Logger
@@ -273,28 +273,28 @@ export const UI_TOAST_COLOR = {
 };
 
 // Assets
-export const ASSETS_BASE_URL_PREFIX = '/plugins/wazuh/assets/';
-export const ASSETS_PUBLIC_URL = '/plugins/wazuh/public/assets/';
+export const ASSETS_BASE_URL_PREFIX = '/plugins/fortishield/assets/';
+export const ASSETS_PUBLIC_URL = '/plugins/fortishield/public/assets/';
 
 // Reports
 export const REPORTS_LOGO_IMAGE_ASSETS_RELATIVE_PATH =
   'images/logo_reports.png';
 export const REPORTS_PRIMARY_COLOR = '#256BD1';
-export const REPORTS_PAGE_FOOTER_TEXT = 'Copyright © 2023 Wazuh, Inc.';
-export const REPORTS_PAGE_HEADER_TEXT = 'info@wazuh.com\nhttps://wazuh.com';
+export const REPORTS_PAGE_FOOTER_TEXT = 'Copyright © 2023 Fortishield, Inc.';
+export const REPORTS_PAGE_HEADER_TEXT = 'info@fortishield.com\nhttps://fortishield.com';
 
 // Plugin platform
-export const PLUGIN_PLATFORM_NAME = 'Wazuh dashboard';
+export const PLUGIN_PLATFORM_NAME = 'Fortishield dashboard';
 export const PLUGIN_PLATFORM_BASE_INSTALLATION_PATH =
-  '/usr/share/wazuh-dashboard/data/wazuh/';
-export const PLUGIN_PLATFORM_INSTALLATION_USER = 'wazuh-dashboard';
-export const PLUGIN_PLATFORM_INSTALLATION_USER_GROUP = 'wazuh-dashboard';
-export const PLUGIN_PLATFORM_WAZUH_DOCUMENTATION_URL_PATH_UPGRADE_PLATFORM =
+  '/usr/share/fortishield-dashboard/data/fortishield/';
+export const PLUGIN_PLATFORM_INSTALLATION_USER = 'fortishield-dashboard';
+export const PLUGIN_PLATFORM_INSTALLATION_USER_GROUP = 'fortishield-dashboard';
+export const PLUGIN_PLATFORM_FORTISHIELD_DOCUMENTATION_URL_PATH_UPGRADE_PLATFORM =
   'upgrade-guide';
-export const PLUGIN_PLATFORM_WAZUH_DOCUMENTATION_URL_PATH_TROUBLESHOOTING =
-  'user-manual/wazuh-dashboard/troubleshooting.html';
-export const PLUGIN_PLATFORM_WAZUH_DOCUMENTATION_URL_PATH_APP_CONFIGURATION =
-  'user-manual/wazuh-dashboard/config-file.html';
+export const PLUGIN_PLATFORM_FORTISHIELD_DOCUMENTATION_URL_PATH_TROUBLESHOOTING =
+  'user-manual/fortishield-dashboard/troubleshooting.html';
+export const PLUGIN_PLATFORM_FORTISHIELD_DOCUMENTATION_URL_PATH_APP_CONFIGURATION =
+  'user-manual/fortishield-dashboard/config-file.html';
 export const PLUGIN_PLATFORM_URL_GUIDE =
   'https://opensearch.org/docs/2.10/about';
 export const PLUGIN_PLATFORM_URL_GUIDE_TITLE = 'OpenSearch guide';
@@ -304,7 +304,7 @@ export const PLUGIN_PLATFORM_REQUEST_HEADERS = {
 };
 
 // Plugin app
-export const PLUGIN_APP_NAME = 'Wazuh dashboard';
+export const PLUGIN_APP_NAME = 'Fortishield dashboard';
 
 // UI
 export const API_NAME_AGENT_STATUS = {
@@ -342,7 +342,7 @@ export const AGENT_SYNCED_STATUS = {
   NOT_SYNCED: 'not synced',
 };
 
-// The status code can be seen here https://github.com/wazuh/wazuh/blob/686068a1f05d806b2e3b3d633a765320ae7ae114/src/wazuh_db/wdb.h#L55-L61
+// The status code can be seen here https://github.com/fortishield/fortishield/blob/686068a1f05d806b2e3b3d633a765320ae7ae114/src/fortishield_db/wdb.h#L55-L61
 
 export const AGENT_STATUS_CODE = [
   {
@@ -372,13 +372,13 @@ export const AGENT_STATUS_CODE = [
 ];
 
 // Documentation
-export const DOCUMENTATION_WEB_BASE_URL = 'https://documentation.wazuh.com';
+export const DOCUMENTATION_WEB_BASE_URL = 'https://documentation.fortishield.com';
 
 // Default Elasticsearch user name context
 export const ELASTIC_NAME = 'elastic';
 
-// Default Wazuh indexer name
-export const WAZUH_INDEXER_NAME = 'Wazuh indexer';
+// Default Fortishield indexer name
+export const FORTISHIELD_INDEXER_NAME = 'Fortishield indexer';
 
 // Not timeFieldName on index pattern
 export const NOT_TIME_FIELD_NAME_INDEX_PATTERN =
@@ -556,7 +556,7 @@ export const PLUGIN_SETTINGS_CATEGORIES: {
     title: 'Custom branding',
     description:
       'If you want to use custom branding elements such as logos, you can do so by editing the settings below.',
-    documentationLink: 'user-manual/wazuh-dashboard/white-labeling.html',
+    documentationLink: 'user-manual/fortishield-dashboard/white-labeling.html',
     renderOrder: SettingCategory.CUSTOMIZATION,
   },
 };
@@ -568,7 +568,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       'Define the index name prefix of sample alerts. It must match the template used by the index pattern to avoid unknown fields in dashboards.',
     category: SettingCategory.GENERAL,
     type: EpluginSettingType.text,
-    defaultValue: WAZUH_SAMPLE_ALERT_PREFIX,
+    defaultValue: FORTISHIELD_SAMPLE_ALERT_PREFIX,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRunningHealthCheck: true,
@@ -868,7 +868,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
     description: 'Define the index prefix of predefined jobs.',
     category: SettingCategory.GENERAL,
     type: EpluginSettingType.text,
-    defaultValue: WAZUH_STATISTICS_DEFAULT_PREFIX,
+    defaultValue: FORTISHIELD_STATISTICS_DEFAULT_PREFIX,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     // Validation: https://github.com/elastic/elasticsearch/blob/v7.10.2/docs/reference/indices/create-index.asciidoc
@@ -966,7 +966,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
         },
       ],
     },
-    defaultValue: WAZUH_STATISTICS_DEFAULT_CREATION,
+    defaultValue: FORTISHIELD_STATISTICS_DEFAULT_CREATION,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRunningHealthCheck: true,
@@ -987,7 +987,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       'Define the name of the index in which the documents will be saved.',
     category: SettingCategory.STATISTICS,
     type: EpluginSettingType.text,
-    defaultValue: WAZUH_STATISTICS_DEFAULT_NAME,
+    defaultValue: FORTISHIELD_STATISTICS_DEFAULT_NAME,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRunningHealthCheck: true,
@@ -1019,7 +1019,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       'Define the number of replicas to use for the statistics indices.',
     category: SettingCategory.STATISTICS,
     type: EpluginSettingType.number,
-    defaultValue: WAZUH_STATISTICS_DEFAULT_INDICES_REPLICAS,
+    defaultValue: FORTISHIELD_STATISTICS_DEFAULT_INDICES_REPLICAS,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRunningHealthCheck: true,
@@ -1052,7 +1052,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       'Define the number of shards to use for the statistics indices.',
     category: SettingCategory.STATISTICS,
     type: EpluginSettingType.number,
-    defaultValue: WAZUH_STATISTICS_DEFAULT_INDICES_SHARDS,
+    defaultValue: FORTISHIELD_STATISTICS_DEFAULT_INDICES_SHARDS,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRunningHealthCheck: true,
@@ -1083,7 +1083,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       'Define the frequency of task execution using cron schedule expressions.',
     category: SettingCategory.STATISTICS,
     type: EpluginSettingType.text,
-    defaultValue: WAZUH_STATISTICS_DEFAULT_CRON_FREQ,
+    defaultValue: FORTISHIELD_STATISTICS_DEFAULT_CRON_FREQ,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRestartingPluginPlatform: true,
@@ -1101,7 +1101,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
     description: 'Enable or disable the statistics tasks.',
     category: SettingCategory.STATISTICS,
     type: EpluginSettingType.switch,
-    defaultValue: WAZUH_STATISTICS_DEFAULT_STATUS,
+    defaultValue: FORTISHIELD_STATISTICS_DEFAULT_STATUS,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     options: {
@@ -1151,7 +1151,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
   },
   'customization.logo.app': {
     title: 'App main logo',
-    description: `This logo is used as loading indicator while the user is logging into Wazuh API.`,
+    description: `This logo is used as loading indicator while the user is logging into Fortishield API.`,
     category: SettingCategory.CUSTOMIZATION,
     type: EpluginSettingType.filepicker,
     defaultValue: '',
@@ -1323,7 +1323,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
   'enrollment.dns': {
     title: 'Enrollment DNS',
     description:
-      'Specifies the Wazuh registration server, used for the agent enrollment.',
+      'Specifies the Fortishield registration server, used for the agent enrollment.',
     category: SettingCategory.GENERAL,
     type: EpluginSettingType.text,
     defaultValue: '',
@@ -1483,7 +1483,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       "Default index pattern to use on the app. If there's no valid index pattern, the app will automatically create one with the name indicated in this option.",
     category: SettingCategory.GENERAL,
     type: EpluginSettingType.text,
-    defaultValue: WAZUH_ALERTS_PATTERN,
+    defaultValue: FORTISHIELD_ALERTS_PATTERN,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRunningHealthCheck: true,
@@ -1539,10 +1539,10 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       return schema.number({ validate: this.validate.bind(this) });
     },
   },
-  'wazuh.monitoring.creation': {
+  'fortishield.monitoring.creation': {
     title: 'Index creation',
     description:
-      'Define the interval in which a new wazuh-monitoring index will be created.',
+      'Define the interval in which a new fortishield-monitoring index will be created.',
     category: SettingCategory.MONITORING,
     type: EpluginSettingType.select,
     options: {
@@ -1565,7 +1565,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
         },
       ],
     },
-    defaultValue: WAZUH_MONITORING_DEFAULT_CREATION,
+    defaultValue: FORTISHIELD_MONITORING_DEFAULT_CREATION,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRunningHealthCheck: true,
@@ -1580,13 +1580,13 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       );
     },
   },
-  'wazuh.monitoring.enabled': {
+  'fortishield.monitoring.enabled': {
     title: 'Status',
     description:
-      'Enable or disable the wazuh-monitoring index creation and/or visualization.',
+      'Enable or disable the fortishield-monitoring index creation and/or visualization.',
     category: SettingCategory.MONITORING,
     type: EpluginSettingType.switch,
-    defaultValue: WAZUH_MONITORING_DEFAULT_ENABLED,
+    defaultValue: FORTISHIELD_MONITORING_DEFAULT_ENABLED,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRestartingPluginPlatform: true,
@@ -1608,13 +1608,13 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       return schema.boolean();
     },
   },
-  'wazuh.monitoring.frequency': {
+  'fortishield.monitoring.frequency': {
     title: 'Frequency',
     description:
-      'Frequency, in seconds, of API requests to get the state of the agents and create a new document in the wazuh-monitoring index with this data.',
+      'Frequency, in seconds, of API requests to get the state of the agents and create a new document in the fortishield-monitoring index with this data.',
     category: SettingCategory.MONITORING,
     type: EpluginSettingType.number,
-    defaultValue: WAZUH_MONITORING_DEFAULT_FREQUENCY,
+    defaultValue: FORTISHIELD_MONITORING_DEFAULT_FREQUENCY,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRestartingPluginPlatform: true,
@@ -1639,12 +1639,12 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       return schema.number({ validate: this.validate.bind(this) });
     },
   },
-  'wazuh.monitoring.pattern': {
+  'fortishield.monitoring.pattern': {
     title: 'Index pattern',
-    description: 'Default index pattern to use for Wazuh monitoring.',
+    description: 'Default index pattern to use for Fortishield monitoring.',
     category: SettingCategory.MONITORING,
     type: EpluginSettingType.text,
-    defaultValue: WAZUH_MONITORING_PATTERN,
+    defaultValue: FORTISHIELD_MONITORING_PATTERN,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRunningHealthCheck: true,
@@ -1669,13 +1669,13 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       return schema.string({ minLength: 1, validate: this.validate });
     },
   },
-  'wazuh.monitoring.replicas': {
+  'fortishield.monitoring.replicas': {
     title: 'Index replicas',
     description:
-      'Define the number of replicas to use for the wazuh-monitoring-* indices.',
+      'Define the number of replicas to use for the fortishield-monitoring-* indices.',
     category: SettingCategory.MONITORING,
     type: EpluginSettingType.number,
-    defaultValue: WAZUH_MONITORING_DEFAULT_INDICES_REPLICAS,
+    defaultValue: FORTISHIELD_MONITORING_DEFAULT_INDICES_REPLICAS,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRunningHealthCheck: true,
@@ -1700,13 +1700,13 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
       return schema.number({ validate: this.validate.bind(this) });
     },
   },
-  'wazuh.monitoring.shards': {
+  'fortishield.monitoring.shards': {
     title: 'Index shards',
     description:
-      'Define the number of shards to use for the wazuh-monitoring-* indices.',
+      'Define the number of shards to use for the fortishield-monitoring-* indices.',
     category: SettingCategory.MONITORING,
     type: EpluginSettingType.number,
-    defaultValue: WAZUH_MONITORING_DEFAULT_INDICES_SHARDS,
+    defaultValue: FORTISHIELD_MONITORING_DEFAULT_INDICES_SHARDS,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRunningHealthCheck: true,
@@ -1736,7 +1736,7 @@ export const PLUGIN_SETTINGS: { [key: string]: TPluginSetting } = {
     description: 'Default index pattern to use for vulnerabilities.',
     category: SettingCategory.VULNERABILITIES,
     type: EpluginSettingType.text,
-    defaultValue: WAZUH_VULNERABILITIES_PATTERN,
+    defaultValue: FORTISHIELD_VULNERABILITIES_PATTERN,
     isConfigurableFromFile: true,
     isConfigurableFromUI: true,
     requiresRunningHealthCheck: false,

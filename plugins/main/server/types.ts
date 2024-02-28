@@ -17,11 +17,11 @@
  * under the License.
  */
 
-export interface WazuhPluginSetup {}
+export interface FortishieldPluginSetup {}
 
-export interface WazuhPluginStart {}
+export interface FortishieldPluginStart {}
 
 export type PluginSetup = {
   securityDashboards?: {}; // TODO: Add OpenSearch Dashboards Security interface
-  wazuhCore: {};
+  fortishieldCore: {};
 };

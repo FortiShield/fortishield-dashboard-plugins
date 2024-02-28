@@ -1,12 +1,12 @@
 import { ErrorFactory } from '../error-factory/error-factory';
 import {
   IndexerApiError,
-  WazuhReportingError,
-  WazuhApiError,
+  FortishieldReportingError,
+  FortishieldApiError,
   HttpError,
 } from '../error-factory/errors';
-import { IWazuhError, IWazuhErrorConstructor } from '../types';
-import WazuhError from '../error-factory/errors/WazuhError';
+import { IFortishieldError, IFortishieldErrorConstructor } from '../types';
+import FortishieldError from '../error-factory/errors/FortishieldError';
 // error orchestrator
 import { UIErrorLog } from '../../error-orchestrator/types';
 import { ErrorOrchestratorService } from '../../error-orchestrator/error-orchestrator.service';
@@ -19,7 +19,7 @@ interface ILogCustomOptions {
 }
 
 interface IUrlRequestedTypes {
-  [key: string]: IWazuhErrorConstructor;
+  [key: string]: IFortishieldErrorConstructor;
 }
 
 export class ErrorHandler {
@@ -31,7 +31,7 @@ export class ErrorHandler {
    * @param customLogOptions custom log options to show when the error is presented to the UI (toast|logs|blank-screen)
    * @returns 
    */
-  static handleError(error: Error, customLogOptions?: ILogCustomOptions): Error | IWazuhError {
+  static handleError(error: Error, customLogOptions?: ILogCustomOptions): Error | IFortishieldError {
     if (!error) {
       throw Error('Error must be defined');
     }
@@ -46,7 +46,7 @@ export class ErrorHandler {
    * @param error
    * @returns
    */
-  static createError(error: Error | AxiosError | string): IWazuhError | Error {
+  static createError(error: Error | AxiosError | string): IFortishieldError | Error {
     if (!error) {
       throw Error('Error must be defined');
     }
@@ -65,7 +65,7 @@ export class ErrorHandler {
    */
   private static getErrorType(
     error: Error | AxiosError | OpenSearchDashboardsResponse, // ToDo: Get error types
-  ): IWazuhErrorConstructor | null {
+  ): IFortishieldErrorConstructor | null {
     let errorType = null;
     // if is http error (axios error) then get new to create a new error instance
     if(this.isHttpError(error)){
@@ -79,7 +79,7 @@ export class ErrorHandler {
    * @param error 
    * @returns 
    */
-  static isHttpError(error: Error | IWazuhError | AxiosError | OpenSearchDashboardsResponse): boolean {
+  static isHttpError(error: Error | IFortishieldError | AxiosError | OpenSearchDashboardsResponse): boolean {
     return axios.isAxiosError(error);
   }
 
@@ -88,10 +88,10 @@ export class ErrorHandler {
    * @param error 
    * @returns 
    */
-  private static getErrorTypeByConfig(error: AxiosError): IWazuhErrorConstructor | null {
+  private static getErrorTypeByConfig(error: AxiosError): IFortishieldErrorConstructor | null {
     const requestedUrlbyErrorTypes: IUrlRequestedTypes = {
-      '/api': WazuhApiError,
-      '/reports': WazuhReportingError,
+      '/api': FortishieldApiError,
+      '/reports': FortishieldReportingError,
       '/elastic': IndexerApiError,
     }
 
@@ -118,7 +118,7 @@ export class ErrorHandler {
    * This method log the error depending on the error type and the log options defined in the error class
    * @param error
    */
-  private static logError(error: Error | IWazuhError, customLogOptions?: ILogCustomOptions) {
+  private static logError(error: Error | IFortishieldError, customLogOptions?: ILogCustomOptions) {
     // this is a generic error treatment
     // this condition is for the native error classes
     let defaultErrorLog: UIErrorLog = {
@@ -132,7 +132,7 @@ export class ErrorHandler {
       display: true,
       store: false,
     };
-    if (error instanceof WazuhError) {
+    if (error instanceof FortishieldError) {
       defaultErrorLog = {
         ...error.logOptions,
         ...{

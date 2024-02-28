@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Load App config service
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Load App config service
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@ import { UI_ERROR_SEVERITIES } from './error-orchestrator/types';
 import { getErrorOrchestrator } from './common-services';
 
 /**
- * Retunrs the wazuh app config
+ * Retunrs the fortishield app config
  */
 export const loadAppConfig = async () => {
   try {
@@ -45,7 +45,7 @@ export const loadAppConfig = async () => {
       error: {
         error: error,
         message: error.message || error,
-        title: `Error parsing wazuh.yml, using default values.`,
+        title: `Error parsing fortishield.yml, using default values.`,
       },
     };
     getErrorOrchestrator().handleError(options);

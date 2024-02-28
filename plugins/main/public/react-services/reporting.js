@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Reporting service
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Reporting service
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
 
 import $ from 'jquery';
 import moment from 'moment';
-import { WazuhConfig } from '../react-services/wazuh-config';
+import { FortishieldConfig } from '../react-services/fortishield-config';
 import { AppState } from './app-state';
 import { WzRequest } from './wz-request';
 import { Vis2PNG } from '../factories/vis2png';
@@ -30,7 +30,7 @@ export class ReportingService {
     this.vis2png = new Vis2PNG();
     this.rawVisualizations = new RawVisualizations();
     this.visHandlers = new VisHandlers();
-    this.wazuhConfig = new WazuhConfig();
+    this.fortishieldConfig = new FortishieldConfig();
   }
 
   showToast = (color, title, text, time) => {
@@ -49,10 +49,10 @@ export class ReportingService {
 
   removeAgentStatusVis(idArray) {
     const monitoringEnabled =
-      this.wazuhConfig.getConfig()['wazuh.monitoring.enabled'];
+      this.fortishieldConfig.getConfig()['fortishield.monitoring.enabled'];
     if (!monitoringEnabled) {
       const visArray = idArray.filter(vis => {
-        return vis !== 'Wazuh-App-Overview-General-Agents-status';
+        return vis !== 'Fortishield-App-Overview-General-Agents-status';
       });
       return visArray;
     }

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for Visualize.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for Visualize.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ import {
   EuiLink,
 } from '@elastic/eui';
 import WzReduxProvider from '../../redux/wz-redux-provider';
-import { WazuhConfig } from '../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../react-services/fortishield-config';
 import { WzRequest } from '../../react-services/wz-request';
 import { CommonData } from '../../services/common-data';
 import { VisHandlers } from '../../factories/vis-handlers';
@@ -68,11 +68,11 @@ export const WzVisualize = compose(
       this.metricValues = false;
       this.rawVisualizations = new RawVisualizations();
       this.wzReq = WzRequest;
-      const wazuhConfig = new WazuhConfig();
+      const fortishieldConfig = new FortishieldConfig();
       this.commonData = new CommonData();
-      const configuration = wazuhConfig.getConfig();
+      const configuration = fortishieldConfig.getConfig();
       this.monitoringEnabled = !!(configuration || {})[
-        'wazuh.monitoring.enabled'
+        'fortishield.monitoring.enabled'
       ];
     }
 
@@ -93,7 +93,7 @@ export const WzVisualize = compose(
      * from a type to another, but aren't when the pinned agent changes.
      *
      * More info:
-     * https://github.com/wazuh/wazuh-dashboard-plugins/issues/4230#issuecomment-1152161434
+     * https://github.com/fortishield/fortishield-dashboard-plugins/issues/4230#issuecomment-1152161434
      *
      * @param {Object} prevProps
      */
@@ -167,7 +167,7 @@ export const WzVisualize = compose(
               There were some unknown fields for the current index pattern. You
               need to refresh the page to apply the changes.
               <EuiLink
-                title='More information in Wazuh documentation'
+                title='More information in Fortishield documentation'
                 href={urlTroubleShootingDocs}
                 target='_blank'
                 external

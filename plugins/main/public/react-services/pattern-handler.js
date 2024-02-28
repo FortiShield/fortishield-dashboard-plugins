@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Pattern Handler service
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Pattern Handler service
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
 import { AppState } from './app-state';
 import { SavedObject } from './saved-objects';
 import { getDataPlugin, getToasts, getHttp } from '../kibana-services';
-import { WazuhConfig } from '../react-services/wazuh-config';
+import { FortishieldConfig } from '../react-services/fortishield-config';
 import { HEALTH_CHECK } from '../../common/constants';
 
 export class PatternHandler {
@@ -21,14 +21,14 @@ export class PatternHandler {
    */
   static async getPatternList(origin) {
     try {
-      const wazuhConfig = new WazuhConfig();
-      const { pattern } = wazuhConfig.getConfig();
+      const fortishieldConfig = new FortishieldConfig();
+      const { pattern } = fortishieldConfig.getConfig();
 
       const defaultPatterns = [pattern];
       const selectedPattern = AppState.getCurrentPattern();
       if (selectedPattern && selectedPattern !== pattern)
         defaultPatterns.push(selectedPattern);
-      let patternList = await SavedObject.getListOfWazuhValidIndexPatterns(
+      let patternList = await SavedObject.getListOfFortishieldValidIndexPatterns(
         defaultPatterns,
         origin,
       );

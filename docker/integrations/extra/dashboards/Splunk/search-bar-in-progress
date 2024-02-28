@@ -3,21 +3,21 @@
     "ds_GHdtwfg5": {
       "type": "ds.search",
       "options": {
-        "query": "index=wazuh-alerts $text_IUbHI6Dq$ \n| timechart count by agent.name"
+        "query": "index=fortishield-alerts $text_IUbHI6Dq$ \n| timechart count by agent.name"
       },
       "name": "Search_5"
     },
     "ds_BIdQZ95d": {
       "type": "ds.search",
       "options": {
-        "query": "index=wazuh-alerts | top limit=$count$ sourcetype | eval percent = round(percent,2)"
+        "query": "index=fortishield-alerts | top limit=$count$ sourcetype | eval percent = round(percent,2)"
       },
       "name": "Search_1"
     },
     "ds_4N9TMJiX": {
       "type": "ds.search",
       "options": {
-        "query": "index=\"wazuh-alerts\" $text_IUbHI6Dq$ | timechart count by agent.name"
+        "query": "index=\"fortishield-alerts\" $text_IUbHI6Dq$ | timechart count by agent.name"
       },
       "name": "Search_2"
     }

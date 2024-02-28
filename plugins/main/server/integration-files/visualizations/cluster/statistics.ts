@@ -1,8 +1,8 @@
 import { commonStatisticsByNode } from './common-statistics';
 
 /*
- * Wazuh app - Cluster monitoring visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Cluster monitoring visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,12 +13,12 @@ import { commonStatisticsByNode } from './common-statistics';
  */
 export default [
   {
-    _id: 'Wazuh-App-Statistics-remoted-Recv-bytes',
+    _id: 'Fortishield-App-Statistics-remoted-Recv-bytes',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Statistics remoted Recv bytes',
+      title: 'Fortishield App Statistics remoted Recv bytes',
       visState: JSON.stringify({
-        title: 'Wazuh App Statistics remoted Recv bytes',
+        title: 'Fortishield App Statistics remoted Recv bytes',
         type: 'line',
         aggs: [
           {
@@ -158,7 +158,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-statistics-*',
+          index: 'fortishield-statistics-*',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -166,12 +166,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Statistics-remoted-event-count',
+    _id: 'Fortishield-App-Statistics-remoted-event-count',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Statistics remoted event count',
+      title: 'Fortishield App Statistics remoted event count',
       visState: JSON.stringify({
-        title: 'Wazuh App Statistics remoted event count',
+        title: 'Fortishield App Statistics remoted event count',
         type: 'line',
         aggs: [
           {
@@ -310,7 +310,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-statistics-*',
+          index: 'fortishield-statistics-*',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -318,12 +318,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Statistics-remoted-tcp-sessions',
+    _id: 'Fortishield-App-Statistics-remoted-tcp-sessions',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Statistics remoted tcp sessions',
+      title: 'Fortishield App Statistics remoted tcp sessions',
       visState: JSON.stringify({
-        title: 'Wazuh App Statistics remoted tcp sessions',
+        title: 'Fortishield App Statistics remoted tcp sessions',
         type: 'line',
         aggs: [
           {
@@ -462,7 +462,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-statistics-*',
+          index: 'fortishield-statistics-*',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -470,12 +470,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Statistics-Analysisd-Overview-Events-Decoded',
+    _id: 'Fortishield-App-Statistics-Analysisd-Overview-Events-Decoded',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Statistics Overview events decoded',
+      title: 'Fortishield App Statistics Overview events decoded',
       visState: JSON.stringify({
-        title: 'Wazuh App Statistics Overview events decoded',
+        title: 'Fortishield App Statistics Overview events decoded',
         type: 'line',
         aggs: [
           {
@@ -745,7 +745,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-statistics-*',
+          index: 'fortishield-statistics-*',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -753,10 +753,10 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Statistics-Analysisd-Syscheck',
+    _id: 'Fortishield-App-Statistics-Analysisd-Syscheck',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Statistics Syscheck',
+      title: 'Fortishield App Statistics Syscheck',
       visState: JSON.stringify({
         title: 'syscheck',
         type: 'line',
@@ -1060,7 +1060,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-statistics-*',
+          index: 'fortishield-statistics-*',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -1068,12 +1068,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Statistics-Analysisd-Syscollector',
+    _id: 'Fortishield-App-Statistics-Analysisd-Syscollector',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Statistics Syscollector',
+      title: 'Fortishield App Statistics Syscollector',
       visState: JSON.stringify({
-        title: 'Wazuh App Statistics Syscollector',
+        title: 'Fortishield App Statistics Syscollector',
         type: 'line',
         aggs: [
           {
@@ -1369,7 +1369,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-statistics-*',
+          index: 'fortishield-statistics-*',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -1377,12 +1377,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Statistics-Analysisd-Rootcheck',
+    _id: 'Fortishield-App-Statistics-Analysisd-Rootcheck',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Statistics Rootcheck',
+      title: 'Fortishield App Statistics Rootcheck',
       visState: JSON.stringify({
-        title: 'Wazuh App Statistics Rootcheck',
+        title: 'Fortishield App Statistics Rootcheck',
         type: 'line',
         aggs: [
           {
@@ -1630,7 +1630,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-statistics-*',
+          index: 'fortishield-statistics-*',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -1638,12 +1638,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Statistics-Analysisd-SCA',
+    _id: 'Fortishield-App-Statistics-Analysisd-SCA',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Statistics SCA',
+      title: 'Fortishield App Statistics SCA',
       visState: JSON.stringify({
-        title: 'Wazuh App Statistics SCA',
+        title: 'Fortishield App Statistics SCA',
         type: 'line',
         aggs: [
           {
@@ -1892,7 +1892,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-statistics-*',
+          index: 'fortishield-statistics-*',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -1900,12 +1900,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Statistics-Analysisd-HostInfo',
+    _id: 'Fortishield-App-Statistics-Analysisd-HostInfo',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Statistics HostInfo',
+      title: 'Fortishield App Statistics HostInfo',
       visState: JSON.stringify({
-        title: 'Wazuh App Statistics HostInfo',
+        title: 'Fortishield App Statistics HostInfo',
         type: 'line',
         aggs: [
           {
@@ -2166,7 +2166,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-statistics-*',
+          index: 'fortishield-statistics-*',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),
@@ -2174,12 +2174,12 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Statistics-Analysisd-Queues-Usage',
+    _id: 'Fortishield-App-Statistics-Analysisd-Queues-Usage',
     _type: 'visualization',
     _source: {
-      title: 'Wazuh App Statistics Queues Usage',
+      title: 'Fortishield App Statistics Queues Usage',
       visState: JSON.stringify({
-        title: 'Wazuh App Statistics Queues Usage',
+        title: 'Fortishield App Statistics Queues Usage',
         type: 'line',
         aggs: [
           {
@@ -2449,7 +2449,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-statistics-*',
+          index: 'fortishield-statistics-*',
           filter: [],
           query: { query: '', language: 'lucene' },
         }),

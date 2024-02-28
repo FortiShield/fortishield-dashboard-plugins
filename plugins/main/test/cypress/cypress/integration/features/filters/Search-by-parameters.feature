@@ -1,10 +1,10 @@
 Feature: Search by parameters
 
-    As a Wazuh user
+    As a Fortishield user
     I want to pin a filter
     in order to aplly it across the modules
     Background:
-        Given The wazuh admin user is logged
+        Given The fortishield admin user is logged
         And The sample data is loaded
 
     Scenario Outline: Search by parameters with AND
@@ -13,11 +13,11 @@ Feature: Search by parameters
         Then The query is accepted and the results should be displayed
         Examples:
             | Module Name          | key                                              |
-            | Security Events      | cluster.name : "wazuh" and rule.level : "3"      |
-            | Integrity Monitoring | cluster.name : "wazuh" and agent.id : "001"      |
-            | NIST                 | cluster.name : "wazuh" and agent.name : "Ubuntu" |
-            | TSC                  | cluster.name : "wazuh" and agent.name : "Ubuntu" |
-            | PCIDSS               | cluster.name : "wazuh" and agent.name : "Ubuntu" |
+            | Security Events      | cluster.name : "fortishield" and rule.level : "3"      |
+            | Integrity Monitoring | cluster.name : "fortishield" and agent.id : "001"      |
+            | NIST                 | cluster.name : "fortishield" and agent.name : "Ubuntu" |
+            | TSC                  | cluster.name : "fortishield" and agent.name : "Ubuntu" |
+            | PCIDSS               | cluster.name : "fortishield" and agent.name : "Ubuntu" |
 
     Scenario Outline: Search by parameters with OR
         When The user goes to <Module Name>
@@ -25,8 +25,8 @@ Feature: Search by parameters
         Then The query is accepted and the results should be displayed
         Examples:
             | Module Name          | key                                             |
-            | Security Events      | cluster.name : "wazuh" or rule.level : "3"      |
-            | Integrity Monitoring | cluster.name : "wazuh" or agent.id : "001"      |
-            | NIST                 | cluster.name : "wazuh" or agent.name : "Ubuntu" |
-            | TSC                  | cluster.name : "wazuh" or agent.name : "Ubuntu" |
-            | PCIDSS               | cluster.name : "wazuh" or agent.name : "Ubuntu" |
+            | Security Events      | cluster.name : "fortishield" or rule.level : "3"      |
+            | Integrity Monitoring | cluster.name : "fortishield" or agent.id : "001"      |
+            | NIST                 | cluster.name : "fortishield" or agent.name : "Ubuntu" |
+            | TSC                  | cluster.name : "fortishield" or agent.name : "Ubuntu" |
+            | PCIDSS               | cluster.name : "fortishield" or agent.name : "Ubuntu" |

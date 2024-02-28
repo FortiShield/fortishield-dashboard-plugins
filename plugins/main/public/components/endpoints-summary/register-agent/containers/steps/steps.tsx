@@ -42,7 +42,7 @@ interface IStepsProps {
   connection: {
     isUDP: boolean;
   };
-  wazuhPassword: string;
+  fortishieldPassword: string;
 }
 
 export const Steps = ({
@@ -50,7 +50,7 @@ export const Steps = ({
   form,
   osCard,
   connection,
-  wazuhPassword,
+  fortishieldPassword,
 }: IStepsProps) => {
   const initialParsedFormValues = {
     operatingSystem: {
@@ -61,7 +61,7 @@ export const Steps = ({
       agentGroups: '',
       agentName: '',
       serverAddress: '',
-      wazuhPassword,
+      fortishieldPassword,
       protocol: connection.isUDP ? 'UDP' : '',
     },
   } as IParseRegisterFormValues;
@@ -146,16 +146,16 @@ export const Steps = ({
       children: <ServerAddress formField={form.fields.serverAddress} />,
       status: getServerAddressStepStatus(form.fields),
     },
-    ...(needsPassword && !wazuhPassword
+    ...(needsPassword && !fortishieldPassword
       ? [
           {
-            title: 'Wazuh password:',
+            title: 'Fortishield password:',
             children: (
               <EuiCallOut
                 color='warning'
                 title={
                   <span>
-                    The Wazuh password is required but wasn't defined. Please
+                    The Fortishield password is required but wasn't defined. Please
                     check our{' '}
                     <EuiLink
                       target='_blank'
@@ -214,7 +214,7 @@ export const Steps = ({
                 showCommand={showCommandsSections(form.fields)}
                 os={registerAgentFormValues.operatingSystem.name}
                 onCopy={() => setInstallCommandWasCopied(true)}
-                password={registerAgentFormValues.optionalParams.wazuhPassword}
+                password={registerAgentFormValues.optionalParams.fortishieldPassword}
               />
               <OsCommandWarning
                 os={registerAgentFormValues.operatingSystem.name}

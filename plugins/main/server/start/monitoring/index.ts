@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for agent info fetching functions
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for agent info fetching functions
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,8 +16,8 @@ import { parseCron } from '../../lib/parse-cron';
 import { indexDate } from '../../lib/index-date';
 import { buildIndexSettings } from '../../lib/build-index-settings';
 import {
-  WAZUH_MONITORING_DEFAULT_CRON_FREQ,
-  WAZUH_MONITORING_TEMPLATE_NAME,
+  FORTISHIELD_MONITORING_DEFAULT_CRON_FREQ,
+  FORTISHIELD_MONITORING_TEMPLATE_NAME,
 } from '../../../common/constants';
 import { tryCatchForIndexPermissionError } from '../tryCatchForIndexPermissionError';
 import { delayAsPromise } from '../../../common/utils';
@@ -53,38 +53,38 @@ function getAppConfigurationSetting(
  */
 function initMonitoringConfiguration(context) {
   try {
-    context.wazuh.logger.debug('Reading configuration');
+    context.fortishield.logger.debug('Reading configuration');
     const appConfig = getConfiguration();
     MONITORING_ENABLED =
-      appConfig && typeof appConfig['wazuh.monitoring.enabled'] !== 'undefined'
-        ? appConfig['wazuh.monitoring.enabled'] &&
-          appConfig['wazuh.monitoring.enabled'] !== 'worker'
-        : getSettingDefaultValue('wazuh.monitoring.enabled');
+      appConfig && typeof appConfig['fortishield.monitoring.enabled'] !== 'undefined'
+        ? appConfig['fortishield.monitoring.enabled'] &&
+          appConfig['fortishield.monitoring.enabled'] !== 'worker'
+        : getSettingDefaultValue('fortishield.monitoring.enabled');
     MONITORING_FREQUENCY = getAppConfigurationSetting(
-      'wazuh.monitoring.frequency',
+      'fortishield.monitoring.frequency',
       appConfig,
-      getSettingDefaultValue('wazuh.monitoring.frequency'),
+      getSettingDefaultValue('fortishield.monitoring.frequency'),
     );
     try {
       MONITORING_CRON_FREQ = parseCron(MONITORING_FREQUENCY);
     } catch (error) {
-      context.wazuh.logger.warn(
-        `Using default value ${WAZUH_MONITORING_DEFAULT_CRON_FREQ} due to: ${
+      context.fortishield.logger.warn(
+        `Using default value ${FORTISHIELD_MONITORING_DEFAULT_CRON_FREQ} due to: ${
           error.message || error
         }`,
       );
-      MONITORING_CRON_FREQ = WAZUH_MONITORING_DEFAULT_CRON_FREQ;
+      MONITORING_CRON_FREQ = FORTISHIELD_MONITORING_DEFAULT_CRON_FREQ;
     }
     MONITORING_CREATION = getAppConfigurationSetting(
-      'wazuh.monitoring.creation',
+      'fortishield.monitoring.creation',
       appConfig,
-      getSettingDefaultValue('wazuh.monitoring.creation'),
+      getSettingDefaultValue('fortishield.monitoring.creation'),
     );
 
     MONITORING_INDEX_PATTERN = getAppConfigurationSetting(
-      'wazuh.monitoring.pattern',
+      'fortishield.monitoring.pattern',
       appConfig,
-      getSettingDefaultValue('wazuh.monitoring.pattern'),
+      getSettingDefaultValue('fortishield.monitoring.pattern'),
     );
     const lastCharIndexPattern =
       MONITORING_INDEX_PATTERN[MONITORING_INDEX_PATTERN.length - 1];
@@ -96,23 +96,23 @@ function initMonitoringConfiguration(context) {
       MONITORING_INDEX_PATTERN.length - 1,
     );
 
-    context.wazuh.logger.debug(
-      `wazuh.monitoring.enabled: ${MONITORING_ENABLED}`,
+    context.fortishield.logger.debug(
+      `fortishield.monitoring.enabled: ${MONITORING_ENABLED}`,
     );
 
-    context.wazuh.logger.debug(
-      `wazuh.monitoring.frequency: ${MONITORING_FREQUENCY} (${MONITORING_CRON_FREQ})`,
+    context.fortishield.logger.debug(
+      `fortishield.monitoring.frequency: ${MONITORING_FREQUENCY} (${MONITORING_CRON_FREQ})`,
     );
 
-    context.wazuh.logger.debug(
-      `wazuh.monitoring.creation: ${MONITORING_CREATION}`,
+    context.fortishield.logger.debug(
+      `fortishield.monitoring.creation: ${MONITORING_CREATION}`,
     );
 
-    context.wazuh.logger.debug(
-      `wazuh.monitoring.pattern: ${MONITORING_INDEX_PATTERN} (index prefix: ${MONITORING_INDEX_PREFIX})`,
+    context.fortishield.logger.debug(
+      `fortishield.monitoring.pattern: ${MONITORING_INDEX_PATTERN} (index prefix: ${MONITORING_INDEX_PREFIX})`,
     );
   } catch (error) {
-    context.wazuh.logger.error(error.message);
+    context.fortishield.logger.error(error.message);
   }
 }
 
@@ -127,33 +127,33 @@ async function init(context) {
     }
   } catch (error) {
     const errorMessage = error.message || error;
-    context.wazuh.logger.error(errorMessage);
+    context.fortishield.logger.error(errorMessage);
   }
 }
 
 /**
- * Verify wazuh-agent template
+ * Verify fortishield-agent template
  */
 async function checkTemplate(context) {
   try {
     try {
-      context.wazuh.logger.debug(
-        `Getting the ${WAZUH_MONITORING_TEMPLATE_NAME} template`,
+      context.fortishield.logger.debug(
+        `Getting the ${FORTISHIELD_MONITORING_TEMPLATE_NAME} template`,
       );
       // Check if the template already exists
       const currentTemplate =
         await context.core.opensearch.client.asInternalUser.indices.getTemplate(
           {
-            name: WAZUH_MONITORING_TEMPLATE_NAME,
+            name: FORTISHIELD_MONITORING_TEMPLATE_NAME,
           },
         );
       // Copy already created index patterns
       monitoringTemplate.index_patterns =
-        currentTemplate.body[WAZUH_MONITORING_TEMPLATE_NAME].index_patterns;
+        currentTemplate.body[FORTISHIELD_MONITORING_TEMPLATE_NAME].index_patterns;
     } catch (error) {
       // Init with the default index pattern
       monitoringTemplate.index_patterns = [
-        getSettingDefaultValue('wazuh.monitoring.pattern'),
+        getSettingDefaultValue('fortishield.monitoring.pattern'),
       ];
     }
 
@@ -163,21 +163,21 @@ async function checkTemplate(context) {
     }
 
     // Update the monitoring template
-    context.wazuh.logger.debug(
-      `Updating the ${WAZUH_MONITORING_TEMPLATE_NAME} template`,
+    context.fortishield.logger.debug(
+      `Updating the ${FORTISHIELD_MONITORING_TEMPLATE_NAME} template`,
     );
     await context.core.opensearch.client.asInternalUser.indices.putTemplate({
-      name: WAZUH_MONITORING_TEMPLATE_NAME,
+      name: FORTISHIELD_MONITORING_TEMPLATE_NAME,
       body: monitoringTemplate,
     });
-    context.wazuh.logger.info(
-      `Updated the ${WAZUH_MONITORING_TEMPLATE_NAME} template`,
+    context.fortishield.logger.info(
+      `Updated the ${FORTISHIELD_MONITORING_TEMPLATE_NAME} template`,
     );
   } catch (error) {
-    const errorMessage = `Something went wrong updating the ${WAZUH_MONITORING_TEMPLATE_NAME} template ${
+    const errorMessage = `Something went wrong updating the ${FORTISHIELD_MONITORING_TEMPLATE_NAME} template ${
       error.message || error
     }`;
-    context.wazuh.logger.error(errorMessage);
+    context.fortishield.logger.error(errorMessage);
     throw error;
   }
 }
@@ -195,7 +195,7 @@ async function insertMonitoringDataElasticsearch(context, data) {
   }
   try {
     await tryCatchForIndexPermissionError(monitoringIndexName)(async () => {
-      context.wazuh.logger.debug(
+      context.fortishield.logger.debug(
         `Checking the existence of ${monitoringIndexName} index`,
       );
       const exists =
@@ -203,26 +203,26 @@ async function insertMonitoringDataElasticsearch(context, data) {
           index: monitoringIndexName,
         });
       if (!exists.body) {
-        context.wazuh.logger.debug(
+        context.fortishield.logger.debug(
           `The ${monitoringIndexName} index does not exist`,
         );
         await createIndex(context, monitoringIndexName);
       } else {
-        context.wazuh.logger.debug(`The ${monitoringIndexName} index exists`);
+        context.fortishield.logger.debug(`The ${monitoringIndexName} index exists`);
       }
 
       // Update the index configuration
       const appConfig = getConfiguration();
       const indexConfiguration = buildIndexSettings(
         appConfig,
-        'wazuh.monitoring',
-        getSettingDefaultValue('wazuh.monitoring.shards'),
+        'fortishield.monitoring',
+        getSettingDefaultValue('fortishield.monitoring.shards'),
       );
 
       // To update the index settings with this client is required close the index, update the settings and open it
       // Number of shards is not dynamic so delete that setting if it's given
       delete indexConfiguration.settings.index.number_of_shards;
-      context.wazuh.logger.debug(
+      context.fortishield.logger.debug(
         `Adding settings to ${monitoringIndexName} index`,
       );
       await context.core.opensearch.client.asInternalUser.indices.putSettings({
@@ -230,7 +230,7 @@ async function insertMonitoringDataElasticsearch(context, data) {
         body: indexConfiguration,
       });
 
-      context.wazuh.logger.info(
+      context.fortishield.logger.info(
         `Settings added to ${monitoringIndexName} index`,
       );
 
@@ -238,14 +238,14 @@ async function insertMonitoringDataElasticsearch(context, data) {
       await insertDataToIndex(context, monitoringIndexName, data);
     })();
   } catch (error) {
-    context.wazuh.logger.error(error.message || error);
+    context.fortishield.logger.error(error.message || error);
   }
 }
 
 /**
  * Inserting one document per agent into Elastic. Bulk.
  * @param {*} context Endpoint
- * @param {String} indexName The name for the index (e.g. daily: wazuh-monitoring-YYYY.MM.DD)
+ * @param {String} indexName The name for the index (e.g. daily: fortishield-monitoring-YYYY.MM.DD)
  * @param {*} data
  */
 async function insertDataToIndex(
@@ -256,7 +256,7 @@ async function insertDataToIndex(
   const { agents, apiHost } = data;
   try {
     if (agents.length > 0) {
-      context.wazuh.logger.debug(
+      context.fortishield.logger.debug(
         `Bulk data to index ${indexName} for ${agents.length} agents`,
       );
 
@@ -278,12 +278,12 @@ async function insertDataToIndex(
         index: indexName,
         body: bodyBulk,
       });
-      context.wazuh.logger.info(
+      context.fortishield.logger.info(
         `Bulk data to index ${indexName} for ${agents.length} agents completed`,
       );
     }
   } catch (error) {
-    context.wazuh.logger.error(
+    context.fortishield.logger.error(
       `Error inserting agent data into elasticsearch. Bulk request failed due to ${
         error.message || error
       }`,
@@ -292,9 +292,9 @@ async function insertDataToIndex(
 }
 
 /**
- * Create the wazuh-monitoring index
+ * Create the fortishield-monitoring index
  * @param {*} context context
- * @param {String} indexName The name for the index (e.g. daily: wazuh-monitoring-YYYY.MM.DD)
+ * @param {String} indexName The name for the index (e.g. daily: fortishield-monitoring-YYYY.MM.DD)
  */
 async function createIndex(context, indexName: string) {
   try {
@@ -305,29 +305,29 @@ async function createIndex(context, indexName: string) {
       settings: {
         index: {
           number_of_shards: getAppConfigurationSetting(
-            'wazuh.monitoring.shards',
+            'fortishield.monitoring.shards',
             appConfig,
-            getSettingDefaultValue('wazuh.monitoring.shards'),
+            getSettingDefaultValue('fortishield.monitoring.shards'),
           ),
           number_of_replicas: getAppConfigurationSetting(
-            'wazuh.monitoring.replicas',
+            'fortishield.monitoring.replicas',
             appConfig,
-            getSettingDefaultValue('wazuh.monitoring.replicas'),
+            getSettingDefaultValue('fortishield.monitoring.replicas'),
           ),
         },
       },
     };
 
-    context.wazuh.logger.debug(`Creating ${indexName} index`);
+    context.fortishield.logger.debug(`Creating ${indexName} index`);
 
     await context.core.opensearch.client.asInternalUser.indices.create({
       index: indexName,
       body: IndexConfiguration,
     });
 
-    context.wazuh.logger.info(`${indexName} index created`);
+    context.fortishield.logger.info(`${indexName} index created`);
   } catch (error) {
-    context.wazuh.logger.error(
+    context.fortishield.logger.error(
       `Could not create ${indexName} index: ${error.message || error}`,
     );
   }
@@ -338,12 +338,12 @@ async function createIndex(context, indexName: string) {
  */
 async function checkPluginPlatformStatus(context) {
   try {
-    context.wazuh.logger.debug('Waiting for platform servers to be ready...');
+    context.fortishield.logger.debug('Waiting for platform servers to be ready...');
 
     await checkElasticsearchServer(context);
     await init(context);
   } catch (error) {
-    context.wazuh.logger.error(error.message || error);
+    context.fortishield.logger.error(error.message || error);
     try {
       await delayAsPromise(3000);
       await checkPluginPlatformStatus(context);
@@ -356,7 +356,7 @@ async function checkPluginPlatformStatus(context) {
  */
 async function checkElasticsearchServer(context) {
   try {
-    context.wazuh.logger.debug(
+    context.fortishield.logger.debug(
       `Checking the existence of ${context.server.config.opensearchDashboards.index} index`,
     );
     const data =
@@ -372,7 +372,7 @@ async function checkElasticsearchServer(context) {
     // }
     return Promise.reject(data);
   } catch (error) {
-    context.wazuh.logger.error(error.message || error);
+    context.fortishield.logger.error(error.message || error);
     return Promise.reject(error);
   }
 }
@@ -383,18 +383,18 @@ async function checkElasticsearchServer(context) {
 async function getHostsConfiguration(context) {
   try {
     const hosts =
-      await context.wazuh_core.serverAPIHostEntries.getHostsEntries();
+      await context.fortishield_core.serverAPIHostEntries.getHostsEntries();
     if (hosts.length) {
       return hosts;
     }
 
-    context.wazuh.logger.debug('There are no API host entries yet');
+    context.fortishield.logger.debug('There are no API host entries yet');
     return Promise.reject({
       error: 'no credentials',
       error_code: 1,
     });
   } catch (error) {
-    context.wazuh.logger.error(error.message || error);
+    context.fortishield.logger.error(error.message || error);
     return Promise.reject({
       error: 'no API hosts',
       error_code: 2,
@@ -409,7 +409,7 @@ async function cronTask(context) {
   try {
     const templateMonitoring =
       await context.core.opensearch.client.asInternalUser.indices.getTemplate({
-        name: WAZUH_MONITORING_TEMPLATE_NAME,
+        name: FORTISHIELD_MONITORING_TEMPLATE_NAME,
       });
 
     const apiHosts = await getHostsConfiguration(context);
@@ -445,7 +445,7 @@ async function cronTask(context) {
     //     return cronTask(context);
     //   }
     // } catch (error) {} //eslint-disable-line
-    context.wazuh.logger.error(error.message || error);
+    context.fortishield.logger.error(error.message || error);
   }
 }
 
@@ -456,9 +456,9 @@ async function cronTask(context) {
  */
 async function getApiInfo(context, apiHost) {
   try {
-    context.wazuh.logger.debug(`Getting API info for ${apiHost.id}`);
+    context.fortishield.logger.debug(`Getting API info for ${apiHost.id}`);
     const responseIsCluster =
-      await context.wazuh.api.client.asInternalUser.request(
+      await context.fortishield.api.client.asInternalUser.request(
         'GET',
         '/cluster/status',
         {},
@@ -468,7 +468,7 @@ async function getApiInfo(context, apiHost) {
       (((responseIsCluster || {}).data || {}).data || {}).enabled === 'yes';
     if (isCluster) {
       const responseClusterInfo =
-        await context.wazuh.api.client.asInternalUser.request(
+        await context.fortishield.api.client.asInternalUser.request(
           'GET',
           `/cluster/local/info`,
           {},
@@ -480,7 +480,7 @@ async function getApiInfo(context, apiHost) {
     const agents = await fetchAllAgentsFromApiHost(context, apiHost);
     return { agents, apiHost };
   } catch (error) {
-    context.wazuh.logger.error(error.message || error);
+    context.fortishield.logger.error(error.message || error);
     throw error;
   }
 }
@@ -493,9 +493,9 @@ async function getApiInfo(context, apiHost) {
 async function fetchAllAgentsFromApiHost(context, apiHost) {
   let agents = [];
   try {
-    context.wazuh.logger.debug(`Getting all agents from ApiID: ${apiHost.id}`);
+    context.fortishield.logger.debug(`Getting all agents from ApiID: ${apiHost.id}`);
     const responseAgentsCount =
-      await context.wazuh.api.client.asInternalUser.request(
+      await context.fortishield.api.client.asInternalUser.request(
         'GET',
         '/agents',
         {
@@ -509,7 +509,7 @@ async function fetchAllAgentsFromApiHost(context, apiHost) {
       );
 
     const agentsCount = responseAgentsCount.data.data.total_affected_items;
-    context.wazuh.logger.debug(
+    context.fortishield.logger.debug(
       `ApiID: ${apiHost.id}, Agent count: ${agentsCount}`,
     );
 
@@ -523,20 +523,20 @@ async function fetchAllAgentsFromApiHost(context, apiHost) {
       try {
         /*
         TODO: Improve the performance of request with:
-          - Reduce the number of requests to the Wazuh API
+          - Reduce the number of requests to the Fortishield API
           - Reduce (if possible) the quantity of data to index by document
 
         Requirements:
           - Research about the neccesary data to index.
 
         How to do:
-          - Wazuh API request:
+          - Fortishield API request:
             - select the required data to retrieve depending on is required to index (using the `select` query param)
             - increase the limit of results to retrieve (currently, the requests use the recommended value: 500).
               See the allowed values. This depends on the selected data because the response could fail if contains a lot of data
         */
         const responseAgents =
-          await context.wazuh.api.client.asInternalUser.request(
+          await context.fortishield.api.client.asInternalUser.request(
             'GET',
             `/agents`,
             { params: payload },
@@ -545,7 +545,7 @@ async function fetchAllAgentsFromApiHost(context, apiHost) {
         agents = [...agents, ...responseAgents.data.data.affected_items];
         payload.offset += payload.limit;
       } catch (error) {
-        context.wazuh.logger.error(
+        context.fortishield.logger.error(
           `ApiID: ${apiHost.id}, Error request with offset/limit ${
             payload.offset
           }/${payload.limit}: ${error.message || error}`,
@@ -554,7 +554,7 @@ async function fetchAllAgentsFromApiHost(context, apiHost) {
     }
     return agents;
   } catch (error) {
-    context.wazuh.logger.error(
+    context.fortishield.logger.error(
       `ApiID: ${apiHost.id}. Error: ${error.message || error}`,
     );
     throw error;
@@ -565,10 +565,10 @@ async function fetchAllAgentsFromApiHost(context, apiHost) {
  * Start the cron job
  */
 export async function jobMonitoringRun(context) {
-  context.wazuh.logger.debug('Task:Monitoring initializing');
+  context.fortishield.logger.debug('Task:Monitoring initializing');
   // Init the monitoring variables
   initMonitoringConfiguration(context);
-  // Check Kibana index and if it is prepared, start the initialization of Wazuh App.
+  // Check Kibana index and if it is prepared, start the initialization of Fortishield App.
   await checkPluginPlatformStatus(context);
   // // Run the cron job only it it's enabled
   if (MONITORING_ENABLED) {

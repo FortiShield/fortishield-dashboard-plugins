@@ -26,7 +26,7 @@ import {
   SharedGlobalConfig,
 } from 'opensearch_dashboards/server';
 
-import { WazuhPluginSetup, WazuhPluginStart, PluginSetup } from './types';
+import { FortishieldPluginSetup, FortishieldPluginStart, PluginSetup } from './types';
 import { setupRoutes } from './routes';
 import {
   jobInitializeRun,
@@ -39,7 +39,7 @@ import { first } from 'rxjs/operators';
 
 declare module 'opensearch_dashboards/server' {
   interface RequestHandlerContext {
-    wazuh: {
+    fortishield: {
       logger: Logger;
       plugins: PluginSetup;
       security: any;
@@ -69,7 +69,7 @@ declare module 'opensearch_dashboards/server' {
   }
 }
 
-export class WazuhPlugin implements Plugin<WazuhPluginSetup, WazuhPluginStart> {
+export class FortishieldPlugin implements Plugin<FortishieldPluginSetup, FortishieldPluginStart> {
   private readonly logger: Logger;
 
   constructor(private readonly initializerContext: PluginInitializerContext) {
@@ -77,11 +77,11 @@ export class WazuhPlugin implements Plugin<WazuhPluginSetup, WazuhPluginStart> {
   }
 
   public async setup(core: CoreSetup, plugins: PluginSetup) {
-    this.logger.debug('Wazuh-wui: Setup');
+    this.logger.debug('Fortishield-wui: Setup');
 
     const serverInfo = core.http.getServerInfo();
 
-    core.http.registerRouteHandlerContext('wazuh', (context, request) => {
+    core.http.registerRouteHandlerContext('fortishield', (context, request) => {
       return {
         // Create a custom logger with a tag composed of HTTP method and path endpoint
         logger: this.logger.get(
@@ -91,8 +91,8 @@ export class WazuhPlugin implements Plugin<WazuhPluginSetup, WazuhPluginStart> {
           info: serverInfo,
         },
         plugins,
-        security: plugins.wazuhCore.dashboardSecurity,
-        api: context.wazuh_core.api,
+        security: plugins.fortishieldCore.dashboardSecurity,
+        api: context.fortishield_core.api,
       };
     });
 
@@ -124,55 +124,55 @@ export class WazuhPlugin implements Plugin<WazuhPluginSetup, WazuhPluginStart> {
     // Initialize
     jobInitializeRun({
       core,
-      wazuh: {
+      fortishield: {
         logger: this.logger.get('initialize'),
-        api: plugins.wazuhCore.api,
+        api: plugins.fortishieldCore.api,
       },
-      wazuh_core: plugins.wazuhCore,
+      fortishield_core: plugins.fortishieldCore,
       server: contextServer,
     });
 
     // Migration tasks
     jobMigrationTasksRun({
       core,
-      wazuh: {
+      fortishield: {
         logger: this.logger.get('migration-task'),
-        api: plugins.wazuhCore.api,
+        api: plugins.fortishieldCore.api,
       },
-      wazuh_core: plugins.wazuhCore,
+      fortishield_core: plugins.fortishieldCore,
       server: contextServer,
     });
 
     // Monitoring
     jobMonitoringRun({
       core,
-      wazuh: {
+      fortishield: {
         logger: this.logger.get('monitoring'),
-        api: plugins.wazuhCore.api,
+        api: plugins.fortishieldCore.api,
       },
-      wazuh_core: plugins.wazuhCore,
+      fortishield_core: plugins.fortishieldCore,
       server: contextServer,
     });
 
     // Scheduler
     jobSchedulerRun({
       core,
-      wazuh: {
+      fortishield: {
         logger: this.logger.get('cron-scheduler'),
-        api: plugins.wazuhCore.api,
+        api: plugins.fortishieldCore.api,
       },
-      wazuh_core: plugins.wazuhCore,
+      fortishield_core: plugins.fortishieldCore,
       server: contextServer,
     });
 
     // Queue
     jobQueueRun({
       core,
-      wazuh: {
+      fortishield: {
         logger: this.logger.get('queue'),
-        api: plugins.wazuhCore.api,
+        api: plugins.fortishieldCore.api,
       },
-      wazuh_core: plugins.wazuhCore,
+      fortishield_core: plugins.fortishieldCore,
       server: contextServer,
     });
     return {};

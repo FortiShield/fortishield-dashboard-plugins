@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Error factory class
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Error factory class
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,8 +11,8 @@
  */
 
 import {
-  IWazuhError,
-  IWazuhErrorConstructor,
+  IFortishieldError,
+  IFortishieldErrorConstructor,
 } from '../types';
 import { IErrorOpts } from '../types';
 
@@ -26,9 +26,9 @@ export class ErrorFactory {
    * @returns Error instance
    */
   public static create(
-    ErrorType: IWazuhErrorConstructor,
+    ErrorType: IFortishieldErrorConstructor,
     opts: IErrorOpts,
-  ): Error | IWazuhError {
+  ): Error | IFortishieldError {
     return ErrorFactory.errorCreator(ErrorType, opts);
   }
 
@@ -40,9 +40,9 @@ export class ErrorFactory {
    */
 
   private static errorCreator(
-    ErrorType: IWazuhErrorConstructor,
+    ErrorType: IFortishieldErrorConstructor,
     opts: IErrorOpts,
-  ): IWazuhError {
+  ): IFortishieldError {
     return new ErrorType(opts?.error, { message: opts?.message, code: opts?.code });
   }
 }

@@ -12,7 +12,7 @@ export const getAllOptionals = (
 ) => {
   // create paramNameOrderList, which is an array of the keys of optionals add interface
   const paramNameOrderList: (keyof IOptionalParameters<tOptionalParameters>)[] =
-    ['serverAddress', 'wazuhPassword', 'agentGroups', 'agentName', 'protocol'];
+    ['serverAddress', 'fortishieldPassword', 'agentGroups', 'agentName', 'protocol'];
 
   if (!optionals) return '';
   let paramsText = Object.entries(paramNameOrderList).reduce(
@@ -33,7 +33,7 @@ export const getAllOptionalsMacos = (
 ) => {
   // create paramNameOrderList, which is an array of the keys of optionals add interface
   const paramNameOrderList: (keyof IOptionalParameters<tOptionalParameters>)[] =
-    ['serverAddress', 'agentGroups', 'agentName', 'protocol', 'wazuhPassword'];
+    ['serverAddress', 'agentGroups', 'agentName', 'protocol', 'fortishieldPassword'];
 
   if (!optionals) return '';
 
@@ -57,8 +57,8 @@ export const getAllOptionalsMacos = (
 export const getDEBAMD64InstallCommand = (
   props: tOSEntryInstallCommand<tOptionalParameters>,
 ) => {
-  const { optionals, urlPackage, wazuhVersion } = props;
-  const packageName = `wazuh-agent_${wazuhVersion}-1_amd64.deb`;
+  const { optionals, urlPackage, fortishieldVersion } = props;
+  const packageName = `fortishield-agent_${fortishieldVersion}-1_amd64.deb`;
   return `wget ${urlPackage} && sudo ${
     optionals && getAllOptionals(optionals)
   }dpkg -i ./${packageName}`;
@@ -67,8 +67,8 @@ export const getDEBAMD64InstallCommand = (
 export const getDEBARM64InstallCommand = (
   props: tOSEntryInstallCommand<tOptionalParameters>,
 ) => {
-  const { optionals, urlPackage, wazuhVersion } = props;
-  const packageName = `wazuh-agent_${wazuhVersion}-1_arm64.deb`;
+  const { optionals, urlPackage, fortishieldVersion } = props;
+  const packageName = `fortishield-agent_${fortishieldVersion}-1_arm64.deb`;
   return `wget ${urlPackage} && sudo ${
     optionals && getAllOptionals(optionals)
   }dpkg -i ./${packageName}`;
@@ -79,8 +79,8 @@ export const getDEBARM64InstallCommand = (
 export const getRPMAMD64InstallCommand = (
   props: tOSEntryInstallCommand<tOptionalParameters>,
 ) => {
-  const { optionals, urlPackage, wazuhVersion, architecture } = props;
-  const packageName = `wazuh-agent-${wazuhVersion}-1.x86_64.rpm`;
+  const { optionals, urlPackage, fortishieldVersion, architecture } = props;
+  const packageName = `fortishield-agent-${fortishieldVersion}-1.x86_64.rpm`;
   return `curl -o ${packageName} ${urlPackage} && sudo ${
     optionals && getAllOptionals(optionals)
   }rpm -ihv ${packageName}`;
@@ -89,8 +89,8 @@ export const getRPMAMD64InstallCommand = (
 export const getRPMARM64InstallCommand = (
   props: tOSEntryInstallCommand<tOptionalParameters>,
 ) => {
-  const { optionals, urlPackage, wazuhVersion, architecture } = props;
-  const packageName = `wazuh-agent-${wazuhVersion}-1.aarch64.rpm`;
+  const { optionals, urlPackage, fortishieldVersion, architecture } = props;
+  const packageName = `fortishield-agent-${fortishieldVersion}-1.aarch64.rpm`;
   return `curl -o ${packageName} ${urlPackage} && sudo ${
     optionals && getAllOptionals(optionals)
   }rpm -ihv ${packageName}`;
@@ -102,7 +102,7 @@ export const getRPMARM64InstallCommand = (
 export const getLinuxStartCommand = (
   _props: tOSEntryProps<tOptionalParameters>,
 ) => {
-  return `sudo systemctl daemon-reload\nsudo systemctl enable wazuh-agent\nsudo systemctl start wazuh-agent`;
+  return `sudo systemctl daemon-reload\nsudo systemctl enable fortishield-agent\nsudo systemctl start fortishield-agent`;
 };
 
 /******** Windows ********/
@@ -111,7 +111,7 @@ export const getWindowsInstallCommand = (
   props: tOSEntryInstallCommand<tOptionalParameters>,
 ) => {
   const { optionals, urlPackage, name } = props;
-  return `Invoke-WebRequest -Uri ${urlPackage} -OutFile \${env.tmp}\\wazuh-agent; msiexec.exe /i \${env.tmp}\\wazuh-agent /q ${
+  return `Invoke-WebRequest -Uri ${urlPackage} -OutFile \${env.tmp}\\fortishield-agent; msiexec.exe /i \${env.tmp}\\fortishield-agent /q ${
     optionals && getAllOptionals(optionals, name)
   }`;
 };
@@ -119,7 +119,7 @@ export const getWindowsInstallCommand = (
 export const getWindowsStartCommand = (
   _props: tOSEntryProps<tOptionalParameters>,
 ) => {
-  return `NET START WazuhSvc`;
+  return `NET START FortishieldSvc`;
 };
 
 /******** MacOS ********/
@@ -137,18 +137,18 @@ export const getMacOsInstallCommand = (
   const { optionals, urlPackage } = props;
 
   let optionalsForCommand = { ...optionals };
-  if (optionalsForCommand?.wazuhPassword) {
+  if (optionalsForCommand?.fortishieldPassword) {
     /**
      * We use the JSON.stringify to prevent that the scaped specials characters will be removed
      * and mantain the format of the password
       The JSON.stringify mantain the password format but adds " to wrap the characters
     */
     const scapedPasswordLength = JSON.stringify(
-      optionalsForCommand?.wazuhPassword,
+      optionalsForCommand?.fortishieldPassword,
     ).length;
     // We need to remove the " added by JSON.stringify
-    optionalsForCommand.wazuhPassword = `${JSON.stringify(
-      optionalsForCommand?.wazuhPassword,
+    optionalsForCommand.fortishieldPassword = `${JSON.stringify(
+      optionalsForCommand?.fortishieldPassword,
     ).substring(1, scapedPasswordLength - 1)}\\n`;
   }
 
@@ -161,16 +161,16 @@ export const getMacOsInstallCommand = (
 
   // If no variables are set, the echo will be empty
   const macOSInstallationSetEnvVariablesScript = macOSInstallationOptions
-    ? `echo "${macOSInstallationOptions}" > /tmp/wazuh_envs && `
+    ? `echo "${macOSInstallationOptions}" > /tmp/fortishield_envs && `
     : ``;
 
   // Merge environment variables with installation script
-  const macOSInstallationScript = `curl -so wazuh-agent.pkg ${urlPackage} && ${macOSInstallationSetEnvVariablesScript}sudo installer -pkg ./wazuh-agent.pkg -target /`;
+  const macOSInstallationScript = `curl -so fortishield-agent.pkg ${urlPackage} && ${macOSInstallationSetEnvVariablesScript}sudo installer -pkg ./fortishield-agent.pkg -target /`;
   return macOSInstallationScript;
 };
 
 export const getMacosStartCommand = (
   _props: tOSEntryProps<tOptionalParameters>,
 ) => {
-  return `sudo /Library/Ossec/bin/wazuh-control start`;
+  return `sudo /Library/Ossec/bin/fortishield-control start`;
 };

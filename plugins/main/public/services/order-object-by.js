@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Order object by filter module
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Order object by filter module
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * Copyright (C) 2015 Fabricio Quagliariello.
  * Source code available under the MIT License.

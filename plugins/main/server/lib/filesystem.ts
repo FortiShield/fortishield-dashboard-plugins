@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { WAZUH_DATA_ABSOLUTE_PATH } from '../../common/constants';
+import { FORTISHIELD_DATA_ABSOLUTE_PATH } from '../../common/constants';
 
 export const createDirectoryIfNotExists = (directory: string): void => {
   if (!fs.existsSync(directory)) {
@@ -16,13 +16,13 @@ export const createLogFileIfNotExists = (filePath: string): void => {
 
 export const createDataDirectoryIfNotExists = (directory?: string) => {
   const absoluteRoute = directory
-    ? path.join(WAZUH_DATA_ABSOLUTE_PATH, directory)
-    : WAZUH_DATA_ABSOLUTE_PATH;
+    ? path.join(FORTISHIELD_DATA_ABSOLUTE_PATH, directory)
+    : FORTISHIELD_DATA_ABSOLUTE_PATH;
   if (!fs.existsSync(absoluteRoute)) {
     fs.mkdirSync(absoluteRoute, { recursive: true });
   }
 };
 
 export const getDataDirectoryRelative = (directory?: string) => {
-  return path.join(WAZUH_DATA_ABSOLUTE_PATH, directory);
+  return path.join(FORTISHIELD_DATA_ABSOLUTE_PATH, directory);
 };

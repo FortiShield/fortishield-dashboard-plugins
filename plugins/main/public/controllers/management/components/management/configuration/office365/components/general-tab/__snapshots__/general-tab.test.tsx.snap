@@ -37,11 +37,11 @@ exports[`GeneralTab component renders correctly to match the snapshot 1`] = `
     help={
       Array [
         Object {
-          "href": "https://documentation.wazuh.com/5.0/cloud-security/office365/index.html",
-          "text": "Using Wazuh to monitor Office 365",
+          "href": "https://documentation.fortishield.com/5.0/cloud-security/office365/index.html",
+          "text": "Using Fortishield to monitor Office 365",
         },
         Object {
-          "href": "https://documentation.wazuh.com/5.0/user-manual/reference/ossec-conf/office365-module.html",
+          "href": "https://documentation.fortishield.com/5.0/user-manual/reference/ossec-conf/office365-module.html",
           "text": "Configuration options for the module",
         },
       ]
@@ -106,11 +106,11 @@ exports[`GeneralTab component renders correctly to match the snapshot 1`] = `
                     links={
                       Array [
                         Object {
-                          "href": "https://documentation.wazuh.com/5.0/cloud-security/office365/index.html",
-                          "text": "Using Wazuh to monitor Office 365",
+                          "href": "https://documentation.fortishield.com/5.0/cloud-security/office365/index.html",
+                          "text": "Using Fortishield to monitor Office 365",
                         },
                         Object {
-                          "href": "https://documentation.wazuh.com/5.0/user-manual/reference/ossec-conf/office365-module.html",
+                          "href": "https://documentation.fortishield.com/5.0/user-manual/reference/ossec-conf/office365-module.html",
                           "text": "Configuration options for the module",
                         },
                       ]
@@ -265,7 +265,7 @@ exports[`GeneralTab component renders correctly to match the snapshot 1`] = `
           },
           Object {
             "field": "only_future_events",
-            "label": "Collect events generated since Wazuh manager is initialized",
+            "label": "Collect events generated since Fortishield manager is initialized",
           },
           Object {
             "field": "interval",
@@ -421,9 +421,9 @@ exports[`GeneralTab component renders correctly to match the snapshot 1`] = `
                 </EuiSpacer>
               </WzConfigurationSetting>
               <WzConfigurationSetting
-                key="-Collect events generated since Wazuh manager is initialized-undefined-1"
-                keyItem="-Collect events generated since Wazuh manager is initialized-undefined-1"
-                label="Collect events generated since Wazuh manager is initialized"
+                key="-Collect events generated since Fortishield manager is initialized-undefined-1"
+                keyItem="-Collect events generated since Fortishield manager is initialized-undefined-1"
+                label="Collect events generated since Fortishield manager is initialized"
                 value="yes"
               >
                 <div
@@ -450,7 +450,7 @@ exports[`GeneralTab component renders correctly to match the snapshot 1`] = `
                       <div
                         className="euiTextAlign euiTextAlign--right"
                       >
-                        Collect events generated since Wazuh manager is initialized
+                        Collect events generated since Fortishield manager is initialized
                       </div>
                     </EuiTextAlign>
                   </div>
@@ -462,7 +462,7 @@ exports[`GeneralTab component renders correctly to match the snapshot 1`] = `
                     }
                   >
                     <EuiFieldText
-                      data-testid="collect-events-generated-since-wazuh-manager-is-initialized"
+                      data-testid="collect-events-generated-since-fortishield-manager-is-initialized"
                       readOnly={true}
                       value="yes"
                     >
@@ -479,7 +479,7 @@ exports[`GeneralTab component renders correctly to match the snapshot 1`] = `
                             <EuiValidatableControl>
                               <input
                                 className="euiFieldText"
-                                data-testid="collect-events-generated-since-wazuh-manager-is-initialized"
+                                data-testid="collect-events-generated-since-fortishield-manager-is-initialized"
                                 readOnly={true}
                                 type="text"
                                 value="yes"

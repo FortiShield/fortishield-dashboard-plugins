@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for registering agents.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for registering agents.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,7 +33,7 @@ import { getToasts } from '../../../../../../kibana-services';
 
 import exportCsv from '../../../../../../react-services/wz-csv';
 
-import { updateWazuhNotReadyYet } from '../../../../../../redux/actions/appStateActions';
+import { updateFortishieldNotReadyYet } from '../../../../../../redux/actions/appStateActions';
 import WzRestartClusterManagerCallout from '../../../../../../components/common/restart-cluster-manager-callout';
 import { WzButtonPermissions } from '../../../../../../components/common/permissions/button';
 
@@ -630,8 +630,8 @@ class WzListEditor extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateWazuhNotReadyYet: (wazuhNotReadyYet) =>
-      dispatch(updateWazuhNotReadyYet(wazuhNotReadyYet)),
+    updateFortishieldNotReadyYet: (fortishieldNotReadyYet) =>
+      dispatch(updateFortishieldNotReadyYet(fortishieldNotReadyYet)),
   };
 };
 

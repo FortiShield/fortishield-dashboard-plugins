@@ -1,7 +1,7 @@
 import { ApiProvider } from './api_page';
-import { WazuhCommonProvider } from './wazuh_common_page';
+import { FortishieldCommonProvider } from './fortishield_common_page';
 
 export const pageObjects = {
   api: ApiProvider,
-  wazuhCommon: WazuhCommonProvider
+  fortishieldCommon: FortishieldCommonProvider
 };

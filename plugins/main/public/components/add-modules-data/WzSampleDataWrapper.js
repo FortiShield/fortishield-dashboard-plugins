@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React component for building the Sample Data Wrapper
+ * Fortishield app - React component for building the Sample Data Wrapper
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ import {
   withReduxProvider,
 } from '../../components/common/hocs';
 import { compose } from 'redux';
-import { WAZUH_ROLE_ADMINISTRATOR_NAME } from '../../../common/constants';
+import { FORTISHIELD_ROLE_ADMINISTRATOR_NAME } from '../../../common/constants';
 
 export class WzSampleDataProvider extends Component {
   constructor(props) {
@@ -68,5 +68,5 @@ export class WzSampleDataProvider extends Component {
 export const WzSampleDataWrapper = compose(
   withErrorBoundary,
   withReduxProvider,
-  withUserAuthorizationPrompt(null, [WAZUH_ROLE_ADMINISTRATOR_NAME]),
+  withUserAuthorizationPrompt(null, [FORTISHIELD_ROLE_ADMINISTRATOR_NAME]),
 )(WzSampleDataProvider);

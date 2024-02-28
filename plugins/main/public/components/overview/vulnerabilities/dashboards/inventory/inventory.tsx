@@ -18,7 +18,7 @@ import { IndexPattern } from '../../../../../../../../src/plugins/data/common';
 import { SearchResponse } from '../../../../../../../../src/core/server';
 import { HitsCounter } from '../../../../../kibana-integrations/discover/application/components/hits_counter/hits_counter';
 import { formatNumWithCommas } from '../../../../../kibana-integrations/discover/application/helpers';
-import { getPlugins, getWazuhCorePlugin } from '../../../../../kibana-services';
+import { getPlugins, getFortishieldCorePlugin } from '../../../../../kibana-services';
 import {
   ErrorHandler,
   ErrorFactory,
@@ -37,7 +37,7 @@ import { useDocViewer } from '../../../../common/doc-viewer/use-doc-viewer';
 import { withErrorBoundary } from '../../../../common/hocs';
 import { search } from '../../../../common/search-bar/search-bar-service';
 import { exportSearchToCSV } from '../../../../common/data-grid/data-grid-service';
-import { WAZUH_INDEX_TYPE_VULNERABILITIES } from '../../../../../../common/constants';
+import { FORTISHIELD_INDEX_TYPE_VULNERABILITIES } from '../../../../../../common/constants';
 import useCheckIndexFields from '../../common/hooks/useCheckIndexFields';
 
 const InventoryVulsComponent = () => {
@@ -57,7 +57,7 @@ const InventoryVulsComponent = () => {
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [isExporting, setIsExporting] = useState<boolean>(false);
 
-  const sideNavDocked = getWazuhCorePlugin().hooks.useDockedSideNav();
+  const sideNavDocked = getFortishieldCorePlugin().hooks.useDockedSideNav();
 
   const onClickInspectDoc = useMemo(
     () => (index: number) => {
@@ -106,7 +106,7 @@ const InventoryVulsComponent = () => {
   } = useCheckIndexFields(
     VULNERABILITIES_INDEX_PATTERN_ID,
     indexPatterns?.[0],
-    WAZUH_INDEX_TYPE_VULNERABILITIES,
+    FORTISHIELD_INDEX_TYPE_VULNERABILITIES,
     filters,
     query,
   );

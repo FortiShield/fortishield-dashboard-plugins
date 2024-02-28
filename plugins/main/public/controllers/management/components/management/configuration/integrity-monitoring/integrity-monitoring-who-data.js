@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for show configuration of integrity monitoring - whodata tab.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for show configuration of integrity monitoring - whodata tab.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -46,7 +46,7 @@ class WzConfigurationIntegrityMonitoringWhoData extends Component {
           currentConfig['syscheck-syscheck'].syscheck.whodata && (
             <WzConfigurationSettingsHeader
               title="Who-data audit keys"
-              description="Wazuh will include in its FIM baseline those events being monitored by Audit using audit_key."
+              description="Fortishield will include in its FIM baseline those events being monitored by Audit using audit_key."
               help={helpLinks}
             >
               <WzConfigurationSettingsGroup

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Fetch API function and utils.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Fetch API function and utils.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ export const getCurrentConfig = async (
   agentId = '000',
   sections,
   node = false,
-  updateWazuhNotReadyYet
+  updateFortishieldNotReadyYet
 ) => {
   try {
     if (
@@ -73,7 +73,7 @@ export const getCurrentConfig = async (
         result[`${component}-${configuration}`] = await handleError(
           error,
           'Fetch configuration',
-          updateWazuhNotReadyYet,
+          updateFortishieldNotReadyYet,
           node
         );
       }
@@ -95,7 +95,7 @@ export const extractMessage = error => {
       origin.includes('/api/request') ||
       origin.includes('/api/csv');
     return isFromAPI ?
-      'Wazuh API is not reachable. Reason: timeout.' :
+      'Fortishield API is not reachable. Reason: timeout.' :
       'Server did not respond';
   }
   if ((((error || {}).data || {}).errorData || {}).message)
@@ -121,16 +121,16 @@ export const extractMessage = error => {
  *
  * @param {Error|string} error
  * @param {*} location
- * @param updateWazuhNotReadyYet
+ * @param updateFortishieldNotReadyYet
  * @param {boolean} isCluster
  */
-export const handleError = async (error, location, updateWazuhNotReadyYet, isCluster) => {
+export const handleError = async (error, location, updateFortishieldNotReadyYet, isCluster) => {
   const message = extractMessage(error);
   const messageIsString = typeof message === 'string';
   try {
     if (messageIsString && message.includes('ERROR3099')) {
-      updateWazuhNotReadyYet('Wazuh not ready yet.');
-      await makePing(updateWazuhNotReadyYet, isCluster);
+      updateFortishieldNotReadyYet('Fortishield not ready yet.');
+      await makePing(updateFortishieldNotReadyYet, isCluster);
       return;
     }
 
@@ -159,26 +159,26 @@ export const checkDaemons = async (isCluster) => {
   try {
     const response = await WzRequest.apiReq('GET', '/manager/status', {}, { checkCurrentApiIsUp: false });
     const daemons = ((((response || {}).data || {}).data || {}).affected_items || [])[0] || {};
-    const wazuhdbExists = typeof daemons['wazuh-db'] !== 'undefined';
+    const fortishielddbExists = typeof daemons['fortishield-db'] !== 'undefined';
 
-    const execd = daemons['wazuh-execd'] === 'running';
-    const modulesd = daemons['wazuh-modulesd'] === 'running';
-    const wazuhdb = wazuhdbExists ? daemons['wazuh-db'] === 'running' : true;
+    const execd = daemons['fortishield-execd'] === 'running';
+    const modulesd = daemons['fortishield-modulesd'] === 'running';
+    const fortishielddb = fortishielddbExists ? daemons['fortishield-db'] === 'running' : true;
 
     let clusterd = true;
     if (isCluster) {
       const clusterStatus = (((await clusterReq()) || {}).data || {}).data || {};
       clusterd = clusterStatus.enabled === 'yes' && clusterStatus.running === 'yes'
-        ? daemons['wazuh-clusterd'] === 'running'
+        ? daemons['fortishield-clusterd'] === 'running'
         : false;
     }
 
-    const isValid = execd && modulesd && wazuhdb && (isCluster ? clusterd : true);
+    const isValid = execd && modulesd && fortishielddb && (isCluster ? clusterd : true);
 
     if (isValid) {
       return { isValid };
     } else {
-      console.warn('Wazuh not ready yet');
+      console.warn('Fortishield not ready yet');
     }
   } catch (error) {
     throw error;
@@ -186,13 +186,13 @@ export const checkDaemons = async (isCluster) => {
 };
 
 /**
- * Make ping to Wazuh API
- * @param updateWazuhNotReadyYet
+ * Make ping to Fortishield API
+ * @param updateFortishieldNotReadyYet
  * @param {boolean} isCluster
  * @param {number} [tries=10] Tries
  * @return {Promise}
  */
-export const makePing = async (updateWazuhNotReadyYet, isCluster, tries = 30) => {
+export const makePing = async (updateFortishieldNotReadyYet, isCluster, tries = 30) => {
   try {
     let isValid = false;
     while (tries--) {
@@ -200,7 +200,7 @@ export const makePing = async (updateWazuhNotReadyYet, isCluster, tries = 30) =>
       try {
         isValid = await checkDaemons(isCluster);
         if (isValid) {
-          updateWazuhNotReadyYet('');
+          updateFortishieldNotReadyYet('');
           break;
         }
       } catch (error) {
@@ -210,14 +210,14 @@ export const makePing = async (updateWazuhNotReadyYet, isCluster, tries = 30) =>
     if (!isValid) {
       throw new Error('Not recovered');
     }
-    return Promise.resolve('Wazuh is ready');
+    return Promise.resolve('Fortishield is ready');
   } catch (error) {
-    throw new Error('Wazuh could not be recovered.');
+    throw new Error('Fortishield could not be recovered.');
   }
 };
 
 /**
- * Get Cluster status from Wazuh API
+ * Get Cluster status from Fortishield API
  * @returns {Promise}
  */
 export const clusterReq = async () => {
@@ -265,16 +265,16 @@ export const fetchFile = async selectedNode => {
 /**
  * Restart a node or manager
  * @param {} selectedNode Cluster Node
- * @param updateWazuhNotReadyYet
+ * @param updateFortishieldNotReadyYet
  */
-export const restartNodeSelected = async (selectedNode, updateWazuhNotReadyYet) => {
+export const restartNodeSelected = async (selectedNode, updateFortishieldNotReadyYet) => {
   try {
     const clusterStatus = (((await clusterReq()) || {}).data || {}).data || {};
     const isCluster = clusterStatus.enabled === 'yes' && clusterStatus.running === 'yes';
     // Dispatch a Redux action
-    updateWazuhNotReadyYet(`Restarting ${isCluster ? selectedNode : 'Manager'}, please wait.`); //FIXME: if it enables/disables cluster, this will show Manager instead node name
+    updateFortishieldNotReadyYet(`Restarting ${isCluster ? selectedNode : 'Manager'}, please wait.`); //FIXME: if it enables/disables cluster, this will show Manager instead node name
     isCluster ? await restartNode(selectedNode) : await restartManager();
-    return await makePing(updateWazuhNotReadyYet, isCluster);
+    return await makePing(updateFortishieldNotReadyYet, isCluster);
   } catch (error) {
     throw error;
   }
@@ -518,7 +518,7 @@ export const checkCurrentSecurityPlatform = async () => {
 /**
  * Restart cluster or Manager
  */
-export const restartClusterOrManager = async (updateWazuhNotReadyYet) => {
+export const restartClusterOrManager = async (updateFortishieldNotReadyYet) => {
   try {
     const clusterStatus = (((await clusterReq()) || {}).data || {}).data || {};
     const isCluster = clusterStatus.enabled === 'yes' && clusterStatus.running === 'yes';
@@ -531,8 +531,8 @@ export const restartClusterOrManager = async (updateWazuhNotReadyYet) => {
     });
     isCluster ? await restartCluster() : await restartManager();
     // Dispatch a Redux action
-    updateWazuhNotReadyYet(`Restarting ${isCluster ? 'Cluster' : 'Manager'}, please wait.`);
-    await makePing(updateWazuhNotReadyYet, isCluster);
+    updateFortishieldNotReadyYet(`Restarting ${isCluster ? 'Cluster' : 'Manager'}, please wait.`);
+    await makePing(updateFortishieldNotReadyYet, isCluster);
     return { restarted: isCluster ? 'Cluster' : 'Manager' };
   } catch (error) {
     throw error;

@@ -1,7 +1,7 @@
 /*
- * Wazuh app - Check setup service
+ * Fortishield app - Check setup service
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,7 +14,7 @@
 
 import { AppState, GenericRequest, WzRequest } from '../../../react-services';
 import { CheckLogger } from '../types/check_logger';
-import { PLUGIN_PLATFORM_WAZUH_DOCUMENTATION_URL_PATH_TROUBLESHOOTING, PLUGIN_APP_NAME } from '../../../../common/constants';
+import { PLUGIN_PLATFORM_FORTISHIELD_DOCUMENTATION_URL_PATH_TROUBLESHOOTING, PLUGIN_APP_NAME } from '../../../../common/constants';
 import { webDocumentationLink } from '../../../../common/services/web_documentation';
 
 export const checkSetupService = appInfo => async (checkLogger: CheckLogger) => {
@@ -34,7 +34,7 @@ export const checkSetupService = appInfo => async (checkLogger: CheckLogger) => 
     };
 
     if (!apiVersion) {
-      checkLogger.info('Error fetching Wazuh API version');
+      checkLogger.info('Error fetching Fortishield API version');
     } else {
       const api = /v?(?<version>\d+)\.(?<minor>\d+)\.(?<path>\d+)/.exec(apiVersion);
       const appSplit = setupData.data.data['app-version'].split('.');
@@ -44,7 +44,7 @@ export const checkSetupService = appInfo => async (checkLogger: CheckLogger) => 
         api.groups.version !== appSplit[0] ||
         api.groups.minor !== appSplit[1]
       ) {
-        checkLogger.error(`Wazuh API and ${PLUGIN_APP_NAME} version mismatch. API version: ${apiVersion}. App version: ${setupData.data.data['app-version']}. Read more about this error in our troubleshooting guide: ${webDocumentationLink(PLUGIN_PLATFORM_WAZUH_DOCUMENTATION_URL_PATH_TROUBLESHOOTING)}.`);
+        checkLogger.error(`Fortishield API and ${PLUGIN_APP_NAME} version mismatch. API version: ${apiVersion}. App version: ${setupData.data.data['app-version']}. Read more about this error in our troubleshooting guide: ${webDocumentationLink(PLUGIN_PLATFORM_FORTISHIELD_DOCUMENTATION_URL_PATH_TROUBLESHOOTING)}.`);
       }
     }
   }

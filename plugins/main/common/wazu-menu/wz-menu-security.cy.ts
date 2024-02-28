@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Wazuh Constants file for Cypress
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Fortishield Constants file for Cypress
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -10,7 +10,7 @@
  * Find more information about this on the LICENSE file.
  */
 
-export enum WAZUH_MENU_SECURITY_SECTIONS_CY_TEST_ID {
+export enum FORTISHIELD_MENU_SECURITY_SECTIONS_CY_TEST_ID {
   USERS = 'menuSecurityUsersLink',
   ROLES = 'menuSecurityRolesLink',
   POLICIES = 'menuSecurityPoliciesLink',

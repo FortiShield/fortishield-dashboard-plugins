@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Tab name equivalence
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Tab name equivalence
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@ export const TabNames = {
   reporting: 'Reporting',
   'registration-service': 'Registration service',
   cluster: 'Cluster',
-  'wazuh-modules': 'Wazuh modules',
+  'fortishield-modules': 'Fortishield modules',
   'active-response': 'Active response',
   integrations: 'Integrations',
   'database-output': 'Database output',
@@ -61,7 +61,7 @@ export const TabNames = {
   'cis-cat': 'CIS-CAT',
   'vulnerability-detector': 'Vulnerabilities',
   'aws-s3': 'Amazon S3',
-  command: 'Wazuh commands',
+  command: 'Fortishield commands',
   client: 'Client configuration',
   edition: 'Edit node configuration',
   'client-buffer': 'Anti-flooding settings',

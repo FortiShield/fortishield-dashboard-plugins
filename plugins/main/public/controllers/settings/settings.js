@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Settings controller
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Settings controller
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
 import { TabNames } from '../../utils/tab-names';
 import { pluginPlatform } from '../../../package.json';
 import { AppState } from '../../react-services/app-state';
-import { WazuhConfig } from '../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../react-services/fortishield-config';
 import { GenericRequest } from '../../react-services/generic-request';
 import { WzMisc } from '../../factories/misc';
 import { ApiCheck } from '../../react-services/wz-api-check';
@@ -49,7 +49,7 @@ export class SettingsController {
     this.genericReq = GenericRequest;
     this.errorHandler = errorHandler;
     this.wzMisc = new WzMisc();
-    this.wazuhConfig = new WazuhConfig();
+    this.fortishieldConfig = new FortishieldConfig();
 
     if (this.wzMisc.getWizard()) {
       $window.sessionStorage.removeItem('healthCheck');
@@ -158,10 +158,10 @@ export class SettingsController {
         this.switchTab(tab, true);
       },
       selectedTab: this.tab || 'api',
-      // Define tabs for Wazuh plugin settings application
+      // Define tabs for Fortishield plugin settings application
       tabs:
         getWzCurrentAppID() === appSettings.id ? this.tabsConfiguration : null,
-      wazuhConfig: this.wazuhConfig,
+      fortishieldConfig: this.fortishieldConfig,
     };
   }
 
@@ -218,7 +218,7 @@ export class SettingsController {
               ? error
               : (error || {}).message ||
                 ((error || {}).data || {}).message ||
-                'Wazuh is not reachable';
+                'Fortishield is not reachable';
           const status = code === 3099 ? 'down' : 'unknown';
           this.apiEntries[idx].status = { status, downReason };
           numError = numError + 1;
@@ -297,7 +297,7 @@ export class SettingsController {
     try {
       try {
         this.indexPatterns =
-          await SavedObject.getListOfWazuhValidIndexPatterns();
+          await SavedObject.getListOfFortishieldValidIndexPatterns();
       } catch (error) {
         this.wzMisc.setBlankScr('Sorry but no valid index patterns were found');
         this.$location.search('tab', null);
@@ -424,7 +424,7 @@ export class SettingsController {
   }
 
   /**
-   * Returns Wazuh app info
+   * Returns Fortishield app info
    */
   async getAppInfo() {
     try {
@@ -437,7 +437,7 @@ export class SettingsController {
       };
 
       this.load = false;
-      const config = this.wazuhConfig.getConfig();
+      const config = this.fortishieldConfig.getConfig();
       AppState.setPatternSelector(config['ip.selector']);
       const pattern = AppState.getCurrentPattern();
       this.selectedIndexPattern = pattern || config['pattern'];
@@ -467,17 +467,17 @@ export class SettingsController {
   }
 
   /**
-   * Checks if there are new APIs entries in the wazuh.yml
+   * Checks if there are new APIs entries in the fortishield.yml
    */
   async checkForNewApis() {
     try {
       this.addingApi = true;
       this.addApiProps.errorsAtInit = false;
       const hosts = await this.getHosts();
-      //Tries to check if there are new APIs entries in the wazuh.yml also, checks if some of them have connection
+      //Tries to check if there are new APIs entries in the fortishield.yml also, checks if some of them have connection
       if (!hosts.length)
         throw {
-          message: 'There were not found any API entry in the wazuh.yml',
+          message: 'There were not found any API entry in the fortishield.yml',
           type: 'warning',
           closedEnabled: false,
         };
@@ -487,7 +487,7 @@ export class SettingsController {
           this.apiIsDown = true;
           throw {
             message:
-              'Wazuh API not recheable, please review your configuration',
+              'Fortishield API not recheable, please review your configuration',
             type: 'danger',
             closedEnabled: true,
           };
@@ -515,7 +515,7 @@ export class SettingsController {
   }
 
   /**
-   * Get the hosts in the wazuh.yml
+   * Get the hosts in the fortishield.yml
    */
   async getHosts() {
     try {

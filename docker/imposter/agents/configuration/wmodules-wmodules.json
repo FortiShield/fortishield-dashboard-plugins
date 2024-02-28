@@ -126,12 +126,12 @@
         }
       },
       {
-        "wazuh_download": {
+        "fortishield_download": {
           "enabled": "yes"
         }
       },
       {
-        "wazuh_control": {
+        "fortishield_control": {
           "enabled": "yes"
         }
       }

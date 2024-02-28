@@ -29,20 +29,20 @@ Exists the following error sources:
 # Error sources
 
 - Operational errors (development) - Native javascript errors
-- Wazuh API errors
+- Fortishield API errors
 - Indexer Error
 - Http errors
 - Etc
 
 
-Our frontend server-side have a intermedial layer between the frontend and the backend APIs like Indexer and Wazuh.
+Our frontend server-side have a intermedial layer between the frontend and the backend APIs like Indexer and Fortishield.
 This layer catch the error and categorize them by type and add a custom error code.
 
  ### Error codes: code
- * wazuh-api-Indexer 20XX
- * wazuh-api         30XX
- * wazuh-Indexer     40XX
- * wazuh-reporting   50XX
+ * fortishield-api-Indexer 20XX
+ * fortishield-api         30XX
+ * fortishield-Indexer     40XX
+ * fortishield-reporting   50XX
  * unknown           1000
  
 
@@ -71,8 +71,8 @@ graph TD;
  errorHandlerDecorator-Decorator-->ErrorHandler
  ErrorHandler-->ErrorFactory
  ErrorHandler-->ErrorOrchestratorService
- ErrorFactory-->WazuhApiError
- ErrorFactory-->WazuhReportingError
+ ErrorFactory-->FortishieldApiError
+ ErrorFactory-->FortishieldReportingError
  ErrorFactory-->IndexerApiError
  ErrorFactory-->IndexerError
 ```
@@ -97,7 +97,7 @@ The error orchestrator have the responsability to receive and error and showing 
 
 The current error handler tells the error orchestrator how the error will be shown to the user/developer. It sends the error and the showing options to the error orchestrator.
 
-For more details about the error orchestrator see the [Error Orchestrator documentation](https://github.com/wazuh/wazuh-dashboard-plugins/blob/ef071e55fd310bdb4cecb7d490ea83372bb07b01/public/react-services/error-orchestrator/README.md)
+For more details about the error orchestrator see the [Error Orchestrator documentation](https://github.com/fortishield/fortishield-dashboard-plugins/blob/ef071e55fd310bdb4cecb7d490ea83372bb07b01/public/react-services/error-orchestrator/README.md)
 
 ## React patterns
 
@@ -118,8 +118,8 @@ The `error factory` is responsible to create different instances of error depend
 
 The errors returned are defined as the `error type` received.
 
-- WazuhApiError
-- WazuhReportingError
+- FortishieldApiError
+- FortishieldReportingError
 - IndexerApiError
 - HttpError
 
@@ -134,16 +134,16 @@ The next diagram shows how is the relationship between the different types of er
 ```mermaid
 classDiagram
 
-class iWazuhError {
+class iFortishieldError {
     <<interface>>
     +Error error
-    +IWazuhErrorLogOptions logOptions
+    +IFortishieldErrorLogOptions logOptions
 }
 
-iWazuhError <|-- WazuhError : implements
-WazuhError <|-- HttpError : extends
-HttpError <|-- WazuhApiError : extends
-HttpError <|-- WazuhReportingError : extends
+iFortishieldError <|-- FortishieldError : implements
+FortishieldError <|-- HttpError : extends
+HttpError <|-- FortishieldApiError : extends
+HttpError <|-- FortishieldReportingError : extends
 HttpError <|-- IndexerApiError : extends
 HttpError <|-- IndexerError : extends
 
@@ -158,8 +158,8 @@ In the next table we have defined how the will be treated.
 
 | Error type          | show        | store | display |
 |---------------------|-------------|-------|---------|
-| WazuhApiError       | toast       |       |    ✅   |
-| WazuhReportingError | toast       |       |    ✅   |
+| FortishieldApiError       | toast       |       |    ✅   |
+| FortishieldReportingError | toast       |       |    ✅   |
 | IndexerApiError     | toast       |       |    ✅   |
 | HttpError           | toast       |       |    ✅   |
 | Error               | log(error)  |       |    ✅   |

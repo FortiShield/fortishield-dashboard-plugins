@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for show configuration of active response - active response tab.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for show configuration of active response - active response tab.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -56,7 +56,7 @@ class WzConfigurationActiveResponseActiveResponse extends Component {
     super(props);
   }
   render() {
-    const { currentConfig, wazuhNotReadyYet } = this.props;
+    const { currentConfig, fortishieldNotReadyYet } = this.props;
     const items =
       !isString(currentConfig['analysis-active_response']) &&
       currentConfig['analysis-active_response']['active-response'] &&
@@ -80,9 +80,9 @@ class WzConfigurationActiveResponseActiveResponse extends Component {
           currentConfig['analysis-active_response']['active-response'] &&
           !currentConfig['analysis-active_response']['active-response']
             .length && <WzNoConfig error="not-present" help={helpLinks} />}
-        {wazuhNotReadyYet &&
+        {fortishieldNotReadyYet &&
           (!currentConfig || !currentConfig['analysis-active_response']) && (
-            <WzNoConfig error="Wazuh not ready yet" help={helpLinks} />
+            <WzNoConfig error="Fortishield not ready yet" help={helpLinks} />
           )}
         {currentConfig['analysis-active_response'] &&
         !isString(currentConfig['analysis-active_response']) &&
@@ -105,11 +105,11 @@ class WzConfigurationActiveResponseActiveResponse extends Component {
 
 WzConfigurationActiveResponseActiveResponse.propTypes = {
   // currentConfig: PropTypes.object.isRequired,
-  wazuhNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+  fortishieldNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };
 
 const mapStateToProps = state => ({
-  wazuhNotReadyYet: state.appStateReducers.wazuhNotReadyYet
+  fortishieldNotReadyYet: state.appStateReducers.fortishieldNotReadyYet
 });
 
 export default connect(mapStateToProps)(
@@ -124,5 +124,5 @@ export const WzConfigurationActiveResponseActiveResponseAgent = compose(
 )(WzConfigurationActiveResponseActiveResponse);
 
 WzConfigurationActiveResponseActiveResponseAgent.propTypes = {
-  wazuhNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+  fortishieldNotReadyYet: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };

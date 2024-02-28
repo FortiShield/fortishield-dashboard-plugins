@@ -1,14 +1,14 @@
 var id = context.request.queryParams.rule_ids;
-var storeWazuh = stores.open('storeWazuh');
+var storeFortishield = stores.open('storeFortishield');
 
-storeWazuh.save('deleteRolesMapping', true);
+storeFortishield.save('deleteRolesMapping', true);
 
 var data = {
   data: {
     affected_items: [
       {
         id: id,
-        name: 'TestWazuhRule',
+        name: 'TestFortishieldRule',
         rule: {
           MATCH: {
             definition: 'test_rule',

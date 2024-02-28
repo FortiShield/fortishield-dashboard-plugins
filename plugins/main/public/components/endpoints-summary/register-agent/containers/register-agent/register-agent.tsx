@@ -56,10 +56,10 @@ export const RegisterAgent = compose(
   const configuration = useSelector(
     (state: { appConfig: { data: any } }) => state.appConfig.data,
   );
-  const [wazuhVersion, setWazuhVersion] = useState('');
+  const [fortishieldVersion, setFortishieldVersion] = useState('');
   const [haveUdpProtocol, setHaveUdpProtocol] = useState<boolean | null>(false);
   const [loading, setLoading] = useState(false);
-  const [wazuhPassword, setWazuhPassword] = useState('');
+  const [fortishieldPassword, setFortishieldPassword] = useState('');
   const [groups, setGroups] = useState([]);
   const [needsPassword, setNeedsPassword] = useState<boolean>(false);
 
@@ -107,19 +107,19 @@ export const RegisterAgent = compose(
     return masterConfig;
   };
 
-  const getWazuhVersion = async () => {
+  const getFortishieldVersion = async () => {
     try {
       const result = await WzRequest.apiReq('GET', '/', {});
       return result?.data?.data?.api_version;
     } catch (error) {
       const options = {
-        context: `RegisterAgent.getWazuhVersion`,
+        context: `RegisterAgent.getFortishieldVersion`,
         level: UI_LOGGER_LEVELS.ERROR,
         severity: UI_ERROR_SEVERITIES.BUSINESS,
         error: {
           error: error,
           message: error.message || error,
-          title: `Could not get the Wazuh version: ${error.message || error}`,
+          title: `Could not get the Fortishield version: ${error.message || error}`,
         },
       };
       getErrorOrchestrator().handleError(options);
@@ -130,25 +130,25 @@ export const RegisterAgent = compose(
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const wazuhVersion = await getWazuhVersion();
+        const fortishieldVersion = await getFortishieldVersion();
         const { auth: authConfig } = await getMasterConfig();
-        // get wazuh password configuration
-        let wazuhPassword = '';
+        // get fortishield password configuration
+        let fortishieldPassword = '';
         const needsPassword = authConfig?.auth?.use_password === 'yes';
         if (needsPassword) {
-          wazuhPassword =
+          fortishieldPassword =
             configuration?.['enrollment.password'] ||
             authConfig?.['authd.pass'] ||
             '';
         }
         const groups = await getGroups();
         setNeedsPassword(needsPassword);
-        setWazuhPassword(wazuhPassword);
-        setWazuhVersion(wazuhVersion);
+        setFortishieldPassword(fortishieldPassword);
+        setFortishieldVersion(fortishieldVersion);
         setGroups(groups);
         setLoading(false);
       } catch (error) {
-        setWazuhVersion(wazuhVersion);
+        setFortishieldVersion(fortishieldVersion);
         setLoading(false);
         const options = {
           context: 'RegisterAgent',
@@ -216,7 +216,7 @@ export const RegisterAgent = compose(
                     <Steps
                       form={form}
                       needsPassword={needsPassword}
-                      wazuhPassword={wazuhPassword}
+                      fortishieldPassword={fortishieldPassword}
                       osCard={osCard}
                       connection={{
                         isUDP: haveUdpProtocol ? true : false,

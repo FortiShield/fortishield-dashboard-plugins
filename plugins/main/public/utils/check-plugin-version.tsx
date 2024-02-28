@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Tools to check the version of the plugin
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Tools to check the version of the plugin
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -119,7 +119,7 @@ This message should not be displayed again.`;
     clearBrowserInfo(appInfo);
   } else {
     if (window.history.state == 'refreshed') {
-      window.history.replaceState('', 'wazuh');
+      window.history.replaceState('', 'fortishield');
     }
     const storeAppInfo = localStorage.getItem('appInfo');
     !storeAppInfo && updateAppInfo(appInfo);

@@ -13,8 +13,8 @@ export class SchedulerJob {
   constructor(jobName: string, context) {
     this.jobName = jobName;
     this.context = context;
-    this.logger = context.wazuh.logger;
-    this.apiClient = context.wazuh.api.client.asInternalUser;
+    this.logger = context.fortishield.logger;
+    this.apiClient = context.fortishield.api.client.asInternalUser;
     this.saveDocument = new SaveDocument(context);
   }
 
@@ -50,9 +50,9 @@ export class SchedulerJob {
   private async getApiObjects() {
     const { apis } = jobs[this.jobName];
     const hostsResponse: IApi[] =
-      await this.context.wazuh_core.serverAPIHostEntries.getHostsEntries();
+      await this.context.fortishield_core.serverAPIHostEntries.getHostsEntries();
     if (!hostsResponse.length)
-      throw { error: 10001, message: 'No Wazuh host configured in wazuh.yml' };
+      throw { error: 10001, message: 'No Fortishield host configured in fortishield.yml' };
     if (apis && apis.length) {
       return this.filterHosts(hostsResponse, apis);
     }

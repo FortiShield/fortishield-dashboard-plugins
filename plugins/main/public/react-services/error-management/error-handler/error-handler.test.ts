@@ -1,7 +1,7 @@
 import { AxiosError, AxiosResponse } from 'axios';
 import { ErrorHandler } from './error-handler';
 import { ErrorOrchestratorService } from '../../error-orchestrator/error-orchestrator.service';
-import WazuhError from '../error-factory/errors/WazuhError';
+import FortishieldError from '../error-factory/errors/FortishieldError';
 import { UIErrorLog } from '../../error-orchestrator/types';
 
 // mocked some required kibana-services
@@ -30,7 +30,7 @@ const responseBody: AxiosResponse = {
   data: {
     statusCode: 500,
     error: 'Internal Server Error',
-    message: '3099 - ERROR3099 - Wazuh not ready yet',
+    message: '3099 - ERROR3099 - Fortishield not ready yet',
   },
   status: 500,
   statusText: 'Internal Server Error',
@@ -75,13 +75,13 @@ describe('Error Handler', () => {
         url: '/elastic/samplealerts',
       },
       {
-        name: 'WazuhApiError',
-        message: 'Error WazuhApiError',
+        name: 'FortishieldApiError',
+        message: 'Error FortishieldApiError',
         url: '/api/request',
       },
       {
-        name: 'WazuhReportingError',
-        message: 'Error WazuhReportingError',
+        name: 'FortishieldReportingError',
+        message: 'Error FortishieldReportingError',
         url: '/reports',
       },
       {
@@ -107,7 +107,7 @@ describe('Error Handler', () => {
         error.response.config.url = url;
         const spyIshttp = jest.spyOn(ErrorHandler, 'isHttpError').mockImplementation(() => true);
         const errorCreated = ErrorHandler.createError(error);
-        expect(errorCreated).toBeInstanceOf(WazuhError);
+        expect(errorCreated).toBeInstanceOf(FortishieldError);
         expect(errorCreated.message).toBe(message);
         expect(errorCreated.name).toBe(name);
         expect(errorCreated.stack).toBe(error.stack);
@@ -149,13 +149,13 @@ describe('Error Handler', () => {
         url: '/elastic/samplealerts',
       },
       {
-        name: 'WazuhApiError',
-        message: 'Error WazuhApiError',
+        name: 'FortishieldApiError',
+        message: 'Error FortishieldApiError',
         url: '/api/request',
       },
       {
-        name: 'WazuhReportingError',
-        message: 'Error WazuhReportingError',
+        name: 'FortishieldReportingError',
+        message: 'Error FortishieldReportingError',
         url: '/reports',
       },
       {
@@ -220,7 +220,7 @@ describe('Error Handler', () => {
           display: true,
           store: false,
         };
-        if (errorHandled instanceof WazuhError) {
+        if (errorHandled instanceof FortishieldError) {
           logOptionsExpected = errorHandled.logOptions;
         }
         expect(spyErrorOrch).toBeCalledTimes(1);
@@ -237,13 +237,13 @@ describe('Error Handler', () => {
         url: '/elastic/samplealerts',
       },
       {
-        name: 'WazuhApiError',
-        message: 'Error WazuhApiError',
+        name: 'FortishieldApiError',
+        message: 'Error FortishieldApiError',
         url: '/api/request',
       },
       {
-        name: 'WazuhReportingError',
-        message: 'Error WazuhReportingError',
+        name: 'FortishieldReportingError',
+        message: 'Error FortishieldReportingError',
         url: '/reports',
       },
       {
@@ -295,7 +295,7 @@ describe('Error Handler', () => {
         const errorFromHandler = ErrorHandler.handleError(error);
         expect(errorFromHandler).toEqual(errorReturned);
         expect(errorFromHandler).toBeInstanceOf(
-          ErrorType ? ErrorType : WazuhError,
+          ErrorType ? ErrorType : FortishieldError,
         );
         expect(errorFromHandler.message).toBe(message);
         expect(errorFromHandler.name).toBe(name);

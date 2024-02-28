@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Agents controller
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Agents controller
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@ import { visualizations } from '../../templates/agents/visualizations';
 
 import { ConfigurationHandler } from '../../utils/config-handler';
 import { AppState } from '../../react-services/app-state';
-import { WazuhConfig } from '../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../react-services/fortishield-config';
 import { GenericRequest } from '../../react-services/generic-request';
 import { WzRequest } from '../../react-services/wz-request';
 import { getToasts, getDataPlugin } from '../../kibana-services';
@@ -63,7 +63,7 @@ export class AgentsController {
     this.reportingService = reportingService;
     this.visFactoryService = visFactoryService;
     this.csvReq = csvReq;
-    this.wazuhConfig = new WazuhConfig();
+    this.fortishieldConfig = new FortishieldConfig();
     this.genericReq = GenericRequest;
 
     // Config on-demand
@@ -158,19 +158,19 @@ export class AgentsController {
     this.$scope.goGroups = (agent, group) => this.goGroups(agent, group);
 
     this.$scope.search = (term, specificPath) =>
-      this.$scope.$broadcast('wazuhSearch', {
+      this.$scope.$broadcast('fortishieldSearch', {
         term,
         specificPath,
       });
 
     this.$scope.searchSyscheckFile = (term, specificFilter) =>
-      this.$scope.$broadcast('wazuhSearch', {
+      this.$scope.$broadcast('fortishieldSearch', {
         term,
         specificFilter,
       });
 
     this.$scope.searchRootcheck = (term, specificFilter) =>
-      this.$scope.$broadcast('wazuhSearch', {
+      this.$scope.$broadcast('fortishieldSearch', {
         term,
         specificFilter,
       });
@@ -673,7 +673,7 @@ export class AgentsController {
     } catch (error) {
       if (!this.$scope.agent) {
         if ((error || {}).status === -1) {
-          this.$scope.emptyAgent = 'Wazuh API timeout.';
+          this.$scope.emptyAgent = 'Fortishield API timeout.';
         }
       }
       if (

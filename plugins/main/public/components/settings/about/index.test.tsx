@@ -20,7 +20,7 @@ describe('SettingsAbout component', () => {
           revision: '01',
           installationDate: 'Sep 25, 2023 @ 14:03:40.816',
         }}
-        pluginAppName="Wazuh dashboard"
+        pluginAppName="Fortishield dashboard"
       />
     );
 

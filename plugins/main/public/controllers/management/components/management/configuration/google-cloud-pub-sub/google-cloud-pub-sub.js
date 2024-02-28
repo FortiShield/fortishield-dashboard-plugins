@@ -13,7 +13,7 @@ import { webDocumentationLink } from '../../../../../../../common/services/web_d
 
 const helpLinks = [
   {
-    text: 'Using Wazuh to monitor GCP services',
+    text: 'Using Fortishield to monitor GCP services',
     href: webDocumentationLink('cloud-security/gcp/index.html'),
   },
   {

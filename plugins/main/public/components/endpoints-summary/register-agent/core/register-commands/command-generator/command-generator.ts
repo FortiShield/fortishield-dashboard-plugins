@@ -17,7 +17,7 @@ import { OptionalParametersManager } from '../optional-parameters-manager/option
 import {
   NoArchitectureSelectedException,
   NoOSSelectedException,
-  WazuhVersionUndefinedException,
+  FortishieldVersionUndefinedException,
 } from '../exceptions';
 import { version } from '../../../../../../../package.json';
 
@@ -33,13 +33,13 @@ export class CommandGenerator<
   constructor(
     public osDefinitions: IOSDefinition<OS, Params>[],
     protected optionalParams: tOptionalParams<Params>,
-    public wazuhVersion: string = version,
+    public fortishieldVersion: string = version,
   ) {
     // validate os definitions received
     validateOSDefinitionsDuplicated(this.osDefinitions);
     validateOSDefinitionHasDuplicatedOptions(this.osDefinitions);
-    if (wazuhVersion == '') {
-      throw new WazuhVersionUndefinedException();
+    if (fortishieldVersion == '') {
+      throw new FortishieldVersionUndefinedException();
     }
     this.optionalsManager = new OptionalParametersManager(optionalParams);
   }
@@ -107,7 +107,7 @@ export class CommandGenerator<
       throw new NoOSSelectedException();
     }
     return this.osDefinitionSelected.urlPackage({
-      wazuhVersion: this.wazuhVersion,
+      fortishieldVersion: this.fortishieldVersion,
       architecture: this.osDefinitionSelected
         .architecture as OS['architecture'],
       name: this.os as OS['name'],
@@ -129,7 +129,7 @@ export class CommandGenerator<
       architecture: this.osDefinitionSelected
         .architecture as OS['architecture'],
       urlPackage: this.getUrlPackage(),
-      wazuhVersion: this.wazuhVersion,
+      fortishieldVersion: this.fortishieldVersion,
       optionals: this.optionals as IOptionalParameters<Params>,
     });
   }
@@ -148,7 +148,7 @@ export class CommandGenerator<
       name: this.os as OS['name'],
       architecture: this.osDefinitionSelected
         .architecture as OS['architecture'],
-      wazuhVersion: this.wazuhVersion,
+      fortishieldVersion: this.fortishieldVersion,
       optionals: this.optionals as IOptionalParameters<Params>,
     });
   }
@@ -164,7 +164,7 @@ export class CommandGenerator<
     }
 
     return {
-      wazuhVersion: this.wazuhVersion,
+      fortishieldVersion: this.fortishieldVersion,
       os: this.os as OS['name'],
       architecture: this.osDefinitionSelected
         .architecture as OS['architecture'],

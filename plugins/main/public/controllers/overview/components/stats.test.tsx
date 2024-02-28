@@ -1,7 +1,7 @@
 /*
- * Wazuh app - React test for Stats component.
+ * Fortishield app - React test for Stats component.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ jest.mock('./last-alerts-stat/last-alerts-service', () => ({
       field: 'cluster.name',
       name: 'master',
     },
-    indexPatternName: 'wazuh-alerts-*',
+    indexPatternName: 'fortishield-alerts-*',
   }),
 }));
 

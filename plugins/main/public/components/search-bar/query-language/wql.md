@@ -1,9 +1,9 @@
 # Query Language - WQL
 
-WQL (Wazuh Query Language) is a query language based in the `q` query parameter of the Wazuh API
+WQL (Fortishield Query Language) is a query language based in the `q` query parameter of the Fortishield API
 endpoints.
 
-Documentation: https://wazuh.com/<major_version>.<minor_version>/user-manual/api/queries.html
+Documentation: https://fortishield.com/<major_version>.<minor_version>/user-manual/api/queries.html
 
 The implementation is adapted to work with the search bar component defined 
 `public/components/search-bar/index.tsx`.

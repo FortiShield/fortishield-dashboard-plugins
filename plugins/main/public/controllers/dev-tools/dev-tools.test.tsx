@@ -71,7 +71,7 @@ describe('Devtools Controller', () => {
         number: 1,
       }
 
-      expect(controller.parseError(errorTypes.object)).toEqual('Wazuh API is not reachable. Reason: timeout.');
+      expect(controller.parseError(errorTypes.object)).toEqual('Fortishield API is not reachable. Reason: timeout.');
       expect(controller.parseError(errorTypes.string)).toEqual('String Error');
       expect(controller.parseError(errorTypes.dataObject)).toEqual(errorTypes.dataObject.data.message);
       expect(controller.parseError(errorTypes.invalidObject)).toEqual(JSON.stringify(errorTypes.invalidObject));

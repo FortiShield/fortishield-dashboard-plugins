@@ -9,8 +9,8 @@
             "timeout_allowed": 1
           },
           {
-            "name": "restart-wazuh",
-            "executable": "restart-wazuh",
+            "name": "restart-fortishield",
+            "executable": "restart-fortishield",
             "timeout_allowed": 0
           },
           {

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component GeneralTab
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component GeneralTab
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ const mainSettings = [
   { field: 'enabled', label: 'Service status', render: renderValueYesThenEnabled },
   {
     field: 'only_future_events',
-    label: 'Collect events generated since Wazuh manager is initialized',
+    label: 'Collect events generated since Fortishield manager is initialized',
   },
   {
     field: 'interval',

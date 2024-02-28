@@ -1,6 +1,6 @@
 {
   "configurationTitle": "App current settings",
-  "configurationDescription": "Configuration file located at /usr/share/kibana/data/wazuh/config/wazuh.yml",
+  "configurationDescription": "Configuration file located at /usr/share/kibana/data/fortishield/config/fortishield.yml",
   "Panel": [
     {
       "name": "General",
@@ -22,7 +22,7 @@
         },
         {
           "title": "IP ignore",
-          "subTitle": "Disable certain index pattern names from being available in index pattern selector from the Wazuh app.",
+          "subTitle": "Disable certain index pattern names from being available in index pattern selector from the Fortishield app.",
           "label": "ip.ignore"
         },
         {
@@ -47,7 +47,7 @@
         },
         {
           "title": "Enrollment DNS",
-          "subTitle": "Specifies the Wazuh registration server, used for the agent enrollment.",
+          "subTitle": "Specifies the Fortishield registration server, used for the agent enrollment.",
           "label": "enrollment.dns"
         }
       ]
@@ -112,33 +112,33 @@
       "items": [
         {
           "title": "Status",
-          "subTitle": "Enable or disable the wazuh-monitoring index creation and/or visualization.",
-          "label": "wazuh.monitoring.enabled"
+          "subTitle": "Enable or disable the fortishield-monitoring index creation and/or visualization.",
+          "label": "fortishield.monitoring.enabled"
         },
         {
           "title": "Frequency",
-          "subTitle": "Frequency, in seconds, of API requests to get the state of the agents and create a new document in the wazuh-monitoring index with this data.",
-          "label": "wazuh.monitoring.frequency"
+          "subTitle": "Frequency, in seconds, of API requests to get the state of the agents and create a new document in the fortishield-monitoring index with this data.",
+          "label": "fortishield.monitoring.frequency"
         },
         {
           "title": "Index shards",
-          "subTitle": "Define the number of shards to use for the wazuh-monitoring-* indices.",
-          "label": "wazuh.monitoring.shards"
+          "subTitle": "Define the number of shards to use for the fortishield-monitoring-* indices.",
+          "label": "fortishield.monitoring.shards"
         },
         {
           "title": "Index replicas",
-          "subTitle": "Define the number of replicas to use for the wazuh-monitoring-* indices.",
-          "label": "wazuh.monitoring.replicas"
+          "subTitle": "Define the number of replicas to use for the fortishield-monitoring-* indices.",
+          "label": "fortishield.monitoring.replicas"
         },
         {
           "title": "Index creation",
-          "subTitle": "Define the interval in which a new wazuh-monitoring index will be created.",
-          "label": "wazuh.monitoring.creation"
+          "subTitle": "Define the interval in which a new fortishield-monitoring index will be created.",
+          "label": "fortishield.monitoring.creation"
         },
         {
           "title": "Index pattern",
-          "subTitle": "Default index pattern to use for Wazuh monitoring.",
-          "label": "wazuh.monitoring.pattern"
+          "subTitle": "Default index pattern to use for Fortishield monitoring.",
+          "label": "fortishield.monitoring.pattern"
         },
         {
           "title": "Index pattern",
@@ -212,17 +212,17 @@
       "items": [
         {
           "title": "Logo App",
-          "subTitle": "Set the name of the app logo stored at /plugins/wazuh/public/assets/",
+          "subTitle": "Set the name of the app logo stored at /plugins/fortishield/public/assets/",
           "label": "customization.logo.app"
         },
         {
           "title": "Logo Health Check",
-          "subTitle": "Set the name of the health-check logo stored at /plugins/wazuh/public/assets/",
+          "subTitle": "Set the name of the health-check logo stored at /plugins/fortishield/public/assets/",
           "label": "customization.logo.healthcheck"
         },
         {
           "title": "Logo Reports",
-          "subTitle": "Set the name of the reports logo (.png) stored at /plugins/wazuh/public/assets/",
+          "subTitle": "Set the name of the reports logo (.png) stored at /plugins/fortishield/public/assets/",
           "label": "customization.logo.reports"
         }
       ]

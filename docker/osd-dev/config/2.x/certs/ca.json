@@ -1,5 +1,5 @@
 {
-  "CN": "Wazuh",
+  "CN": "Fortishield",
   "key": {
     "algo": "rsa",
     "size": 2048
@@ -8,8 +8,8 @@
   {
     "C": "US",
     "L": "San Francisco",
-    "O": "Wazuh",
-    "OU": "Wazuh Root CA"
+    "O": "Fortishield",
+    "OU": "Fortishield Root CA"
   }
  ]
 }

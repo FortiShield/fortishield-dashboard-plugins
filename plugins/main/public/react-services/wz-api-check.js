@@ -1,6 +1,6 @@
 /*
- * Wazuh app - API status check service
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - API status check service
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -9,7 +9,7 @@
  *
  * Find more information about this on the LICENSE file.
  */
-import { WazuhConfig } from './wazuh-config';
+import { FortishieldConfig } from './fortishield-config';
 import { AppState } from './app-state';
 import { WzMisc } from '../factories/misc';
 import { getHttp } from '../kibana-services';
@@ -19,8 +19,8 @@ import { request } from '../services/request-handler';
 export class ApiCheck {
   static async checkStored(data, idChanged = false) {
     try {
-      const wazuhConfig = new WazuhConfig();
-      const configuration = wazuhConfig.getConfig();
+      const fortishieldConfig = new FortishieldConfig();
+      const configuration = fortishieldConfig.getConfig();
       const timeout = configuration ? configuration.timeout : 20000;
       const payload = { id: data };
       if (idChanged) {
@@ -67,8 +67,8 @@ export class ApiCheck {
    */
   static async checkApi(apiEntry, forceRefresh=false) {
     try {
-      const wazuhConfig = new WazuhConfig();
-      const { timeout } = wazuhConfig.getConfig();
+      const fortishieldConfig = new FortishieldConfig();
+      const { timeout } = fortishieldConfig.getConfig();
       const url = getHttp().basePath.prepend('/api/check-api');
 
       const options = {

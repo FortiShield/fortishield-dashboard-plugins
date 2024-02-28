@@ -1,8 +1,8 @@
 'use strict';
 /*
- * Wazuh app - Office 365 Drilldown IP field Config.
+ * Fortishield app - Office 365 Drilldown IP field Config.
  *
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,20 +25,20 @@ export const drilldownIPConfig = {
         {
           width: 30,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-Office-Metric-Stats" tab="office" {...props} />
+            <VisCard id="Fortishield-App-Overview-Office-Metric-Stats" tab="office" {...props} />
           ),
         },
         {
           width: 30,
           component: (props) => (
-            <VisCard id="Wazuh-App-Overview-Office-Top-Events-Pie" tab="office" {...props} />
+            <VisCard id="Fortishield-App-Overview-Office-Top-Events-Pie" tab="office" {...props} />
           ),
         },
         {
           width: 40,
           component: (props) => (
             <VisCard
-              id={'Wazuh-App-Overview-Office-User-Operation-Level-Table'}
+              id={'Fortishield-App-Overview-Office-User-Operation-Level-Table'}
               tab="office"
               {...props}
             />
@@ -53,7 +53,7 @@ export const drilldownIPConfig = {
           width: 100,
           component: (props) => (
             <VisCard
-              id="Wazuh-App-Overview-Office-Alerts-Evolution-By-User"
+              id="Fortishield-App-Overview-Office-Alerts-Evolution-By-User"
               tab="office"
               {...props}
             />

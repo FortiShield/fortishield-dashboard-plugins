@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Wazuh data factory
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Fortishield data factory
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

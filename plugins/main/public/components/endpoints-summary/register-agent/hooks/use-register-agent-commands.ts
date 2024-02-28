@@ -45,7 +45,7 @@ export function useRegisterAgentCommands<
 ): IUseRegisterCommandsOutput<OS, Params> {
   const { osDefinitions, optionalParamsDefinitions } = props;
   // command generator settings
-  const wazuhVersion = version;
+  const fortishieldVersion = version;
   const osCommands: IOSDefinition<OS, Params>[] =
     osDefinitions as IOSDefinition<OS, Params>[];
   const optionalParams: tOptionalParams<Params> =
@@ -53,7 +53,7 @@ export function useRegisterAgentCommands<
   const commandGenerator = new CommandGenerator(
     osCommands,
     optionalParams,
-    wazuhVersion,
+    fortishieldVersion,
   );
 
   const [osSelected, setOsSelected] = useState<OS | null>(null);

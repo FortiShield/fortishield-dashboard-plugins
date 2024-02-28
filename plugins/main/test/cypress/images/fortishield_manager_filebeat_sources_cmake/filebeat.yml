@@ -1,0 +1,17 @@
+# Fortishield - Filebeat configuration file
+filebeat.modules:
+  - module: fortishield
+    alerts:
+      enabled: true
+    archives:
+      enabled: false
+
+setup.template.json.enabled: true
+setup.template.json.path: '/etc/filebeat/fortishield-template.json'
+setup.template.json.name: 'fortishield'
+setup.template.overwrite: true
+setup.ilm.enabled: false
+
+output.elasticsearch:
+  hosts: ['elasticsearch:9200']
+  protocol: http

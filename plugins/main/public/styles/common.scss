@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Commons stylesheet
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Commons stylesheet
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 
 /* -------------------------------------------------------------------------- */
-/* ------------------------ Wazuh commons stylesheet ------------------------ */
+/* ------------------------ Fortishield commons stylesheet ------------------------ */
 /* -------------------------------------------------------------------------- */
 
 /* Customize the App icon style */
@@ -460,8 +460,8 @@ md-content {
   color: #006bb4;
 }
 
-.wazuhNavDiscover .euiTab,
-.wazuhNavDiscover .euiText {
+.fortishieldNavDiscover .euiTab,
+.fortishieldNavDiscover .euiText {
   font-size: 14px !important;
 }
 
@@ -610,7 +610,7 @@ md-switch.md-checked .md-thumb {
   border: 1px solid #d3dae6;
 }
 
-/* Unclassified but important Wazuh app component styles */
+/* Unclassified but important Fortishield app component styles */
 
 .cursor-pointer {
   cursor: pointer !important;

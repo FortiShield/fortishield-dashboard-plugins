@@ -1,6 +1,6 @@
 /*
- * Wazuh app - React component for registering agents.
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - React component for registering agents.
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,12 +25,12 @@ import {
 } from '@elastic/eui';
 
 import { getToasts }  from '../../kibana-services';
-import { updateWazuhNotReadyYet } from '../../redux/actions/appStateActions';
+import { updateFortishieldNotReadyYet } from '../../redux/actions/appStateActions';
 import { clusterReq, restartClusterOrManager } from '../../controllers/management/components/management/configuration/utils/wz-fetch';
 import { connect } from 'react-redux';
 
 interface IWzRestartClusterManagerCalloutProps{
-  updateWazuhNotReadyYet: (wazuhNotReadyYet) => void
+  updateFortishieldNotReadyYet: (fortishieldNotReadyYet) => void
   onRestarted: () => void
   onRestartedError: () => void
 };
@@ -64,12 +64,12 @@ class WzRestartClusterManagerCallout extends Component<IWzRestartClusterManagerC
   restartClusterOrManager = async () => {
     try{
       this.setState({ warningRestarting: true, warningRestartModalVisible: false});
-      const data = await restartClusterOrManager(this.props.updateWazuhNotReadyYet);
+      const data = await restartClusterOrManager(this.props.updateFortishieldNotReadyYet);
       this.props.onRestarted();
       this.showToast('success', `${data.restarted} was restarted`);
     }catch(error){
       this.setState({ warningRestarting: false });
-      this.props.updateWazuhNotReadyYet(false);
+      this.props.updateFortishieldNotReadyYet(false);
       this.props.onRestartedError();
       this.showToast('danger', 'Error', error.message || error );
     }
@@ -123,7 +123,7 @@ class WzRestartClusterManagerCallout extends Component<IWzRestartClusterManagerC
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateWazuhNotReadyYet: wazuhNotReadyYet => dispatch(updateWazuhNotReadyYet(wazuhNotReadyYet))
+    updateFortishieldNotReadyYet: fortishieldNotReadyYet => dispatch(updateFortishieldNotReadyYet(fortishieldNotReadyYet))
   }
 };
 

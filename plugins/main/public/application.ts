@@ -5,13 +5,13 @@ import angular from 'angular';
  */
 export async function renderApp(moduleName: string, element: HTMLElement) {
   await import('./app');
-  const $injector = mountWazuhApp(moduleName, element);
+  const $injector = mountFortishieldApp(moduleName, element);
   return () => {
     return $injector.get('$rootScope').$destroy();
   };
 }
 
-function mountWazuhApp(moduleName: string, element: HTMLElement) {
+function mountFortishieldApp(moduleName: string, element: HTMLElement) {
   const mountpoint = document.createElement('div');
   const appWrapper = document.createElement('div');
   mountpoint.appendChild(appWrapper);

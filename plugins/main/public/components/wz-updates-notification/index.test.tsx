@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import { WzUpdatesNotification } from '.';
 
 jest.mock('../../kibana-services', () => ({
-  getWazuhCheckUpdatesPlugin: jest.fn().mockReturnValue({
+  getFortishieldCheckUpdatesPlugin: jest.fn().mockReturnValue({
     UpdatesNotification: () => <div>Updates notification</div>,
   }),
 }));

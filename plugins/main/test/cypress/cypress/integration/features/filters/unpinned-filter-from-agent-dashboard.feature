@@ -1,10 +1,10 @@
 Feature: Unpinned filter from agent - Dashboard
 
-  As a Wazuh user
+  As a Fortishield user
   I want to unpin a selected filter
   in order to apply it across the modules
   Background:
-    Given The wazuh admin user is logged
+    Given The fortishield admin user is logged
     And The user navigates to the agent page
     And The user navigates to the agent dashboard
 

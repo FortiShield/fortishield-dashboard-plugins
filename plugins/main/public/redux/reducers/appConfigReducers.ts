@@ -1,6 +1,6 @@
 /*
- * Wazuh app - App Config Reducer
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - App Config Reducer
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +19,8 @@ const initialState: AppConfigState = {
   isReady: false,
   hasError: false,
   data: {
-    'vulnerabilities.pattern': 'wazuh-states-vulnerabilities',
-    'fim.pattern': 'wazuh-states-fim',
+    'vulnerabilities.pattern': 'fortishield-states-vulnerabilities',
+    'fim.pattern': 'fortishield-states-fim',
   },
 };
 

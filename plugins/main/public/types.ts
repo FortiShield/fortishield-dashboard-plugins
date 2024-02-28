@@ -17,9 +17,9 @@ import {
   TelemetryPluginStart,
   TelemetryPluginSetup,
 } from '../../../src/plugins/telemetry/public';
-import { WazuhCheckUpdatesPluginStart } from '../../wazuh-check-updates/public';
-import { WazuhCorePluginStart } from '../../wazuh-core/public';
-import { WazuhEndpointsPluginStart } from '../../wazuh-endpoints/public';
+import { FortishieldCheckUpdatesPluginStart } from '../../fortishield-check-updates/public';
+import { FortishieldCorePluginStart } from '../../fortishield-core/public';
+import { FortishieldEndpointsPluginStart } from '../../fortishield-endpoints/public';
 import { DashboardStart } from '../../../src/plugins/dashboard/public';
 
 export interface AppPluginStartDependencies {
@@ -31,9 +31,9 @@ export interface AppPluginStartDependencies {
   securityOss: SecurityOssPluginStart;
   savedObjects: SavedObjectsStart;
   telemetry: TelemetryPluginStart;
-  wazuhCheckUpdates: WazuhCheckUpdatesPluginStart;
-  wazuhCore: WazuhCorePluginStart;
-  wazuhEndpoints: WazuhEndpointsPluginStart;
+  fortishieldCheckUpdates: FortishieldCheckUpdatesPluginStart;
+  fortishieldCore: FortishieldCorePluginStart;
+  fortishieldEndpoints: FortishieldEndpointsPluginStart;
   dashboard: DashboardStart;
 }
 export interface AppDependencies {
@@ -42,7 +42,7 @@ export interface AppDependencies {
   params: AppMountParameters;
 }
 
-export type WazuhSetupPlugins = {
+export type FortishieldSetupPlugins = {
   uiActions: UiActionsSetup;
   visualizations: VisualizationsSetup;
   data: DataPublicPluginSetup;
@@ -50,7 +50,7 @@ export type WazuhSetupPlugins = {
   telemetry: TelemetryPluginSetup;
 };
 
-export type WazuhStartPlugins = AppPluginStartDependencies;
+export type FortishieldStartPlugins = AppPluginStartDependencies;
 
-export type WazuhSetup = {};
-export type WazuhStart = {};
+export type FortishieldSetup = {};
+export type FortishieldStart = {};

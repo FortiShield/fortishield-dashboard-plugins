@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Overview/Osquery visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Overview/Osquery visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Overview-Osquery-Alerts-over-time',
+    _id: 'Fortishield-App-Overview-Osquery-Alerts-over-time',
     _type: 'visualization',
     _source: {
       title: 'Alerts over time',
@@ -86,7 +86,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -94,7 +94,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Osquery-Top-5-added',
+    _id: 'Fortishield-App-Overview-Osquery-Top-5-added',
     _type: 'visualization',
     _source: {
       title: 'Top 5 added',
@@ -134,12 +134,12 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -157,7 +157,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Osquery-Top-5-removed',
+    _id: 'Fortishield-App-Overview-Osquery-Top-5-removed',
     _type: 'visualization',
     _source: {
       title: 'Top 5 removed',
@@ -197,12 +197,12 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -220,7 +220,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Agents-Osquery-Evolution',
+    _id: 'Fortishield-App-Agents-Osquery-Evolution',
     _type: 'visualization',
     _source: {
       title: 'Evolution over time',
@@ -314,7 +314,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -322,7 +322,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Osquery-Most-common-packs',
+    _id: 'Fortishield-App-Overview-Osquery-Most-common-packs',
     _type: 'visualization',
     _source: {
       title: 'Most common packs',
@@ -362,7 +362,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { language: 'lucene', query: '' },
           filter: [],
         }),
@@ -370,7 +370,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Osquery-Top-5-rules',
+    _id: 'Fortishield-App-Overview-Osquery-Top-5-rules',
     _type: 'visualization',
     _source: {
       title: 'Top 5 rules',
@@ -431,7 +431,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -439,7 +439,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Osquery-Top-5-Agents',
+    _id: 'Fortishield-App-Overview-Osquery-Top-5-Agents',
     _type: 'visualization',
     _source: {
       title: 'Top 5 Agents',
@@ -479,12 +479,12 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [
             {
               meta: {
-                index: 'wazuh-alerts',
+                index: 'fortishield-alerts',
                 negate: false,
                 disabled: false,
                 alias: null,
@@ -502,7 +502,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Osquery-Agents-reporting',
+    _id: 'Fortishield-App-Overview-Osquery-Agents-reporting',
     _type: 'visualization',
     _source: {
       title: 'Agents reporting',
@@ -539,7 +539,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),
@@ -547,7 +547,7 @@ export default [
     },
   },
   {
-    _id: 'Wazuh-App-Overview-Osquery-Alerts-summary',
+    _id: 'Fortishield-App-Overview-Osquery-Alerts-summary',
     _type: 'visualization',
     _source: {
       title: 'Alerts summary',
@@ -659,7 +659,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON: JSON.stringify({
-          index: 'wazuh-alerts',
+          index: 'fortishield-alerts',
           query: { query: '', language: 'lucene' },
           filter: [],
         }),

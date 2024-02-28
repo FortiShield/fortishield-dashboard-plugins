@@ -14,11 +14,11 @@ header = {
 nbf = Date.now() - 1000;
 
 claims = {
-  "iss": "wazuh",
-  "aud": "Wazuh API REST",
+  "iss": "fortishield",
+  "aud": "Fortishield API REST",
   "nbf": nbf,
   "exp": nbf + 3600000,
-  "sub": "wazuh",
+  "sub": "fortishield",
   "rbac_roles": [
     1
   ],

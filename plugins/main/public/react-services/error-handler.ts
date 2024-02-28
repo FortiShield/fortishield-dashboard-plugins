@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Error handler service
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Error handler service
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 import { getToasts } from '../kibana-services';
 import store from '../redux/store';
-import { updateWazuhNotReadyYet } from '../redux/actions/appStateActions';
+import { updateFortishieldNotReadyYet } from '../redux/actions/appStateActions';
 import { WzMisc } from '../factories/misc';
 import { CheckDaemonsStatus } from './check-daemons-status';
 
@@ -37,7 +37,7 @@ export class ErrorHandler {
       const isFromAPI =
         origin.includes('/api/request') ||
         origin.includes('/api/csv');
-      return isFromAPI ? 'Wazuh API is not reachable. Reason: timeout.' : 'Server did not respond';
+      return isFromAPI ? 'Fortishield API is not reachable. Reason: timeout.' : 'Server did not respond';
     }
 
     if ((((error || {}).response || {}).data || {}).message) {
@@ -139,7 +139,7 @@ export class ErrorHandler {
     const message = ErrorHandler.extractMessage(error);
     const messageIsString = typeof message === 'string';
     if (messageIsString && message.includes('ERROR3099')) {
-      const updateNotReadyYet = updateWazuhNotReadyYet('Wazuh not ready yet.');
+      const updateNotReadyYet = updateFortishieldNotReadyYet('Fortishield not ready yet.');
       store.dispatch(updateNotReadyYet);
       CheckDaemonsStatus.makePing().catch((error) => {});
       return;

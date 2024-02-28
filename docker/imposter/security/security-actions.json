@@ -168,7 +168,7 @@
       "related_endpoints": ["PUT /groups/{group_id}/configuration"]
     },
     "cluster:read": {
-      "description": "Read Wazuh's cluster nodes configuration",
+      "description": "Read Fortishield's cluster nodes configuration",
       "resources": ["node:id"],
       "example": {
         "actions": ["cluster:read"],
@@ -222,7 +222,7 @@
       ]
     },
     "cluster:status": {
-      "description": "Check Wazuh's cluster general status",
+      "description": "Check Fortishield's cluster general status",
       "resources": ["*:*"],
       "example": {
         "actions": ["cluster:status"],
@@ -232,7 +232,7 @@
       "related_endpoints": ["GET /cluster/status"]
     },
     "cluster:read_api_config": {
-      "description": "Check Wazuh's cluster nodes API configuration",
+      "description": "Check Fortishield's cluster nodes API configuration",
       "resources": ["*:*"],
       "example": {
         "actions": ["cluster:read_api_config"],
@@ -242,7 +242,7 @@
       "related_endpoints": ["GET /cluster/api/config"]
     },
     "cluster:update_config": {
-      "description": "Change the Wazuh's cluster node configuration",
+      "description": "Change the Fortishield's cluster node configuration",
       "resources": ["node:id"],
       "example": {
         "actions": ["cluster:update_config"],
@@ -252,7 +252,7 @@
       "related_endpoints": ["PUT /cluster/{node_id}/configuration"]
     },
     "cluster:restart": {
-      "description": "Restart Wazuh's cluster nodes",
+      "description": "Restart Fortishield's cluster nodes",
       "resources": ["node:id"],
       "example": {
         "actions": ["cluster:restart"],
@@ -309,7 +309,7 @@
       "related_endpoints": ["PUT /logtest", "DELETE /logtest/sessions/{token}"]
     },
     "manager:read": {
-      "description": "Read Wazuh manager configuration",
+      "description": "Read Fortishield manager configuration",
       "resources": ["*:*"],
       "example": {
         "actions": ["manager:read"],
@@ -334,7 +334,7 @@
       ]
     },
     "manager:update_config": {
-      "description": "Update current Wazuh manager configuration",
+      "description": "Update current Fortishield manager configuration",
       "resources": ["*:*"],
       "example": {
         "actions": ["manager:update_config"],
@@ -344,7 +344,7 @@
       "related_endpoints": ["PUT /manager/configuration"]
     },
     "manager:read_api_config": {
-      "description": "Read Wazuh manager API configuration",
+      "description": "Read Fortishield manager API configuration",
       "resources": ["*:*"],
       "example": {
         "actions": ["manager:read_api_config"],
@@ -354,7 +354,7 @@
       "related_endpoints": ["GET /manager/api/config"]
     },
     "manager:restart": {
-      "description": "Restart Wazuh managers",
+      "description": "Restart Fortishield managers",
       "resources": ["*:*"],
       "example": {
         "actions": ["manager:restart"],

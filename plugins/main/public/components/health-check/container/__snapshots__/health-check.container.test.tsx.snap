@@ -7,7 +7,7 @@ exports[`Health Check container should render a Health check screen 1`] = `
   <img
     alt=""
     className="health-check-logo"
-    src="/plugins/wazuh/assets/images/themes/light/logo.svg"
+    src="/plugins/fortishield/assets/images/themes/light/logo.svg"
   />
   <div
     className="margin-top-30"
@@ -31,7 +31,7 @@ exports[`Health Check container should render a Health check screen 1`] = `
         name="api"
         shouldCheck={true}
         showLogButton={false}
-        title="Check Wazuh API connection"
+        title="Check Fortishield API connection"
         validationService={[Function]}
       />
       <CheckResult
@@ -51,7 +51,7 @@ exports[`Health Check container should render a Health check screen 1`] = `
         name="setup"
         shouldCheck={true}
         showLogButton={false}
-        title="Check Wazuh API version"
+        title="Check Fortishield API version"
         validationService={[Function]}
       />
       <CheckResult

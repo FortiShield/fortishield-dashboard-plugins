@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Component to display the Agent stats
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Component to display the Agent stats
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -133,7 +133,7 @@ export const MainAgentStats = compose(
   withGuard(
     ({ agent }) => {
       const [major, minor, patch] = agent.version
-        .replace('Wazuh v', '')
+        .replace('Fortishield v', '')
         .split('.')
         .map(value => parseInt(value));
       return !(major >= 4 && minor >= 2 && patch >= 0);

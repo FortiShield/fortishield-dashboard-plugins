@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Agents visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Agents visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,10 +18,10 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top 10 Alert groups evolution',
-            id: 'Wazuh-App-Agents-General-Alert-groups-evolution',
+            id: 'Fortishield-App-Agents-General-Alert-groups-evolution',
             width: 50,
           },
-          { title: 'Alerts', id: 'Wazuh-App-Agents-General-Alerts', width: 50 },
+          { title: 'Alerts', id: 'Fortishield-App-Agents-General-Alerts', width: 50 },
         ],
       },
       {
@@ -29,17 +29,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top 5 alerts',
-            id: 'Wazuh-App-Agents-General-Top-5-alerts',
+            id: 'Fortishield-App-Agents-General-Top-5-alerts',
             width: 33,
           },
           {
             title: 'Top 5 rule groups',
-            id: 'Wazuh-App-Agents-General-Top-10-groups',
+            id: 'Fortishield-App-Agents-General-Top-10-groups',
             width: 33,
           },
           {
             title: 'Top 5 PCI DSS Requirements',
-            id: 'Wazuh-App-Agents-General-Top-5-PCI-DSS-Requirements',
+            id: 'Fortishield-App-Agents-General-Top-5-PCI-DSS-Requirements',
             width: 34,
           },
         ],
@@ -53,22 +53,22 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Sources',
-            id: 'Wazuh-App-Agents-AWS-Top-sources',
+            id: 'Fortishield-App-Agents-AWS-Top-sources',
             width: 25,
           },
           {
             title: 'Accounts',
-            id: 'Wazuh-App-Agents-AWS-Top-accounts',
+            id: 'Fortishield-App-Agents-AWS-Top-accounts',
             width: 25,
           },
           {
             title: 'S3 buckets',
-            id: 'Wazuh-App-Agents-AWS-Top-buckets',
+            id: 'Fortishield-App-Agents-AWS-Top-buckets',
             width: 25,
           },
           {
             title: 'Regions',
-            id: 'Wazuh-App-Agents-AWS-Top-regions',
+            id: 'Fortishield-App-Agents-AWS-Top-regions',
             width: 25,
           },
         ],
@@ -78,12 +78,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Events by source over time',
-            id: 'Wazuh-App-Agents-AWS-Events-by-source',
+            id: 'Fortishield-App-Agents-AWS-Events-by-source',
             width: 50,
           },
           {
             title: 'Events by S3 bucket over time',
-            id: 'Wazuh-App-Agents-AWS-Events-by-s3-bucket',
+            id: 'Fortishield-App-Agents-AWS-Events-by-s3-bucket',
             width: 50,
           },
         ],
@@ -93,7 +93,7 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Geolocation map',
-            id: 'Wazuh-App-Agents-AWS-geo',
+            id: 'Fortishield-App-Agents-AWS-geo',
           },
         ],
       },
@@ -106,17 +106,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Most active users',
-            id: 'Wazuh-App-Agents-FIM-Users',
+            id: 'Fortishield-App-Agents-FIM-Users',
             width: 25,
           },
           {
             title: 'Actions',
-            id: 'Wazuh-App-Agents-FIM-Actions',
+            id: 'Fortishield-App-Agents-FIM-Actions',
             width: 25,
           },
           {
             title: 'Events',
-            id: 'Wazuh-App-Agents-FIM-Events',
+            id: 'Fortishield-App-Agents-FIM-Events',
             width: 50,
           },
         ],
@@ -126,17 +126,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Files added',
-            id: 'Wazuh-App-Agents-FIM-Files-added',
+            id: 'Fortishield-App-Agents-FIM-Files-added',
             width: 33,
           },
           {
             title: 'Files modified',
-            id: 'Wazuh-App-Agents-FIM-Files-modified',
+            id: 'Fortishield-App-Agents-FIM-Files-modified',
             width: 33,
           },
           {
             title: 'Files deleted',
-            id: 'Wazuh-App-Agents-FIM-Files-deleted',
+            id: 'Fortishield-App-Agents-FIM-Files-deleted',
             width: 34,
           },
         ],
@@ -150,17 +150,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top 5 rules',
-            id: 'Wazuh-App-Agents-GCP-Top-5-rules',
+            id: 'Fortishield-App-Agents-GCP-Top-5-rules',
             width: 50,
           },
           {
             title: 'Top query events',
-            id: 'Wazuh-App-Agents-GCP-Event-Query-Name',
+            id: 'Fortishield-App-Agents-GCP-Event-Query-Name',
             width: 25,
           },
           {
             title: 'Top 5 instances',
-            id: 'Wazuh-App-Agents-GCP-Top-5-instances',
+            id: 'Fortishield-App-Agents-GCP-Top-5-instances',
             width: 25,
           },
         ],
@@ -170,12 +170,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top project id by sourcetype',
-            id: 'Wazuh-App-Agents-GCP-Top-ProjectId-By-SourceType',
+            id: 'Fortishield-App-Agents-GCP-Top-ProjectId-By-SourceType',
             width: 25,
           },
           {
             title: 'GCP alerts evolution',
-            id: 'Wazuh-App-Agents-GCP-Events-Over-Time',
+            id: 'Fortishield-App-Agents-GCP-Events-Over-Time',
             width: 75,
           },
         ],
@@ -185,12 +185,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Auth answer count',
-            id: 'Wazuh-App-Agents-GCP-authAnswer-Bar',
+            id: 'Fortishield-App-Agents-GCP-authAnswer-Bar',
             width: 40,
           },
           {
             title: 'Resource type by project id',
-            id: 'Wazuh-App-Agents-GCP-Top-ResourceType-By-Project-Id',
+            id: 'Fortishield-App-Agents-GCP-Top-ResourceType-By-Project-Id',
             width: 60,
           },
         ],
@@ -204,17 +204,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top 5 rule groups',
-            id: 'Wazuh-App-Agents-PCI-Groups',
+            id: 'Fortishield-App-Agents-PCI-Groups',
             width: 33,
           },
           {
             title: 'Top 5 rules',
-            id: 'Wazuh-App-Agents-PCI-Rule',
+            id: 'Fortishield-App-Agents-PCI-Rule',
             width: 33,
           },
           {
             title: 'Top 5 PCI DSS requirements',
-            id: 'Wazuh-App-Agents-PCI-Requirement',
+            id: 'Fortishield-App-Agents-PCI-Requirement',
             width: 34,
           },
         ],
@@ -224,12 +224,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'PCI Requirements',
-            id: 'Wazuh-App-Agents-PCI-Requirements',
+            id: 'Fortishield-App-Agents-PCI-Requirements',
             width: 75,
           },
           {
             title: 'Rule level distribution',
-            id: 'Wazuh-App-Agents-PCI-Rule-level-distribution',
+            id: 'Fortishield-App-Agents-PCI-Rule-level-distribution',
             width: 25,
           },
         ],
@@ -243,17 +243,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top 5 rule groups',
-            id: 'Wazuh-App-Agents-GDPR-Groups',
+            id: 'Fortishield-App-Agents-GDPR-Groups',
             width: 33,
           },
           {
             title: 'Top 5 rules',
-            id: 'Wazuh-App-Agents-GDPR-Rule',
+            id: 'Fortishield-App-Agents-GDPR-Rule',
             width: 33,
           },
           {
             title: 'Top 5 GDPR requirements',
-            id: 'Wazuh-App-Agents-GDPR-Requirement',
+            id: 'Fortishield-App-Agents-GDPR-Requirement',
             width: 34,
           },
         ],
@@ -263,12 +263,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'GDPR Requirements',
-            id: 'Wazuh-App-Agents-GDPR-Requirements',
+            id: 'Fortishield-App-Agents-GDPR-Requirements',
             width: 75,
           },
           {
             title: 'Rule level distribution',
-            id: 'Wazuh-App-Agents-GDPR-Rule-level-distribution',
+            id: 'Fortishield-App-Agents-GDPR-Rule-level-distribution',
             width: 25,
           },
         ],
@@ -282,17 +282,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Stats',
-            id: 'Wazuh-App-Agents-NIST-Stats',
+            id: 'Fortishield-App-Agents-NIST-Stats',
             width: 25,
           },
           {
             title: 'Top 10 requirements',
-            id: 'Wazuh-App-Agents-NIST-top-10-requirements',
+            id: 'Fortishield-App-Agents-NIST-top-10-requirements',
             width: 25,
           },
           {
             title: 'Requirements distributed by level',
-            id: 'Wazuh-App-Agents-NIST-Requirement-by-level',
+            id: 'Fortishield-App-Agents-NIST-Requirement-by-level',
             width: 50,
           },
         ],
@@ -302,7 +302,7 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Requirements over time',
-            id: 'Wazuh-App-Agents-NIST-Requirements-stacked-overtime',
+            id: 'Fortishield-App-Agents-NIST-Requirements-stacked-overtime',
           },
         ],
       },
@@ -315,17 +315,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top 5 rule groups',
-            id: 'Wazuh-App-Agents-TSC-Groups',
+            id: 'Fortishield-App-Agents-TSC-Groups',
             width: 33,
           },
           {
             title: 'Top 5 rules',
-            id: 'Wazuh-App-Agents-TSC-Rule',
+            id: 'Fortishield-App-Agents-TSC-Rule',
             width: 33,
           },
           {
             title: 'Top 5 TSC requirements',
-            id: 'Wazuh-App-Agents-TSC-Requirement',
+            id: 'Fortishield-App-Agents-TSC-Requirement',
             width: 34,
           },
         ],
@@ -335,12 +335,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'TSC Requirements',
-            id: 'Wazuh-App-Agents-TSC-Requirements',
+            id: 'Fortishield-App-Agents-TSC-Requirements',
             width: 75,
           },
           {
             title: 'Rule level distribution',
-            id: 'Wazuh-App-Agents-TSC-Rule-level-distribution',
+            id: 'Fortishield-App-Agents-TSC-Rule-level-distribution',
             width: 25,
           },
         ],
@@ -354,12 +354,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Requirements over time',
-            id: 'Wazuh-App-Agents-HIPAA-Requirements-Stacked-Overtime',
+            id: 'Fortishield-App-Agents-HIPAA-Requirements-Stacked-Overtime',
             width: 50,
           },
           {
             title: 'Top 10 requirements',
-            id: 'Wazuh-App-Agents-HIPAA-top-10',
+            id: 'Fortishield-App-Agents-HIPAA-top-10',
             width: 50,
           },
         ],
@@ -369,17 +369,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'HIPAA requirements',
-            id: 'Wazuh-App-Agents-HIPAA-Burbles',
+            id: 'Fortishield-App-Agents-HIPAA-Burbles',
             width: 50,
           },
           {
             title: 'Requirements distribution by level',
-            id: 'Wazuh-App-Agents-HIPAA-Distributed-By-Level',
+            id: 'Fortishield-App-Agents-HIPAA-Distributed-By-Level',
             width: 25,
           },
           {
             title: 'Most common alerts',
-            id: 'Wazuh-App-Agents-HIPAA-Most-Common',
+            id: 'Fortishield-App-Agents-HIPAA-Most-Common',
             width: 25,
           },
         ],
@@ -393,12 +393,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Last scanned files',
-            id: 'Wazuh-App-Agents-Virustotal-Last-Files-Pie',
+            id: 'Fortishield-App-Agents-Virustotal-Last-Files-Pie',
             width: 25,
           },
           {
             title: 'Malicious files alerts Evolution',
-            id: 'Wazuh-App-Agents-Virustotal-Malicious-Evolution',
+            id: 'Fortishield-App-Agents-Virustotal-Malicious-Evolution',
             width: 75,
           },
         ],
@@ -408,7 +408,7 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Last files',
-            id: 'Wazuh-App-Agents-Virustotal-Files-Table',
+            id: 'Fortishield-App-Agents-Virustotal-Files-Table',
           },
         ],
       },
@@ -421,12 +421,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Most common Osquery actions',
-            id: 'Wazuh-App-Agents-Osquery-most-common-osquery-actions',
+            id: 'Fortishield-App-Agents-Osquery-most-common-osquery-actions',
             width: 25,
           },
           {
             title: 'Evolution of Osquery events per pack over time',
-            id: 'Wazuh-App-Agents-Osquery-Evolution',
+            id: 'Fortishield-App-Agents-Osquery-Evolution',
             width: 75,
           },
         ],
@@ -436,12 +436,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Most common Osquery packs being used',
-            id: 'Wazuh-App-Agents-Osquery-top-5-packs-being-used',
+            id: 'Fortishield-App-Agents-Osquery-top-5-packs-being-used',
             width: 25,
           },
           {
             title: 'Most common rules',
-            id: 'Wazuh-App-Agents-Osquery-monst-common-rules-being-fired',
+            id: 'Fortishield-App-Agents-Osquery-monst-common-rules-being-fired',
             width: 75,
           },
         ],
@@ -455,12 +455,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Alerts evolution over time',
-            id: 'Wazuh-App-Agents-MITRE-Alerts-Evolution',
+            id: 'Fortishield-App-Agents-MITRE-Alerts-Evolution',
             width: 70,
           },
           {
             title: 'Top tactics',
-            id: 'Wazuh-App-Agents-MITRE-Top-Tactics',
+            id: 'Fortishield-App-Agents-MITRE-Top-Tactics',
             width: 30,
           },
         ],
@@ -470,17 +470,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Rule level by attack',
-            id: 'Wazuh-App-Agents-MITRE-Level-By-Attack',
+            id: 'Fortishield-App-Agents-MITRE-Level-By-Attack',
             width: 33,
           },
           {
             title: 'MITRE attacks by tactic',
-            id: 'Wazuh-App-Agents-MITRE-Attacks-By-Tactic',
+            id: 'Fortishield-App-Agents-MITRE-Attacks-By-Tactic',
             width: 34,
           },
           {
             title: 'Rule level by tactic',
-            id: 'Wazuh-App-Agents-MITRE-Level-By-Tactic',
+            id: 'Fortishield-App-Agents-MITRE-Level-By-Tactic',
             width: 34,
           },
         ],
@@ -494,17 +494,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top 5 images',
-            id: 'Wazuh-App-Agents-Docker-top-5-images',
+            id: 'Fortishield-App-Agents-Docker-top-5-images',
             width: 25,
           },
           {
             title: 'Top 5 events',
-            id: 'Wazuh-App-Agents-Docker-top-5-actions',
+            id: 'Fortishield-App-Agents-Docker-top-5-actions',
             width: 25,
           },
           {
             title: 'Resources usage over time',
-            id: 'Wazuh-App-Agents-Docker-Types-over-time',
+            id: 'Fortishield-App-Agents-Docker-Types-over-time',
             width: 50,
           },
         ],
@@ -514,7 +514,7 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Events occurred evolution',
-            id: 'Wazuh-App-Agents-Docker-Actions-over-time',
+            id: 'Fortishield-App-Agents-Docker-Actions-over-time',
           },
         ],
       },
@@ -527,22 +527,22 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top 5 Scans',
-            id: 'Wazuh-App-Agents-OSCAP-Scans',
+            id: 'Fortishield-App-Agents-OSCAP-Scans',
             width: 25,
           },
           {
             title: 'Top 5 Profiles',
-            id: 'Wazuh-App-Agents-OSCAP-Profiles',
+            id: 'Fortishield-App-Agents-OSCAP-Profiles',
             width: 25,
           },
           {
             title: 'Top 5 Content',
-            id: 'Wazuh-App-Agents-OSCAP-Content',
+            id: 'Fortishield-App-Agents-OSCAP-Content',
             width: 25,
           },
           {
             title: 'Top 5 Severity',
-            id: 'Wazuh-App-Agents-OSCAP-Severity',
+            id: 'Fortishield-App-Agents-OSCAP-Severity',
             width: 25,
           },
         ],
@@ -552,7 +552,7 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Daily scans evolution',
-            id: 'Wazuh-App-Agents-OSCAP-Daily-scans-evolution',
+            id: 'Fortishield-App-Agents-OSCAP-Daily-scans-evolution',
           },
         ],
       },
@@ -561,12 +561,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top 5 - Alerts',
-            id: 'Wazuh-App-Agents-OSCAP-Top-5-Alerts',
+            id: 'Fortishield-App-Agents-OSCAP-Top-5-Alerts',
             width: 50,
           },
           {
             title: 'Top 5 - High risk alerts',
-            id: 'Wazuh-App-Agents-OSCAP-Top-5-High-risk-alerts',
+            id: 'Fortishield-App-Agents-OSCAP-Top-5-High-risk-alerts',
             width: 50,
           },
         ],
@@ -580,12 +580,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top 5 CIS-CAT groups',
-            id: 'Wazuh-app-Agents-CISCAT-top-5-groups',
+            id: 'Fortishield-app-Agents-CISCAT-top-5-groups',
             width: 60,
           },
           {
             title: 'Scan result evolution',
-            id: 'Wazuh-app-Agents-CISCAT-scan-result-evolution',
+            id: 'Fortishield-app-Agents-CISCAT-scan-result-evolution',
             width: 40,
           },
         ],
@@ -599,12 +599,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Alerts over time',
-            id: 'Wazuh-App-Agents-PM-Events-over-time',
+            id: 'Fortishield-App-Agents-PM-Events-over-time',
             width: 50,
           },
           {
             title: 'Rule distribution',
-            id: 'Wazuh-App-Agents-PM-Top-5-rules',
+            id: 'Fortishield-App-Agents-PM-Top-5-rules',
             width: 50,
           },
         ],
@@ -614,7 +614,7 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Events per control type evolution',
-            id: 'Wazuh-App-Agents-PM-Events-per-agent-evolution',
+            id: 'Fortishield-App-Agents-PM-Events-per-agent-evolution',
           },
         ],
       },
@@ -627,17 +627,17 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Groups',
-            id: 'Wazuh-App-Agents-Audit-Groups',
+            id: 'Fortishield-App-Agents-Audit-Groups',
             width: 33,
           },
           {
             title: 'Commands',
-            id: 'Wazuh-App-Agents-Audit-Commands',
+            id: 'Fortishield-App-Agents-Audit-Commands',
             width: 33,
           },
           {
             title: 'Files',
-            id: 'Wazuh-App-Agents-Audit-Files',
+            id: 'Fortishield-App-Agents-Audit-Files',
             width: 34,
           },
         ],
@@ -647,7 +647,7 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Alerts over time',
-            id: 'Wazuh-App-Agents-Audit-Alerts-over-time',
+            id: 'Fortishield-App-Agents-Audit-Alerts-over-time',
           },
         ],
       },
@@ -660,12 +660,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Alerts evolution by organization',
-            id: 'Wazuh-App-Agents-GitHub-Alerts-Evolution-By-Organization',
+            id: 'Fortishield-App-Agents-GitHub-Alerts-Evolution-By-Organization',
             width: 60,
           },
           {
             title: 'Top 5 organizations by alerts',
-            id: 'Wazuh-App-Agents-GitHub-Top-5-Organizations-By-Alerts',
+            id: 'Fortishield-App-Agents-GitHub-Top-5-Organizations-By-Alerts',
             width: 40,
           },
         ],
@@ -675,12 +675,12 @@ export const agentVisualizations = {
         vis: [
           {
             title: 'Top alerts by action type and organization',
-            id: 'Wazuh-App-Agents-GitHub-Alert-Action-Type-By-Organization',
+            id: 'Fortishield-App-Agents-GitHub-Alert-Action-Type-By-Organization',
             width: 40,
           },
           {
             title: 'Users with more alerts',
-            id: 'Wazuh-App-Agents-GitHub-Users-With-More-Alerts',
+            id: 'Fortishield-App-Agents-GitHub-Users-With-More-Alerts',
             width: 60,
           },
         ],

@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module to execute some checks on most app routes
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module to execute some checks on most app routes
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,7 +12,7 @@
 
 import { healthCheck } from './health-check';
 import { AppState } from '../../react-services/app-state';
-import { WazuhConfig } from '../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../react-services/fortishield-config';
 import { ApiCheck } from '../../react-services/wz-api-check';
 import { ErrorHandler } from '../../react-services/error-handler';
 
@@ -28,13 +28,13 @@ export function settingsWizard(
   disableErrors = false,
 ) {
   try {
-    const wazuhConfig = new WazuhConfig();
+    const fortishieldConfig = new FortishieldConfig();
     const deferred = $q.defer();
     const checkResponse = data => {
-      let fromWazuhHosts = false;
+      let fromFortishieldHosts = false;
       if (parseInt(data.data.error) === 2) {
         !disableErrors &&
-          ErrorHandler.handle('Please set up Wazuh API credentials.', '', {
+          ErrorHandler.handle('Please set up Fortishield API credentials.', '', {
             warning: true,
           });
       } else if (
@@ -44,12 +44,12 @@ export function settingsWizard(
       ) {
         wzMisc.setApiIsDown(true);
       } else {
-        fromWazuhHosts = true;
+        fromFortishieldHosts = true;
         wzMisc.setBlankScr(ErrorHandler.handle(data));
         AppState.removeCurrentAPI();
       }
 
-      if (!fromWazuhHosts) {
+      if (!fromFortishieldHosts) {
         wzMisc.setWizard(true);
         if (!$location.path().includes('/settings')) {
           $location.search('_a', null);
@@ -64,7 +64,7 @@ export function settingsWizard(
         ) {
           !disableErrors &&
             ErrorHandler.handle(
-              'Wrong Wazuh API credentials, please add a new API and/or modify the existing one',
+              'Wrong Fortishield API credentials, please add a new API and/or modify the existing one',
             );
           if (!$location.path().includes('/settings')) {
             $location.search('_a', null);
@@ -80,7 +80,7 @@ export function settingsWizard(
     };
 
     const callCheckStored = async () => {
-      const config = wazuhConfig.getConfig();
+      const config = fortishieldConfig.getConfig();
       let currentApi = false;
 
       try {
@@ -135,7 +135,7 @@ export function settingsWizard(
               AppState.setNavigation({
                 reloaded: false,
                 discoverPrevious: false,
-                discoverSections: ['/overview/', '/agents', '/wazuh-dev'],
+                discoverSections: ['/overview/', '/agents', '/fortishield-dev'],
               });
               throw new Error('Could not select any API entry');
             }
@@ -170,12 +170,12 @@ export function settingsWizard(
               // Try to set some API entry as default
               const defaultApi = await tryToSetDefault(data.data);
               setUpCredentials(
-                'Default Wazuh API has been updated.',
+                'Default Fortishield API has been updated.',
                 defaultApi,
               );
               $location.path('health-check');
             } else {
-              setUpCredentials('Please set up Wazuh API credentials.');
+              setUpCredentials('Please set up Fortishield API credentials.');
             }
             deferred.resolve();
           })
@@ -205,17 +205,17 @@ export function settingsWizard(
                 // Try to set some as default
                 const defaultApi = await tryToSetDefault(data.data);
                 setUpCredentials(
-                  'Default Wazuh API has been updated.',
+                  'Default Fortishield API has been updated.',
                   defaultApi,
                 );
                 $location.path('health-check');
               } else {
-                setUpCredentials('Please set up Wazuh API credentials.', false);
+                setUpCredentials('Please set up Fortishield API credentials.', false);
               }
             }
           })
           .catch(error => {
-            setUpCredentials('Please set up Wazuh API credentials.');
+            setUpCredentials('Please set up Fortishield API credentials.');
           });
       }
     }

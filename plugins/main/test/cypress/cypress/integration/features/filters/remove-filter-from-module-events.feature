@@ -1,10 +1,10 @@
 Feature: Validate that the added filter label is remove after click remove filter option modules Events
 
-  As a Wazuh user
+  As a Fortishield user
   I want to set a new filter
   in order to manage them
   Background:
-    Given The wazuh admin user is logged
+    Given The fortishield admin user is logged
 
   @filter
   Scenario Outline: The user remove an added filter - Module - Events <Module Name>

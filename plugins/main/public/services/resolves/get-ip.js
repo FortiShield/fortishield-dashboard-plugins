@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module to fetch index patterns
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module to fetch index patterns
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@
 import { healthCheck } from './health-check';
 import { AppState } from '../../react-services/app-state';
 import { getDataPlugin, getSavedObjects } from '../../kibana-services';
-import { WazuhConfig } from '../../react-services/wazuh-config';
+import { FortishieldConfig } from '../../react-services/fortishield-config';
 import { GenericRequest } from '../../react-services/generic-request';
 import { getWzConfig } from './get-config';
 import { UI_LOGGER_LEVELS } from '../../../common/constants';
@@ -23,14 +23,14 @@ import { getErrorOrchestrator } from '../../react-services/common-services';
 export function getIp($q, $window, $location, wzMisc) {
   const deferred = $q.defer();
 
-  const checkWazuhPatterns = async indexPatterns => {
-    const wazuhConfig = new WazuhConfig();
-    const configuration = await getWzConfig($q, GenericRequest, wazuhConfig);
-    const wazuhPatterns = [
-      `${configuration['wazuh.monitoring.pattern']}`,
+  const checkFortishieldPatterns = async indexPatterns => {
+    const fortishieldConfig = new FortishieldConfig();
+    const configuration = await getWzConfig($q, GenericRequest, fortishieldConfig);
+    const fortishieldPatterns = [
+      `${configuration['fortishield.monitoring.pattern']}`,
       `${configuration['cron.prefix']}-${configuration['cron.statistics.index.name']}-*`,
     ];
-    return wazuhPatterns.every(pattern => {
+    return fortishieldPatterns.every(pattern => {
       return indexPatterns.find(element => element.id === pattern);
     });
   };
@@ -52,18 +52,18 @@ export function getIp($q, $window, $location, wzMisc) {
       if (
         !currentPattern ||
         !savedObjects.find(element => element.id === currentPattern) ||
-        !(await checkWazuhPatterns(savedObjects))
+        !(await checkFortishieldPatterns(savedObjects))
       ) {
         if (!$location.path().includes('/health-check')) {
           $location.path('/health-check');
         }
       }
 
-      const onlyWazuhAlerts = savedObjects.filter(
+      const onlyFortishieldAlerts = savedObjects.filter(
         element => element.id === currentPattern,
       );
 
-      if (!onlyWazuhAlerts || !onlyWazuhAlerts.length) {
+      if (!onlyFortishieldAlerts || !onlyFortishieldAlerts.length) {
         // There's now selected ip
         AppState.removeCurrentPattern();
         deferred.resolve('No ip');
@@ -75,7 +75,7 @@ export function getIp($q, $window, $location, wzMisc) {
       );
 
       deferred.resolve({
-        list: onlyWazuhAlerts,
+        list: onlyFortishieldAlerts,
         loaded: courierData,
         stateVal: null,
         stateValFound: false,
@@ -83,7 +83,7 @@ export function getIp($q, $window, $location, wzMisc) {
     } catch (error) {
       deferred.reject(error);
       const options = {
-        context: `${getIp.name}.checkWazuhPatterns`,
+        context: `${getIp.name}.checkFortishieldPatterns`,
         level: UI_LOGGER_LEVELS.ERROR,
         severity: UI_ERROR_SEVERITIES.CRITICAL,
         store: true,

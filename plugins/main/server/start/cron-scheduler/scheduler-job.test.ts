@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { IApi, jobs, SchedulerJob } from './index';
 
-jest.mock('../../controllers/wazuh-hosts');
+jest.mock('../../controllers/fortishield-hosts');
 jest.mock('./save-document');
 jest.mock('./predefined-jobs', () => ({
   jobs: {
@@ -29,8 +29,8 @@ describe('SchedulerJob', () => {
     {
       url: 'https://localhost',
       port: 55000,
-      username: 'wazuh',
-      password: 'wazuh',
+      username: 'fortishield',
+      password: 'fortishield',
       id: 'default',
       cluster_info: {
         status: 'disabled',
@@ -44,8 +44,8 @@ describe('SchedulerJob', () => {
     {
       url: 'https://localhost',
       port: 55000,
-      username: 'wazuh',
-      password: 'wazuh',
+      username: 'fortishield',
+      password: 'fortishield',
       id: 'internal',
       cluster_info: {
         status: 'disabled',
@@ -57,8 +57,8 @@ describe('SchedulerJob', () => {
     {
       url: 'https://externalhost',
       port: 55000,
-      username: 'wazuh',
-      password: 'wazuh',
+      username: 'fortishield',
+      password: 'fortishield',
       id: 'external',
       cluster_info: {
         status: 'disabled',
@@ -72,8 +72,8 @@ describe('SchedulerJob', () => {
     {
       url: 'https://localhost',
       port: 55000,
-      username: 'wazuh',
-      password: 'wazuh',
+      username: 'fortishield',
+      password: 'fortishield',
       id: 'internal',
       cluster_info: {
         status: 'disabled',
@@ -85,8 +85,8 @@ describe('SchedulerJob', () => {
     {
       url: 'https://externalhost',
       port: 55000,
-      username: 'wazuh',
-      password: 'wazuh',
+      username: 'fortishield',
+      password: 'fortishield',
       id: 'external',
       cluster_info: {
         status: 'disabled',
@@ -98,8 +98,8 @@ describe('SchedulerJob', () => {
     {
       url: 'https://externalhost',
       port: 55000,
-      username: 'wazuh',
-      password: 'wazuh',
+      username: 'fortishield',
+      password: 'fortishield',
       id: 'experimental',
       cluster_info: {
         status: 'disabled',
@@ -110,11 +110,11 @@ describe('SchedulerJob', () => {
     },
   ];
   const mockContext = {
-    wazuh: {
+    fortishield: {
       logger: { logger: {} },
       api: { client: [Object] },
     },
-    wazuh_core: {
+    fortishield_core: {
       serverAPIHostEntries: {
         getHostsEntries: jest.fn(),
       },
@@ -137,7 +137,7 @@ describe('SchedulerJob', () => {
   });
 
   it('should get API object when no specified the `apis` parameter on the job object', async () => {
-    mockContext.wazuh_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
+    mockContext.fortishield_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
       oneApi,
     );
 
@@ -148,7 +148,7 @@ describe('SchedulerJob', () => {
   });
 
   it('should get all API objects when no specified the `apis` parameter on the job object', async () => {
-    mockContext.wazuh_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
+    mockContext.fortishield_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
       twoApi,
     );
     const apis: IApi[] = await schedulerJob.getApiObjects();
@@ -159,7 +159,7 @@ describe('SchedulerJob', () => {
   });
 
   it('should get one of two API object when specified the id in `apis` parameter on the job object', async () => {
-    mockContext.wazuh_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
+    mockContext.fortishield_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
       twoApi,
     );
     jobs[schedulerJob.jobName] = {
@@ -175,7 +175,7 @@ describe('SchedulerJob', () => {
   });
 
   it('should get two of three API object when specified the id in `apis` parameter on the job object', async () => {
-    mockContext.wazuh_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
+    mockContext.fortishield_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
       threeApi,
     );
     const selectedApis = ['internal', 'external'];
@@ -194,17 +194,17 @@ describe('SchedulerJob', () => {
   });
 
   it('should throw an exception when no get APIs', async () => {
-    mockContext.wazuh_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
+    mockContext.fortishield_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
       [],
     );
     await expect(schedulerJob.getApiObjects()).rejects.toEqual({
       error: 10001,
-      message: 'No Wazuh host configured in wazuh.yml',
+      message: 'No Fortishield host configured in fortishield.yml',
     });
   });
 
   it('should throw an exception when no match API', async () => {
-    mockContext.wazuh_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
+    mockContext.fortishield_core.serverAPIHostEntries.getHostsEntries.mockResolvedValue(
       threeApi,
     );
     jobs[schedulerJob.jobName] = {

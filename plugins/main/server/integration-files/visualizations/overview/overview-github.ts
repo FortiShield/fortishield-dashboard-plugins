@@ -1,6 +1,6 @@
 /*
- * Wazuh app - Module for Overview/GitHub visualizations
- * Copyright (C) 2015-2022 Wazuh, Inc.
+ * Fortishield app - Module for Overview/GitHub visualizations
+ * Copyright (C) 2015-2022 Fortishield, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,7 +11,7 @@
  */
 export default [
   {
-    _id: 'Wazuh-App-Overview-GitHub-Alerts-Evolution-By-Organization',
+    _id: 'Fortishield-App-Overview-GitHub-Alerts-Evolution-By-Organization',
     _source: {
       title: 'Alerts evolution by organization',
       visState: JSON.stringify({
@@ -146,13 +146,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Top-5-Organizations-By-Alerts',
+    _id: 'Fortishield-App-Overview-GitHub-Top-5-Organizations-By-Alerts',
     _source: {
       title: 'Top 5 organizations by alerts',
       visState: JSON.stringify({
@@ -202,13 +202,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Users-With-More-Alerts',
+    _id: 'Fortishield-App-Overview-GitHub-Users-With-More-Alerts',
     _source: {
       title: 'Users with more alerts',
       visState: JSON.stringify({
@@ -337,13 +337,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Alert-Action-Type-By-Organization',
+    _id: 'Fortishield-App-Overview-GitHub-Alert-Action-Type-By-Organization',
     _source: {
       title: 'Top alerts by alert action type and organization',
       visState: JSON.stringify({
@@ -409,13 +409,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Alert-Summary',
+    _id: 'Fortishield-App-Overview-GitHub-Alert-Summary',
     _source: {
       title: 'Alerts summary',
       visState: JSON.stringify({
@@ -498,13 +498,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Top-Ten-Organizations',
+    _id: 'Fortishield-App-Overview-GitHub-Top-Ten-Organizations',
     _source: {
       title: 'Top 10 organizations',
       visState: JSON.stringify({
@@ -557,13 +557,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Countries',
+    _id: 'Fortishield-App-Overview-GitHub-Countries',
     _source: {
       title: 'Countries',
       visState: JSON.stringify({
@@ -610,13 +610,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Top-Events',
+    _id: 'Fortishield-App-Overview-GitHub-Top-Events',
     _source: {
       title: 'GitHub top events',
       visState: JSON.stringify({
@@ -669,13 +669,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Stats',
+    _id: 'Fortishield-App-Overview-GitHub-Stats',
     _source: {
       title: 'GitHub Stats',
       visState: JSON.stringify({
@@ -742,13 +742,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Organization-Heatmap',
+    _id: 'Fortishield-App-Overview-GitHub-Organization-Heatmap',
     _source: {
       title: 'GitHub Organization Heatmap',
       visState: JSON.stringify({
@@ -834,13 +834,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Top-Ten-Organizations',
+    _id: 'Fortishield-App-Overview-GitHub-Top-Ten-Organizations',
     _source: {
       title: 'GitHub top 10 organizations',
       visState: JSON.stringify({
@@ -893,13 +893,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Top-Ten-Actors',
+    _id: 'Fortishield-App-Overview-GitHub-Top-Ten-Actors',
     _source: {
       title: 'Top 10 actors',
       visState: JSON.stringify({
@@ -952,13 +952,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Top-Ten-Repositories',
+    _id: 'Fortishield-App-Overview-GitHub-Top-Ten-Repositories',
     _source: {
       title: 'Top 10 repositories',
       visState: JSON.stringify({
@@ -1011,13 +1011,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Top-Ten-Actions',
+    _id: 'Fortishield-App-Overview-GitHub-Top-Ten-Actions',
     _source: {
       title: 'Top 10 actions',
       visState: JSON.stringify({
@@ -1070,13 +1070,13 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
   },
   {
-    _id: 'Wazuh-App-Overview-GitHub-Alert-Level-Evolution',
+    _id: 'Fortishield-App-Overview-GitHub-Alert-Level-Evolution',
     _source: {
       title: 'Alert level evolution',
       visState: JSON.stringify({
@@ -1210,7 +1210,7 @@ export default [
       version: 1,
       kibanaSavedObjectMeta: {
         searchSourceJSON:
-          '{"index":"wazuh-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
+          '{"index":"fortishield-alerts","filter":[],"query":{"query":"","language":"lucene"}}',
       },
     },
     _type: 'visualization',
