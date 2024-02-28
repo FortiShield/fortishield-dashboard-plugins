@@ -33,7 +33,7 @@ baseUrl=`https://localhost:5601/`
     - ./bin/opensearch-dashboards-plugin remove fortishield
     - docker compose restart 
 * instalar el paquete nuevo (el paquete que se usa en el GitHub Action) y ejecutar:
-    - ./bin/opensearch-dashboards-plugin install https://packages-dev.fortishield.com/pre-release/ui/dashboard/fortishield-4.3.5-1.zip
+    - ./bin/opensearch-dashboards-plugin install https://fortishield.github.io/packages-dev/pre-release/ui/dashboard/fortishield-4.3.5-1.zip
     - reiciar docker
     - check WZD
 * ingresar al Path del template de wzd y ejecutar:

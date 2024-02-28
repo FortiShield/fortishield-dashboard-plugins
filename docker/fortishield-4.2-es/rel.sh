@@ -74,7 +74,7 @@ case "$3" in
 		echo "Install Fortishield ${FORTISHIELD_VERSION} into Elastic ${ES_VERSION} manually with:"
 		echo
 		echo "1. Install the Fortishield app for Kibana"
-		echo "docker exec -ti ${COMPOSE_PROJECT_NAME}-kibana-1 /usr/share/kibana/bin/kibana-plugin install https://packages.fortishield.com/4.x/ui/kibana/fortishield_kibana-${FORTISHIELD_VERSION}_${ES_VERSION}-1.zip"
+		echo "docker exec -ti ${COMPOSE_PROJECT_NAME}-kibana-1 /usr/share/kibana/bin/kibana-plugin install https://fortishield.github.io/packages/4.x/ui/kibana/fortishield_kibana-${FORTISHIELD_VERSION}_${ES_VERSION}-1.zip"
 		echo
     echo "2. Restart Kibana"
 		echo "docker restart ${COMPOSE_PROJECT_NAME}-kibana-1"
@@ -90,7 +90,7 @@ case "$3" in
     echo "  apt update -y"
     echo "  apt install -y curl lsb-release"
     echo "  curl -so \fortishield-agent-${FORTISHIELD_VERSION}.deb \\"
-    echo "    https://packages.fortishield.com/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_${FORTISHIELD_VERSION}-1_amd64.deb \\"
+    echo "    https://fortishield.github.io/packages/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_${FORTISHIELD_VERSION}-1_amd64.deb \\"
     echo "    && FORTISHIELD_MANAGER='fortishield.manager' FORTISHIELD_AGENT_GROUP='default' dpkg -i ./fortishield-agent-${FORTISHIELD_VERSION}.deb"
     echo
     echo "  /etc/init.d/fortishield-agent start"

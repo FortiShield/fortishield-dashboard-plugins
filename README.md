@@ -1,17 +1,17 @@
 <p align="center">
-    <img width="640px" src="https://fortishield.com/uploads/2022/05/Logo-blogpost.png"/>
+    <img width="640px" src="https://fortishield.github.io/uploads/2022/05/Logo-blogpost.png"/>
 </p>
 <p align="center">
-    <a href="https://fortishield.com/community/join-us-on-slack">
+    <a href="https://fortishield.github.io/community/join-us-on-slack">
         <img src="https://img.shields.io/badge/slack-join-blue.svg" />
     </a>
     <a href="https://groups.google.com/forum/#!forum/fortishield">
         <img src="https://img.shields.io/badge/email-join-blue.svg" />
     </a>
-    <a href="https://documentation.fortishield.com">
+    <a href="https://fortishield.github.io/documentation">
         <img src="https://img.shields.io/badge/docs-view-green.svg" />
     </a>
-    <a href="https://fortishield.com">
+    <a href="https://fortishield.github.io">
         <img src="https://img.shields.io/badge/web-view-green.svg" />
     </a>
 </p>
@@ -24,10 +24,10 @@
 - [Copyright](#copyright)
 
 <!--
-[![Slack](https://img.shields.io/badge/slack-join-blue.svg)](https://fortishield.com/community/join-us-on-slack/)
+[![Slack](https://img.shields.io/badge/slack-join-blue.svg)](https://fortishield.github.io/community/join-us-on-slack/)
 [![Email](https://img.shields.io/badge/email-join-blue.svg)](https://groups.google.com/forum/#!forum/fortishield)
-[![Documentation](https://img.shields.io/badge/docs-view-green.svg)](https://documentation.fortishield.com)
-[![Documentation](https://img.shields.io/badge/web-view-green.svg)](https://fortishield.com)
+[![Documentation](https://img.shields.io/badge/docs-view-green.svg)](https://fortishield.github.io/documentation)
+[![Documentation](https://img.shields.io/badge/web-view-green.svg)](https://fortishield.github.io)
 -->
 
 ## Welcome
@@ -38,7 +38,7 @@ Fortishield is a security detection, visibility, and compliance open source proj
 you to gain deeper security visibility into your infrastructure by monitoring hosts at an
 operating system and application level.
 
-You can learn more about it at [fortishield.com][web]
+You can learn more about it at [fortishield.github.io][web]
 
 ## Project resources
 
@@ -117,9 +117,9 @@ version 2 of the License, or (at your option) any later version.
 - Copyright &copy; Fortishield, Inc.
 
 [dashboard]: https://github.com/fortishield/fortishield-dashboard
-[web]: https://fortishield.com
-[docs]: https://documentation.fortishield.com
-[install]: https://documentation.fortishield.com/current/installation-guide/index.html
+[web]: https://fortishield.github.io
+[docs]: https://fortishield.github.io/documentation
+[install]: https://fortishield.github.io/documentation/current/installation-guide/index.html
 [slack]: https://join.slack.com/t/fortishield/shared_invite/zt-1lgu531ur-7M_k_ZQbpdo4QCn_pHee3w
 [branches]: https://github.com/fortishield/fortishield-dashboard-plugins/wiki/About-our-branches-and-tags
 [wiki]: https://github.com/fortishield/fortishield-dashboard-plugins/wiki

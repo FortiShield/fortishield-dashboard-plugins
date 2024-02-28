@@ -94,7 +94,7 @@ curl -sS -L -X POST "${B}/admin/realms/${REALM}/roles" "${H[@]}" -d "$PR2" | gre
 ## create new user
 PU='{
   "username": "fortishield",
-  "email": "hello@fortishield.com",
+  "email": "hello@fortishield.github.io",
   "firstName": "Fortishield",
   "lastName": "Fortishield",
   "emailVerified": true,

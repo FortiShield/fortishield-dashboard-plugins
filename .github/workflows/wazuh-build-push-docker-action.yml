@@ -69,7 +69,7 @@ jobs:
           --build-arg FORTISHIELD_VERSION=${{ github.event.inputs.fortishield-manager-version }} \
           --build-arg FILEBEAT_VERSION=${{ github.event.inputs.elastic-manager-version }} \
           --build-arg FILEBEAT_FORTISHIELD_TEMPLATE_URL=https://raw.githubusercontent.com/fortishield/fortishield/4.0/extensions/elasticsearch/7.x/fortishield-template.json \
-          --build-arg FILEBEAT_FORTISHIELD_MODULE_URL=https://packages.fortishield.com/4.x/filebeat/fortishield-filebeat-0.4.tar.gz .
+          --build-arg FILEBEAT_FORTISHIELD_MODULE_URL=https://fortishield.github.io/packages/4.x/filebeat/fortishield-filebeat-0.4.tar.gz .
       - name: Step 04 - Push image to quay.io
         run: |
           docker push quay.io/fortishield/fortishield-manager-image:${{ github.event.inputs.fortishield-manager-version }}-${{ github.event.inputs.elastic-manager-version }}

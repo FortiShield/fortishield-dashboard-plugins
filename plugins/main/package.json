@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/fortishield/fortishield-dashboard-plugins/issues"
   },
-  "homepage": "https://www.fortishield.com/",
+  "homepage": "https://www.fortishield.github.io/",
   "scripts": {
     "lint": "eslint {public,server,common}/**/*.{js,jsx,ts,tsx,json}",
     "lint:public": "eslint public/**/*.{js,jsx,ts,tsx,json}",

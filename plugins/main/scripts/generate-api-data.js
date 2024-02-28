@@ -312,7 +312,7 @@ node ${cliFilePath} --spec https://raw.githubusercontent.com/fortishield/fortish
        * @returns
        */
       function generateEndpointDocumentationLink(operationId) {
-        return `https://documentation.fortishield.com/${apiVersionShort}/user-manual/api/reference.html#operation/${operationId}`;
+        return `https://fortishield.github.io/documentation/${apiVersionShort}/user-manual/api/reference.html#operation/${operationId}`;
       }
 
       /**

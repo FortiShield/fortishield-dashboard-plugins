@@ -634,7 +634,7 @@ export class FortishieldApiCtrl {
 
   /**
    * Helper method for Dev Tools.
-   * https://documentation.fortishield.com/current/user-manual/api/reference.html
+   * https://fortishield.github.io/documentation/current/user-manual/api/reference.html
    * Depending on the method and the path some parameters should be an array or not.
    * Since we allow the user to write the request using both comma-separated and array as well,
    * we need to check if it should be transformed or not.

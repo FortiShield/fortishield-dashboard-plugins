@@ -11,7 +11,7 @@
  */
 
  // CIS-CAT
-// More info https://documentation.fortishield.com/3.12/user-manual/capabilities/policy-monitoring/ciscat/ciscat.html
+// More info https://fortishield.github.io/documentation/3.12/user-manual/capabilities/policy-monitoring/ciscat/ciscat.html
 module.exports.ruleTitle = ["CIS-CAT 1", "CIS-CAT 2", "CIS-CAT 3", "CIS-CAT 4", "CIS-CAT 5", "CIS-CAT 6"];
 module.exports.group = ["Access, Authentication and Authorization", "Logging and Auditing"];
 module.exports.benchmark = ["CIS Ubuntu Linux 16.04 LTS Benchmark"]; // TODO: add more benchmarks

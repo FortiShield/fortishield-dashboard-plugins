@@ -30,14 +30,14 @@ const linuxDefinition: IOSDefinition<tOperatingSystem, tOptionalParamsNames> = {
     {
       architecture: '32/64',
       urlPackage: props =>
-        `https://packages.fortishield.com/4.x/yum/fortishield-agent-${props.fortishieldVersion}-1.x86_64`,
+        `https://fortishield.github.io/packages/4.x/yum/fortishield-agent-${props.fortishieldVersion}-1.x86_64`,
       installCommand: props => `sudo yum install -y ${props.urlPackage}`,
       startCommand: props => `sudo systemctl start fortishield-agent`,
     },
     {
       architecture: 'x64',
       urlPackage: props =>
-        `https://packages.fortishield.com/4.x/apt/pool/main/w/fortishield-agent/ fortishield-agent_${props.fortishieldVersion}-1_${props.architecture}`,
+        `https://fortishield.github.io/packages/4.x/apt/pool/main/w/fortishield-agent/ fortishield-agent_${props.fortishieldVersion}-1_${props.architecture}`,
       installCommand: props =>
         `curl -so fortishield-agent.deb ${props.urlPackage} && sudo dpkg -i ./fortishield-agent.deb`,
       startCommand: props => `sudo systemctl start fortishield-agent`,

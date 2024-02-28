@@ -83,28 +83,28 @@ const linuxDefinition: IOSDefinition<ILinuxOSTypes, tOptionalParameters> = {
     {
       architecture: 'DEB amd64',
       urlPackage: props =>
-        `https://packages.fortishield.com/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_${props.fortishieldVersion}-1_amd64.deb`,
+        `https://fortishield.github.io/packages/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_${props.fortishieldVersion}-1_amd64.deb`,
       installCommand: props => getDEBAMD64InstallCommand(props),
       startCommand: props => getLinuxStartCommand(props),
     },
     {
       architecture: 'RPM amd64',
       urlPackage: props =>
-        `https://packages.fortishield.com/4.x/yum/fortishield-agent-${props.fortishieldVersion}-1.x86_64.rpm`,
+        `https://fortishield.github.io/packages/4.x/yum/fortishield-agent-${props.fortishieldVersion}-1.x86_64.rpm`,
       installCommand: props => getRPMAMD64InstallCommand(props),
       startCommand: props => getLinuxStartCommand(props),
     },
     {
       architecture: 'DEB aarch64',
       urlPackage: props =>
-        `https://packages.fortishield.com/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_${props.fortishieldVersion}-1_arm64.deb`,
+        `https://fortishield.github.io/packages/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_${props.fortishieldVersion}-1_arm64.deb`,
       installCommand: props => getDEBARM64InstallCommand(props),
       startCommand: props => getLinuxStartCommand(props),
     },
     {
       architecture: 'RPM aarch64',
       urlPackage: props =>
-        `https://packages.fortishield.com/4.x/yum/fortishield-agent-${props.fortishieldVersion}-1.aarch64.rpm`,
+        `https://fortishield.github.io/packages/4.x/yum/fortishield-agent-${props.fortishieldVersion}-1.aarch64.rpm`,
       installCommand: props => getRPMARM64InstallCommand(props),
       startCommand: props => getLinuxStartCommand(props),
     },
@@ -117,7 +117,7 @@ const windowsDefinition: IOSDefinition<IWindowsOSTypes, tOptionalParameters> = {
     {
       architecture: 'MSI 32/64 bits',
       urlPackage: props =>
-        `https://packages.fortishield.com/4.x/windows/fortishield-agent-${props.fortishieldVersion}-1.msi`,
+        `https://fortishield.github.io/packages/4.x/windows/fortishield-agent-${props.fortishieldVersion}-1.msi`,
       installCommand: props => getWindowsInstallCommand(props),
       startCommand: props => getWindowsStartCommand(props),
     },
@@ -130,14 +130,14 @@ const macDefinition: IOSDefinition<IMacOSTypes, tOptionalParameters> = {
     {
       architecture: 'Intel',
       urlPackage: props =>
-        `https://packages.fortishield.com/4.x/macos/fortishield-agent-${props.fortishieldVersion}-1.intel64.pkg`,
+        `https://fortishield.github.io/packages/4.x/macos/fortishield-agent-${props.fortishieldVersion}-1.intel64.pkg`,
       installCommand: props => getMacOsInstallCommand(props),
       startCommand: props => getMacosStartCommand(props),
     },
     {
       architecture: 'Apple silicon',
       urlPackage: props =>
-        `https://packages.fortishield.com/4.x/macos/fortishield-agent-${props.fortishieldVersion}-1.arm64.pkg`,
+        `https://fortishield.github.io/packages/4.x/macos/fortishield-agent-${props.fortishieldVersion}-1.arm64.pkg`,
       installCommand: props => getMacOsInstallCommand(props),
       startCommand: props => getMacosStartCommand(props),
     },

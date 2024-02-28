@@ -141,7 +141,7 @@ up)
     echo "  apt update -y"
     echo "  apt install -y curl lsb-release"
     echo "  curl -so \fortishield-agent-\${FORTISHIELD_AGENT_VERSION}.deb \\"
-    echo "    https://packages.fortishield.com/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_\${FORTISHIELD_AGENT_VERSION}-1_amd64.deb \\"
+    echo "    https://fortishield.github.io/packages/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_\${FORTISHIELD_AGENT_VERSION}-1_amd64.deb \\"
     echo "    && FORTISHIELD_MANAGER='fortishield.manager' FORTISHIELD_AGENT_GROUP='default' dpkg -i ./fortishield-agent-\${FORTISHIELD_AGENT_VERSION}.deb"
     echo
     echo "  /etc/init.d/fortishield-agent start"

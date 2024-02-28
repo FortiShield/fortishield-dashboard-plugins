@@ -29,10 +29,10 @@ export const UpdateDetail = ({ update, type }: UpdateDetailProps) => {
     ? `${semver.major}.${semver.minor}`
     : undefined;
   const releaseNotesUrl = hasVersions
-    ? `https://documentation.fortishield.com/current/release-notes/release-${semver.major}-${semver.minor}-${semver.patch}.html`
+    ? `https://fortishield.github.io/documentation/current/release-notes/release-${semver.major}-${semver.minor}-${semver.patch}.html`
     : undefined;
   const upgradeGuideUrl = hasVersions
-    ? `https://documentation.fortishield.com/${minorVersion}/upgrade-guide/index.html`
+    ? `https://fortishield.github.io/documentation/${minorVersion}/upgrade-guide/index.html`
     : undefined;
 
   return title && tag ? (

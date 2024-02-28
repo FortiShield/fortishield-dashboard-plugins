@@ -11,7 +11,7 @@ import { SEARCH_BAR_WQL_VALUE_SUGGESTIONS_DISPLAY_COUNT } from '../../../../comm
 import { webDocumentationLink } from '../../../../common/services/web_documentation';
 
 /* UI Query language
-https://documentation.fortishield.com/current/user-manual/api/queries.html
+https://fortishield.github.io/documentation/current/user-manual/api/queries.html
 
 // Example of another query language definition
 */
@@ -29,7 +29,7 @@ type ITokens = IToken[];
 /* API Query Language
 Define the API Query Language to use in the search bar.
 It is based in the language used by the q query parameter.
-https://documentation.fortishield.com/current/user-manual/api/queries.html
+https://fortishield.github.io/documentation/current/user-manual/api/queries.html
 
 Use the regular expression of API with some modifications to allow the decomposition of
 input in entities that doesn't compose a valid query. It allows get not-completed queries.

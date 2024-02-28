@@ -66,7 +66,7 @@ Will print:
 Install Fortishield 4.3.8 into Elastic 7.16.3 manually with:
 
 1. Install the Fortishield app for Kibana
-docker exec -ti es-rel-7163-kibana-1 /usr/share/kibana/bin/kibana-plugin install https://packages.fortishield.com/4.x/ui/kibana/fortishield_kibana-4.3.8_7.16.3-1.zip
+docker exec -ti es-rel-7163-kibana-1 /usr/share/kibana/bin/kibana-plugin install https://fortishield.github.io/packages/4.x/ui/kibana/fortishield_kibana-4.3.8_7.16.3-1.zip
 
 2. Restart Kibana
 docker restart es-rel-7163-kibana-1
@@ -86,7 +86,7 @@ automatism will need:
 2. Execute the Fortishield plugin installation command:
 
 ```bash
-docker exec -ti es-rel-7163-kibana-1 /usr/share/kibana/bin/kibana-plugin install https://packages.fortishield.com/4.x/ui/kibana/fortishield_kibana-4.3.8_7.16.3-1.zip
+docker exec -ti es-rel-7163-kibana-1 /usr/share/kibana/bin/kibana-plugin install https://fortishield.github.io/packages/4.x/ui/kibana/fortishield_kibana-4.3.8_7.16.3-1.zip
 ```
 
 3. Restart the Kibana container to enable Fortishield:
@@ -122,7 +122,7 @@ the agent `ossec.log` file.
       sed -i -e "s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g" /etc/yum.repos.d/CentOS-*
 
       # Change this command by the one the UI suggest to use add it the -y and remove the sudo
-      FORTISHIELD_MANAGER='fortishield.manager' yum install -y https://packages.fortishield.com/4.x/yum5/x86_64/fortishield-agent-4.3.8-1.el5.x86_64.rpm
+      FORTISHIELD_MANAGER='fortishield.manager' yum install -y https://fortishield.github.io/packages/4.x/yum5/x86_64/fortishield-agent-4.3.8-1.el5.x86_64.rpm
 
       /etc/init.d/fortishield-agent start
       tail -f /var/ossec/logs/ossec.log
@@ -135,7 +135,7 @@ the agent `ossec.log` file.
       apt update -y
       apt install -y curl lsb-release
       # Change this command by the one the UI suggest to use add it tremove the sudo
-      curl -so fortishield-agent-4.3.8.deb https://packages.fortishield.com/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_4.3.8-1_amd64.deb && FORTISHIELD_MANAGER='fortishield.manager' dpkg -i ./fortishield-agent-4.3.8.deb
+      curl -so fortishield-agent-4.3.8.deb https://fortishield.github.io/packages/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_4.3.8-1_amd64.deb && FORTISHIELD_MANAGER='fortishield.manager' dpkg -i ./fortishield-agent-4.3.8.deb
 
       /etc/init.d/fortishield-agent start
       tail -f /var/ossec/logs/ossec.log

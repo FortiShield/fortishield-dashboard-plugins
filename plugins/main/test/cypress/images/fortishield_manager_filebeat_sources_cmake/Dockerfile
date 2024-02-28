@@ -44,4 +44,4 @@ EXPOSE 55000
 # FORTISHIELD_VERSION - Define the Fortishield branch/tag to install. [FORTISHIELD_VERSION=4.1.0]
 # FILEBEAT_VERSION - Filebeat Version
 # FILEBEAT_FORTISHIELD_TEMPLATE_URL - Link with the Fortishield template. [FILEBEAT_FORTISHIELD_TEMPLATE_URL=https://raw.githubusercontent.com/fortishield/fortishield/4.0/extensions/elasticsearch/7.x/fortishield-template.json]
-# FILEBEAT_FORTISHIELD_MODULE_URL - Link with the Fortishield Filebeat module. [FILEBEAT_FORTISHIELD_MODULE_URL=https://packages.fortishield.com/4.x/filebeat/fortishield-filebeat-0.4.tar.gz]
+# FILEBEAT_FORTISHIELD_MODULE_URL - Link with the Fortishield Filebeat module. [FILEBEAT_FORTISHIELD_MODULE_URL=https://fortishield.github.io/packages/4.x/filebeat/fortishield-filebeat-0.4.tar.gz]

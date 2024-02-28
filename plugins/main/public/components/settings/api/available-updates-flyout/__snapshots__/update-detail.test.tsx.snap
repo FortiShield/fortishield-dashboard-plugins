@@ -103,7 +103,7 @@ exports[`UpdateDetail component should return the UpdateDetail component 1`] = `
             >
               <a
                 class="euiLink euiLink--primary"
-                href="https://documentation.fortishield.com/current/release-notes/release-4-8-0.html"
+                href="https://fortishield.github.io/documentation/current/release-notes/release-4-8-0.html"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -132,7 +132,7 @@ exports[`UpdateDetail component should return the UpdateDetail component 1`] = `
             >
               <a
                 class="euiLink euiLink--primary"
-                href="https://documentation.fortishield.com/4.8/upgrade-guide/index.html"
+                href="https://fortishield.github.io/documentation/4.8/upgrade-guide/index.html"
                 rel="noopener noreferrer"
                 target="_blank"
               >

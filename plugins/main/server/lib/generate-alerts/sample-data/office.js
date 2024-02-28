@@ -69,11 +69,11 @@ export const arrayIp = [
   '140.82.113.3',
 ];
 export const arrayUserId = [
-  'smith@fortishield.com',
-  'williams@fortishield.com',
-  'frank@fortishield.com',
-  'jones@fortishield.com',
-  'brown@fortishield.com',
+  'smith@fortishield.github.io',
+  'williams@fortishield.github.io',
+  'frank@fortishield.github.io',
+  'jones@fortishield.github.io',
+  'brown@fortishield.github.io',
 ];
 export const arrayTargetOffice = [
   {
@@ -88,7 +88,7 @@ export const arrayActorOffice = [
     Type: 0,
   },
   {
-    ID: 'albe@fortishield.com',
+    ID: 'albe@fortishield.github.io',
     Type: 5,
   },
 ];
@@ -759,7 +759,7 @@ export const arrayLogs = [
     OrganizationId: '0fea4e03-8146-453b-b889-54b4bd11565b',
     RecordType: 8,
     ResultStatus: 'Success',
-    UserKey: '100320014080D3AD@fortishield.com',
+    UserKey: '100320014080D3AD@fortishield.github.io',
     UserType: 0,
     Version: 1,
     Workload: 'AzureActiveDirectory',
@@ -834,7 +834,7 @@ export const arrayLogs = [
     OrganizationId: '0fea4e03-8146-453b-b889-54b4bd11565b',
     RecordType: 8,
     ResultStatus: 'Success',
-    UserKey: '100320014080D3AD@fortishield.com',
+    UserKey: '100320014080D3AD@fortishield.github.io',
     UserType: 0,
     Version: 1,
     Workload: 'AzureActiveDirectory',
@@ -936,7 +936,7 @@ export const arrayLogs = [
     Version: 1,
     Workload: 'OneDrive',
     ClientIP: '20.190.157.27',
-    ObjectId: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield_com',
+    ObjectId: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield.github.io',
     UserId: 'fake@email.not',
     CorrelationId: 'fd9ac79d-1100-48aa-92c5-40a73a1d443f',
     EventSource: 'SharePoint',
@@ -963,7 +963,7 @@ export const arrayLogs = [
     Version: 1,
     Workload: 'OneDrive',
     ClientIP: '20.190.157.27',
-    ObjectId: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield_com',
+    ObjectId: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield.github.io',
     UserId: 'fake@email.not',
     CorrelationId: 'fd9ac79d-1100-48aa-92c5-40a73a1d443f',
     EventSource: 'SharePoint',
@@ -985,7 +985,7 @@ export const arrayLogs = [
     Version: 1,
     Workload: 'OneDrive',
     ClientIP: '20.190.157.27',
-    ObjectId: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield_com',
+    ObjectId: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield.github.io',
     UserId: 'fake@email.not',
     CorrelationId: 'fd9ac79d-1100-48aa-92c5-40a73a1d443f',
     EventSource: 'SharePoint',
@@ -1002,7 +1002,7 @@ export const arrayLogs = [
       },
     ],
     TargetUserOrGroupType: 'Member',
-    SiteUrl: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield_com',
+    SiteUrl: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield.github.io',
     TargetUserOrGroupName: 'SHAREPOINT\\system',
   },
   {
@@ -1016,7 +1016,7 @@ export const arrayLogs = [
     Version: 1,
     Workload: 'OneDrive',
     ClientIP: '20.190.157.27',
-    ObjectId: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield_com',
+    ObjectId: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield.github.io',
     UserId: 'fake@email.not',
     CorrelationId: 'fd9ac79d-1100-48aa-92c5-40a73a1d443f',
     EventSource: 'SharePoint',
@@ -1033,7 +1033,7 @@ export const arrayLogs = [
       },
     ],
     TargetUserOrGroupType: 'Member',
-    SiteUrl: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield_com',
+    SiteUrl: 'https://fortishield-my.sharepoint.com/personal/tomas_turina_fortishield.github.io',
     TargetUserOrGroupName: 'fake@email.not',
   },
   {
@@ -1436,7 +1436,7 @@ export const arrayLogs = [
     MailboxGuid: 'fc108b45-9d51-4b87-a473-9d5a0e404966',
     MailboxOwnerMasterAccountSid: 'S-1-5-10',
     MailboxOwnerSid: 'S-1-5-21-2986565805-1835265550-1383574073-20743067',
-    MailboxOwnerUPN: 'TestSharePoint@fortishield.com',
+    MailboxOwnerUPN: 'TestSharePoint@fortishield.github.io',
     OrganizationName: 'fortishield.testytest.com',
     OriginatingServer: 'AS8PR04MB8465 (15.20.4150.023)\r\n',
     Item: {
@@ -1474,7 +1474,7 @@ export const arrayLogs = [
     MailboxGuid: 'fc108b45-9d51-4b87-a473-9d5a0e404966',
     MailboxOwnerMasterAccountSid: 'S-1-5-10',
     MailboxOwnerSid: 'S-1-5-21-2986565805-1835265550-1383574073-20743067',
-    MailboxOwnerUPN: 'TestSharePoint@fortishield.com',
+    MailboxOwnerUPN: 'TestSharePoint@fortishield.github.io',
     OrganizationName: 'fortishield.testytest.com',
     OriginatingServer: 'AS8PR04MB8465 (15.20.4150.023)\r\n',
     Item: {
@@ -1547,7 +1547,7 @@ export const arrayLogs = [
       },
       {
         Name: 'EmailAddresses',
-        Value: 'smtp:TestSharePoint@fortishield.testytest.com;SMTP:TestSharePoint@fortishield.com',
+        Value: 'smtp:TestSharePoint@fortishield.testytest.com;SMTP:TestSharePoint@fortishield.github.io',
       },
       {
         Name: 'IncludeSoftDeletedObjects',

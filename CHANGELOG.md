@@ -2186,7 +2186,7 @@ All notable changes to the Fortishield app project will be documented in this fi
   - Used the same guidelines from the previous redesign for _Overview_ and _Agents_ tabs.
 - New tab for _Agents_ - _Inventory_ ([#582](https://github.com/fortishield/fortishield-dashboard-plugins/pull/582)):
   - Get information about the agent host, such as installed packages, motherboard, operating system, etc.
-  - This tab will appear if the agent has the [`syscollector`](https://documentation.fortishield.com/current/user-manual/reference/ossec-conf/wodle-syscollector.html) wodle enabled.
+  - This tab will appear if the agent has the [`syscollector`](https://fortishield.github.io/documentation/current/user-manual/reference/ossec-conf/wodle-syscollector.html) wodle enabled.
 - Brand-new extension - _CIS-CAT Alerts_ ([#601](https://github.com/fortishield/fortishield-dashboard-plugins/pull/601)):
   - A new extension, disabled by default.
   - Visualize alerts related to the CIS-CAT benchmarks on the _Overview_ and _Agents_ tabs.

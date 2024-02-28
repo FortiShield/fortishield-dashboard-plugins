@@ -103,7 +103,7 @@ Basic usage:
 
 The built-in query languages are:
 
-- AQL: API Query Language. Based on https://documentation.fortishield.com/current/user-manual/api/queries.html.
+- AQL: API Query Language. Based on https://fortishield.github.io/documentation/current/user-manual/api/queries.html.
 
 ## How to add a new query language
 
@@ -196,6 +196,6 @@ This is used in:
   - `onSearch` component handler
 
 Its syntax is equal to Fortishield API Query Language
-https://fortishield.com/<major_version>.<minor_version>/user-manual/api/queries.html
+https://fortishield.github.io/<major_version>.<minor_version>/user-manual/api/queries.html
 
 > The AQL query language is a implementation of this syntax.

@@ -48,9 +48,9 @@ describe('[settings] Methods', () => {
       ${false}             | ${'customization.reports.footer'} | ${''}                     | ${'Copyright © 2023 Fortishield, Inc.'}
       ${false}             | ${'customization.reports.footer'} | ${''}                     | ${'Copyright © 2023 Fortishield, Inc.'}
       ${true}              | ${'customization.reports.header'} | ${'Custom header'}        | ${'Custom header'}
-      ${true}              | ${'customization.reports.header'} | ${''}                     | ${'info@fortishield.com\nhttps://fortishield.com'}
-      ${false}             | ${'customization.reports.header'} | ${'Custom header'}        | ${'info@fortishield.com\nhttps://fortishield.com'}
-      ${false}             | ${'customization.reports.header'} | ${''}                     | ${'info@fortishield.com\nhttps://fortishield.com'}
+      ${true}              | ${'customization.reports.header'} | ${''}                     | ${'info@fortishield.github.io\nhttps://fortishield.github.io'}
+      ${false}             | ${'customization.reports.header'} | ${'Custom header'}        | ${'info@fortishield.github.io\nhttps://fortishield.github.io'}
+      ${false}             | ${'customization.reports.header'} | ${''}                     | ${'info@fortishield.github.io\nhttps://fortishield.github.io'}
     `(
       `customizationEnabled: $customizationEnabled | settingKey: $settingKey | configValue: $configValue | expected: $expected`,
       ({ configValue, customizationEnabled, expected, settingKey }) => {

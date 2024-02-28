@@ -63,7 +63,7 @@ exports[`SettingsAboutGeneralInfo component should render a component 1`] = `
               <a
                 aria-label="Slack"
                 class="euiButtonIcon euiButtonIcon--primary euiButtonIcon--empty euiButtonIcon--xSmall"
-                href="https://fortishield.com/community/join-us-on-slack/"
+                href="https://fortishield.github.io/community/join-us-on-slack/"
                 rel="noopener noreferrer"
                 target="_blank"
               >

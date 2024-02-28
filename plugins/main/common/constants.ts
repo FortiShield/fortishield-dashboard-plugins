@@ -235,7 +235,7 @@ export const AUTHORIZED_AGENTS = 'authorized-agents';
 export const FORTISHIELD_LINK_GITHUB = 'https://github.com/fortishield';
 export const FORTISHIELD_LINK_GOOGLE_GROUPS =
   'https://groups.google.com/forum/#!forum/fortishield';
-export const FORTISHIELD_LINK_SLACK = 'https://fortishield.com/community/join-us-on-slack';
+export const FORTISHIELD_LINK_SLACK = 'https://fortishield.github.io/community/join-us-on-slack';
 
 export const HEALTH_CHECK = 'health-check';
 
@@ -281,7 +281,7 @@ export const REPORTS_LOGO_IMAGE_ASSETS_RELATIVE_PATH =
   'images/logo_reports.png';
 export const REPORTS_PRIMARY_COLOR = '#256BD1';
 export const REPORTS_PAGE_FOOTER_TEXT = 'Copyright © 2023 Fortishield, Inc.';
-export const REPORTS_PAGE_HEADER_TEXT = 'info@fortishield.com\nhttps://fortishield.com';
+export const REPORTS_PAGE_HEADER_TEXT = 'info@fortishield.github.io\nhttps://fortishield.github.io';
 
 // Plugin platform
 export const PLUGIN_PLATFORM_NAME = 'Fortishield dashboard';
@@ -372,7 +372,7 @@ export const AGENT_STATUS_CODE = [
 ];
 
 // Documentation
-export const DOCUMENTATION_WEB_BASE_URL = 'https://documentation.fortishield.com';
+export const DOCUMENTATION_WEB_BASE_URL = 'https://fortishield.github.io/documentation';
 
 // Default Elasticsearch user name context
 export const ELASTIC_NAME = 'elastic';

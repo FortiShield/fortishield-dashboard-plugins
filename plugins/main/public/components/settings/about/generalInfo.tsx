@@ -63,7 +63,7 @@ export const SettingsAboutGeneralInfo = ({ pluginAppName }: SettingsAboutGeneral
                   aria-label="Slack"
                   iconType="logoSlack"
                   iconSize="xxl"
-                  href="https://fortishield.com/community/join-us-on-slack/"
+                  href="https://fortishield.github.io/community/join-us-on-slack/"
                   target="_blank"
                 >
                   Fortishield Slack

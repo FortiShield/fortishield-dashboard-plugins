@@ -57,7 +57,7 @@ UI and then execute:
     sed -i -e "s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g" /etc/yum.repos.d/CentOS-*
 
     # Change this command by the one the UI suggests. Add the -y flag and remove the `sudo`.
-    FORTISHIELD_MANAGER='fortishield.manager' yum install -y https://packages.fortishield.com/4.x/yum5/x86_64/fortishield-agent-4.6.0-1.el5.x86_64.rpm
+    FORTISHIELD_MANAGER='fortishield.manager' yum install -y https://fortishield.github.io/packages/4.x/yum5/x86_64/fortishield-agent-4.6.0-1.el5.x86_64.rpm
 
     /etc/init.d/fortishield-agent start
     tail -f /var/ossec/logs/ossec.log
@@ -72,7 +72,7 @@ UI and then execute:
     apt install -y curl lsb-release
 
     # Change this command by the one the UI suggests to use. Remove the `sudo`.
-    curl -so fortishield-agent-4.6.0.deb https://packages.fortishield.com/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_4.6.0-1_amd64.deb && FORTISHIELD_MANAGER='fortishield.manager' FORTISHIELD_AGENT_GROUP='default' dpkg -i ./fortishield-agent-4.6.0.deb
+    curl -so fortishield-agent-4.6.0.deb https://fortishield.github.io/packages/4.x/apt/pool/main/w/fortishield-agent/fortishield-agent_4.6.0-1_amd64.deb && FORTISHIELD_MANAGER='fortishield.manager' FORTISHIELD_AGENT_GROUP='default' dpkg -i ./fortishield-agent-4.6.0.deb
 
     /etc/init.d/fortishield-agent start
     tail -f /var/ossec/logs/ossec.log
